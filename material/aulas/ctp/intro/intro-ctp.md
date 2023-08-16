@@ -424,7 +424,7 @@ Em particular, podemos distinguir três macroconjuntos de linguagens de programa
       ret
 ```
 
-- ``linguagem de alto nivel`` são caracterizados por uma forte abstração da especificabilidade da linguagem de máquina. Em particular, pode usar palavras de linguagem natural para construções específicas para serem fáceis de usar e entender por humanos. De um modo geral, quanto mais abstração das linguagens de programação de baixo nível for fornecida, mais compreensível será a linguagem. Por exemplo, no exemplo a seguir, mostramos como usar a linguagem de programação Python para implementar a mesma função de antes
+- ``linguagem de alto nivel`` são caracterizados por uma forte abstração da especificabilidade da linguagem de máquina. Em particular, pode usar palavras de linguagem natural para construções específicas para serem fáceis de usar e entender por humanos. De um modo geral, quanto mais abstração das linguagens de programação de baixo nível for fornecida, mais compreensível será a linguagem. Por exemplo, no exemplo a seguir, mostramos como usar a linguagem de programação C para implementar a mesma função de antes:
     
 ```C
     unsigned int fib(unsigned int n) {
@@ -448,5 +448,33 @@ Em particular, podemos distinguir três macroconjuntos de linguagens de programa
 
 ```
 
+!!! exercise choice two-cols
+    Quais são linguagens de alto nível? existe mais de uma alternativa correta.
+    
+    - [x] Java.
+    - [x] JavaScript.
+    - [x] Ruby.
+    - [x] Python.
+    - [x] C#.
+    - [x] PHP.
+    - [ ] Assembly.
+    - [x] Swift.
+    - [x] Kotlin.
+    - [x] Go.
+    - [x] Perl.
+    - [x] Lua.
+    - [x] R.
+    - [x] TypeScript.
+    - [x] Rust.
+    - [x] Scala.
+    - [x] Groovy.
+    - [x] MATLAB.
+    - [x] C++.
+    - [x] Elixir.
+    - [x] C.
+    - [ ] VHDL.
+
+    !!! answer
+        As linguagens de alto nível são: Java, JavaScript, Ruby, Python, C#, PHP, Swift, Kotlin, Go, Perl, Lua, R, TypeScript, Rust, Scala, Groovy e MATLAB. Assembly e VHDL são linguagens de baixo nível.
 
 
