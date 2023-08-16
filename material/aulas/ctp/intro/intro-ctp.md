@@ -61,12 +61,12 @@ Para que o pensamento computacional seja aplicado, vamos conhecer os seus 4 pila
 Desenvolver o pensamento computacional requer prática e imersão. Durante este curso, usaremos Python, uma linguagem de programação poderosa e versátil, como nossa ferramenta principal. Através de exercícios práticos, projetos e discussões em sala de aula, você será desafiado a aplicar os conceitos de pensamento computacional para resolver problemas reais. Encorajamos a colaboração, a experimentação e, acima de tudo, a curiosidade. 
 
 
-!!! progress 
-    Cheguei Aqui!
+!!! progress
+    Continuar...
 
 ## Desafios
 
-!!! exercise choice two-cols
+!!! exercise choice "Question"
     Assinale o que você entende sobre Decomposição:
     
     - [ ] Analisar o problema e aumentar partes
@@ -74,7 +74,12 @@ Desenvolver o pensamento computacional requer prática e imersão. Durante este 
     - [ ] Apagar partes de um programa
     - [ ] Testar um Algoritmos
 
-!!! exercise choice two-cols
+    !!! answer
+        Dividir para conquistar.
+
+
+
+!!! exercise choice "Question"
     Assinale o que você entende sobre Reconhecimento de Padrões
 
     - [x] Identificar situações que se repetem dentro do problema ou entre problemas
@@ -82,7 +87,11 @@ Desenvolver o pensamento computacional requer prática e imersão. Durante este 
     - [ ] Identificar o que há de diferente em um problema
     - [ ] Reconhecer o final de um problema
 
-!!! exercise choice two-cols
+    !!! answer
+        .
+
+
+!!! exercise choice "Question"
     Assinale o que você entende sobre Abstração
 
     - [ ] É pensar sobre o que vem antes do problema
@@ -90,7 +99,11 @@ Desenvolver o pensamento computacional requer prática e imersão. Durante este 
     - [ ] Escolher o que é o menos destacado no problema
     - [ ] É pensar sobre como deveria ser o problema
 
-!!! exercise choice two-cols
+    !!! answer
+        .
+
+
+!!! exercise choice "Question"
     Assinale o que você entende sobre Algoritmo
 
     - [ ] Organizar um passo a passo que não deve ser testado na solução do problema
@@ -98,7 +111,11 @@ Desenvolver o pensamento computacional requer prática e imersão. Durante este 
     - [ ] Listar as ações que o problema não apresentou
     - [ ] Organizar a escrita do problema
 
-!!! exercise choice 
+    !!! answer
+        .
+
+
+!!! exercise choice "Question"
     Podemos relacionar o mapa do metro de SP com qual pilar do pensamento computacional?
     ![](img/metro.png)
     
@@ -111,8 +128,8 @@ Desenvolver o pensamento computacional requer prática e imersão. Durante este 
         O mapa do metrô como exemplo de abstração do mundo real    
 
 
-!!! progress 
-    Cheguei Aqui!
+!!! progress
+    Continuar...
 
 ## Representação de algoritimos 
 
@@ -148,6 +165,10 @@ Desenvolver o pensamento computacional requer prática e imersão. Durante este 
 
 !!! tip
     O objetivo de desenvolvidores de sistemas e profissionais de tecnologia é encontrar algoritimos mais eficientes para resolução do problema.
+
+!!! progress
+    Continuar...
+
 
 ## O que é um computador?
 

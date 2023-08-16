@@ -161,22 +161,19 @@ O Visual Studio Code é uma IDE leve, mas poderosa, que suporta uma variedade de
 
 !!! exercise
 
-    1. **Download:**  
-       - Acesse o site oficial do VS Code em [https://code.visualstudio.com/](https://code.visualstudio.com/).
-       - Clique em "Download" e escolha a versão adequada para o seu sistema operacional (Windows, macOS ou Linux).
+    1. **Download:**
+    
+        - Acesse o site oficial do VS Code em [https://code.visualstudio.com/](https://code.visualstudio.com/).
+        - Clique em "Download" e escolha a versão adequada para o seu sistema operacional (Windows, macOS ou Linux).
     
     2. **Instalação:**  
-       - Execute o arquivo baixado e siga as instruções do assistente de instalação.
-       - Durante a instalação, recomendo marcar as opções "Add 'Open with Code' action to Windows Explorer file context menu" e "Add 'Open with Code' action to Windows Explorer directory context menu" (para usuários Windows) para facilitar a abertura de arquivos e diretórios com o VS Code.
+        - Execute o arquivo baixado e siga as instruções do assistente de instalação.
+        - Durante a instalação, recomendo marcar as opções "Add 'Open with Code' action to Windows Explorer file context menu" e "Add 'Open with Code' action to Windows Explorer directory context menu" (para usuários Windows) para facilitar a abertura de arquivos e diretórios com o VS Code.
     
     3. **Configuração inicial:**  
-       - Ao abrir o VS Code pela primeira vez, você será apresentado a uma interface com uma barra lateral à esquerda. Esta barra contém ícones para explorador de arquivos, pesquisa, controle de versão, extensões, entre outros.
-       - Recomendo instalar a extensão "Python" para obter suporte à linguagem Python. Para isso, clique no ícone de extensões (quarto ícone da barra lateral) e pesquise por "Python". Selecione a extensão oficial oferecida pela Microsoft e clique em "Install".
-       - Recomendo tambem instalar a extensão "jupyter" para rodar notebooks diretamente pelo VSCode
+        - Ao abrir o VS Code pela primeira vez, você será apresentado a uma interface com uma barra lateral à esquerda. Esta barra contém ícones para explorador de arquivos, pesquisa, controle de versão, extensões, entre outros.
+        - Recomendo instalar a extensão "Python" para obter suporte à linguagem Python. Para isso, clique no ícone de extensões (quarto ícone da barra lateral) e pesquise por "Python". Selecione a extensão oficial oferecida pela Microsoft e clique em "Install".
+        - Recomendo tambem, instalar a extensão "jupyter" para rodar notebooks diretamente pelo VSCode
     
-    4. **Criando e executando seu primeiro script:**  
-       - Crie um novo arquivo no VS Code e salve-o com a extensão `.py` (por exemplo, `meu_script.py`).
-       - Escreva um código simples, como `print("Olá, Mundo!")`.
-       - Pressione `Ctrl + F5` (ou `Cmd + F5` no macOS) para executar o script. Você deverá ver a saída "Olá, Mundo!" no terminal integrado do VS Code.
     
-    Com isso, você estará pronto para começar a programar com o Visual Studio Code! Explore as extensões disponíveis e personalize sua IDE conforme suas necessidades.
+    Pronto! Se tudo deu certo até aqui, estamos com a nossa infra pronta para começar a desenvolver sistemas utilizando Python.

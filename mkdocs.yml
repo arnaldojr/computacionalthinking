@@ -11,14 +11,14 @@ theme:
   feature:
     tabs: true
   name: active-handout
-  custom_dir: overrides
+#  custom_dir: overrides
 
 docs_dir: material
 site_dir: docs
 
-repo_url: https://github.com/arnaldojr/computacionalThinking/
+repo_url: https://github.com/arnaldojr/computacionalthinking/
 repo_name: "Computacional Thinking with Python"
-site_url: https://arnaldojr.github.io/computacionalThinking/
+site_url: https://arnaldojr.github.io/computacionalthinking/
 
 
 # Extensions / plugins
@@ -42,12 +42,12 @@ extra:
 
 # Extensions / plugins
 plugins:
-#  - git-revision-date-localized
+  - git-revision-date-localized
   - search
-#  - mkdocs-jupyter:
-#      use_directory_urls: false
-#      include_source: True
-#      execute: False
+  - mkdocs-jupyter:
+      use_directory_urls: false
+      include_source: True
+      execute: False
 
 extra_css:
 #  - css/termynal.css
