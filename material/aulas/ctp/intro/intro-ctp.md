@@ -5,12 +5,38 @@ Seja bem-vindo à jornada do pensamento computacional!
 Hoje, o pensamento computacional é visto não apenas como uma habilidade essencial para aqueles que trabalham em campos relacionados à tecnologia, mas também como uma habilidade valiosa para a resolução de problemas em diversas áreas. A capacidade analítica de compreender problemas e propor soluções sistêmicas é aplicável em muitas áreas, desde a ciência e engenharia até as artes e ciências sociais.
 
 
-### Sumário:
-- [O que é pensamento computacional?](#o-que-é-pensamento-computacional)
-- [Quais são os 4 pilares do pensamento computacional?](#quais-são-os-4-pilares-do-pensamento-computacional)
-- [Como desenvolver o Pensamento Computacional?](#como-desenvolver-o-pensamento-computacional)
-- [Desafios](#desafios)
+## Vamos jogar!
 
+### O jogo
+
+A ``Torre de Hanói`` é um dos mais famosos jogos de Matemática. Ele consiste de uma base contendo três pilares (hastes), em um dos quais está disposta uma torre formada por alguns discos colocados uns sobre os outros, em ordem crescente de diâmetro, de cima para baixo. O número de discos pode variar. Observe a disposição inicial de um jogo com seis discos.
+
+![](img/hanoi02.png)
+
+
+### Desafio
+
+Transferir todos os discos de um pino para outro qualquer. Tente transferi-los de um pino para outro em
+apenas 31 movimentos, sendo que você poderá mover apenas um disco por vez.
+
+### Regras
+
+!!! warning
+    Um disco maior nunca poderá ficar em cima de um disco menor.
+
+### Jogar
+
+>> Para jogar acesso link: [https://www.geogebra.org/m/s5hd5qum](https://www.geogebra.org/m/s5hd5qum)
+
+![](img/hanoi-geogebra.png)
+
+
+Desenvolva uma estratégia para conseguir solucionar com a menor quantidade de movimentos. 
+
+<iframe src="https://www.geogebra.org/material/iframe/id/ebnrujnm/width/755/height/415/border/ffffff/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="755" height="415" frameborder="0" scrolling="no"></iframe>
+
+
+<iframe title="Torre de Hanoi" src="https://www.geogebra.org/material/iframe/id/ebnrujnm/width/755/height/415/border/ffffff/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="760px" height="420px" style="border: 2px solid #800000;"> </iframe>
 
 ## O que é pensamento computacional?
 
