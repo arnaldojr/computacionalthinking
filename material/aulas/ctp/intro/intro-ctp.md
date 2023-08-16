@@ -166,6 +166,182 @@ Desenvolver o pensamento computacional requer prática e imersão. Durante este 
 !!! tip
     O objetivo de desenvolvidores de sistemas e profissionais de tecnologia é encontrar algoritimos mais eficientes para resolução do problema.
 
+
+!!! exercise choice "Question"
+    Assinale a definição correta de um algoritmo:
+    
+    - [ ] Uma linguagem de programação específica.
+    - [x] Uma sequência definida de passos ou instruções para resolver um problema ou realizar uma tarefa.
+    - [ ] Um programa de computador.
+    - [ ] Uma representação gráfica de um programa.
+
+    !!! answer
+        Um algoritmo é uma sequência definida de passos ou instruções para resolver um problema ou realizar uma tarefa.
+
+!!! exercise choice "Question"
+    O que é pseudocódigo?
+    
+    - [ ] Um código escrito em uma linguagem de programação específica.
+    - [x] Uma descrição de alto nível de um algoritmo que pode ser lido por humanos.
+    - [ ] Um tipo de fluxograma.
+    - [ ] Um programa de computador.
+
+    !!! answer
+        Pseudocódigo é uma descrição de alto nível de um algoritmo que pode ser lido por humanos.
+
+!!! exercise choice "Question"
+    Qual é o objetivo dos desenvolvedores de sistemas e profissionais de tecnologia ao trabalhar com algoritmos?
+    
+    - [ ] Criar fluxogramas.
+    - [ ] Escrever pseudocódigos.
+    - [x] Encontrar algoritmos mais eficientes para a resolução do problema.
+    - [ ] Aumentar a complexidade do problema.
+
+    !!! answer
+        O objetivo é encontrar algoritmos mais eficientes para a resolução do problema.
+
+!!! exercise choice "Question"
+    Imagine que você foi contratado para desenvolver um algoritmo que calcule o desconto em uma compra. O desconto é de 10% se o valor da compra for maior que R$100. Dentre os pseudocódigos abaixo, qual deles implementa corretamente essa lógica?
+
+    - [x] DescontoA
+            ```shell
+            Algoritmo DescontoA
+                Ler valorCompra
+                Se valorCompra > 100 Então
+                    desconto <- valorCompra * 0.10
+                Senão
+                    desconto <- 0
+                FimSe
+                Escrever "Desconto: ", desconto
+            FimAlgoritmo
+            ```
+    - [ ] DescontoB
+            ```shell
+            Algoritmo DescontoB
+               Ler valorCompra
+               Se valorCompra < 100 Então
+                   desconto <- valorCompra * 0.10
+               Senão
+                   desconto <- 0
+               FimSe
+               Escrever "Desconto: ", desconto
+            FimAlgoritmo
+            ```         
+    - [ ] DescontoC
+            ```shell
+            Algoritmo DescontoC
+               Ler valorCompra
+               desconto <- valorCompra * 0.10
+               Escrever "Desconto: ", desconto
+            FimAlgoritmo
+            ```
+    - [ ] DescontoD
+            ```shell
+            Algoritmo DescontoD
+               Ler valorCompra
+               Se valorCompra > 100 Então
+                   desconto <- 0
+               Senão
+                   desconto <- valorCompra * 0.10
+               FimSe
+               Escrever "Desconto: ", desconto
+            FimAlgoritmo
+            ```
+ 
+    !!! answer
+        O pseudocódigo DescontoA implementa corretamente a lógica de dar 10% de desconto se o valor da compra for maior que R$100.
+
+!!! exercise choice "Question"
+    Você foi solicitado a criar um algoritmo para calcular juros simples. O juro simples é calculado pela fórmula J = P * i * n, onde $P$ é o Capital, $i$ é a taxa de juro e $n$ é o número de períodos. Qual dos pseudocódigos abaixo implementa corretamente essa lógica?
+
+    - [x] JuroSimplesA
+            ```shell
+            Algoritmo JuroSimplesA
+                Ler P, i, n
+                J <- P * i * n
+                Escrever "Juros: ", J
+            FimAlgoritmo
+            ```
+    - [ ] JuroSimplesB
+            ```shell
+            Algoritmo JuroSimplesB
+                Ler P, i, n
+                J <- P + i + n
+                Escrever "Juros: ", J
+            FimAlgoritmo
+            ```         
+    - [ ] JuroSimplesC
+            ```shell
+            Algoritmo JuroSimplesC
+                Ler P, i, n
+                J <- P * i / n
+                Escrever "Juros: ", J
+            FimAlgoritmo
+            ```
+    - [ ] JuroSimplesD
+            ```shell
+            Algoritmo JuroSimplesD
+                Ler P, i
+                J <- P * i
+                Escrever "Juros: ", J
+            FimAlgoritmo
+            ```
+
+    !!! answer
+        O pseudocódigo JuroSimplesA implementa corretamente a fórmula para calcular juros simples.
+
+!!! exercise choice "Question"
+    Seu objetivo é desenvolver um algoritmo que verifique se um número é par. Qual dos pseudocódigos abaixo implementa corretamente essa verificação?
+
+    - [ ] ParOuImparA
+            ```shell
+            Algoritmo ParOuImparA
+                Ler num
+                Se num / 2 = 1 Então
+                    Escrever "Par"
+                Senão
+                    Escrever "Ímpar"
+                FimSe
+            FimAlgoritmo
+            ```
+    - [x] ParOuImparB
+            ```shell
+            Algoritmo ParOuImparB
+                Ler num
+                Se num MOD 2 = 0 Então
+                    Escrever "Par"
+                Senão
+                    Escrever "Ímpar"
+                FimSe
+            FimAlgoritmo
+            ```         
+    - [ ] ParOuImparC
+            ```shell
+            Algoritmo ParOuImparC
+                Ler num
+                Se num MOD 2 = 1 Então
+                    Escrever "Par"
+                Senão
+                    Escrever "Ímpar"
+                FimSe
+            FimAlgoritmo
+            ```
+    - [ ] ParOuImparD
+            ```shell
+            Algoritmo ParOuImparD
+                Ler num
+                Se num / 2 = 0 Então
+                    Escrever "Par"
+                Senão
+                    Escrever "Ímpar"
+                FimSe
+            FimAlgoritmo
+            ```
+
+    !!! answer
+        O pseudocódigo ParOuImparB verifica corretamente se um número é par ou ímpar.
+
+
 !!! progress
     Continuar...
 
