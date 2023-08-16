@@ -176,4 +176,4 @@ O Visual Studio Code é uma IDE leve, mas poderosa, que suporta uma variedade de
         - Recomendo tambem, instalar a extensão "jupyter" para rodar notebooks diretamente pelo VSCode
     
     
-    Pronto! Se tudo deu certo até aqui, estamos com a nossa infra pronta para começar a desenvolver sistemas utilizando Python.
+    Pronto! Se tudo deu certo até aqui, estamos com a nossa infra pronta para começar a desenvolver sistemas utilizando Python. 
