@@ -69,12 +69,3 @@ Vamos utilizar bastante uma ferramenta para desenvolvimento de software colabora
 
 * [Github](https://github.com).
 
-
-## Bibliografia
-
-- How to Think Like a Computer Scientist - Learning with Python: Interactive Edition, de Brad Miller e David Ranum.
-- FORBELLONE, A. L. V. Lógica de Programação. 3. ed. São Paulo: Prentice Hall, 2005. 
-- PIVA, D. J. Algoritmos e programação de computadores. São Paulo: Elsevier, 2012.
-- PUGA, S.; RISSETTI, G. Lógica de Programação e Estrutura de Dados. São Paulo: Pearson Prentice Hall, 2009.
-- RAMALHO, L. Python Fluente: Programação Clara, Concisa e Eficaz. São Paulo: Novatec, 2015.
-- RHODES, B. Programação de redes com Python. São Paulo: Novatec, 2015.
