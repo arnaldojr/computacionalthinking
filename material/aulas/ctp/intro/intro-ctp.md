@@ -26,17 +26,15 @@ apenas 31 movimentos, sendo que você poderá mover apenas um disco por vez.
 
 ### Jogar
 
->> Para jogar acesso link: [https://www.geogebra.org/m/s5hd5qum](https://www.geogebra.org/m/s5hd5qum)
-
-![](img/hanoi-geogebra.png)
-
-
 Desenvolva uma estratégia para conseguir solucionar com a menor quantidade de movimentos. 
 
-<iframe src="https://www.geogebra.org/material/iframe/id/ebnrujnm/width/755/height/415/border/ffffff/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="755" height="415" frameborder="0" scrolling="no"></iframe>
+<iframe title="Torre de Hanoi" src="https://www.geogebra.org/material/iframe/id/ebnrujnm/width/755/height/415/border/ffffff/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="760px" height="420px" style="border: 2px solid #008000;"> </iframe>
+
+>> Se o jogo não abrir acesse o link: [https://www.geogebra.org/m/s5hd5qum](https://www.geogebra.org/m/s5hd5qum)
 
 
-<iframe title="Torre de Hanoi" src="https://www.geogebra.org/material/iframe/id/ebnrujnm/width/755/height/415/border/ffffff/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="760px" height="420px" style="border: 2px solid #800000;"> </iframe>
+!!! progress
+    Continuar...
 
 ## O que é pensamento computacional?
 
