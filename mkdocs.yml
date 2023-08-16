@@ -1,0 +1,105 @@
+site_name: Computacional Thinking
+site_author: Arnaldo Viana 
+
+
+extra:  
+    materia: Computacional Thinking with Python
+    professor: Arnaldo Viana
+    ano: 2023
+
+theme:
+  feature:
+    tabs: true
+  name: active-handout
+  custom_dir: overrides
+
+docs_dir: material
+site_dir: docs
+
+repo_url: https://github.com/arnaldojr/computacionalThinking/
+repo_name: "Computacional Thinking with Python"
+site_url: https://arnaldojr.github.io/computacionalThinking/
+
+
+# Extensions / plugins
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.0.0/js-yaml.min.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdn.jsdelivr.net/gh/insper-education/active-handout-plugins-js@main/package/plugin-bundle.js
+
+extra:
+  ihandout_config:
+#    counter:
+#      - question
+#      - tip
+#      - exercise
+#      - example
+    report:
+      api-base: https://devlife.insper-comp.com.br/api/offerings/1/
+      url: https://devlife.insper-comp.com.br/api/offerings/1/exercises/
+
+# Extensions / plugins
+plugins:
+#  - git-revision-date-localized
+  - search
+#  - mkdocs-jupyter:
+#      use_directory_urls: false
+#      include_source: True
+#      execute: False
+
+extra_css:
+#  - css/termynal.css
+  - https://cdn.jsdelivr.net/gh/insper-education/active-handout-css@main/devlife.css
+
+
+markdown_extensions:
+  - markdown.extensions.tables
+  - tables
+  - markdown.extensions.admonition
+  - markdown.extensions.codehilite:
+      guess_lang: false
+  - markdown.extensions.def_list
+  - markdown.extensions.footnotes
+  - markdown.extensions.meta
+  - markdown.extensions.toc:
+      permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - pymdownx.snippets:
+      base_path: code
+      check_paths: true
+
+
+nav:
+  - Home: index.md
+  - Sobre o curso: sobre/sobre.md
+  - Agenda: agenda/agenda.md
+  - Introdução: 
+    - Pensamento computacional: aulas/ctp/intro/intro-ctp.md
+
+  - Laboratórios:
+    - Lab01 - Comece aqui!: aulas/ctp/intro/infra.md
+
+
+
+
