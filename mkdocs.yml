@@ -95,11 +95,11 @@ nav:
   - Sobre o curso: sobre/sobre.md
   - Agenda: agenda/agenda.md
   - Pensamento computacional: aulas/ctp/intro/intro-ctp.md
-  # - Fundamentos de Python:
-  #   - Introdução ao Python: aulas/ctp/python/intro-python.md
-  #   - Tipos de Dados e Variáveis: aulas/ctp/python/data-types.md
-  #   - Estruturas de Controle: aulas/ctp/python/control-structures.md
-  #   - Funções e Módulos: aulas/ctp/python/functions-modules.md
+  - Fundamentos de Python:
+    - Introdução ao Python: aulas/ctp/python/intro-python.md
+    - Tipos de Dados e Variáveis: aulas/ctp/python/data-types.md
+    - Estruturas de Controle: aulas/ctp/python/control-structures.md
+    - Funções e Módulos: aulas/ctp/python/functions-modules.md
   # - Estruturas de Dados:
   #   - Listas e Tuplas: aulas/ctp/data-structures/lists-tuples.md
   #   - Dicionários e Conjuntos: aulas/ctp/data-structures/dicts-sets.md
@@ -118,4 +118,44 @@ nav:
   - Recursos Adicionais:
     - Referências e Leituras Complementares: aulas/ctp/resources/references.md
 
+
+# nav:
+#   - Home: index.md
+#   - Sobre o curso: sobre/sobre.md
+#   - Agenda: agenda/agenda.md
+#   - Pensamento computacional: aulas/ctp/intro/intro-ctp.md
+#   - Fundamentos de Python:
+#     - Introdução ao Python: aulas/ctp/python/intro-python.md #História e Filosofia, Primeiros Passos
+#     - Tipos de Dados e Variáveis: aulas/ctp/python/data-types.md #tipo primitivos como Números, Strings, Booleanos. Variáveis e Atribuição. Conversão de Tipos. entrada e saida
+#     - Operadores:
+#       - Aritméticos: aulas/ctp/python/operators/arithmetic.md
+#       - Relacionais: aulas/ctp/python/operators/relational.md
+#       - Lógicos: aulas/ctp/python/operators/logical.md
+#     - Controle de Fluxo:
+#       - Estruturas de Decisão: aulas/ctp/python/flow-control/decision-structures.md
+#       - Estruturas de Seleção: aulas/ctp/python/flow-control/select-structures.md
+#       - Estruturas de Repetição:
+#         - For Loop: aulas/ctp/python/repetition-structures/for-loop.md
+#         - While Loop: aulas/ctp/python/repetition-structures/while-loop.md
+#         - Break e Continue: aulas/ctp/python/repetition-structures/break-continue.md
+#     - Funções e Módulos:
+#       - Definindo Funções: aulas/ctp/python/functions-modules/defining-functions.md
+#       - Parâmetros e Argumentos: aulas/ctp/python/functions-modules/parameters-arguments.md
+#       - Funções Lambda: aulas/ctp/python/functions-modules/lambda-functions.md
+#       - Importando Módulos: aulas/ctp/python/functions-modules/importing-modules.md
+#     - Erros e Exceções:
+#       - Tratamento de Erros: aulas/ctp/python/errors-exceptions/error-handling.md
+#       - Try, Except, Finally: aulas/ctp/python/errors-exceptions/try-except-finally.md
+#   - Estruturas de Dados:
+#     - Listas e Tuplas: aulas/ctp/data-structures/lists-tuples.md
+#     - Dicionários: aulas/ctp/data-structures/dicts-sets.md
+#   - Laboratórios:
+#     - Lab01 - Comece aqui!: aulas/ctp/intro/infra.md
+#     - Lab02 - Exercícios com Estruturas de Decisão: aulas/ctp/labs/lab-decision-structures.md
+#     - Lab03 - Exercícios com Estruturas de Seleção: aulas/ctp/labs/lab-select-structures.md
+#     - Lab04 - Exercícios com Estruturas de Repetição: aulas/ctp/labs/lab-repetition-structures.md
+#     - Lab05 - Manipulando Estruturas de Dados: aulas/ctp/labs/lab-data-structures.md
+#     - Lab06 - Desenvolvendo Algoritmos: aulas/ctp/labs/lab-algorithms.md
+#   - Recursos Adicionais:
+#     - Referências e Leituras Complementares: aulas/ctp/resources/references.md
 

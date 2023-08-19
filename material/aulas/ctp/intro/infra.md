@@ -161,19 +161,34 @@ O Visual Studio Code é uma IDE leve, mas poderosa, que suporta uma variedade de
 
 !!! exercise
 
-    1. **Download:**
-    
+    -  **Download:**  
         - Acesse o site oficial do VS Code em [https://code.visualstudio.com/](https://code.visualstudio.com/).
         - Clique em "Download" e escolha a versão adequada para o seu sistema operacional (Windows, macOS ou Linux).
     
-    2. **Instalação:**  
+    -  **Instalação:**  
         - Execute o arquivo baixado e siga as instruções do assistente de instalação.
         - Durante a instalação, recomendo marcar as opções "Add 'Open with Code' action to Windows Explorer file context menu" e "Add 'Open with Code' action to Windows Explorer directory context menu" (para usuários Windows) para facilitar a abertura de arquivos e diretórios com o VS Code.
     
-    3. **Configuração inicial:**  
+    -  **Configuração inicial:**  
         - Ao abrir o VS Code pela primeira vez, você será apresentado a uma interface com uma barra lateral à esquerda. Esta barra contém ícones para explorador de arquivos, pesquisa, controle de versão, extensões, entre outros.
         - Recomendo instalar a extensão "Python" para obter suporte à linguagem Python. Para isso, clique no ícone de extensões (quarto ícone da barra lateral) e pesquise por "Python". Selecione a extensão oficial oferecida pela Microsoft e clique em "Install".
-        - Recomendo tambem, instalar a extensão "jupyter" para rodar notebooks diretamente pelo VSCode
+        - Recomendo também instalar a extensão "Jupyter" para rodar notebooks diretamente pelo VSCode. Siga o mesmo processo de pesquisa e instalação que você fez para a extensão Python.
+
+### Instalação do Jupyter Notebook
+
+O Jupyter Notebook é uma aplicação web que permite criar e compartilhar documentos que contêm código, equações, visualizações e texto explicativo. É amplamente utilizado para análise de dados, ciência de dados e aprendizado de máquina.
+
+!!! exercise
+
+    -  **Instalação via pip:**  
+        - Abra o terminal ou prompt de comando.
+        - Digite o seguinte comando: `pip install jupyter`
     
-    
-    Pronto! Se tudo deu certo até aqui, estamos com a nossa infra pronta para começar a desenvolver sistemas utilizando Python. 
+    -  **Execução:**  
+        - No terminal ou prompt de comando, digite `jupyter notebook`. Isso iniciará o servidor do Jupyter e abrirá uma nova janela ou aba no seu navegador padrão com a interface do Jupyter Notebook.
+        - Você pode criar um novo notebook selecionando "New" e depois "Python 3" ou pode abrir notebooks existentes navegando pelos diretórios.
+
+    -  **Integração com VS Code:**  
+        - Com a extensão "Jupyter" instalada no VS Code, você pode criar e editar notebooks diretamente na IDE. Basta criar um novo arquivo com a extensão `.ipynb` ou abrir um existente.
+
+Pronto! Se tudo deu certo até aqui, estamos com a nossa infraestrutura pronta para começar a desenvolver sistemas utilizando Python e Jupyter Notebook.

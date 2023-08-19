@@ -4,7 +4,7 @@
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | 15/08 | 18/08 | Fiap First Week (FFW) |  | Inicio das aulas |  |
 | 22/08 |  | Aula Magna - Apresentação do curso, dinâmica das aulas, avaliações. Datas importantes (CP)  |  | Aula Magna |  |
-|  | 25/08 | Dinamica Pensamento Computacional.  |  |  |  |
+|  | 25/08 | Dinâmica Pensamento Computacional.  |  |  |  |
 | 29/08 |  | Preparação infraestrutura, introdução a linguagem de programação Python |  |  |  |
 |  | 01/09 | Variaveias, tipos de dados, operações logicas e matematicas  | lista1 |  |  |
 | 05/09 |  | Estruturas de decisão | lista2 |  |  |
