@@ -458,8 +458,9 @@ resultado3 = not True  # False
 
 ### Exercicios problema
 
-!!!  exercise choice "Question"
-    **Cálculo de Juros Compostos**
+
+!!! exercise "Question"
+    Cálculo de Juros Compostos
     Você está planejando fazer um depósito em uma conta poupança que paga juros compostos mensalmente. Para ajudá-lo a entender quanto dinheiro você terá após um determinado período, você decide escrever um programa.
     
     Instruções:
@@ -483,10 +484,12 @@ resultado3 = not True  # False
     - \( t \) é o número de anos que o dinheiro é investido ou emprestado.
 
     Teste o seu código com: 
+
         - Deposito inicial = 1000
         - taxa de juros = 5
         - tempo = 2
-        - O resultado esperado é: 1104.89
+        - O resultado esperado é: 1104.94
+
 
     !!! answer
         Uma possivel solução é:

@@ -40,17 +40,20 @@ extra:
       api-base: https://devlife.insper-comp.com.br/api/offerings/1/
       url: https://devlife.insper-comp.com.br/api/offerings/1/exercises/
 
+use_directory_urls: false
+
 # Extensions / plugins
 plugins:
   - git-revision-date-localized
   - search
+  - termynal
   - mkdocs-jupyter:
-      use_directory_urls: false
+
       include_source: True
       execute: False
 
 extra_css:
-#  - css/termynal.css
+  - css/termynal.css
   - https://cdn.jsdelivr.net/gh/insper-education/active-handout-css@main/devlife.css
 
 
@@ -94,6 +97,7 @@ nav:
   - Home: index.md
   - Sobre o curso: sobre/sobre.md
   - Agenda: agenda/agenda.md
+  - CheckPoint: aulas/checkpoint/index.md
   - Pensamento computacional: aulas/ctp/intro/intro-ctp.md
   - Fundamentos de Python:
     - Introdução ao Python: aulas/ctp/python/intro-python.md
