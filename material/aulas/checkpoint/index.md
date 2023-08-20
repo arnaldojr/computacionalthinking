@@ -21,6 +21,13 @@ Os Checkpoints da disciplina são baseados em pequenos projetos com o objetivo d
 
 Os checkpoints são sempre divulgados/publicados com antecedência (ver agenda das aulas) nesta página e devem ser realizadas fora do horário de aula.
 
+|Data |CheckPoint|
+| 15/09 | CheckPoint 1 - Presencial, individual e sem consulta. |
+| 20/10 | CheckPoint 2 - Presencial, individual e sem consulta. |
+| 10/11 | CheckPoint 3 - Méia ponderada das atividades "Desafios" lançadas ao longo do semestre. |
+
+- Caso seja necessário mudança de data de CP, vocês serão avisados com antecedência. 
+
 ## Onde será:
 
 Serão realizados durante a aula presencial.
