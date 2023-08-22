@@ -103,7 +103,7 @@ nav:
     - Introdução ao Python: aulas/ctp/python/intro-python.md
     - Tipos de Dados e Variáveis: aulas/ctp/python/data-types.md
     - Estruturas de Controle: aulas/ctp/python/control-structures.md
-    - Funções e Módulos: aulas/ctp/python/functions-modules.md
+  # - Funções e Módulos: aulas/ctp/python/functions-modules.md
   # - Estruturas de Dados:
   #   - Listas e Tuplas: aulas/ctp/data-structures/lists-tuples.md
   #   - Dicionários e Conjuntos: aulas/ctp/data-structures/dicts-sets.md
