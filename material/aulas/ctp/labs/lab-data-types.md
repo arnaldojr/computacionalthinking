@@ -6,7 +6,7 @@ Este guia irá orientá-lo sobre como acessar os desafios de deste laboratório,
 
 ## 1. Acessando os Desafios
 
-1. **Acesse o GitHub Classroom**: Primeiro, acesse o link do GitHub Classroom. Clique aqui:[https://classroom.github.com/a/p23u9lNs](https://classroom.github.com/a/p23u9lNs)
+1. **Acesse o GitHub Classroom**: Primeiro, acesse o link do GitHub Classroom. Clique aqui:[https://classroom.github.com/a/zduM4ptG](https://classroom.github.com/a/zduM4ptG)
 2. **Entre com sua conta do GitHub**: Faça a autenticação com sua conta no GitHub.
 3. **Aceite o convite para o desafio**: Ao acessar o link, você verá um convite para participar do desafio. Clique em "Aceitar este desafio" para começar.
 
