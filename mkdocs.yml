@@ -102,7 +102,7 @@ nav:
   - Fundamentos de Python:
     - Introdução ao Python: aulas/ctp/python/intro-python.md
     - Tipos de Dados e Variáveis: aulas/ctp/python/data-types.md
-    - Estruturas de Controle: aulas/ctp/python/control-structures.md
+    - Estruturas de decisão: aulas/ctp/python/decision-structures.md
   # - Funções e Módulos: aulas/ctp/python/functions-modules.md
   # - Estruturas de Dados:
   #   - Listas e Tuplas: aulas/ctp/data-structures/lists-tuples.md
