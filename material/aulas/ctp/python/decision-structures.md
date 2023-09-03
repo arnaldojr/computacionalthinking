@@ -1,4 +1,4 @@
-## Estruturas de Decisão em Python - Parte 1
+## Estruturas de Decisão
 
 Em Python, as estruturas de decisão são fundamentais para controlar o fluxo de execução de um programa. Elas permitem que o código tome decisões e execute diferentes blocos de instruções com base em diferentes condições. Estas estruturas são essenciais para a lógica de programação e representam a base de muitos algoritmos.
 
@@ -19,7 +19,7 @@ Estes operadores são usados para comparar valores:
 
 ### Exercícios sobre Operadores de Comparação
 
-!!! exercise choice "Questão 1"
+!!! exercise choice "Questão"
     Dado `x = 5` e `y = 10`, qual das seguintes afirmações é verdadeira?
     
     - [x] `x < y`
@@ -30,7 +30,7 @@ Estes operadores são usados para comparar valores:
     !!! answer
         `x < y` é verdadeiro porque 5 é menor que 10.
 
-!!! exercise choice "Questão 2"
+!!! exercise choice "Questão"
     Se `a = "hello"` e `b = "world"`, qual das seguintes condições é verdadeira?
     
     - [ ] `a == b`
@@ -51,7 +51,7 @@ Estes operadores são usados para combinar condições:
 
 ### Exercícios sobre Operadores Lógicos
 
-!!! exercise choice "Questão 3"
+!!! exercise choice "Questão"
     Dado `x = True` e `y = False`, qual das seguintes expressões retorna `True`?
     
     - [x] `x and not y`
@@ -62,7 +62,7 @@ Estes operadores são usados para combinar condições:
     !!! answer
         `x and not y` retorna `True` porque `x` é verdadeiro e `y` é falso (e `not y` é verdadeiro).
 
-!!! exercise choice "Questão 4"
+!!! exercise choice "Questão"
     Se `m = False` e `n = False`, qual das seguintes expressões é `True`?
     
     - [ ] `m and n`
@@ -90,7 +90,7 @@ if temperatura > 25:
 
 ### Exercícios sobre `if`
 
-!!! exercise choice "Questão 5"
+!!! exercise choice "Questão"
     Qual será a saída do seguinte código se `valor = 50`?
     
     ```python
@@ -114,7 +114,7 @@ O `else` captura qualquer condição que não tenha sido capturada pelas cláusu
 
 ### Exercícios sobre `else`
 
-!!! exercise choice "Questão 8"
+!!! exercise choice "Questão"
     Dado o código abaixo, qual será a saída se `num = 10`?
     
     ```python
@@ -132,7 +132,7 @@ O `else` captura qualquer condição que não tenha sido capturada pelas cláusu
     !!! answer
         A saída será `Par` porque 10 é divisível por 2.
 
-!!! exercise choice "Questão 9"
+!!! exercise choice "Questão"
     Usando o mesmo código, qual será a saída se `num = 15`?
     
     - [ ] `Par`
@@ -160,7 +160,7 @@ else:
 
 ### Exercícios sobre `elif`
 
-!!! exercise choice "Questão 6"
+!!! exercise choice "Questão"
     Dado o código abaixo, qual será a saída se `pontos = 75`?
     
     ```python
@@ -182,7 +182,7 @@ else:
     !!! answer
         A saída será `Bom!` porque 75 é maior que 70 mas menor que 80.
 
-!!! exercise choice "Questão 7"
+!!! exercise choice "Questão"
     Considerando o código acima, qual será a saída se `pontos = 50`?
     
     - [ ] `Excelente!`
@@ -217,7 +217,7 @@ else:
 
 ### Exercícios sobre Aninhamento
 
-!!! exercise choice "Questão 10"
+!!! exercise choice "Questão"
     Usando o código acima, qual será a saída se `idade = 13` e `acompanhado = False`?
     
     - [ ] `Menor de idade, mas está acompanhado.`
