@@ -115,6 +115,7 @@ nav:
     - Lab01 - Comece aqui!: aulas/ctp/intro/infra.md
     - Lab02 - Tipos de dados e Variáveis: aulas/ctp/labs/lab-data-types.md
     - Lab03 - Estrutura de Decisãos: aulas/ctp/labs/lab-decision-structures.md
+    - Lab04 - Erros comuns: aulas/ctp/labs/common-errors.ipynb
   #   - Lab04 - Desenvolvendo Algoritmos: aulas/ctp/labs/lab-algorithms.md
   # - Projetos Práticos:
   #   - Projeto 01 - Jogo da Adivinhação: aulas/ctp/projects/guessing-game.md
