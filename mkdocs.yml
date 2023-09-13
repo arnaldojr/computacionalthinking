@@ -103,15 +103,18 @@ nav:
     - Introdução ao Python: aulas/ctp/python/intro-python.md
     - Tipos de Dados e Variáveis: aulas/ctp/python/data-types.md
     - Estruturas de decisão: aulas/ctp/python/decision-structures.md
-  # - Funções e Módulos: aulas/ctp/python/functions-modules.md
+    - Funções e Módulos: aulas/ctp/python/functions-modules.md
   # - Estruturas de Dados:
   #   - Listas e Tuplas: aulas/ctp/data-structures/lists-tuples.md
   #   - Dicionários e Conjuntos: aulas/ctp/data-structures/dicts-sets.md
   # - Pensamento Algorítmico:
   #   - Algoritmos Básicos: aulas/ctp/algorithms/basic-algorithms.md
   #   - Estratégias de Solução de Problemas: aulas/ctp/algorithms/problem-solving.md
-
   - Laboratórios:
+    - Solução Labs:
+      - Lab02 - Tipos de dados e Variáveis: aulas/ctp/labs/solutions/solution-data-types.ipynb 
+      - Lab03 - Estrutura de Decisãos: aulas/ctp/labs/solutions/solution-decision-structures.ipynb 
+      - Lab04 - Erros comuns: aulas/ctp/labs/solutions/solution-common-errors.ipynb 
     - Lab01 - Comece aqui!: aulas/ctp/intro/infra.md
     - Lab02 - Tipos de dados e Variáveis: aulas/ctp/labs/lab-data-types.md
     - Lab03 - Estrutura de Decisãos: aulas/ctp/labs/lab-decision-structures.md
