@@ -19,10 +19,10 @@ O laço `while` repete um bloco de código enquanto uma condição é avaliada c
 
 A estrutura básica do loop `while` é:
 
-\```
+```python
 while condição:
     # código a ser executado enquanto a condição for verdadeira
-\```
+```
 
 !!! tip
     É crucial garantir que a condição do loop `while` se torne falsa em algum momento, caso contrário, o loop continuará infinitamente.
@@ -121,6 +121,7 @@ Neste exemplo, o código imprimirá os números de 0 a 4. Quando `contador` atin
 
 !!! progress
     Continuar...
+
 
 
 ### Combinação de `while` com Estruturas de Decisão
@@ -225,6 +226,8 @@ Aqui, o programa imprimirá as mensagens do usuário até que ele digite "sair".
 
 !!! progress
     Continuar...
+
+
 
 
 ### Uso do `break` e `continue` com `while`
@@ -334,15 +337,18 @@ Neste exemplo, quando `contador` é igual a 3, a instrução `continue` faz com 
 !!! exercise choice "Questão"
     Qual é a principal diferença entre as instruções `break` e `continue` em um laço `while`?
 
-- [x] `break` interrompe o laço, enquanto `continue` interrompe a iteração atual e retorna ao início do laço.
-- [ ] `break` e `continue` ambos interrompem o laço imediatamente.
-- [ ] `break` retorna ao início do laço, enquanto `continue` interrompe o laço.
-- [ ] Ambos têm o mesmo comportamento.
+    - [x] `break` interrompe o laço, enquanto `continue` interrompe a iteração atual e retorna ao início do laço.
+    - [ ] `break` e `continue` ambos interrompem o laço imediatamente.
+    - [ ] `break` retorna ao início do laço, enquanto `continue` interrompe o laço.
+    - [ ] Ambos têm o mesmo comportamento.
+    
 
 
 !!! progress
     Continuar...
-    
+
+
+
 
 ### Cuidados com Laços Infinitos
 
