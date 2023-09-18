@@ -356,4 +356,4 @@ Neste exemplo, quando `contador` é igual a 3, a instrução `continue` faz com 
 
 Práticar é o segredo do sucesso para pragramação. 
 
-- **Calculadora Simples**: Crie um programa que apresenta um menu ao usuário para adicionar, subtrair, multiplicar ou dividir dois números. Use um laço `while` para manter o programa em execução até que o usuário decida sair.
+- **Calculadora Simples**: Dado um número inteiro n >= 0, calcular n!.
