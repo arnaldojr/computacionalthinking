@@ -68,17 +68,19 @@ Neste exemplo, o código imprimirá os números de 0 a 4. Quando `contador` atin
     x = 10
     while x > 0:
         x -= 2
+    
+    print x
     ```
 
     Após a execução do código, qual será o valor de `x`?
 
-    - [ ] 0
+    - [x] 0
     - [ ] 1
     - [ ] 2
-    - [x] -2
+    - [ ] -2
     
     !!! answer
-        O valor de `x` será `-2`. A cada iteração, `x` é decrementado em 2. Quando `x` é 2, ele é novamente decrementado em 2 na próxima iteração, resultando em `x` sendo `-2`, que interrompe o laço.
+        O valor de `x` será `0`. A cada iteração, `x` é decrementado em 2. Quando `x` é 2, ele é novamente decrementado em 2 na próxima iteração, resultando em `x` sendo `0`, que interrompe o laço.
 
 !!! exercise choice "Questão"
     No seguinte código, quantas vezes o print será executado?
@@ -99,9 +101,9 @@ Neste exemplo, o código imprimirá os números de 0 a 4. Quando `contador` atin
         O print será executado 3 vezes. O laço inicia com `y` sendo 5 e termina quando `y` é 8. Portanto, ele será executado para os valores 5, 6 e 7 de `y`.
 
 
-### Se não existe os laços de repetição, como seria? 
+### E se não existem os laços de repetição, como seria? 
 
-Apenas como curiosidade... Se não existem os laços de repetição poderiamos utilizar uma técnica de recursão para conseguir fazer nossos códigos realizar loops. Apenas como exemplo avalie o código abaixo e entenda como ele funciona. Mais adiante em nosso curso vamos explorar a fundo as recussões. 
+Apenas por curiosidade... Se não existem os laços de repetição poderiamos utilizar uma técnica de recursão para conseguir fazer nossos códigos realizar loops. Apenas como exemplo avalie o código abaixo e entenda como ele funciona. Mais adiante em nosso curso vamos explorar a fundo as recussões. 
 
 ```python
 def cont(contador):
@@ -113,10 +115,13 @@ def cont(contador):
 
 cont(0)
 ```
+Neste exemplo, o código imprimirá os números de 0 a 4. Quando `contador` atingir o valor 5, a condição `contador == 5` se tornará verdadeira e será interrompido.
+
 
 
 !!! progress
     Continuar...
+
 
 ### Combinação de `while` com Estruturas de Decisão
 
@@ -194,7 +199,7 @@ Aqui, o programa imprimirá as mensagens do usuário até que ele digite "sair".
 
 ### Exercícios de Verificação
 
-!!! exercise choice "Questão 1"
+!!! exercise choice "Questão"
     Dado o seguinte código:
 
     ```python
@@ -242,6 +247,7 @@ while contador < 10:
         break
     print(contador)
     contador += 1
+print(f"continua fora do while com contador = {contador}")
 ```
 
 No código acima, a execução do laço `while` é interrompida assim que o `contador` alcança o valor 5. Como resultado, o programa imprime os números de 0 a 4.
@@ -256,7 +262,9 @@ while contador < 5:
     contador += 1
     if contador == 3:
         continue
+        print("estou no if") # note que esse print nunca será executado
     print(contador)
+print(f"fora do while com contador = {contador}")
 ```
 
 Neste exemplo, quando `contador` é igual a 3, a instrução `continue` faz com que o código retorne ao início do laço, pulando o `print(contador)` para esse valor específico. Assim, o programa imprime os números 1, 2, 4 e 5.
@@ -298,11 +306,11 @@ Neste exemplo, quando `contador` é igual a 3, a instrução `continue` faz com 
 
     - [ ] `1 2 3 4 5`
     - [ ] `0 1 2 3 4`
-    - [ ] `1 2 4 5`
-    - [x] `1 2 4 5 6`
+    - [x] `1 2 4 5`
+    - [ ] `1 2 4 5 6`
     
     !!! answer
-        A saída será `1 2 4 5 6`. O número 3 é pulado devido à instrução `continue`, e o laço imprime até o número 6 porque a condição `x < 5` só é avaliada no início de cada iteração.
+        A saída será `1 2 4 5`. O número 3 é pulado devido à instrução `continue`.
 
 !!! exercise choice "Questão"
     No seguinte código, até que valor a variável `y` será incrementada?
