@@ -373,8 +373,15 @@ sub_lista = números[2:7]  # [2, 3, 4, 5, 6]
     !!! answer
         No fatiamento `numeros[2:8:2]`, o último `2` especifica o passo, ou seja, a "distância" entre os índices. Isso resultaria na sublista `[2, 4, 6]`.
 
+juntando as coisas, varrendo uma lista com while.
 
-
+```python 
+primos = [2, 3, 5, 7, 11]
+i = 0
+while i < len(primos):
+    print( "elemento de indice %d = %d"%(i, primos[i]) )
+    i = i + 1
+```
 !!! progress
     Continuar...
 
