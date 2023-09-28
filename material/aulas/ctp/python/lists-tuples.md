@@ -196,8 +196,8 @@ frutas[0] = "manga"
         animais.insert(2, "hamster")
         ```
 
-!!! answer
-    A opção que substitui o item "peixe" por "hamster" na lista é `animais[2] = "hamster"`. Em Python, as listas são indexadas a partir de 0, então o índice 2 corresponde ao terceiro item da lista.
+    !!! answer
+        A opção que substitui o item "peixe" por "hamster" na lista é `animais[2] = "hamster"`. Em Python, as listas são indexadas a partir de 0, então o índice 2 corresponde ao terceiro item da lista.
 
 
 ### Métodos mais utilizados de Listas
@@ -281,7 +281,7 @@ Alguns dos métodos mais utilizados são:
 Teste o código a seguir:
 
 ```python
-# definimos uma lista de listas (com nome, senha e cargo de usuários)
+# definimos uma lista de listas (com nome e senha)
 usuarios = [
     ['alberto', '1234'],
     ['mario', '6282'],
@@ -290,10 +290,10 @@ usuarios = [
 ]
 
 nome = input('Nome do usuário: ')
-pin = input('Código PIN: ')
+senha = input('Senha: ')
 
-# Verificando se a combinação nome e PIN está na lista de usuários
-usuario_encontrado = [nome, pin] in usuarios
+# Verificando se a combinação nome e senha está na lista de usuários
+usuario_encontrado = [nome, senha] in usuarios
 
 if usuario_encontrado:
     msg = f'Acesso liberado'
@@ -302,7 +302,7 @@ else:
 
 print(msg)
 ```
-Neste código estamos usando a expressão [nome, pin] in usuarios para verificar se a combinação de nome e PIN existe na lista usuarios. Esta expressão retornará True se a combinação for encontrada e False caso contrário.
+Neste código estamos usando a expressão `[nome, senha] in usuarios` para verificar se a combinação de nome e senha existe na lista usuarios. Esta expressão retornará True se a combinação for encontrada e False caso contrário.
 
     
 !!! progress
@@ -320,13 +320,13 @@ A notação básica do fatiamento é: `lista[início:fim]`, onde:
 - início: é o índice inicial do fatiamento (inclusivo).
 - fim: é o índice final do fatiamento (exclusivo).
 
-Por exemplo, lista[1:4] retorna uma sublista que começa no índice 1 e vai até (mas não inclui) o índice 4.
+Por exemplo, `lista[1:4]` retorna uma sublista que começa no índice 1 e vai até (mas não inclui) o índice 4.
 
-A notação [:] pode ser expandida para incluir um terceiro parâmetro, `o passo`, usando a sintaxe `lista[início:fim:passo]`:
+A notação `[ : ]` pode ser expandida para incluir um terceiro parâmetro, `o passo`, usando a sintaxe `lista[início:fim:passo]`:
 
 - passo: especifica a "distância" entre os índices. Por exemplo, um passo de 2 pula um índice entre cada item incluído na sublista.
 
-A notação [:] por si só cria uma cópia superficial da lista original. Isso significa que você obtém uma nova lista com os mesmos elementos, mas é uma lista diferente em termos de identidade (ou seja, está armazenada em um local diferente da memória).
+A notação `[ : ]` por si só cria uma cópia superficial da lista original. Isso significa que você obtém uma nova lista com os mesmos elementos, mas é uma lista diferente em termos de identidade (ou seja, está armazenada em um local diferente da memória).
 
 Alguns exemplos comuns incluem:
 
@@ -353,9 +353,9 @@ sub_lista = números[2:7]  # [2, 3, 4, 5, 6]
 !!! exercise choice "Question"
     Dada a lista `numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]`, qual fatiamento retorna todos os números pares da lista?
 
-    - [ ] `numeros[::2]`
+    - [ ] `numeros[2::2]`
     - [ ] `numeros[1::2]`
-    - [x] `numeros[0::2]`
+    - [x] `numeros[::2]`
     - [ ] `numeros[::-2]`
     
     !!! answer
@@ -363,7 +363,7 @@ sub_lista = números[2:7]  # [2, 3, 4, 5, 6]
 
 
 !!! exercise choice "Question"
-    Em `numeros[2:8:2]`, qual é o propósito do último `2`?
+    Dada a lista `numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]`. Em `numeros[2:8:2]`, qual é o propósito do último `2`?
 
     - [ ] Indica o início do fatiamento.
     - [ ] Indica o fim do fatiamento.
@@ -388,7 +388,7 @@ while i < len(primos):
 
 ### Tuplas
 
-Tuplas são uma estrutura de dados em Python semelhante às listas. No entanto, enquanto as listas são mutáveis (ou seja, podem ser alteradas após a criação), as tuplas são `imutáveis`. Isso significa que, uma vez que uma tupla é criada, seus elementos não podem ser modificados, adicionados ou removidos.
+Tuplas são uma estrutura de dados em Python semelhante às listas. No entanto, enquanto as listas são mutáveis (ou seja, podem ser alteradas após a criação), as tuplas são **`imutáveis`**. Isso significa que, uma vez que uma tupla é criada, seus elementos não podem ser modificados, adicionados ou removidos.
 
 !!! tip
     A principal diferença entre listas e tuplas é que listas são mutáveis, enquanto tuplas são imutáveis.
@@ -530,13 +530,40 @@ Várias funções que funcionam com listas também são aplicáveis às tuplas:
     
 
 
-#### Por que usar Tuplas?
+## E agora qual eu escolho?? Por que usar Listas ou Tuplas?
 
-Você pode se perguntar: "Por que usar tuplas se as listas são mais flexíveis?". Em geral, as tuplas são usadas em situações onde a imutabilidade é necessária ou benéfica. Por exemplo, tuplas podem ser usadas como chaves em dicionários (veremos isso em breve no curso    ), enquanto listas não podem. Além disso, as tuplas, por serem imutáveis, podem ser mais seguras para certos tipos de operações onde não queremos que os dados sejam alterados acidentalmente.
+Estudamos duas estruturas de dados muito utlizadas em programação, mas... Você pode se perguntar: `"Por que usar tuplas se as listas são mais flexíveis?"`. 
+
+A escolha entre lista e tupla dependerá do contexto e das necessidades específicas do seu programa. Vamos tentar listar algumas caracteristicas de cada uma delas.
+
+| Característica               | Lista                                                                                   | Tupla                                                              |
+|------------------------------|----------------------------------------------------------------------------------------|---------------------------------------------------------------------|
+| Mutabilidade                 | Mutável (itens podem ser adicionados, removidos ou alterados).                          | Imutável (não pode ser alterada após a criação).                    |
+| Sintaxe                      | Usa colchetes `[]`: `[1, 2, 3]`                                                         | Usa parênteses `()`: `(1, 2, 3)`                                    |
+| Performance                  | Geralmente mais lenta para algumas operações devido à mutabilidade.                     | Geralmente mais rápida por ser imutável.                            |
+| Utilização em dicionários    | Não pode ser usada como chave devido à mutabilidade.                                    | Pode ser usada como chave por ser imutável.                         |
+| Métodos integrados           | Vários, como `append()`, `remove()`, `pop()`, `reverse()`, `extend()`.                  | Limitados, como `count()` e `index()`.                              |
+| Tamanho (uso de memória)     | Geralmente ocupa mais memória devido à sobrecarga associada à mutabilidade.             | Ocupa menos memória devido à sua estrutura fixa e imutável.         |
+| Casos de uso comuns          | Dados dinâmicos, armazenamento temporário, onde a mutabilidade é necessária.            | Representações imutáveis, como pontos em geometria, chaves de dicionários. |
+
+Se você precisa de mutabilidade, vá de lista. Se você quer imutabilidade (por razões de segurança, performance ou semântica), escolha tupla.
+
+Em geral, as tuplas são usadas em situações onde a imutabilidade é necessária ou benéfica. Por exemplo, tuplas podem ser usadas como chaves em dicionários (veremos isso em breve no curso ), enquanto listas não podem. Além disso, as tuplas, por serem imutáveis, podem ser mais seguras para certos tipos de operações onde não queremos que os dados sejam alterados acidentalmente. Vamos tentar ver algumas aplicações.
+
+
+| Aplicação                                              | Escolha | Justificativa                                                                                               |
+|--------------------------------------------------------|---------|-------------------------------------------------------------------------------------------------------------|
+| Mantendo uma lista de tarefas pendentes                | Lista   | As tarefas podem ser adicionadas, removidas ou reordenadas dinamicamente.                                   |
+| Representando um ponto no espaço 3D                    | Tupla   | Um ponto no espaço é imutável.                                                                              |
+| Chaves para coordenadas geográficas em dicionários     | Tupla   | Dicionários requerem que as chaves sejam imutáveis.                                                         |
+| Coletar e processar dados em tempo real                | Lista   | Dados podem precisar ser constantemente atualizados, adicionados ou removidos.                               |
+| Retorno de múltiplos valores de função                 | Tupla   | Retorna um grupo fixo de valores que representam diferentes coisas.                                         |
+| Edição de Strings por Caractere                        | Lista   | Strings são imutáveis em Python, então para edição eficiente é convertido para lista e depois de volta para string. |
 
 
 
---------para testar --------
+
+-------- estou testando essa ferramenta, ficou legal? --------
 
 
-<iframe title="Lista" width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=uma_lista%20%3D%20%20%5B%22ola%22,%202.0,%205,%20%5B10,%2020%5D%5D%0Aprint%28len%28uma_lista%29%29%0Aprint%28len%28%5B'spam!',%201,%20%5B'Brie',%20'Roquefort',%20'Pol%20le%20Veq'%5D,%20%5B1,%202,%203%5D%5D%29%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+<iframe title="Lista" width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=list1%20%3D%20%5B%22Let's%20%22,%20%22Rock%20%22,%20%22the%20Future!%22%5D%0Alist2%20%3D%20%5B'FIAP',%20'e',%20'pensamento',%20'computacional'%5D%0Aprint%28'%20'.join%28list1%20%2B%20list2%29%29%0AmyTuple%20%3D%20%28'Aprendendo',%20'programa%C3%A7%C3%A3o%20juntos'%29%0Aprint%28'%20'.join%28myTuple%29%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
