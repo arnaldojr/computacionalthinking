@@ -104,7 +104,8 @@ nav:
     - Tipos de Dados e Variáveis: aulas/ctp/python/data-types.md
     - Estruturas de decisão(if): aulas/ctp/python/decision-structures.md
     - Funções e Módulos: aulas/ctp/python/functions-modules.md
-    - Estruturas de repetição(while): aulas/ctp/python/repetition-structures-while-loop.md    
+    - Estruturas de repetição (while): aulas/ctp/python/repetition-structures-while-loop.md
+    - Estruturas de repetição (For Loop): aulas/ctp/python/repetition-structures-for-loop.md
     - Listas e Tuplas: aulas/ctp/python/lists-tuples.md
   #   - Dicionários e Conjuntos: aulas/ctp/data-structures/dicts-sets.md
   # - Pensamento Algorítmico:
