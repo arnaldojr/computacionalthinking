@@ -232,20 +232,6 @@ print(C)
         [[4, 6], [10, 12]]
 
 
-
-!!! exercise parsons
-    Crie o código corretamente:
-
-    ```py
-    def teste():
-        for i in range(10):
-            i += 2
-        return i
-    a = teste()
-    print(a)
-    ```
-
-
 Busca de Pares: Suponha que você tenha uma lista de números e queira encontrar todos os pares de números cuja soma seja 10:
 
 ```python
@@ -326,3 +312,4 @@ print(quadrados_pares)
 ```
 
 a saida seria: [0, 4, 16]
+

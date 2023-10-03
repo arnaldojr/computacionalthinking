@@ -2,15 +2,12 @@
 
 | 1TDS<br>(Remoto) | 1TDS<br>(Presencial) | CONTEÚDO | LABORATÓRIO | OBSERVAÇÃO | Feriados |
 |:---:|:---:|:---:|:---:|:---:|:---:|
-| 19/09 |  | Estruturas de repetição | lista3 |  |  |
-|  | 22/09 | Estruturas de repetição | Mini-Projeto1 |  |  |
-| 26/09 |  | Estruturas de seleção |  |  |  |
-|  | 29/09 | trabalhando com listas | lista5 |  |  |
-| 03/10 |  | trabalhando com tuplas e dicionarios |  |  |  |
-|  | 06/10 | Juntando tudo até agora... |  |  |  |
-| 10/10 |  | Criando funções |  |  |  |
+|  | 29/09 | trabalhando com listas e tuplas | [lista3](https://classroom.github.com/a/IRVMh0Ox) |  |  |
+| 03/10 |  | Estruturas de repetição |  |  |  |
+|  | 06/10 | trabalhando com dicionários e conjuntos | lista4  |  |  |
+| 10/10 |  | Juntando tudo... |  |  |  |
 |  | <s>13/10</s> | Emenda de feriado do dia 12/10 (quinta-feira) - N. Sr.a Aparecida |  |  | 12/10 (quinta-feira) - N. Sr.a Aparecida |
-| 17/10 |  | Trabalhando com arquivos | lista6 |  |  |
+| 17/10 |  | Trabalhando com arquivos / interface |  |  |  |
 |  | 20/10 | CheckPoint 2 - Presencial, individual e sem consulta. | CP2 | Avaliação Presencial, individual e sem consulta |  |
 | 24/10 |  | Semana NEXT |  | Semana NEXT |  |
 |  | 27/10 | Semana NEXT |  | Semana NEXT | 28/10 (sabado) - NEXT |
@@ -33,3 +30,6 @@ o que já passou....
 |  | <s>08/09</s> | Emenda de feriado do dia 07/09 (quinta-feira) - Independência do Brasil |  |  | 07/09 (quinta-feira) - Independência do Brasil |
 | 12/09 |  | Estruturas de decisão + Erros |  |  |  |
 |  | 15/09 | CheckPoint 1 - Presencial, individual e sem consulta. | CP1 | Avaliação Presencial, individual e sem consulta |  |
+| 19/09 |  | Estruturas de repetição |  |  |  |
+|  | 22/09 | Estruturas de repetição | Mini-Projeto1 |  |  |
+| 26/09 |  | Estruturas de seleção |  |  |  |
