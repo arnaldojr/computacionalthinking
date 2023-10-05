@@ -107,7 +107,7 @@ nav:
     - Estruturas de repetição (while): aulas/ctp/python/repetition-structures-while-loop.md
     - Estruturas de repetição (For Loop): aulas/ctp/python/repetition-structures-for-loop.md
     - Listas e Tuplas: aulas/ctp/python/lists-tuples.md
-  #   - Dicionários e Conjuntos: aulas/ctp/data-structures/dicts-sets.md
+    - Dicionários e Conjuntos: aulas/ctp/data-structures/dict-sets.md
   - Laboratórios:
     - Solução Labs:
       - Lab02 - Tipos de dados e Variáveis: aulas/ctp/labs/solutions/solution-data-types.ipynb 
@@ -118,6 +118,8 @@ nav:
     - Lab03 - Estrutura de Decisãos: aulas/ctp/labs/lab-decision-structures.md
     - Lab04 - Erros comuns: aulas/ctp/labs/common-errors.ipynb
     - Lab05 - Loops for e while, listas e tuplas: aulas/ctp/labs/lab-loops-data-structures.md
+    - Lab06 - Dicionários, conjuntos e afins...: aulas/ctp/labs/lab-loops-dict-sets.md
+
   - Projetos Práticos:
     - Projeto 01 - Jogo da Adivinhação: aulas/ctp/projects/guessing-game.md
   #   - Projeto 02 - Gerenciador de Tarefas: aulas/ctp/projects/task-manager.md

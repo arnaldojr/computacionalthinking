@@ -153,6 +153,10 @@ Método para remoção de item da lista:
     - pop(): Remove o item em um índice específico (ou o último item se o índice não for especificado).
     - clear(): Limpa todos os itens da lista.
 
+!!! Tip 
+    Cuidado com o método `remove()`,  quando o item não existe na lista vai gerar o erro `ValueError`
+
+
 ```python
 frutas.remove("banana")
 frutas.pop()
@@ -210,6 +214,10 @@ Alguns dos métodos mais utilizados são:
     - count(): Retorna o número de vezes que um valor aparece na lista.
     - sort(): Ordena a lista.
     - reverse(): Inverte a ordem da lista.
+
+!!! Tip 
+    É importante mencionar que o método `sort()` altera a lista original, enquanto a função incorporada `sorted()` retorna uma nova lista ordenada.
+
 
 !!! exercise choice "Question"
     Dada a lista `numeros = [2, 5, 8, 1, 7]`, qual será a saída do código `print(len(numeros))`?
@@ -386,7 +394,7 @@ while i < len(primos):
     Continuar...
 
 
-### Tuplas
+## Tuplas
 
 Tuplas são uma estrutura de dados em Python semelhante às listas. No entanto, enquanto as listas são mutáveis (ou seja, podem ser alteradas após a criação), as tuplas são **`imutáveis`**. Isso significa que, uma vez que uma tupla é criada, seus elementos não podem ser modificados, adicionados ou removidos.
 
@@ -394,7 +402,7 @@ Tuplas são uma estrutura de dados em Python semelhante às listas. No entanto, 
     A principal diferença entre listas e tuplas é que listas são mutáveis, enquanto tuplas são imutáveis.
 
 
-#### Definindo Tuplas
+### Definindo Tuplas
 
 Uma tupla é definida colocando-se uma sequência de valores separados por vírgulas entre parênteses `()`:
 
@@ -430,7 +438,7 @@ print(tupla_simples)  # Saída: (1,)
         A opção correta é `tupla = (5, 10, 15)`.
     
 
-#### Acessando Elementos de Tuplas
+### Acessando Elementos de Tuplas
 
 Assim como as listas, as tuplas são ordenadas e indexadas. Você pode acessar elementos de uma tupla usando índices:
 
@@ -453,7 +461,7 @@ print(tupla[1])  # Saída: 20
     
 
 
-#### Imutabilidade das Tuplas
+### Imutabilidade das Tuplas
 
 A principal característica das tuplas é sua imutabilidade:
 
@@ -485,7 +493,7 @@ print(tupla3)  # Saída: (1, 2, 3, 4, 5, 6)
         Um `TypeError` é lançado porque as tuplas são imutáveis.
     
 
-#### Fatiamento em Tuplas
+### Fatiamento em Tuplas
 
 Assim como as listas, as tuplas também suportam operações de fatiamento:
 
@@ -509,7 +517,7 @@ print(fatiado)  # Saída: (2, 3, 4, 5)
         O resultado de `numeros[1:4]` é `(1, 2, 3)`.
 
 
-#### Funções com Tuplas
+### Funções com Tuplas
 
 Várias funções que funcionam com listas também são aplicáveis às tuplas:
 
