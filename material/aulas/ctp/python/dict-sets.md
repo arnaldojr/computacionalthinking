@@ -1,4 +1,3 @@
-
 ## Dicionários em Python
 
 Dicionários são estruturas de dados que permitem armazenar pares de chave-valor. Em Python, dicionários são delimitados por chaves `{}`.
