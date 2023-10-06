@@ -401,8 +401,8 @@ Este último exemplo utiliza `list comprehension` para criar uma nova lista, exc
     Após executar o código abaixo, qual será a saída?
     
     ```python
-    livros_romance = [livro["título"] for livro in biblioteca if livro["categoria"] == "Romance"]
-    print(livros_romance)
+    resultado = [livro["título"] for livro in biblioteca if livro["categoria"] == "Romance"]
+    print(resultado)
     ```
     
     - [x] ["Orgulho e Preconceito"]
@@ -419,16 +419,23 @@ Este último exemplo utiliza `list comprehension` para criar uma nova lista, exc
 
 ## Conjuntos em Python
 
-Conjuntos são uma coleção de elementos únicos. Em Python, conjuntos são similares a listas ou dicionários, mas não podem ter elementos duplicados e não são ordenados.
+Conjuntos são uma coleção de `elementos únicos`. Em Python, conjuntos são similares a listas ou dicionários, mas `não podem ter elementos duplicados` e `não são ordenados`.
+
 
 ### Criação de Conjuntos
 
 Conjuntos são criados usando chaves `{}` ou a função `set()`.
 
 ```python
+moradia = set()
+
 frutas = {"maçã", "banana", "cereja"}
-print("maçã" in frutas)  # Saída: True
+
 ```
+
+!!! Tip 
+    Cuidado para não confundir conjunto com dicionario. 
+    Diferentemente dos dicionarios, os conjuntos não são ordenados e não possuem pares de chave-valor. 
 
 ### Operações com Conjuntos
 
