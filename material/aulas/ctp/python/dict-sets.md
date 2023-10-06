@@ -21,6 +21,7 @@ pessoa = {"nome": "Alice", "idade": 30, "profissão": "Engenheira"}
 
 !!! exercise choice "Question"
     Qual alternativa indica um dicionário?
+
     - [ ] ['nome': 'arnaldo', 'idade': 10, 'sexo': 'masculino']
     - [x] {'nome': 'arnaldo', 'idade': 10, 'sexo': 'masculino'}
     - [ ] ('nome': 'arnaldo'), ('idade': 10), ('sexo': 'masculino')
@@ -46,10 +47,12 @@ Se tentarmos acessar uma chave que não existe, obteremos um `KeyError`.
 
 !!! exercise choice "Question"
     Qual é a saída do código a seguir?
+
     ```python
     d = {"a": 1, "b": 2, "c": 3}
     print(d["b"])
     ```
+
     - [ ] 1
     - [x] 2
     - [ ] 3
@@ -114,9 +117,11 @@ Após a execução deste código, a chave "nome" e seu valor associado serão re
 
     Qual será a saída do código a seguir?
 
+
     ```python
     print(dados["alunos"]["Pedro"]["curso"])
     ```
+
     - [ ] Engenharia
     - [ ] Física
     - [x] Matemática
@@ -219,6 +224,7 @@ print(cidade)  # Saída: Não especificado
     !!! answer
         A saída é `Produto não encontrado`. O método `get()` tenta buscar a chave "pêssego", que não existe no dicionário `produtos`. Como resultado, ele retorna um dicionário vazio (`{}`). O segundo `get()` tenta buscar a chave "preço" neste dicionário vazio e, como ela não existe, retorna a string "Produto não encontrado".
 
+
 !!! exercise choice "Question"
     Considerando o seguinte dicionário:
 
@@ -241,6 +247,7 @@ print(cidade)  # Saída: Não especificado
 
     !!! answer
         A média das notas de "Ana" é (8.5 + 9.0 + 7.5)/3 = 8.33. Portanto, a saída correta é 8.33.
+
  
 !!! progress
     Continuar...       
@@ -406,6 +413,7 @@ Este último exemplo utiliza `list comprehension` para criar uma nova lista, exc
     !!! answer
         O código está utilizando list comprehension para filtrar livros da categoria "Romance". O único livro desta categoria na lista `biblioteca` é "Orgulho e Preconceito". Portanto, a saída correta é ["Orgulho e Preconceito"].
     
+
 !!! progress
     Continuar...
 
@@ -458,6 +466,7 @@ for fruta in frutas:
 
 !!! exercise choice "Question"
     Considere os conjuntos `a = {1, 2, 3, 4}` e `b = {3, 4, 5, 6}`. Qual é a saída de `print(a & b)`?
+
     - [ ] {1, 2}
     - [ ] {5, 6}
     - [x] {3, 4}
