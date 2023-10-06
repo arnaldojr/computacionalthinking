@@ -381,7 +381,7 @@ sub_lista = números[2:7]  # [2, 3, 4, 5, 6]
     !!! answer
         No fatiamento `numeros[2:8:2]`, o último `2` especifica o passo, ou seja, a "distância" entre os índices. Isso resultaria na sublista `[2, 4, 6]`.
 
-juntando as coisas, varrendo uma lista com while.
+juntando as coisas, varrendo uma lista com while. Exemplo de como usar um loop while para iterar através de uma lista
 
 ```python 
 primos = [2, 3, 5, 7, 11]
@@ -390,6 +390,10 @@ while i < len(primos):
     print( "elemento de indice %d = %d"%(i, primos[i]) )
     i = i + 1
 ```
+
+Esse é um exemplo básico de como usar um loop while para iterar através de uma lista em Python. No entanto, em muitos casos, um `loop for` seria uma escolha mais razoável para essa tarefa.
+
+
 !!! progress
     Continuar...
 
@@ -407,6 +411,9 @@ Tuplas são uma estrutura de dados em Python semelhante às listas. No entanto, 
 Uma tupla é definida colocando-se uma sequência de valores separados por vírgulas entre parênteses `()`:
 
 ```python
+variavel = [2,2,2,2]
+a = tuple(variavel)
+
 tupla_exemplo = (1, 2, 3, 4, 5)
 print(tupla_exemplo)  # Saída: (1, 2, 3, 4, 5)
 ```
