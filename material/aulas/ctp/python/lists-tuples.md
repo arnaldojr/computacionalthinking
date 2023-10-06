@@ -122,7 +122,7 @@ frutas.insert(1, "laranja")
         O método `append()` é o método válido para adicionar um elemento ao final de uma lista em Python.
 
 !!! exercise choice "Question"
-    Dado o código Python a seguir, qual é a saída de `print(frutas)`?Qual dos seguintes métodos remove o último item de uma lista?
+    Dado o código Python a seguir, qual é a saída? 
     
     ```python
     numeros = []
@@ -304,7 +304,7 @@ senha = input('Senha: ')
 usuario_encontrado = [nome, senha] in usuarios
 
 if usuario_encontrado:
-    msg = f'Acesso liberado'
+    msg = 'Acesso liberado'
 else:
     msg = 'Acesso negado'
 
