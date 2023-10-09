@@ -3,15 +3,15 @@
 Nossos encontros ocorrem:
 
     - Terça-feira: das 10h00 às 12h00 (Remoto via Teams)
-    - Sexta-feira: das 07h40 às 09h40 (Presencial FIAP Paulista)
+    - Sexta-feira: das 07h50 às 09h50 (Presencial FIAP Paulista)
 
 ## Avaliação
 
-Avaliação composta por: 
+Avaliações composta por: 
 
-    - Listas de exercicios / Desafios
+    - Listas de exercicios
+    - Mini-projetos
     - Checkpoints
-
 
 ## Conteúdo Programático
 

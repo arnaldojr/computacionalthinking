@@ -1,34 +1,30 @@
 # CHECKPOINTS
 
-## Atenção
+## Ética e Integridade Acadêmica
 
-- Cuidado com a desonestidade intelectual;
+- `Honestidade Intelectual`: Mantenha a integridade de seu trabalho. Evite qualquer tipo de desonestidade intelectual.
+- `Autoavaliação`: A autoavaliação deve refletir com precisão o conteúdo apresentado. Inconsistências nesta avaliação podem ser consideradas como falta de integridade.
+- `Referências e Plágio`: Ao realizar pesquisas, é enriquecedor citar outras fontes. No entanto, ao usar conteúdos que não são de sua autoria, como textos ou imagens, inclua sempre uma seção de "referências", indicando as fontes utilizadas.
+- `Intercâmbio de Trabalhos`: Cada aluno é responsável por seu aprendizado e desenvolvimento. Evite copiar ou permitir que seu trabalho seja copiado por outros. Trabalhos duplicados terão suas notas anuladas.
 
-- AUTO AVALIAÇÃO: Uma auto avaliação não compatível com o material entregue será interpretada como desonestidade intelectual;
-- PLÁGIO: Atividades que envolvem pesquisas na Internet podem ser enriquecidas com citações de várias fontes. No entanto, sempre que utilizar textos ou mesmo imagens que não sejam seus, seu trabalho deve ser acompanhado com um trecho de “referências”. Bastam os hiperlinks utilizados;
-- COLA DE TRABALHOS: Não é permitida a troca de trabalhos entre os estudantes, cada estudante é responsável pelo desenvolvimento intelectual do projeto. Não copie e entregue o trabalho de outro colega e não permita ser copiado. Atividades duplicadas resultarão na anulação de ambas.
 
 
-## COMO FUNCIONAM OS CHECKPOINTS
+## Sobre as Avaliações - Checkpoints
 
 Leia com atenção as orientações gerais sobre os checkponts
 
 ## O que é:
 
-Os Checkpoints da disciplina são baseados em pequenos projetos com o objetivo de avaliar os conceitos adquiridos dos conteúdos ministrados em aula. 
+Os Checkpoints consistem em `avaliações práticas individuais` e `mini-projetos em grupos`, com objetivo de mensurar os conceitos adquiridos dos conteúdos ensinados.
 
-## Quando será:
+## Datas e Formatos:
 
-Os checkpoints são sempre divulgados/publicados com antecedência (ver agenda das aulas) nesta página e devem ser realizadas fora do horário de aula.
+Os checkpoints são sempre divulgados/publicados com antecedência tanto aqui no site da disciplina (ver agenda das aulas) como no portal do aluno da FIAP.
 
 | Data | CheckPoint |
 |:---:|:---:|
 | 15/09 | CheckPoint 1 - Presencial, individual e sem consulta. |
 | 20/10 | CheckPoint 2 - Presencial, individual e sem consulta. |
-| 10/11 | CheckPoint 3 - Méia ponderada das atividades "Desafios" lançadas ao longo do semestre. |
+| 10/11 | CheckPoint 3 - Apresentação do mini-projeto. |
 
-- Caso seja necessário mudança de data de CP, vocês serão avisados com antecedência. 
-
-## Onde será:
-
-Serão realizados durante a aula presencial.
+- Caso seja necessário mudança de data de CP, o estudante **sempre** será avisado com antecedência. 

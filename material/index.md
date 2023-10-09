@@ -51,7 +51,7 @@ Ao final da disciplina o estudante será capaz de:
 
 O curso é baseadas em desafios (Listas de exercicios, Desafios , Atividades em aula e extra classe, muita pesquisa e etc.) que abordam teoria e prática.
 
-Ninguem aprende programação ouvindo ou vendo, aprendemos programação ``PROGRAMANDO!!`` 
+Ninguem aprende programação ouvindo ou vendo, aprendemos programação **``PROGRAMANDO!!``** 
 
 Por essa razão as aulas estão divididas em pequenos laboratórios, cada laboratório possui os seus objetivos especificos. 
 
@@ -72,6 +72,8 @@ Em nuvem:
 
 * [Google Colab](https://colab.research.google.com).
 * [Kaggle](https://kaggle.com).
+* [Codespaces](https://github.com/codespaces).
+
 
 Vamos utilizar bastante uma ferramenta para desenvolvimento de software colaborativo chamada github. 
 

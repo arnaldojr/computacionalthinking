@@ -30,9 +30,6 @@
 
 ["Real Python"](https://realpython.com/)
 
-- Tutoriais, artigos e recursos para programadores Python de todos os níveis.
-
-["Project Euler"](https://projecteuler.net/)
 
 - Desafios matemáticos que requerem soluções de programação, ótimos para desenvolver habilidades de pensamento computacional.
 
