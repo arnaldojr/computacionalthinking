@@ -113,16 +113,18 @@ nav:
       - Lab02 - Tipos de dados e Variáveis: aulas/ctp/labs/solutions/solution-data-types.ipynb 
       - Lab03 - Estrutura de Decisãos: aulas/ctp/labs/solutions/solution-decision-structures.ipynb 
       - Lab04 - Erros comuns: aulas/ctp/labs/solutions/solution-common-errors.ipynb 
+      - Lab05 - Loops for e while, listas e tuplas: aulas/ctp/labs/solutions/solution-loop-structures-data-nivel1.ipynb
+      - Lab06 - Dicionários e conjuntos: aulas/ctp/labs/solutions/solution-loop-structures-dict.ipynb
     - Lab01 - Comece aqui!: aulas/ctp/intro/infra.md
     - Lab02 - Tipos de dados e Variáveis: aulas/ctp/labs/lab-data-types.md
     - Lab03 - Estrutura de Decisãos: aulas/ctp/labs/lab-decision-structures.md
     - Lab04 - Erros comuns: aulas/ctp/labs/common-errors.ipynb
     - Lab05 - Loops for e while, listas e tuplas: aulas/ctp/labs/lab-loops-data-structures.md
     - Lab06 - Dicionários, conjuntos e afins...: aulas/ctp/labs/lab-loops-dict-sets.md
-
   - Projetos Práticos:
     - Projeto 01 - Jogo da Adivinhação: aulas/ctp/projects/guessing-game.md
-  #   - Projeto 02 - Gerenciador de Tarefas: aulas/ctp/projects/task-manager.md
+    - Projeto 02 - Gerenciador de Tarefas: aulas/ctp/projects/agenda.md
+    # - Projeto 03 - Gerenciador de Tarefas: aulas/ctp/projects/task-manager.md
   - Recursos Adicionais:
     - Referências e Leituras Complementares: aulas/ctp/resources/references.md
 
