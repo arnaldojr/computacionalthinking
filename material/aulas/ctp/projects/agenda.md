@@ -14,6 +14,7 @@ A solução simples e trivial está disponível em: [https://github.com/arnaldoj
 ### Desafios
 
 - Refatore o código para melhorar legibilidade. 
+- Crie as funções para salvar os contatos em arquivos .txt ou json. 
 - Altere o código para que seja possivel adicionar diversos telefones, emails e endereços para o mesmo contato. Utilize listas para isso.
 - Implemente melhorias na estrutura do código para realizar validação de dados: 
     - Para adicionar o contato é obrigatório ter pelo menos um contato.

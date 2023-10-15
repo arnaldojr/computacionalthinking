@@ -108,6 +108,7 @@ nav:
     - Estruturas de repetição (For Loop): aulas/ctp/python/repetition-structures-for-loop.md
     - Listas e Tuplas: aulas/ctp/python/lists-tuples.md
     - Dicionários e Conjuntos: aulas/ctp/python/dict-sets.md
+    - Manipulação de arquivos: aulas/ctp/python/files-maniputation.md
   - Laboratórios:
     - Solução Labs:
       - Lab02 - Tipos de dados e Variáveis: aulas/ctp/labs/solutions/solution-data-types.ipynb 
@@ -123,8 +124,10 @@ nav:
     - Lab06 - Dicionários, conjuntos e afins...: aulas/ctp/labs/lab-loops-dict-sets.md
   - Projetos Práticos:
     - Projeto 01 - Jogo da Adivinhação: aulas/ctp/projects/guessing-game.md
-    - Projeto 02 - Gerenciador de Tarefas: aulas/ctp/projects/agenda.md
+    - Projeto 02 - Agenda simples: aulas/ctp/projects/agenda.md
     # - Projeto 03 - Gerenciador de Tarefas: aulas/ctp/projects/task-manager.md
+    # - Projeto 04 - Jogo da velha: aulas/ctp/projects/tic-tac-toe.md
+    
   - Recursos Adicionais:
     - Referências e Leituras Complementares: aulas/ctp/resources/references.md
 
