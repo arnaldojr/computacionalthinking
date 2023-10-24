@@ -109,8 +109,8 @@ nav:
     - Listas e Tuplas: aulas/ctp/python/lists-tuples.md
     - Dicionários e Conjuntos: aulas/ctp/python/dict-sets.md
     - Manipulação de arquivos: aulas/ctp/python/files-maniputation.md
-    - Conhecendo os módulos: aulas/ctp/python/modules.md
-    - Criando seus módulos: aulas/ctp/python/modules2.md    
+    - Conhecendo os módulos: aulas/ctp/python/modules2.md
+    - Criando seus módulos: aulas/ctp/python/modules.md    
   - Laboratórios:
     - Solução Labs:
       - Lab02 - Tipos de dados e Variáveis: aulas/ctp/labs/solutions/solution-data-types.ipynb 
