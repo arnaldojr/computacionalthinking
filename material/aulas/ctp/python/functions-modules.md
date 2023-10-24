@@ -95,8 +95,11 @@ saudacao_avancada()  # Isso retornará: Olá, Visitante!
 
 ## 6. Funções com Número Arbitrário de Argumentos 
 
-Se você não souber quantos argumentos serão passados para sua função,
-pode adicionar um `*` antes do nome do parâmetro:
+Às vezes, em programação, nos deparamos com situações em que o número exato de argumentos que uma função deve receber não é conhecido antecipadamente. Python oferece uma maneira flexível de lidar com isso através do uso de `*args `e` **kwargs`.
+
+### Utilizando *args
+
+Quando você deseja que sua função aceite um número indefinido de argumentos posicionais, utiliza-se `*args`. O termo args é apenas uma convenção, e você pode nomeá-lo como desejar, desde que esteja precedido por um asterisco `*`.
 
 ``` python
 def lista_nomes(*nomes):
@@ -108,6 +111,29 @@ Chamando essa função:
 ``` python
 lista_nomes("Alice", "Bob", "Charlie")  # Isso retornará: Lista de nomes: Alice, Bob, Charlie
 ```
+
+!!! Tip 
+    Nota: Embora a convenção mais comum seja usar `*args`, você pode substituir "`args`" por qualquer nome que achar adequado.
+
+### Utilizando  **kwargs
+
+Para situações em que você deseja aceitar um número indefinido de argumentos de palavra-chave, Python oferece  `**kwargs`. Novamente, "`kwargs`" é apenas uma convenção e pode ser substituído por qualquer nome, desde que esteja precedido por dois asteriscos `**`.
+
+Os argumentos passados são armazenados em um dicionário, facilitando seu acesso e manipulação.
+
+Se você não souber quantos argumentos de palavra-chave serão passados para sua função, pode adicionar um `**` antes do nome do parâmetro. Isso permitirá que você passe múltiplos argumentos de palavra-chave para a função e os receba como um dicionário.
+
+``` python
+def apresentacao(**pessoa):
+    return f"{pessoa['nome']} tem {pessoa['idade']} anos e mora em {pessoa['cidade']}."
+```
+
+```python
+apresentacao(nome="João", idade=30, cidade="Rio de Janeiro") # Isso retornará: João tem 30 anos e mora em Rio de Janeiro.
+```
+
+!!! Tip 
+    Nota: Semelhante ao `*args`, `**kwargs` é apenas uma convenção. Você é livre para usar qualquer nome que desejar, mas é recomendado seguir essa convenção para manter a legibilidade e compreensibilidade do código.
 
 ## 7. Funções Lambda 
 
