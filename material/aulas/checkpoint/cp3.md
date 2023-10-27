@@ -118,6 +118,7 @@ Não existem perguntas ruins, caso tenham dúvidas sobre o projeto, não hesitem
 ## **Checklist de Submissão**
 
 O projeto deve ser submetido em um repositório github que o grupo irá criar. Aguns pontos relevantes para garantir que todos os requisitos foram atendidos:
+
 - [ ] **Código Fonte**: Todo o código fonte está bem comentado e formatado de acordo com as boas práticas de programação?
 - [ ] **Funcionalidades**: Todas as funcionalidades requisitadas foram implementadas e estão funcionando corretamente?
 - [ ] **Estruturas de Dados**: As estruturas de dados escolhidas são adequadas para as tarefas propostas?
