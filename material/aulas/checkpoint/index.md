@@ -8,7 +8,6 @@
 - `Intercâmbio de Trabalhos`: Cada aluno é responsável por seu aprendizado e desenvolvimento. Evite copiar ou permitir que seu trabalho seja copiado por outros. Trabalhos duplicados terão suas notas anuladas.
 
 
-
 ## Sobre as Avaliações - Checkpoints
 
 Leia com atenção as orientações gerais sobre os checkponts

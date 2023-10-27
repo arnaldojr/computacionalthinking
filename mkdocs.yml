@@ -97,7 +97,9 @@ nav:
   - Home: index.md
   - Sobre o curso: sobre/sobre.md
   - Agenda: agenda/agenda.md
-  - CheckPoint: aulas/checkpoint/index.md
+  - CheckPoint: 
+    - sobre: aulas/checkpoint/index.md
+    - CP3: aulas/checkpoint/cp3.md
   - Pensamento computacional: aulas/ctp/intro/intro-ctp.md
   - Fundamentos de Python:
     - Introdução ao Python: aulas/ctp/python/intro-python.md
@@ -127,9 +129,13 @@ nav:
   - Projetos Práticos:
     - Projeto 01 - Jogo da Adivinhação: aulas/ctp/projects/guessing-game.md
     - Projeto 02 - Agenda simples: aulas/ctp/projects/agenda.md
-    # - Projeto 03 - Gerenciador de Tarefas: aulas/ctp/projects/task-manager.md
-    # - Projeto 04 - Jogo da velha: aulas/ctp/projects/tic-tac-toe.md
+    - CP3 - Proj1: aulas/ctp/projects/proj1-eventos.md
+    - CP3 - Proj2: aulas/ctp/projects/proj2-financas.md
+    - CP3 - Proj3: aulas/ctp/projects/proj3-pedra-papel-tesoura.md
+    - CP3 - Proj4: aulas/ctp/projects/proj4-jogo-da-velha.md
     
+    
+
   - Recursos Adicionais:
     - Referências e Leituras Complementares: aulas/ctp/resources/references.md
 
