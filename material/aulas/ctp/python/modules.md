@@ -1,19 +1,14 @@
+## Módulos em Python
 
-# Aula de Programação Python: Uso de Módulos
+Módulos em Python são simplesmente arquivos (scripts Python) que contêm definições e instruções Python. Ao dividir o código em módulos, podemos reutilizar código, organizar melhor nosso programa e manter uma manutenção mais eficiente.
 
-## 1. Introdução
+## Por que usar módulos?
 
-### O que são módulos?
-
-Módulos em Python são simplesmente arquivos que contêm definições e instruções Python. Ao dividir o código em módulos, podemos reutilizar código, organizar melhor nosso programa e manter uma manutenção mais eficiente.
-
-### Por que usar módulos?
-
-- **Reutilização de código:** Evita a repetição de código, permitindo que uma função ou classe seja definida uma vez e usada em muitos lugares.
+- **Reutilização de código:** Evita a repetição de código, permitindo que uma `função` ou `classe` seja definida uma vez e usada em muitos lugares.
 - **Organização:** Ajuda a segmentar e organizar o código, tornando-o mais legível e gerenciável.
 - **Manutenção:** Facilita a correção de bugs e a adição de novos recursos, pois as alterações podem ser feitas em um módulo específico sem afetar o restante do programa.
 
-## 2. Importando Módulos
+## Importando Módulos
 
 ### A sintaxe básica
 
@@ -55,7 +50,7 @@ Embora não seja recomendado (pode levar a conflitos de nomes), é possível imp
 from nome_do_modulo import *
 ```
 
-## 3. Criando Seus Próprios Módulos
+## Criando Seus Próprios Módulos
 
 Para criar um módulo, simplesmente escreva o código Python em um arquivo e salve-o com a extensão `.py`. Por exemplo, se tivermos um arquivo chamado `meu_modulo.py` contendo:
 
@@ -72,7 +67,7 @@ import meu_modulo
 print(meu_modulo.minha_funcao())
 ```
 
-## 4. Pacotes em Python
+## Pacotes em Python
 
 ### O que são pacotes?
 
@@ -97,13 +92,13 @@ Para importar um módulo de um pacote:
 from meu_pacote import modulo_a
 ```
 
-## 5. Boas Práticas ao Usar Módulos
+## Boas Práticas ao Usar Módulos
 
 - Evite usar `from nome_do_modulo import *` para prevenir conflitos de nomes.
 - Mantenha módulos e funções pequenos e focados em uma única responsabilidade.
 - Documente seus módulos, funções e classes para facilitar a compreensão por outros desenvolvedores.
 
-## 6. Exemplo: Construindo uma Calculadora
+## Exemplo: Construindo uma Calculadora
 
 ### Passo 1: Criar o Módulo da Calculadora
 
@@ -141,13 +136,13 @@ print(calculadora.adicionar(5, 3))  # Resultado: 8
 print(calculadora.subtrair(5, 3))  # Resultado: 2
 print(calculadora.multiplicar(5, 3))  # Resultado: 15
 print(calculadora.dividir(5, 3))  # Resultado: 1.666...
-\```
+```
 
 ### Passo 3: Expandindo a Calculadora
 
 Vamos expandir nossa calculadora para incluir algumas funções avançadas. Edite o módulo `calculadora.py` para adicionar as seguintes funções:
 
-\```python
+```python
 def raiz_quadrada(x):
     if x < 0:
         return "Erro: Valor negativo!"

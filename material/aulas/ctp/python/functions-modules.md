@@ -1,9 +1,6 @@
-## Introdução às Funções em Python
+## Funções em Python
 
-Funções são blocos de código que são projetados para fazer uma coisa
-específica. Se você precisar executar essa tarefa várias vezes durante o
-seu programa, você não precisa digitar todo o código para aquela tarefa
-novamente; basta chamar a função dedicada a ela.
+Funções são blocos de código que são projetados para fazer uma coisa específica. Se você precisar executar essa tarefa várias vezes durante o seu programa, você não precisa digitar todo o código para aquela tarefa novamente. Basta chamar a função dedicada a ela.
 
 ## Objetivos
 
@@ -15,15 +12,10 @@ Se familiarizar com os conceitos básicos das funções em Python:
 
 ## Por que usar funções?
 
--   **Modularidade**: Permite segmentar um programa longo em funções
-    menores e gerenciáveis.
--   **Reusabilidade**: Permite reutilizar uma função em diferentes
-    programas.
--   **Economia de tempo**: Você não precisa escrever o mesmo código
-    repetidamente.
--   **Manutenção de programas**: Se uma lógica precisa ser alterada,
-    você pode fazer a mudança na função específica, em vez de alterar o
-    código repetido em vários lugares.
+- **Modularidade**: Permite segmentar um programa longo em funções menores e gerenciáveis.
+- **Reusabilidade**: Permite reutilizar uma função em diferentes programas.
+- **Economia de tempo**: Você não precisa escrever o mesmo código repetidamente.
+- **Manutenção de programas**: Se uma lógica precisa ser alterada, você pode fazer a mudança na função específica, em vez de alterar o código repetido em vários lugares.
 
 ## 1. Criando uma Função
 
@@ -137,10 +129,7 @@ apresentacao(nome="João", idade=30, cidade="Rio de Janeiro") # Isso retornará:
 
 ## 7. Funções Lambda 
 
-Uma função lambda é uma pequena função anônima. Uma função lambda pode
-ter qualquer número de argumentos, mas só pode ter uma expressão. A
-expressão é avaliada e retornada. As funções lambda podem ser usadas
-onde objetos de função são necessários.
+Uma função lambda é uma pequena função anônima. Uma função lambda pode ter qualquer número de argumentos, mas só pode ter uma expressão. A expressão é avaliada e retornada. As funções lambda podem ser usadas onde objetos de função são necessários.
 
 Exemplo:
 

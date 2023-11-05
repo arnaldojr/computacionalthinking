@@ -1,5 +1,11 @@
+## Módulos e blibliotecas em Python
 
-# Trabalhando com Módulos em Python
+Módulos e bibliotecas são o meio de estender as funcionalidades básicas da linguagem. Permitem que nós programadores utilizem código previamente escrito, evitando a necessidade de reinventar a roda a cada novo projeto.
+
+## Objetivos
+
+- Explorar as bibliotecas padrão do Python e o que elas oferecem.
+- Aprender a instalar e usar bibliotecas de terceiros.
 
 ## Módulos mais conhecidos
 
@@ -42,16 +48,52 @@ E muitoooo maissss.....
 
 ## Importando Módulos
 
-Para usar um módulo, primeiro você precisa importá-lo. Isso é feito usando a palavra-chave `import`.
+Para usar um módulo padrão do python, primeiro você precisa importá-lo. Isso é feito usando a palavra-chave `import`.
 
 ```python
 import datetime
 import calendar
 ```
+## Instalando bibliotecas externas
+
+Além das bibliotecas padrão, você pode instalar bibliotecas externas. Essas são coleções de módulos escritos por terceiros que fornecem funcionalidades adicionais, desde manipulação de dados, web, interface até aprendizado de máquina. Antes de realizar o `import` dessas bibliotecas é necessário realizar a sua instalação.
+
+O `pip` é o gerenciador de pacotes do Python que facilita a instalação e gerenciamento dessas bibliotecas. Ele vem pré-instalado com o Python.
+
+### Instalar uma biblioteca:
+
+Use o comando `pip install nome_da_biblioteca`. Por exemplo, para instalar a biblioteca de requisições HTTP requests, você usaria `pip install requests`.
+
+### Listar bibliotecas instaladas:
+
+Use `pip list`.
+
+| Package | Version |
+|:---:|:---:|
+| numpy | 1.20.1 |
+| requests | 2.31.0 |
+
+Ou `pip freeze`.
+
+```bash
+numpy==1.20.1
+requests==2.31.0
+```
+
+### Desinstalar uma biblioteca:
+
+Use `pip uninstall nome_da_biblioteca`.
+
+### Instalar bibliotecas de um arquivo de requisitos:
+
+Para projetos maiores, é comum especificar todas as dependências em um arquivo de requisitos, geralmente chamado `requirements.txt`. Para instalar todas as bibliotecas listadas neste arquivo, use `pip install -r requirements.txt`.
+
+!!! progress
+    Continuar...
 
 ## Módulo `datetime`
 
-O módulo `datetime` fornece classes para manipular datas e horas.
+O módulo `datetime` é built-in do Python e fornece classes para manipular `datas e horas`.
 
 ### Classes Principais
 
@@ -93,9 +135,12 @@ new_date = d + delta
 print(new_date)  # Saída: 2023-10-30
 ```
 
+!!! progress
+    Continuar...
+
 ## Módulo `calendar`
 
-O módulo `calendar` fornece funções e classes para trabalhar com calendários.
+O módulo `calendar`  built-in do Python e fornece funções e classes para trabalhar com calendários.
 
 ### Funções Úteis
 
@@ -119,8 +164,39 @@ print(calendar.monthrange(2023, 10))  # Saída: (6, 31) (pois outubro de 2023 co
 2. Ao lidar com fusos horários, considere usar o módulo `pytz`.
 3. Lembre-se de que a indexação dos dias da semana no módulo `calendar` começa em 0 para segunda-feira e vai até 6 para domingo.
 
-Esse é um resumo simplificado dos módulos `datetime` e `calendar`. Ambos os módulos têm muitas outras funcionalidades que podem ser exploradas na documentação oficial do Python.
 
+!!! progress
+    Continuar...
+
+
+### Desafio
+
+Esse foi uma breve descrição de utilização dos módulos `datetime` e `calendar`. Ambos os módulos têm muitas outras funcionalidades que podem ser exploradas na documentação oficial do Python.
+O seu `desafio` é:
+
+**Gestão de Datas**
+
+Crie um programa Python que lida com operações de data e calendário. Este programa será interativo e solicitará ao usuário que insira dados para processamento.
+
+O seu programa Python deverá:
+    
+    - Solicitar ao usuário que insira uma data no formato DD/MM/YYYY.
+
+Uma vez fornecida a `data`, o programa deverá:
+
+    - Mostrar o dia da semana correspondente à data inserida.
+    - Calcular e exibir o número de dias que faltam até o final do ano a partir da data fornecida.
+    - Converter a data para o fuso horário GMT+3 e mostrar o resultado.
+
+Em seguida, o programa deverá usar o módulo `calendar` para:
+
+    - Exibir o calendário do mês da data fornecida.
+    - Determinar e informar se o ano da data fornecida é bissexto.
+    - Listar todas as segundas-feiras do mês da data fornecida.
+
+
+!!! progress
+    Continuar...
 
 ## Interação com Sistemas de Arquivos
 
@@ -132,12 +208,14 @@ Vamos conhecer apenas ver alguns métodos, sugiro se aprofundar lendo a document
 ### Navegando pelo Sistema de Arquivos
 
 - **Obter o diretório atual**:
+
 ```python
 import os
 print(os.getcwd())
 ```
 
 - **Mudar de diretório**:
+
 ```python
 os.chdir('/path/to/directory')
 ```
@@ -145,21 +223,25 @@ os.chdir('/path/to/directory')
 ### Manipulando Diretórios
 
 - **Criar um diretório**:
+
 ```python
 os.mkdir('nome_do_diretorio')
 ```
 
 - **Criar múltiplos diretórios**:
+
 ```python
 os.makedirs('dir1/dir2/dir3')
 ```
 
 - **Renomear um diretório**:
+
 ```python
 os.rename('nome_atual', 'novo_nome')
 ```
 
 - **Remover um diretório**:
+
 ```python
 os.rmdir('nome_do_diretorio')
 ```
@@ -167,22 +249,26 @@ os.rmdir('nome_do_diretorio')
 ### Manipulando Arquivos
 
 - **Listar arquivos e diretórios**:
+
 ```python
 print(os.listdir('.'))
 ```
 
 - **Verificar a existência de um arquivo ou diretório**:
+
 ```python
 print(os.path.exists('nome_do_arquivo.txt'))
 ```
 
 - **Obter informações sobre o arquivo**:
+
 ```python
 info = os.stat('nome_do_arquivo.txt')
 print(info)
 ```
 
 - **Remover um arquivo**:
+
 ```python
 os.remove('nome_do_arquivo.txt')
 ```
@@ -195,6 +281,7 @@ os.remove('nome_do_arquivo.txt')
 ### Exemplos Práticos
 
 1. **Listar todos os arquivos de texto em um diretório**:
+
 ```python
 txt_files = [f for f in os.listdir('.') if f.endswith('.txt')]
 print(txt_files)
@@ -252,7 +339,6 @@ lista_arquivos = os.listdir('.')
 print(lista_arquivos)
 ```
 
+## Desafio
 
-## Exercicio
-
-1 - Para o projeto da `agenda` crie as funções que salva e os contatos em um arquivo txt ou json.
+Pratique o uso de modulos alterando o exemplo `automação de tarefas` para que ele organize os arquivos do seu computador. Esse script deve ser capaz de organizar os arquivos por extensão em diretórios diferentes. Por exemplo: imagens .jpg ou .png para a parta `img` arquivos .pdf para a pasta `pdf` e assim por diante. **ATENÇÃO: Muiti cuidado para não excluir seus arquivos pessoais**.
