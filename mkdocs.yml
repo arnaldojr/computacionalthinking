@@ -101,6 +101,7 @@ nav:
     - sobre: aulas/checkpoint/index.md
     - CP3: aulas/checkpoint/cp3.md
   - Pensamento computacional: aulas/ctp/intro/intro-ctp.md
+  - Playground: aulas/ctp/intro/playground.md
   - Fundamentos de Python:
     - Introdução ao Python: aulas/ctp/python/intro-python.md
     - Tipos de Dados e Variáveis: aulas/ctp/python/data-types.md
