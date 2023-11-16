@@ -2,17 +2,10 @@
 
 | Aula<br>Remota | Aula<br>Presencial | CONTEÚDO | LABORATÓRIO | OBSERVAÇÃO | Feriados |
 |:---:|:---:|:---:|:---:|:---:|:---:|
-| 10/10 |  | Juntando tudo... |  |  |  |
-|  | ❌<s>13/10</s> | Emenda de feriado do dia 12/10 (quinta-feira) - N. Sr.a Aparecida |  |  | 12/10 (quinta-feira) - N. Sr.a Aparecida |
-| 17/10 |  | Trabalhando com arquivos |  |  |  |
-|  | 20/10 | ⚠️ CheckPoint 2 - Presencial, individual e sem consulta. | CP2 | Avaliação Presencial, individual e sem consulta |  |
-| 24/10 |  | Modulos |  |  |  |
-|  | 27/10 | ⚠️ CP3 - Mini-projeto: Explicação e requisitos |  |  | 28/10 (sabado) - NEXT |
-| 31/10 |  | Aula estudio CP3 |  |  |  |
-|  | ❌<s>03/11</s> | Emenda de feriado do dia 02/11 (quinta-feira) - Finados |  |  | 02/11 (quinta-feira) - Finados |
-| 07/11 |  | Aula estudio para desenvolvimento de atividades "Desafios" atrasadas. |  |  |  |
-|  | 10/11 | Apresentação do mini-projeto CP3 |  | NOTA CP3 |  |
-| <span style="color:red"> 14/11</span> | <span style="color:red">17/11</span> | <span style="color:red">Período de aplicações das Provas Semestrais</span> |  | <span style="color:red">Provas</span> |  |
+|  | 14/11 | Introdução Programação Orientada à Objetos |  |  |  |
+|  | 17/11 | Introdução Programação Orientada à Objetos |  |  |  |
+| <span style="color:red"> 21/11</span> | <span style="color:red">24/11</span> | <span style="color:red">Período de aplicações das Provas Semestrais</span> |  | <span style="color:red">Provas</span> |  |
+| <span style="color:red"> 28/11</span> | <span style="color:red">01/12</span> | <span style="color:red">Período de aplicações das Provas Semestrais</span> |  | <span style="color:red">Provas</span> |  |
 
 
 ### O que já passou....
@@ -34,3 +27,13 @@
 |  | 29/09 | trabalhando com listas e tuplas | [lista3](https://classroom.github.com/a/IRVMh0Ox) |  |  |
 | 03/10 |  | Estruturas de repetição |  |  |  |
 |  | 06/10 | trabalhando com dicionários e conjuntos | [lista4](https://classroom.github.com/a/moEtcHsy)  |  |  |
+| 10/10 |  | Juntando tudo... |  |  |  |
+|  | ❌<s>13/10</s> | Emenda de feriado do dia 12/10 (quinta-feira) - N. Sr.a Aparecida |  |  | 12/10 (quinta-feira) - N. Sr.a Aparecida |
+| 17/10 |  | Trabalhando com arquivos |  |  |  |
+|  | 20/10 | ⚠️ CheckPoint 2 - Presencial, individual e sem consulta. | CP2 | Avaliação Presencial, individual e sem consulta |  |
+| 24/10 |  | Modulos |  |  |  |
+|  | 27/10 | ⚠️ CP3 - Mini-projeto: Explicação e requisitos |  |  | 28/10 (sabado) - NEXT |
+| 31/10 |  | Aula estudio CP3 |  |  |  |
+|  | ❌<s>03/11</s> | Emenda de feriado do dia 02/11 (quinta-feira) - Finados |  |  | 02/11 (quinta-feira) - Finados |
+| 07/11 |  | Aula estudio para desenvolvimento de atividades "Desafios" atrasadas. |  |  |  |
+|  | 10/11 | Apresentação do mini-projeto CP3 |  | NOTA CP3 |  |
