@@ -120,6 +120,10 @@ nav:
       - Módulos externos: aulas/ctp/python/modules2.md
     - Manipulação de Dados e Arquivos:    
       - Manipulação de arquivos: aulas/ctp/python/files-maniputation.md
+    - Programação Orientada a Objetos:
+      - Classes e Objetos: aulas/ctp/python/oop-classes-objects.md
+      - Herança, Encapsulamento e Métodos Privados: aulas/ctp/python/oop-inheritance.md
+      - Polimorfismo: aulas/ctp/python/oop-polymorphism.md
   - Laboratórios:
     - Solução Labs:
       - Lab02 - Tipos de dados e Variáveis: aulas/ctp/labs/solutions/solution-data-types.ipynb 
@@ -161,4 +165,9 @@ nav:
 #   - Estruturas de Dados:
 #     - Listas e Tuplas: aulas/ctp/data-structures/lists-tuples.md
 #     - Dicionários: aulas/ctp/data-structures/dicts-sets.md
+    # - Recursividade: aulas/ctp/python/recursion.md
+    # - Algoritmos de Ordenação: aulas/ctp/python/sorting-algorithms.md
+    # - Algoritmos de Busca: aulas/ctp/python/search-algorithms.md
+    # - Algoritmos de Grafos: aulas/ctp/python/graph-algorithms.md
+
 
