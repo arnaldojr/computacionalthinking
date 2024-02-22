@@ -1,3 +1,72 @@
+
+## Erros e Exceções em Python
+
+Ao escrever programas em Python, é comum encontrar situações em que o código não se comporta como esperado. Essas situações indesejadas são geralmente resultado de 'erros e exceções'. Entender e lidar adequadamente com esses problemas é crucial para desenvolver programas robustos e confiáveis.
+
+### Por que ocorrem erros?
+
+Erros podem ocorrer por diversos motivos, incluindo:
+
+`Erros de Sintaxe`: Ocorrem quando o código não segue as regras gramaticais da linguagem Python. São os erros mais fáceis de corrigir, pois o interpretador aponta exatamente onde está o problema.
+
+Exemplo:
+
+```python
+while True print('Hello world')
+```
+
+Neste caso, o interpretador indica exatamente onde o erro foi encontrado com uma seta apontando para o local. O erro é causado pelo fato de que falta um dois-pontos (':') antes do `print`.
+
+
+`Erros Lógicos`: São erros que ocorrem quando o programa é sintaticamente correto, mas não produz o resultado esperado. Esses erros são mais difíceis de detectar e corrigir, pois exigem uma compreensão profunda da lógica do programa.
+
+Exemplo:
+
+```python
+# Função para calcular a média de dois números
+def calcular_media(a, b):
+    media = (a * b) / 2 # Erro lógico: deveria ser (a + b) / 2
+    return media
+
+# Testando a função com valores esperados
+resultado = calcular_media(4, 6)
+print(f"A média de 4 e 6 é {resultado}")
+
+# Saída esperada: A média de 4 e 6 é 5
+# Saída real: A média de 4 e 6 é 12.0
+```
+
+
+`Exceções`: São erros detectados durante a execução do programa. Diferentemente dos erros de sintaxe, as exceções podem ocorrer mesmo quando o código está gramaticalmente correto. Exemplos comuns de exceções incluem tentativas de divisão por zero, acesso a um índice fora dos limites de uma lista e abertura de um arquivo que não existe.
+
+<iframe width="100%" frameborder="0" scrolling="no" allowtransparency="true" style="visibility:hidden" src="https://www.codingame.com/playground-widget/db2e3523ab5550151da2a5d53b4da81732725/tratamento-de-excecao/977242"></iframe>
+<script>if(void 0===window.techioScriptInjected){window.techioScriptInjected=!0;var d=document,s=d.createElement("script");s.src="https://files.codingame.com/codingame/iframe-v-1-4.js",(d.head||d.body).appendChild(s)}</script>
+	
+
+### Como os erros prejudicam a performance do sistema?
+
+Quando ocorrem podem ter várias consequências negativas para um sistema, tais como:
+
+`Interrupção do Programa`: Um erro não tratado pode causar a interrupção abrupta do programa, o que pode ser particularmente problemático em sistemas críticos ou em produção.
+
+`Comportamento Inesperado`: Erros lógicos podem levar a comportamentos inesperados, o que pode resultar em decisões incorretas ou em falhas de segurança.
+
+`Consumo Excessivo de Recursos`: Alguns erros, como vazamentos de memória, podem levar ao consumo excessivo de recursos do sistema, afetando a performance e a estabilidade.
+
+### A importância do tratamento de erros e exceções
+
+Tratar adequadamente os erros e exceções é essencial para garantir a confiabilidade e a robustez do sistema. Ao prever e lidar com situações de erro, é possível:
+
+`Melhorar a Usabilidade`: Programas que tratam erros de forma elegante proporcionam uma experiência de usuário mais amigável, evitando mensagens de erro confusas ou interrupções inesperadas.
+
+`Aumentar a Segurança`: Um tratamento cuidadoso de exceções pode prevenir falhas de segurança, como a exposição de informações sensíveis através de mensagens de erro.
+
+`Facilitar a Manutenção`: Códigos que incluem um tratamento claro e consistente de erros são mais fáceis de entender e manter.
+
+
+
+<!--- 
+
 ## Tipos de Dados em Python
 
 O Python é uma linguagem de tipagem dinÂmica, ou seja, o tipo de uma variável é determinado em tempo de execução, com base no valor que ela contém. Isso significa que as variáveis não precisam ser explicitamente declaradas com um tipo específico. 
@@ -505,3 +574,4 @@ resultado3 = not True  # False
         ```
 
 
+--->
