@@ -124,6 +124,8 @@ nav:
       - Classes e Objetos: aulas/ctp/python/oop-classes-objects.md
       - Herança, Encapsulamento e Métodos Privados: aulas/ctp/python/oop-inheritance.md
       - Polimorfismo: aulas/ctp/python/oop-polymorphism.md
+    - Erros e Exceções:
+      - Tratamento de Erros - Try, Except: aulas/ctp/python/errors-exceptions.md
   - Laboratórios:
     - Solução Labs:
       - Lab02 - Tipos de dados e Variáveis: aulas/ctp/labs/solutions/solution-data-types.ipynb 
@@ -140,7 +142,7 @@ nav:
   - Projetos Práticos:
     - Jogo da Adivinhação: aulas/ctp/projects/guessing-game.md
     - Agenda simples: aulas/ctp/projects/agenda.md
-    - CP3 - Projetos Temáticos: 
+    - Projetos Temáticos: 
       - Eventos - Proj1: aulas/ctp/projects/proj1-eventos.md
       - Finanças - Proj2: aulas/ctp/projects/proj2-financas.md
       - Jokenpô - Proj3: aulas/ctp/projects/proj3-pedra-papel-tesoura.md
