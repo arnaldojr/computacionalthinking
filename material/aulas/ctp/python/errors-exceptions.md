@@ -39,9 +39,10 @@ print(f"A média de 4 e 6 é {resultado}")
 
 `Exceções`: São erros detectados durante a execução do programa. Diferentemente dos erros de sintaxe, as exceções podem ocorrer mesmo quando o código está gramaticalmente correto. Exemplos comuns de exceções incluem tentativas de divisão por zero, acesso a um índice fora dos limites de uma lista e abertura de um arquivo que não existe.
 
-<iframe width="100%" frameborder="0" scrolling="no" allowtransparency="true" style="visibility:hidden" src="https://www.codingame.com/playground-widget/db2e3523ab5550151da2a5d53b4da81732725/tratamento-de-excecao/977242"></iframe>
-<script>if(void 0===window.techioScriptInjected){window.techioScriptInjected=!0;var d=document,s=d.createElement("script");s.src="https://files.codingame.com/codingame/iframe-v-1-4.js",(d.head||d.body).appendChild(s)}</script>
+<iframe src="https://trinket.io/embed/python/fb23cc1777" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 	
+Note que neste código temos um problema. Não podemos fazer divisão por zero. Imagine esse código rodando em um servidor, esse erro vai fazer o nosso programa python 'quebrar' e parar de executar. E agora como podemos resolver, sabemos que a equação está correta??
+
 
 ### Como os erros prejudicam a performance do sistema?
 
