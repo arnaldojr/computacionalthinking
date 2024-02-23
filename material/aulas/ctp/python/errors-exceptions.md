@@ -39,10 +39,13 @@ print(f"A média de 4 e 6 é {resultado}")
 
 `Exceções`: São erros detectados durante a execução do programa. Diferentemente dos erros de sintaxe, as exceções podem ocorrer mesmo quando o código está gramaticalmente correto. Exemplos comuns de exceções incluem tentativas de divisão por zero, acesso a um índice fora dos limites de uma lista e abertura de um arquivo que não existe.
 
-<iframe src="https://trinket.io/embed/python/fb23cc1777" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+<iframe src="https://trinket.io/embed/python/47891252d0" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 	
-Note que neste código temos um problema. Não podemos fazer divisão por zero. Imagine esse código rodando em um servidor, esse erro vai fazer o nosso programa python 'quebrar' e parar de executar. E agora como podemos resolver, sabemos que a equação está correta??
+Note que neste código temos um problema. Não podemos fazer divisão por zero. Imagine esse código rodando em um servidor, esse erro vai fazer o nosso programa python 'quebrar' e parar de executar. E agora como podemos resolver de forma a evitar que o programa pare de funcionar. 
 
+
+!!! tip
+    Queremos garantir que nosso programa possa lidar com situações inesperadas sem 'quebrar'."
 
 ### Como os erros prejudicam a performance do sistema?
 
@@ -64,515 +67,384 @@ Tratar adequadamente os erros e exceções é essencial para garantir a confiabi
 
 `Facilitar a Manutenção`: Códigos que incluem um tratamento claro e consistente de erros são mais fáceis de entender e manter.
 
-
-
-<!--- 
-
-## Tipos de Dados em Python
-
-O Python é uma linguagem de tipagem dinÂmica, ou seja, o tipo de uma variável é determinado em tempo de execução, com base no valor que ela contém. Isso significa que as variáveis não precisam ser explicitamente declaradas com um tipo específico. 
-
-!!! tip
-    Vale a pena mensionar que no Python, tudo é considerado um objeto. Isso significa que todos os valores, variáveis, funções e até mesmo tipos de dados são tratados como objetos. Mais adiante no curso vamos voltar e falar mais sobre isso.
-
-### Tipos built-in
-
-Os tipos primitivos em Python se referem aos tipos de dados básicos e fundamentais que são usados para representar valores simples. Vamos dar uma olhada e conhecer os principais. 
-
-!!! tip
-    Como sugestão leia a documentação oficial do python que trata deste assunto: [https://docs.python.org/pt-br/3.5/library/stdtypes.html](https://docs.python.org/pt-br/3.5/library/stdtypes.html) 
-
-#### Números
-
-Os números são uma parte essencial de qualquer linguagem de programação. Em Python, eles são definidos como objetos imutáveis, o que significa que seu valor não pode ser alterado após a criação.
-
-- **Inteiros (int)**: São números sem uma parte decimal e podem ser positivos, negativos ou zero. Em Python, os inteiros são representados em base decimal por padrão, mas também podem ser expressos em base binária, octal ou hexadecimal.
-
-  ```python
-  decimal = 10
-  binario = 0b10
-  octal = 0o10
-  hexadecimal = 0x10
-  ```
-
-- **Ponto Flutuante (float)**: Representam números reais e são escritos com uma parte decimal. Eles são especificados em notação decimal ou em notação científica.
-
-  ```python
-  decimal = 3.14
-  notacao_cientifica = 2.5e3
-  ```
-
-#### Strings
-
-Strings são sequências de caracteres Unicode. Em Python, as strings são imutáveis, o que significa que uma vez definidas, seus valores não podem ser alterados. Elas podem ser indexadas e fatiadas para obter sub-strings.
-  
-```python
-texto = "Python"
-primeira_letra = texto[0]  # Resultado: 'P'
-sub_string = texto[1:4]  # Resultado: 'yth'
-```
-
-#### Booleanos
-
-Os booleanos são usados para representar valores de verdade. Em Python, eles são subtipos de inteiros e têm apenas dois valores possíveis: `True` e `False`.
-
-```python
-verdadeiro = True
-falso = False
-```
-
-### Exercícios sobre Tipos Primitivos
-
-!!! exercise choice "Question"
-    Qual dos seguintes é um exemplo válido de um número de ponto flutuante em Python?
-    
-    - [ ] `12345`
-    - [x] `123.45`
-    - [ ] `"123.45"`
-    - [ ] `True`
-
-    !!! answer
-        `123.45` é um número de ponto flutuante válido em Python.
-
-!!! exercise choice "Question"
-    Qual é o valor da string após a execução do seguinte código: `texto = "Py" + "thon"`
-    
-    - [ ] `Py`
-    - [ ] `thon`
-    - [x] `Python`
-    - [ ] `Pythonthon`
-
-    !!! answer
-        A string resultante da concatenação é `Python`.
-
-!!! exercise choice "Question"
-    Qual é o resultado da seguinte expressão booleana: `True and False`?
-    
-    - [ ] `True`
-    - [x] `False`
-    - [ ] `0`
-    - [ ] `1`
-
-    !!! answer
-        O resultado da expressão `True and False` é `False`.
-
-
 !!! progress
     Continuar...
 
-### Variáveis e Atribuição
+## Exceções
 
-Variáveis em Python são referências a objetos na memória. A atribuição em Python é dinâmica, o que significa que o tipo de uma variável é determinado em tempo de execução.
+Mesmo que um comando ou expressão estejam sintaticamente corretos, pode ocorrer um erro durante sua execução. Erros detectados durante a execução são chamados de exceções e não são necessariamente fatais.
 
-```python
-idade = 30
-nome = "Maria"
-```
-
-#### Convenção para Nomes:
-
-Nomes de variáveis devem ser minúsculos com palavras separadas por underlines.
+Exemplos de exceções:
 
 ```python
-nome_completo = "João Silva"
-idade_pessoa = 25
-valor_total_compra = 150.50
+10 * (1/0)   # ZeroDivisionError
+4 + spam*3   # NameError
+'2' + 2      # TypeError
 ```
 
-#### Erros de Nomes:
+## Tratamento de Exceções
 
-No Python, cada variável deve ser atribuída antes de ser acessada. Se você tentar acessar uma variável que não foi atribuída, receberá um erro.
+Em python, é possível escrever programas que tratam exceções específicas usando os blocos `try` e `except`:
 
 ```python
-# Isto causará um erro porque a variável 'salario' não foi definida antes de ser usada.
-print(salario)
-salario = 1000
+try:
+    # bloco de código que pode gerar um erro
+except:
+    # bloco de código que será executado em caso de erro
+
 ```
 
-### Atribuição Aumentada
-
-A atribuição aumentada é a combinação, em uma única instrução, de uma operação binária e uma instrução de atribuição:
-
-| Operação | Exemplo | Equivalente |
-|----------|---------|-------------|
-| +=       | a += b  | a = a + b   |
-| -=       | a -= b  | a = a - b   |
-| *=       | a *= b  | a = a * b   |
-| /=       | a /= b  | a = a / b   |
+- O bloco `try` contém o código que pode gerar um erro. Se ocorrer um erro durante a execução desse bloco, o bloco except será executado.
+- O bloco `except` é utilizado para tratar o erro de uma forma adequada, seja exibindo uma mensagem de erro para o usuário ou realizando alguma outra ação para corrigir o problema.
 
 
+## Tipos de Erros (Except) Exceções
+
+Tratar qualquer tipo de exceção da mesma maneira não é considerado uma boa prática de programação. É recomendável especificar o tipo de erro exato que a cláusula `except` irá capturar. Por isso, o comando try pode ter `mais de um except associado ao tipo de errro`, caso o programador queira associar um tratamento diferente para cada um deles.
+
+O formato geral do comando é:
+
+```python
+try:
+    # bloco de código que pode gerar um erro
+except tipo_de_erro1:
+    # bloco de código que será executado em caso de erro do tipo 1
+except tipo_de_erro2:
+    # bloco de código que será executado em caso de erro do tipo 1
+except tipo_de_erro3:
+    # bloco de código que será executado em caso de erro do tipo 1
+```
+
+Alguns tipos de exceção mais comuns:
+
+`NameError`: exceção gerada quando o programa não consegue encontrar um nome de variável local ou global.
+`TypeError`: exceção gerada quando é passado um objeto de um tipo diferente do tipo que a função espera como argumento.
+`ValueError`: essa exceção ocorre quando um argumento de uma função tem o tipo certo, mas um valor inadequado.
+`ZeroDivisionError`: exceção gerada quando você fornece um zero como segundo argumento para uma divisão ou módulo.
+`FileNotFoundError`: essa exceção é gerada quando o arquivo ou diretório que o programa solicitou não existe.
 
 
-### Exercícios sobre Variáveis e Atribuição
+### Exercícios sobre tipos de erros
 
-!!! exercise choice "Question"
-    Após a execução do código `x = 5` e `y = x`, qual é o valor de `y`?
-    
-    - [ ] `0`
-    - [x] `5`
-    - [ ] `x`
-    - [ ] `None`
-
-    !!! answer
-        O valor de `y` é `5`.
-
-!!! exercise choice "Question"
-    Se `nome = "Ana"`, qual é o resultado de `nome * 3`?
-    
-    - [ ] `AnaAnaAnaAna`
-    - [x] `AnaAnaAna`
-    - [ ] `Ana3`
-    - [ ] `9`
-
-    !!! answer
-        O resultado é `AnaAnaAna`.
 
 !!! exercise choice "Question"
-    Qual é o tipo da variável após a execução do seguinte código: `valor = "123"`?
-    
-    - [ ] `int`
-    - [x] `str`
-    - [ ] `float`
-    - [ ] `bool`
+    Qual linha de código abaixo causará um erro `ZeroDivisionError` em Python?
+
+    - [ ] `print(10 / 2)`
+    - [ ] `print(5 * 0)`
+    - [x] `print(1 / 0)`
+    - [ ] `print(0 + 10)`
 
     !!! answer
-        O tipo da variável `valor` é `str`.
+        `print(1 / 0)` causará um erro `ZeroDivisionError`, pois não é possível dividir um número por zero.
 
+!!! exercise choice "Question"
+    Qual linha de código abaixo causará um erro `NameError` em Python?
+
+    - [ ] `x = 5`
+    - [x] `print(y)`
+    - [ ] `print("Hello, world!")`
+    - [ ] `x = "Python"`
+
+    !!! answer
+        `print(y)` causará um erro `NameError`, pois a variável `y` não foi definida antes de ser usada.
+
+!!! exercise choice "Question"
+    Qual linha de código abaixo causará um erro `TypeError` em Python?
+
+    - [ ] `print(10 + 5)`
+    - [ ] `print("Python" * 3)`
+    - [x] `print("Python" + 3)`
+    - [ ] `print(len("Python"))`
+
+    !!! answer
+        `print("Python" + 3)` causará um erro `TypeError`, pois não é possível concatenar uma string com um número inteiro.
+
+!!! exercise choice "Question"
+    Qual linha de código abaixo causará um erro `IndexError` em Python?
+
+    - [ ] `lista = [1, 2, 3]`
+    - [ ] `print(lista[1])`
+    - [ ] `lista.append(4)`
+    - [x] `print(lista[3])`
+
+    !!! answer
+        `print(lista[3])` causará um erro `IndexError`, pois o índice 3 está fora do alcance da lista `lista` que tem apenas 3 elementos.
+
+!!! exercise choice "Question"
+    Qual linha de código abaixo causará um erro `KeyError` em Python?
+
+    - [ ] `dicionario = {"nome": "João", "idade": 30}`
+    - [ ] `print(dicionario["nome"])`
+    - [x] `print(dicionario["altura"])`
+    - [ ] `dicionario["cidade"] = "São Paulo"`
+
+    !!! answer
+        `print(dicionario["altura"])` causará um erro `KeyError`, pois a chave `altura` não existe no dicionário `dicionario`.
+
+!!! exercise choice "Question"
+    Qual linha de código abaixo causará um erro `AttributeError` em Python?
+
+    - [ ] `import math`
+    - [ ] `print(math.sqrt(16))`
+    - [x] `print(math.PI)`
+    - [ ] `print(math.pow(2, 3))`
+
+    !!! answer
+        `print(math.PI)` causará um erro `AttributeError`, pois o módulo `math` não possui um atributo chamado `PI`.
 
 !!! progress
     Continuar...
 
 
-### Conversão de Tipos
+Além disso, é possível utilizar a cláusula `else` para executar um bloco de código caso não ocorra nenhum erro no bloco try. 
 
-Python permite a conversão explícita entre diferentes tipos de dados. Isso é útil quando você precisa operar valores de diferentes tipos juntos.
 
 ```python
-# Convertendo float para int
-numero_inteiro = int(7.8)  # Resultado: 7
-
-# Convertendo int para float
-numero_float = float(4)  # Resultado: 4.0
-
-# Convertendo número para string
-texto_numero = str(25)  # Resultado: '25'
+try:
+    # bloco de código que pode gerar um erro
+except tipo_de_erro1:
+    # bloco de código que será executado em caso de erro do tipo 1
+except tipo_de_erro2:
+    # bloco de código que será executado em caso de erro do tipo 1
+else:
+    # bloco de código que será executado se nenhum erro ocorrer no bloco try
 ```
 
-### Exercícios sobre Conversão de Tipos
+E também é possível utilizar a cláusula `finally` para executar um bloco de código que sempre será executado, independentemente de ter ocorrido um erro ou não. Por exemplo:
+
+
+```python
+try:
+    # bloco de código que pode gerar um erro
+except tipo_de_erro1:
+    # bloco de código que será executado em caso de erro do tipo 1
+except tipo_de_erro2:
+    # bloco de código que será executado em caso de erro do tipo 1
+else:
+    # bloco de código que será executado se nenhum erro ocorrer no bloco try
+finally:
+    # bloco de código que sempre será executado, independentemente de ter ocorrido um erro ou não
+```
 
 !!! exercise choice "Question"
-    Qual é o resultado da seguinte conversão: `int("123")`?
-    
-    - [x] `123`
-    - [ ] `"123"`
-    - [ ] `12.3`
-    - [ ] `None`
+    Qual é a saída do seguinte código?
+
+    ```python
+    try:
+        print("Iniciando...")
+        x = 1 / "texto"
+    except TypeError:
+        print("Erro de tipo.")
+    ```
+
+    - [ ] `Iniciando...`
+    - [x] `Iniciando...\nErro de tipo.`
+    - [ ] `Erro de tipo.`
+    - [ ] `Iniciando...\nErro de tipo.\nFinalizando...`
 
     !!! answer
-        A conversão resulta no número inteiro `123`.
+        A saída será `Iniciando...\nErro de tipo.` pois ocorre um erro de tipo e o bloco `except` é executado.
 
 !!! exercise choice "Question"
-    Se `x = 5.7`, qual é o valor de `int(x)`?
-    
-    - [x] `5`
-    - [ ] `5.7`
-    - [ ] `6`
-    - [ ] `57`
+    Qual é a saída do seguinte código?
+
+    ```python
+    try:
+        print("Tentando...")
+        x = 10 / 2
+    except ZeroDivisionError:
+        print("Erro de divisão por zero.")
+    else:
+        print("Nenhum erro ocorreu.")
+    ```
+
+    - [ ] `Tentando...\nErro de divisão por zero.`
+    - [x] `Tentando...\nNenhum erro ocorreu.`
+    - [ ] `Nenhum erro ocorreu.`
+    - [ ] `Tentando...`
 
     !!! answer
-        O valor de `int(x)` é `5`.
+        A saída será `Tentando...\nNenhum erro ocorreu.` pois não ocorre nenhum erro e o bloco `else` é executado.
 
 !!! exercise choice "Question"
-    Qual é o resultado da seguinte conversão: `float("123.45")`?
-    
-    - [ ] `123`
-    - [x] `123.45`
-    - [ ] `"123.45"`
-    - [ ] `None`
+    Qual é a saída do seguinte código?
+
+    ```python
+    try:
+        print("Iniciando...")
+        x = int("texto")
+    except ValueError:
+        print("Erro de valor.")
+    else:
+        print("Conversão bem-sucedida.")
+    ```
+
+    - [ ] `Iniciando...\nConversão bem-sucedida.`
+    - [ ] `Erro de valor.`
+    - [x] `Iniciando...\nErro de valor.`
+    - [ ] `Iniciando...`
 
     !!! answer
-        A conversão resulta no número de ponto flutuante `123.45`.
+        A saída será `Iniciando...\nErro de valor.` pois ocorre um erro de valor e o bloco `except` é executado.
+
+
+!!! exercise choice "Question"
+    Qual é a saída do seguinte código?
+
+    ```python
+    try:
+        print("Iniciando...")
+        x = 1 / 0
+    except ZeroDivisionError:
+        print("Erro de divisão por zero.")
+    else:
+        print("Nenhum erro ocorreu.")
+    finally:
+        print("Finalizando...")
+    ```
+
+    - [ ] `Iniciando...\nNenhum erro ocorreu.\nFinalizando...`
+    - [x] `Iniciando...\nErro de divisão por zero.\nFinalizando...`
+    - [ ] `Erro de divisão por zero.\nFinalizando...`
+    - [ ] `Iniciando...\nFinalizando...`
+
+    !!! answer
+        A saída será `Iniciando...\nErro de divisão por zero.\nFinalizando...` pois ocorre um erro de divisão por zero, o bloco `except` é executado, e o bloco `finally` é executado independentemente do que acontece antes.
+
+!!! exercise choice "Question"
+    Qual é a saída do seguinte código?
+
+    ```python
+    try:
+        print("Tentando...")
+        x = 1 / 1
+    except ZeroDivisionError:
+        print("Erro de divisão por zero.")
+    else:
+        print("Nenhum erro ocorreu.")
+    finally:
+        print("Finalizando...")
+    ```
+
+    - [ ] `Tentando...\nErro de divisão por zero.\nFinalizando...`
+    - [ ] `Tentando...\nFinalizando...`
+    - [ ] `Nenhum erro ocorreu.\nFinalizando...`
+    - [x] `Tentando...\nNenhum erro ocorreu.\nFinalizando...`
+
+    !!! answer
+        A saída será `Tentando...\nNenhum erro ocorreu.\nFinalizando...` pois não ocorre nenhum erro, o bloco `else` é executado, e o bloco `finally` é executado independentemente do que acontece antes.
+
+!!! exercise choice "Question"
+    Qual é a saída do seguinte código?
+
+    ```python
+    try:
+        print("Iniciando...")
+        x = "texto" + 5
+    except TypeError:
+        print("Erro de tipo.")
+    finally:
+        print("Finalizando...")
+    ```
+
+    - [ ] `Iniciando...\nFinalizando...`
+    - [ ] `Erro de tipo.\nFinalizando...`
+    - [x] `Iniciando...\nErro de tipo.\nFinalizando...`
+    - [ ] `Iniciando...\nErro de tipo.`
+
+    !!! answer
+        A saída será `Iniciando...\nErro de tipo.\nFinalizando...` pois ocorre um erro de tipo, o bloco `except` é executado, e o bloco `finally` é executado independentemente do que acontece antes.
 
 !!! progress
     Continuar...
 
 
-### Entrada e Saída
 
-A interação com o usuário é fundamental para muitos programas. Python fornece funções simples para entrada e saída de dados. A função `input()` sempre retorna uma string, se queremos armazenar um valor numerico precisamos converter esse valor.
+### Desafios
 
-```python
-nome_usuario = input("Qual é o seu nome? ")
-print(f"Olá, {nome_usuario}!")
+1. Refaça o desafios do inicio da aula para encontrar o angulo da reta entre os pontos utilizando as tratativas de erros e exceções.
+
+2. Responda: 
+
+!!! exercise choice "Question"
+    Considere a seguinte função que realiza uma operação de divisão e trata possíveis erros:
+
+    ```python
+    def safe_division(numerator, denominator):
+        try:
+            result = numerator / denominator
+        except ZeroDivisionError:
+            print("Erro: Divisão por zero não é permitida.")
+            return None
+        except TypeError:
+            print("Erro: Os tipos dos argumentos devem ser numéricos.")
+            return None
+        else:
+            return result
+        finally:
+            print("Operação concluída.")
+    ```
+
+    Qual será a saída ao executar a seguinte linha de código:
+
+    ```python
+    print(safe_division(10, "5"))
+    ```
+
+    - [ ] `2.0\nOperação concluída.`
+    - [ ] `Erro: Divisão por zero não é permitida.\nOperação concluída.`
+    - [x] `Erro: Os tipos dos argumentos devem ser numéricos.\nOperação concluída.\nNone`
+    - [ ] `Operação concluída.\nNone`
+
+    !!! answer
+        A saída será `Erro: Os tipos dos argumentos devem ser numéricos.\nOperação concluída.\nNone` porque o denominador não é um número, causando um `TypeError`, e a função retorna `None` após imprimir a mensagem de erro. O bloco `finally` é executado independentemente, imprimindo "Operação concluída."
+
+3. Para o código a seguir, responda onde e porque é necessário adicionar ao código algum controle de erro exceção:
+
+
+ ```python
+ def adicionar_tarefa(tarefas, tarefa):
+    tarefas.append(tarefa)
+    print("Tarefa adicionada com sucesso!")
+
+def remover_tarefa(tarefas, tarefa):
+    tarefas.remove(tarefa)
+    print("Tarefa removida com sucesso!")
+
+def visualizar_tarefas(tarefas):
+    if len(tarefas) == 0:
+        print("Nenhuma tarefa na lista.")
+    else:
+        print("Tarefas na lista:")
+        for tarefa in tarefas:
+            print(tarefa)
+
+def main():
+    tarefas = []
+
+    while True:
+        print("\n1 - Adicionar tarefa")
+        print("2 - Remover tarefa")
+        print("3 - Visualizar tarefas")
+        print("4 - Sair")
+
+        opcao = input("Escolha uma opção: ")
+
+        if opcao == "1":
+            tarefa = input("Digite a tarefa: ")
+            adicionar_tarefa(tarefas, tarefa)
+        elif opcao == "2":
+            tarefa = input("Digite a tarefa a ser removida: ")
+            remover_tarefa(tarefas, tarefa)
+        elif opcao == "3":
+            visualizar_tarefas(tarefas)
+        elif opcao == "4":
+            print("Saindo do programa...")
+            break
+        else:
+            print("Opção inválida.")
+
+if __name__ == "__main__":
+    main()
 ```
-
-
-### Exercícios sobre Entrada e Saída
-
-!!! exercise choice "Question"
-    Qual função é usada em Python para obter entrada do usuário?
-    
-    - [x] `input()`
-    - [ ] `print()`
-    - [ ] `get()`
-    - [ ] `read()`
-
-    !!! answer
-        A função `input()` é usada para obter entrada do usuário em Python.
-
-!!! exercise choice "Question"
-    Se usarmos o código `valor = input("Digite um número: ")`, e o usuário digitar `5`, qual será o tipo da variável `valor`?
-    
-    - [ ] `int`
-    - [x] `str`
-    - [ ] `float`
-    - [ ] `bool`
-
-    !!! answer
-        Mesmo que o usuário digite um número, a função `input()` sempre retorna uma string. Portanto, o tipo da variável `valor` é `str`.
-
-!!! exercise choice "Question"
-    Qual é a saída do seguinte código: `print("Olá", "Mundo", sep="-")`?
-    
-    - [ ] `Olá Mundo`
-    - [x] `Olá-Mundo`
-    - [ ] `Olá, Mundo`
-    - [ ] `OláMundo`
-
-    !!! answer
-        A saída do código é `Olá-Mundo` porque o argumento `sep` especifica o caractere usado para separar os valores.
-
-!!! progress
-    Continuar...
-
-
-### Operadores
-
-Os operadores são símbolos especiais que realizam operações em variáveis e valores.
-
-#### Operadores Aritméticos
-
-Os operadores aritméticos são usados para realizar operações matemáticas básicas. Eles seguem a ordem padrão de operações matemáticas.
-
-| Operador | Significado       | Exemplo  |
-|----------|-------------------|----------|
-| +        | Adição            | a + b    |
-| -        | Subtração         | a - b    |
-| *        | Multiplicação     | a * b    |
-| /        | Divisão           | a / b    |
-| %        | Módulo            | a % b    |
-| **       | Exponenciação     | a ** b   |
-| //       | Divisão Inteira   | a // b   |
-
-## Operadores Aritméticos
-
-Os operadores aritméticos são usados para realizar operações matemáticas básicas. Durante o cálculo de uma expressão, o Python precisa decidir também o tipo do valor calculado.
-
-Por exemplo, ao avaliar a expressão “5 * 3”, o Python tenta manter o tipo dos operandos. Neste caso, ambos os operandos são do tipo `int`, então o resultado é `15`, que também é do tipo `int`.
-
-No entanto, a expressão “8 / 2” resulta em `4.0`, que é do tipo `float`. Isso ocorre porque a divisão em Python sempre retorna um número de ponto flutuante, mesmo que o resultado seja um número inteiro. Contudo, se usarmos o operador de divisão inteira `//`, o resultado será `4`, que é do tipo `int`.
-
-```python
-# Exemplos:
-soma = 5 + 3  # 8
-subtracao = 5 - 3  # 2
-multiplicacao = 5 * 3  # Resultado: 15 (int)
-divisao = 8 / 2  # Resultado: 4.0 (float)
-divisao_inteira = 8 // 2 # Resultado: 4 (int)
-```
-
-Uma regra geral no Python é que, quando os operandos são de tipos distintos, como `int` e `float`, o operando de tipo "menor" é promovido ao tipo "maior" (ou mais abrangente, no caso o `float`). Assim, a operação é realizada no tipo mais abrangente.
-
-A conversão entre tipos nativos do Python pode ser realizada usando funções com o nome do tipo desejado. Veja os exemplos abaixo:
-
-```python
-numero_float = float(4)         # Resultado: 4.0
-numero_int = int(4.5)           # Resultado: 4
-```
-
-#### Operadores Relacionais
-
-Os operadores relacionais são usados para comparar valores. Eles retornam um valor booleano (`True` ou `False`) com base na comparação.
-
-| Operador | Significado               | Exemplo  |
-|----------|---------------------------|----------|
-| ==       | Igual a                   | a == b   |
-| !=       | Diferente de              | a != b   |
-| >        | Maior que                 | a > b    |
-| <        | Menor que                 | a < b    |
-| >=       | Maior ou igual a          | a >= b   |
-| <=       | Menor ou igual a          | a <= b   |
-
-```python
-# Exemplos:
-igual = (5 == 5)  # True
-diferente = (5 != 3)  # True
-menor = (3 < 5)  # True
-maior = (5 > 3)  # True
-```
-
-#### Operadores Lógicos
-
-Os operadores lógicos são usados para combinar múltiplas condições. Eles são fundamentais em estruturas de decisão e loops. Verdadeiro (V), Falso (F).
-
-#### Operador `and` (E lógico)
-
-| A | B | Resultado |
-|---|---|-----------|
-| V | V | V         |
-| V | F | F         |
-| F | V | F         |
-| F | F | F         |
-
-**Exemplo:** `a and b`
-
-#### Operador `or` (OU lógico)
-
-| A | B | Resultado |
-|---|---|-----------|
-| V | V | V         |
-| V | F | V         |
-| F | V | V         |
-| F | F | F         |
-
-**Exemplo:** `a or b`
-
-#### Operador `not` (NÃO lógico, barrado, inversor)
-
-| A | Resultado |
-|---|-----------|
-| V | F         |
-| F | V         |
-
-**Exemplo:** `not a`
-
-```python
-# Exemplos:
-resultado1 = True and False  # False
-resultado2 = True or False  # True
-resultado3 = not True  # False
-```
-
-### Exercícios sobre Operadores
-
-!!! exercise choice "Question"
-    Qual é o resultado da seguinte operação: `10 % 3`?
-    
-    - [ ] `3`
-    - [ ] `0`
-    - [x] `1`
-    - [ ] `10`
-
-    !!! answer
-        O resultado da operação `10 % 3` é `1`.
-
-!!! exercise choice "Question"
-    Se `x = 5` e `y = 3`, qual é o valor de `x ** y`?
-    
-    - [ ] `8`
-    - [ ] `15`
-    - [x] `125`
-    - [ ] `2`
-
-    !!! answer
-        O valor de `x ** y` é `125`.
-
-!!! exercise choice "Question"
-    Qual é o resultado da seguinte expressão: `5 > 3 and 5 < 10`?
-    
-    - [x] `True`
-    - [ ] `False`
-    - [ ] `None`
-    - [ ] `Error`
-
-    !!! answer
-        O resultado da expressão `5 > 3 and 5 < 10` é `True`.
-
-!!! exercise choice "Question"
-    Qual é o resultado da seguinte operação: `7 // 3`?
-    
-    - [x] `2`
-    - [ ] `2.33`
-    - [ ] `3`
-    - [ ] `1`
-
-    !!! answer
-        O resultado da operação `7 // 3` é `2`, pois `//` é o operador de divisão inteira.
-
-!!! exercise choice "Question"
-    Dado `x = 10` e `y = 3`, qual é o valor de `x != y`?
-    
-    - [x] `True`
-    - [ ] `False`
-    - [ ] `None`
-    - [ ] `Error`
-
-    !!! answer
-        A expressão `x != y` verifica se `x` é diferente de `y`. Como 10 é diferente de 3, o resultado é `True`.
-
-!!! exercise choice "Question"
-    Qual é o resultado da seguinte expressão: `not (5 <= 3)`?
-    
-    - [x] `True`
-    - [ ] `False`
-    - [ ] `None`
-    - [ ] `Error`
-
-    !!! answer
-        A expressão `5 <= 3` é `False`, mas o operador `not` inverte o valor booleano. Portanto, o resultado é `True`.
-
-
-
-!!! progress
-    Continuar...
-
-### Exercicios problema
-
-
-!!! exercise "Question"
-    Cálculo de Juros Compostos
-    Você está planejando fazer um depósito em uma conta poupança que paga juros compostos mensalmente. Para ajudá-lo a entender quanto dinheiro você terá após um determinado período, você decide escrever um programa.
-    
-    Instruções:
-    
-    - O programa deve começar perguntando quanto você planeja depositar inicialmente.
-    - Em seguida, o programa deve perguntar a taxa de juros anual (em porcentagem) que será paga.
-    - Por fim, o programa deve perguntar por quantos anos o dinheiro ficará depositado.
-    - O programa então calculará o montante final usando a fórmula de juros compostos e exibirá o resultado.
-    
-    - Fórmula de Juros Compostos:
-    $$
-    A = P(1 + \frac{r}{n})^{nt}
-    $$
-    
-    Onde:
-    
-    - \( A \) é o valor futuro do investimento/empréstimo, incluindo juros.
-    - \( P \) é o valor principal do investimento (depósito inicial ou valor do empréstimo).
-    - \( r \) é a taxa de juro anual (em formato decimal).
-    - \( n \) é o número de vezes que o juro é capitalizado por ano.
-    - \( t \) é o número de anos que o dinheiro é investido ou emprestado.
-
-    Teste o seu código com: 
-
-        - Deposito inicial = 1000
-        - taxa de juros = 5
-        - tempo = 2
-        - O resultado esperado é: 1104.94
-
-
-    !!! answer
-        Uma possivel solução é:
-        ```python
-        P = float(input("Quanto você planeja depositar inicialmente? "))
-        r = float(input("Qual a taxa de juros anual (em porcentagem)? "))
-        t = float(input("Por quantos anos o dinheiro ficará depositado? "))
-        
-        r = r/100 # Converte a taxa de juros de % para decimal dividindo por 100
-        A = P * (1 + r/12)**(12*t) # equação de juros compostos
-        A = round(A, 2) # arredonda o valor com 2 casas decimais
-        print("Total após " + str(t) + " anos: " + str(A))
-        ```
-
-
---->
