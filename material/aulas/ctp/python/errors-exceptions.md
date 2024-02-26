@@ -363,7 +363,10 @@ finally:
 
 ### Desafios
 
+
+
 1. Refaça o desafios do inicio da aula para encontrar o angulo da reta entre os pontos utilizando as tratativas de erros e exceções.
+
 
 2. Responda: 
 
@@ -400,51 +403,53 @@ finally:
     !!! answer
         A saída será `Erro: Os tipos dos argumentos devem ser numéricos.\nOperação concluída.\nNone` porque o denominador não é um número, causando um `TypeError`, e a função retorna `None` após imprimir a mensagem de erro. O bloco `finally` é executado independentemente, imprimindo "Operação concluída."
 
+
 3. Para o código a seguir, responda onde e porque é necessário adicionar ao código algum controle de erro exceção:
 
 
- ```python
- def adicionar_tarefa(tarefas, tarefa):
-    tarefas.append(tarefa)
-    print("Tarefa adicionada com sucesso!")
+    ```python
 
-def remover_tarefa(tarefas, tarefa):
-    tarefas.remove(tarefa)
-    print("Tarefa removida com sucesso!")
+    def adicionar_tarefa(tarefas, tarefa):
+        tarefas.append(tarefa)
+        print("Tarefa adicionada com sucesso!")
 
-def visualizar_tarefas(tarefas):
-    if len(tarefas) == 0:
-        print("Nenhuma tarefa na lista.")
-    else:
-        print("Tarefas na lista:")
-        for tarefa in tarefas:
-            print(tarefa)
+    def remover_tarefa(tarefas, tarefa):
+        tarefas.remove(tarefa)
+        print("Tarefa removida com sucesso!")
 
-def main():
-    tarefas = []
-
-    while True:
-        print("\n1 - Adicionar tarefa")
-        print("2 - Remover tarefa")
-        print("3 - Visualizar tarefas")
-        print("4 - Sair")
-
-        opcao = input("Escolha uma opção: ")
-
-        if opcao == "1":
-            tarefa = input("Digite a tarefa: ")
-            adicionar_tarefa(tarefas, tarefa)
-        elif opcao == "2":
-            tarefa = input("Digite a tarefa a ser removida: ")
-            remover_tarefa(tarefas, tarefa)
-        elif opcao == "3":
-            visualizar_tarefas(tarefas)
-        elif opcao == "4":
-            print("Saindo do programa...")
-            break
+    def visualizar_tarefas(tarefas):
+        if len(tarefas) == 0:
+            print("Nenhuma tarefa na lista.")
         else:
-            print("Opção inválida.")
+            print("Tarefas na lista:")
+            for tarefa in tarefas:
+                print(tarefa)
 
-if __name__ == "__main__":
-    main()
-```
+    def main():
+        tarefas = []
+
+        while True:
+            print("\n1 - Adicionar tarefa")
+            print("2 - Remover tarefa")
+            print("3 - Visualizar tarefas")
+            print("4 - Sair")
+
+            opcao = input("Escolha uma opção: ")
+
+            if opcao == "1":
+                tarefa = input("Digite a tarefa: ")
+                adicionar_tarefa(tarefas, tarefa)
+            elif opcao == "2":
+                tarefa = input("Digite a tarefa a ser removida: ")
+                remover_tarefa(tarefas, tarefa)
+            elif opcao == "3":
+                visualizar_tarefas(tarefas)
+            elif opcao == "4":
+                print("Saindo do programa...")
+                break
+            else:
+                print("Opção inválida.")
+
+    if __name__ == "__main__":
+        main()
+    ```
