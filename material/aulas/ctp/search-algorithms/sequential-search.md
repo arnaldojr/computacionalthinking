@@ -1,0 +1,2 @@
+## Busca sequencial
+
