@@ -48,6 +48,7 @@ Vamos descrever uma forma de implementar a busca binária. Para implementar a bu
     - Se array[chute] for igual ao alvo, retorne chute (o alvo foi encontrado).
     - Se array[chute] for menor que o alvo, defina min como chute + 1 (o alvo está à direita).
     - Se array[chute] for maior que o alvo, defina max como chute - 1 (o alvo está à esquerda).
+    
 3. Se max ficar menor que min, o alvo não está presente no vetor. Retorne -1.
 
 
