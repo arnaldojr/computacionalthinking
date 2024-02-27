@@ -9,7 +9,7 @@ Agora, reflita sobre como você encontrou o número sorteado. Foi um chute aleat
 
 Chutar números aleatoriamente não é a melhor estratégia. Em vez disso, você pode ter usado uma abordagem mais sistemática. 
 
-Podemos utilizar o algoritmo de busca sequencial, para isso basta passar em sequencia por todos os valores da lista, 1,2,3..... Neste caso v
+Podemos utilizar o algoritmo de busca sequencial, para isso basta passar em sequencia por todos os valores da lista, 1,2,3...
 
 Foi facil né, afinal, a lista é pequena. Vamos complicar um pouco aumentando a lista para 300 posições.
 
@@ -22,7 +22,33 @@ Por exemplo, se o intervalo é de 1 a 300, você começa adivinhando o número 1
 
 Agora, você repete esse processo, escolhendo sempre o número no meio do novo intervalo, até encontrar o número sorteado. Esse método é conhecido como busca binária, porque em cada etapa você divide o intervalo de possibilidades pela metade (ou seja, em duas partes).
 
-A busca binária é muito mais eficiente do que adivinhar números aleatoriamente ou verificar cada número um por um (o que seria uma busca sequencial). Ela nos permite encontrar rapidamente o número sorteado, mesmo em intervalos muito grandes.
+
+!!! exercise
+    Jogue o jogo da advinhação algumas vezes aplicando a estratégia da busca binária. Faça com atenção e responda:
+
+    De quantas tentativas você precisou para encontrar o número correto? 
+    
+!!! exercise
+    Compare a quantidades de tentativas necesárias para encontrar o valor correto no vetor de 15 posições com o vetor de 300 posições. Qual a relação entre o tamanho do vetor e a quantidade de tentativas necessárias no pior caso para encontrar o valor correto? 
+
+!!! exercise
+    Quantas tentativas (pior caso) são necessárias para encontrar o valor correto se o vetor conter 1000 posições? E para o vetor de tamanhos 10.000 e 1.000.000, quantas tentativas são necessárias?
+
+!!! progress
+    continuar...
+
+### Pseudocódigo
+
+Vamos descrever uma forma de implementar a busca binária. Para implementar a busca binária, realizaremos a busca em um vetor de tamanho `n`.
+
+1. Inicialize min como 0 e max como n-1.
+2. Enquanto max for maior ou igual a min:
+
+    - Calcule chute como a média de min e max, arredondando para baixo.
+    - Se array[chute] for igual ao alvo, retorne chute (o alvo foi encontrado).
+    - Se array[chute] for menor que o alvo, defina min como chute + 1 (o alvo está à direita).
+    - Se array[chute] for maior que o alvo, defina max como chute - 1 (o alvo está à esquerda).
+3. Se max ficar menor que min, o alvo não está presente no vetor. Retorne -1.
 
 
 ### Desafio
