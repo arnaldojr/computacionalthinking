@@ -32,6 +32,18 @@ O problema da busca é aplicado em várias situações cotidianas, incluindo:
     Imagine que você combinou de encontrar um amigo no shopping, mas esqueceu de combinar o ponto de encontro exato. O shopping é grande, cheio de lojas, restaurantes e pessoas. Como você faria para encontrá-lo?
 
 
+!!! exercise choice "Questão 1"
+    Qual é o objetivo principal do problema da busca em computação?
+
+    - [ ] Ordenar uma lista de elementos.
+    - [x] Encontrar a posição de um elemento específico em uma lista.
+    - [ ] Calcular a soma dos elementos de uma lista.
+    - [ ] Dividir uma lista em partes menores.
+
+    !!! answer
+        O objetivo principal do problema da busca é encontrar a posição de um elemento específico em uma lista, seja ela ordenada ou não.
+
+
 !!! progress
     continuar...
 
