@@ -1,6 +1,8 @@
-## Busca sequencial
 
-A busca sequencial ou como tambem é conhecida busca linear, é um método simples para encontrar um valor específico em uma lista. Ele funciona iterando através de cada elemento da lista, um por um, até encontrar o valor desejado.
+A `busca sequencial` ou como tambem é conhecida `busca linear`, é um método simples para encontrar um valor específico em uma lista. Ele funciona iterando através de cada elemento da lista, um por um, até encontrar o valor desejado.
+
+![](https://algoritmosempython.com.br/images/algoritmos-python/pesquisa-ordenacao/PesquisaLinear.gif)
+
 
 **Simplicidade**: Uma das principais vantagens da busca sequencial é a sua simplicidade. Ela não requer que os dados estejam ordenados.
 
@@ -11,7 +13,6 @@ A busca sequencial ou como tambem é conhecida busca linear, é um método simpl
 **Aplicações**: A busca sequencial é útil em aplicações onde os dados não estão ordenados e a eficiência não é uma preocupação primordial. Ela também é útil quando a lista é atualizada frequentemente, pois outros métodos de busca que requerem dados ordenados precisariam reordenar a lista cada vez que um elemento é adicionado ou removido.
 
 ### Exemplo de implementação passo a passo de uma busca sequencial:
-
 
 1. Defina a lista de valores e o valor que você está procurando.
 
@@ -28,7 +29,7 @@ Podemos fazer de diversas formas, tais como:
 ```python
 def busca_sequencial(lista, valor_procurado):
     indice = 0
-    for numero in valor_procurado:
+    for numero in lista:
         if numero == valor_procurado:
             return indice
         indice = indice + 1
@@ -58,6 +59,16 @@ def busca_sequencial(lista, valor_procurado):
     return -1
 
 ```
+alternativa:
+
+```python
+def busca_sequencial(lista, valor_procurado):
+    try:
+        return lista.index(valor_procurado)
+    except ValueError:
+        return -1
+```
+
 
 3. Chame a função de busca sequencial e imprima o resultado.
 
@@ -68,6 +79,14 @@ if indice != -1:
 else:
     print("Valor não encontrado")
 ```
+
+Realizamos a busca linear de diversas formas, incluse com o recurso (try/except) na função de busca. Fizemos isso porque o método index() retorna o índice em que o elemento aparece na lista de entrada (caso esse elemento esteja presente) e ValueError caso o elemento não esteja na lista
+
+!!! warning
+    Uma pergunta natural a se fazer é: existe alguma forma de se pesquisar por um elemento em uma lista de modo mais eficiente?
+
+    A resposta a essa pergunta depende da forma como os elementos estão organizados no vetor. Se eles não estiverem em uma ordem específica, não há como fugir da pesquisa linear. Se os elementos estiverem ordenados de alguma forma, podemos usar `busca binária`.
+
 
 
 !!! progress
