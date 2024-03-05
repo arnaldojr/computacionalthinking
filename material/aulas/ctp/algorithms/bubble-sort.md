@@ -14,7 +14,7 @@ O Bubble Sort trabalha repetidamente passando pela lista a ser ordenada, compara
 
 Para visualizar o algoritmo em ação utilize o link a seguir:
 
-![](https://visualgo.net/en/sorting?slide=10)
+[https://visualgo.net/en/sorting?slide=10](https://visualgo.net/en/sorting?slide=10)
 
 
 
@@ -60,12 +60,11 @@ print("Lista Ordenada:", lista_ordenada)
     - [ ] [1, 7, 3, 9, 10, 13, 8, 12, 15, 19]
     - [ ] [1, 9, 19, 7, 3, 10, 13, 15, 8, 12]
 
-!!! answer
-    A lista parcialmente ordenada depois de três passagens completas do bubble sort é B. `[1, 3, 7, 9, 10, 8, 12, 13, 15, 19]`.
+    !!! answer
+        A lista parcialmente ordenada depois de três passagens completas do bubble sort é B. `[1, 3, 7, 9, 10, 8, 12, 13, 15, 19]`.
 
 
 Referência: https://panda.ime.usp.br/panda/static/pythonds_pt/05-OrdenacaoBusca/OBubbleSort.html
-
 
 
 !!! progress

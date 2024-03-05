@@ -19,8 +19,7 @@ O algoritmo divide a lista de entrada em duas partes: a sublista de itens já or
 
 Para visualizar o algoritmo em ação utilize o link a seguir:
 
-![](https://visualgo.net/en/sorting)
-
+![https://visualgo.net/en/sortin](https://visualgo.net/en/sorting)
 
 
 ### Implementação em Python
@@ -59,6 +58,8 @@ print("Lista Ordenada:", lista_ordenada)
 
 - Complexidade de Espaço: A complexidade de espaço é O(1), pois requer apenas uma quantidade constante de espaço de memória adicional além da lista de entrada.
 
+
+
 !!! exercise choice "Exercício de Ordenação"
     Suponha que você tenha a seguinte lista de números para ordenar: `[15, 5, 4, 18, 12, 19, 14, 10, 8, 20]` qual lista representa a lista parcialmente ordenada depois três passagens completas da ordenação por inserção?
 
@@ -67,8 +68,8 @@ print("Lista Ordenada:", lista_ordenada)
     - [x] [4, 5, 15, 18, 12, 19, 14, 10, 8, 20]
     - [ ] [15, 5, 4, 18, 12, 19, 14, 8, 10, 20]
 
-!!! answer
-    A lista parcialmente ordenada depois de três passagens insersão. `[4, 5, 12, 15, 14, 10, 8, 18, 19, 20]`.
+    !!! answer
+        A lista parcialmente ordenada depois de três passagens insersão. `[4, 5, 12, 15, 14, 10, 8, 18, 19, 20]`.
 
 
 Referência: https://panda.ime.usp.br/panda/static/pythonds_pt/05-OrdenacaoBusca/AOrdenacaoPorInsercao.html

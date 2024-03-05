@@ -1,4 +1,3 @@
-### Selection sort
 
 O Selection Sort é uma  melhoria  do  Bubblesort, é um algoritmo de ordenação simples que divide a lista de entrada em duas partes: a sublista de itens já ordenados, que é construída da esquerda para a direita na frente (ou no topo) da lista, e a sublista de itens restantes a serem ordenados que ocupam o resto da lista. Inicialmente, a sublista ordenada está vazia e a sublista não ordenada é a lista inteira.
 
@@ -14,7 +13,7 @@ O algoritmo funciona repetidamente encontrando o menor (ou maior, dependendo da 
 
 Para visualizar o algoritmo em ação utilize o link a seguir:
 
-![](https://visualgo.net/en/sorting)
+![ttps://visualgo.net/en/sorting](https://visualgo.net/en/sorting)
 
 
 
@@ -79,8 +78,8 @@ print("Lista Ordenada:", lista_ordenada)
     - [ ] [11, 7, 12, 14, 1, 6, 8, 18, 19, 20]
     - [X] [11, 7, 12, 14, 8, 1, 6, 18, 19, 20]
 
-!!! answer
-    A lista parcialmente ordenada depois de três passagens buscando o maior elemento na sublista não ordenada em vez do menor. `[11, 7, 12, 14, 8, 1, 6, 18, 19, 20]`.
+    !!! answer
+        A lista parcialmente ordenada depois de três passagens buscando o maior elemento na sublista não ordenada em vez do menor. `[11, 7, 12, 14, 8, 1, 6, 18, 19, 20]`.
 
 
 Referência: https://panda.ime.usp.br/panda/static/pythonds_pt/05-OrdenacaoBusca/AOrdenacaoPorSelecao.html
