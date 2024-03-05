@@ -10,7 +10,7 @@ O algoritmo funciona repetidamente encontrando o menor (ou maior, dependendo da 
 ![](https://panda.ime.usp.br/panda/static/pythonds_pt/_images/selectionsortnew.png)
 
 
-### Bubble Sort em ação
+### Selection Sort em ação
 
 Para visualizar o algoritmo em ação utilize o link a seguir:
 
@@ -20,7 +20,7 @@ Para visualizar o algoritmo em ação utilize o link a seguir:
 
 ### Implementação em Python
 
-Aqui está uma implementação simples do Bubble Sort em Python:
+Aqui está uma implementação simples do Selection Sort em Python:
 
 ```python 
 
