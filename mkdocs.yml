@@ -127,9 +127,14 @@ nav:
     - Erros e Exceções:
       - Tratamento de Erros - Try, Except: aulas/ctp/python/errors-exceptions.md
   - Algoritmos e Estruturas de Dados:
-    - Algoritmos e o Problema da busca: aulas/ctp/search-algorithms/problem-search.md
-    - Busca Sequencial: aulas/ctp/search-algorithms/sequential-search.md
-    - Busca Binária: aulas/ctp/search-algorithms/binary-search.md
+    - Busca: 
+      - O problema da busca: aulas/ctp/algorithms/problem-search.md
+      - Busca Sequencial: aulas/ctp/algorithms/sequential-search.md
+      - Busca Binária: aulas/ctp/algorithms/binary-search.md
+    - Ordenação:
+      - O caso da Ordenação: aulas/ctp/algorithms/sorting-algorithms.md
+    # - Recursividade:
+    #   - Recursividade: aulas/ctp/recursion/recursion.md
   - Laboratórios:
     - Solução Labs:
       - Lab02 - Tipos de dados e Variáveis: aulas/ctp/labs/solutions/solution-data-types.ipynb 
