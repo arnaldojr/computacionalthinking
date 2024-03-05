@@ -53,14 +53,14 @@ Existem  diversos  tipos  de  algoritmos  para  a  tarefa  de  ordenação.  Sua
 
 Conheça alguns deles e avalie a sua complexidade neste site: 
 
-- ![https://www.toptal.com/developers/sorting-algorithms](https://www.toptal.com/developers/sorting-algorithms)
+- [https://www.toptal.com/developers/sorting-algorithms](https://www.toptal.com/developers/sorting-algorithms)
 
 
 
 Assista o video com 15 formas de ordenação diferentes.
 
 
-![https://youtu.be/kPRA0W1kECg?si=QGFoBM55yaHOB9HL](https://youtu.be/kPRA0W1kECg?si=QGFoBM55yaHOB9HL)
+- [https://youtu.be/kPRA0W1kECg?si=QGFoBM55yaHOB9HL](https://youtu.be/kPRA0W1kECg?si=QGFoBM55yaHOB9HL)
 
 
 
@@ -94,11 +94,6 @@ Você pode trocar qualquer par de cartas ao clicar em uma carta e depois na outr
 
 <iframe sandbox="allow-popups allow-same-origin allow-scripts allow-top-navigation" src="https://pt.khanacademy.org/computer-programming/program/4869717459730432/embedded?embed=yes&amp;author=no&amp;editor=no&amp;width=688&amp;buttons=no&amp;settings=%7B%7D" class="perseus-scratchpad" allowfullscreen="" style="height: 200px; width: 100%;"></iframe>
 
-
-
-
-!!! progress
-    continuar...
 
 "Depois de explorarmos o problema da ordenação, vamos agora pensar em um contexto mais computacional.
 

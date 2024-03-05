@@ -13,7 +13,7 @@ O algoritmo funciona repetidamente encontrando o menor (ou maior, dependendo da 
 
 Para visualizar o algoritmo em ação utilize o link a seguir:
 
-![ttps://visualgo.net/en/sorting](https://visualgo.net/en/sorting)
+[ttps://visualgo.net/en/sorting](https://visualgo.net/en/sorting)
 
 
 

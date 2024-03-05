@@ -65,30 +65,3 @@ print("Lista Ordenada:", lista_ordenada)
 
 
 Referência: https://panda.ime.usp.br/panda/static/pythonds_pt/05-OrdenacaoBusca/OBubbleSort.html
-
-
-!!! progress
-    continuar...
-
-
-<div id="bubble_anim">
-<canvas id="bubble_anim_canvas" width="400" height="400" style="border:4px solid blue"></canvas>
-<br>
-<button onclick="bubble_anim_anim = bubble_anim_init('bubble_anim')">Initialize</button>
-<button onclick="bubble_anim_anim.run('bubble_anim_anim')">Run</button>
-<button onclick="bubble_anim_anim.stop()">Stop</button> <br>
-<button onclick="bubble_anim_anim.begin()">Beginning</button>
-<button onclick="bubble_anim_anim.forward()">Step Forward</button>
-<button onclick="bubble_anim_anim.backward()">Step Backward</button>
-<button onclick="bubble_anim_anim.end()">End</button>
-
-<script type="text/javascript">
-bubble_anim_init = function(divid)
-{
-   var a = new Animator(new BubbleSortModel(), new BarViewer(), divid)
-   a.init()
-   return a
-}
-</script>
-
-</div>

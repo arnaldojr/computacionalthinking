@@ -19,7 +19,7 @@ O algoritmo divide a lista de entrada em duas partes: a sublista de itens já or
 
 Para visualizar o algoritmo em ação utilize o link a seguir:
 
-![https://visualgo.net/en/sortin](https://visualgo.net/en/sorting)
+[https://visualgo.net/en/sorting](https://visualgo.net/en/sorting)
 
 
 ### Implementação em Python
