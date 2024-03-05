@@ -59,6 +59,7 @@ extra_css:
 
 markdown_extensions:
   - markdown.extensions.tables
+  - markdown.extensions.extra  
   - tables
   - markdown.extensions.admonition
   - markdown.extensions.codehilite:
@@ -84,7 +85,7 @@ markdown_extensions:
       repo: mkdocs-material
   - pymdownx.mark
   - pymdownx.smartsymbols
-  - pymdownx.superfences
+#  - pymdownx.superfences
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
@@ -133,6 +134,9 @@ nav:
       - Busca Binária: aulas/ctp/algorithms/binary-search.md
     - Ordenação:
       - O caso da Ordenação: aulas/ctp/algorithms/sorting-algorithms.md
+      - Bubble Sort: aulas/ctp/algorithms/bubble-sort.md
+      - Selection Sort: aulas/ctp/algorithms/selection-sort.md
+      - Insertion Sort: aulas/ctp/algorithms/insertion-sort.md
     # - Recursividade:
     #   - Recursividade: aulas/ctp/recursion/recursion.md
   - Laboratórios:

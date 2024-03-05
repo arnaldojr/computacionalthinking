@@ -48,6 +48,13 @@ print(animals);
 Mesmo que o JavaScript tenha um método de classificação nativo, classificar é um ótimo exemplo de como pode haver muitas maneiras de pensar um mesmo problema, algumas talvez melhores que outras. Compreender a classificação é um tradicional primeiro passo para o domínio de algoritmos.
 
 
+Existem  diversos  tipos  de  algoritmos  para  a  tarefa  de  ordenação.  Suas complexidades  vãode  O(nlogn)  até  O(n2). Assista o video com 15 formas de ordenação diferentes.
+
+
+![https://youtu.be/kPRA0W1kECg?si=QGFoBM55yaHOB9HL](https://youtu.be/kPRA0W1kECg?si=QGFoBM55yaHOB9HL)
+
+
+
 !!! exercise choice "Questão 1"
     Qual é a alternativa que descreve o conceito de ordenação na computação?
 
@@ -67,7 +74,10 @@ Mesmo que o JavaScript tenha um método de classificação nativo, classificar �
 
 
 !!! exercise
-    Discuta com o seu colega uma forma de ordenar cartas de baralho que estão em sua mão. Por exemplo [5,13,47,17,53,2,7,29,41,11,23] A dupla deve escrever a forma que pensou em um pseudocódigo. Agora Compare com os outros grupo se realizaram essa tarefa da mesma forma ou não. 
+    Discuta com o seu colega uma forma de ordenar cartas de baralho que estão em sua mão. Por exemplo [5,13,47,17,53,2,7,29,41,11,23] A dupla deve escrever a forma que pensou em um pseudocódigo. Agora Compare com os outros grupo se realizaram essa tarefa da mesma forma ou não. Quantos passos foram necessários? Qual a forma mais eficiênte de realizar essa tarefa?
+
+
+### Que tal pensar nesse problema de forma visual?
 
 Você pode trocar qualquer par de cartas ao clicar em uma carta e depois na outra. Troque as cartas até que elas estejam ordenadas com a menor carta à esquerda.
 
