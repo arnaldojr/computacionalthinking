@@ -1,6 +1,6 @@
 ### Selection sort
 
-O Selection Sort é um algoritmo de ordenação simples que divide a lista de entrada em duas partes: a sublista de itens já ordenados, que é construída da esquerda para a direita na frente (ou no topo) da lista, e a sublista de itens restantes a serem ordenados que ocupam o resto da lista. Inicialmente, a sublista ordenada está vazia e a sublista não ordenada é a lista inteira.
+O Selection Sort é uma  melhoria  do  Bubblesort, é um algoritmo de ordenação simples que divide a lista de entrada em duas partes: a sublista de itens já ordenados, que é construída da esquerda para a direita na frente (ou no topo) da lista, e a sublista de itens restantes a serem ordenados que ocupam o resto da lista. Inicialmente, a sublista ordenada está vazia e a sublista não ordenada é a lista inteira.
 
 ### Funcionamento do Algoritmo
 

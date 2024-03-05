@@ -48,10 +48,21 @@ print(animals);
 Mesmo que o JavaScript tenha um método de classificação nativo, classificar é um ótimo exemplo de como pode haver muitas maneiras de pensar um mesmo problema, algumas talvez melhores que outras. Compreender a classificação é um tradicional primeiro passo para o domínio de algoritmos.
 
 
-Existem  diversos  tipos  de  algoritmos  para  a  tarefa  de  ordenação.  Suas complexidades  vãode  O(nlogn)  até  O(n2). Assista o video com 15 formas de ordenação diferentes.
+Existem  diversos  tipos  de  algoritmos  para  a  tarefa  de  ordenação.  Suas complexidades  vão de  O(nlogn)  até  O(n2). 
+
+
+Conheça alguns deles e avalie a sua complexidade neste site: 
+
+- ![https://www.toptal.com/developers/sorting-algorithms](https://www.toptal.com/developers/sorting-algorithms)
+
+
+
+Assista o video com 15 formas de ordenação diferentes.
 
 
 ![https://youtu.be/kPRA0W1kECg?si=QGFoBM55yaHOB9HL](https://youtu.be/kPRA0W1kECg?si=QGFoBM55yaHOB9HL)
+
+
 
 
 
