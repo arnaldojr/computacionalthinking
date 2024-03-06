@@ -153,6 +153,7 @@ nav:
     - Lab05 - Loops for e while, listas e tuplas: aulas/ctp/labs/lab-loops-data-structures.md
     - Lab06 - Dicionários, conjuntos e afins...: aulas/ctp/labs/lab-loops-dict-sets.md
     - Lab07 - Problema da busca: aulas/ctp/labs/lab-search.md
+    - Lab08 - Ordenação: aulas/ctp/labs/lab-sorting.md
   - Projetos Práticos:
     - Jogo da Adivinhação: aulas/ctp/projects/guessing-game.md
     - Agenda simples: aulas/ctp/projects/agenda.md
