@@ -146,6 +146,7 @@ nav:
       - Lab04 - Erros comuns: aulas/ctp/labs/solutions/solution-common-errors.ipynb 
       - Lab05 - Loops for e while, listas e tuplas: aulas/ctp/labs/solutions/solution-loop-structures-data-nivel1.ipynb
       - Lab06 - Dicionários e conjuntos: aulas/ctp/labs/solutions/solution-dict.ipynb
+      - Lab07 - Problema da busca: aulas/ctp/labs/solutions/solution-search.ipynb
     - Lab01 - Comece aqui!: aulas/ctp/intro/infra.md
     - Lab02 - Tipos de dados e Variáveis: aulas/ctp/labs/lab-data-types.md
     - Lab03 - Estrutura de Decisão: aulas/ctp/labs/lab-decision-structures.md
