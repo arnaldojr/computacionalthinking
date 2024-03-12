@@ -137,8 +137,8 @@ nav:
       - Bubble Sort: aulas/ctp/algorithms/bubble-sort.md
       - Selection Sort: aulas/ctp/algorithms/selection-sort.md
       - Insertion Sort: aulas/ctp/algorithms/insertion-sort.md
-    # - Recursividade:
-    #   - Recursividade: aulas/ctp/recursion/recursion.md
+    - Recursão:
+      - Recursividade: aulas/ctp/algorithms/recursion.md
   - Laboratórios:
     - Solução Labs:
       - Lab02 - Tipos de dados e Variáveis: aulas/ctp/labs/solutions/solution-data-types.ipynb 
