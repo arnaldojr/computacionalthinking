@@ -129,10 +129,11 @@ def funcao_recursiva(parametros):
     print(gcd(20, 12))
     ```
 
-    Qual a saida esperada?
+    Qual a saida esperada deste código?
+
 
     !!! answer
-        4
+        Neste caso, a saída esperada é '4', pois esse é o valor do máximo divisor comum entre 20 e 12.
 
 
 !!! progress
