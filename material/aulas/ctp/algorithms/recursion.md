@@ -68,6 +68,7 @@ def contador_if(numero):
 contador_if(5)
 ```
 
+
 Neste exemplo, a função 'contador_if' chama a si mesma com um parâmetro que é decrementado a cada chamada, até que o caso base (numero == 0) seja atingido. Quando isso acontece, a função imprime 'fim!' e a recursão termina.
 
 Uma função recursiva típica em Python tem a seguinte estrutura:
@@ -161,7 +162,9 @@ def contador(n):
 
 contador(4)
 ```
+
 Neste exemplo, a função contador realiza uma chamada recursiva a si mesma com 'n - 2'. Se n for um número par, a função se aproxima do caso base (n == 0) e termina corretamente. No entanto, se n for ímpar, a função nunca alcança o caso base, resultando em uma recursão infinita.
+
 
 !!! exercise
     Execute a função contador com n = 5 e observe o comportamento. Proponha uma forma de corrigir o problema do loop infinito ajustando o caso base.
@@ -179,6 +182,7 @@ Neste exemplo, a função contador realiza uma chamada recursiva a si mesma com 
 
 !!! progress
     continuar...
+
 
 Vamos conhecer alguns exemplos clássicos de recursão que podem aparecer em uma entrevista técnica. 
 
@@ -210,6 +214,8 @@ def fatorialIterativo(n):
     return fatorial
 
 ```
+
+
 Neste caso definimos uma varialvel 'fatorial' para acumular o valor do fatorial além de definir um range de 1 até 'n+1' para o loop for.
 
 
@@ -286,11 +292,11 @@ Para aprender recursão, primeiro você tem aprender recursão. Então vamos pra
 
     ```python
     def somaDigital(n):
-    if n < 10:
-    return n
-    else:
-    # caso recursivo
-    # seu código
+        if n < 10:
+            return n
+        else:
+        # caso recursivo
+        # seu código
     ```
 
 !!! exercise
@@ -350,8 +356,10 @@ Embora muitos problemas possam ser resolvidos tanto com recursão quanto com ite
     continuar...
 
 
-ref: https://acervolima.com/recursao-em-python/
+Algumas referências: 
 
-https://cscircles.cemc.uwaterloo.ca/16-recursion/
+    - https://acervolima.com/recursao-em-python/
 
-https://panda.ime.usp.br/algoritmos/static/algoritmos/20-divisao-e-conquista.html
+    - https://cscircles.cemc.uwaterloo.ca/16-recursion/
+
+    - https://panda.ime.usp.br/algoritmos/static/algoritmos/20-divisao-e-conquista.html
