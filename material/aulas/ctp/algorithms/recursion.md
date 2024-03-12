@@ -325,7 +325,7 @@ Para aprender recursão, primeiro você tem aprender recursão. Então vamos pra
 ## E agora o que vem pela frente? 
 
 
-Agora que entendemos o que é recursão podemos aplicar em alguns algoritmos que já conhecemos como a 'busca binária' que é um algoritmo eficiente para encontrar um elemento em uma lista ordenada. A abordagem recursiva divide o problema em subproblemas menores, verificando o elemento do meio e decidindo em qual metade continuar a busca.
+Agora que entendemos o que é recursão, podemos aplicar essa técnca em alguns problemas que já conhecemos tais como a 'busca binária' que é um algoritmo eficiente para encontrar um elemento em uma lista ordenada e algoritmos de oedenação rápida.
 
 
 ```python 
