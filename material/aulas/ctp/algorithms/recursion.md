@@ -9,6 +9,11 @@ Na aula de hoje, vamos dar uma pausa nos algoritmos de busca e ordenação que e
 !!! tip
     `To understand recursion, you must first understand recursion.` A chave entender recursão é identificar o "caso base" (ou condição de parada), que é uma condição sob a qual a recursão termina, evitando assim um loop infinito, e o "caso recursivo", que é onde a função faz uma chamada a si mesma com um conjunto de parâmetros que se aproxima do caso base. Calma,vamos entender direitinho...
 
+
+!!! progress
+    continuar...
+
+
 ## Estrutura Básica de uma Função Recursiva
 
 Vamos estudar um exemplo simples. Queremos escrever um algoritmo que exiba um contador que reproduz a seguinte saída:
@@ -104,6 +109,31 @@ def funcao_recursiva(parametros):
 
     ```
 
+
+!!! exercice
+    O GCD (Greatest Common Divisor), ou MDC (Maior Divisor Comum) em português, é o maior número que divide dois ou mais números inteiros sem deixar resto. Em outras palavras, é o maior número pelo qual dois ou mais números inteiros podem ser divididos igualmente.
+
+    Por exemplo, o GCD de 12 e 18 é 6, pois 6 é o maior número que divide ambos 12 e 18 sem deixar resto. Outro exemplo é o GCD de 48, 72 e 120, que é 24.
+
+    O GCD é uma ferramenta importante em matemática, especialmente em teoria dos números, e é frequentemente usado para simplificar frações, resolver equações diofantinas e em muitos outros contextos. Existem vários métodos para calcular o GCD, sendo o algoritmo de Euclides um dos mais eficientes.
+
+    ref: [https://www.freecodecamp.org/news/euclidian-gcd-algorithm-greatest-common-divisor/](https://www.freecodecamp.org/news/euclidian-gcd-algorithm-greatest-common-divisor/)
+
+    ```python
+
+    def gcd(a, b):
+        if b == 0: return a
+        return gcd(b, a % b)
+    
+    print(gcd(20, 12))
+    ```
+
+    Qual a saida esperada?
+
+    !!! answer
+        4
+
+
 !!! progress
     continuar...
 
@@ -147,11 +177,12 @@ Neste exemplo, a função contador realiza uma chamada recursiva a si mesma com 
 - Teste e Depuração: Teste sua função com vários casos de entrada para garantir que ela se comporta conforme esperado e alcança o caso base. Ferramentas de depuração podem ajudar a rastrear o fluxo de execução e identificar onde a função pode estar entrando em um loop infinito.
 
 
-
 !!! progress
     continuar...
 
-### Exemplo Fatorial
+Vamos conhecer alguns exemplos clássicos de recursão que podem aparecer em uma entrevista técnica. 
+
+## Exemplo Fatorial
 
 Um exemplo clássico de aplicação da recursão é o cálculo do fatorial de um número 'n!', que é o produto de todos os números inteiros positivos de 1 até n.
 
@@ -199,12 +230,9 @@ Neste caso definimos uma varialvel 'fatorial' para acumular o valor do fatorial 
     - Memoização: Armazenar os resultados de chamadas de função em uma estrutura de dados (por exemplo, um dicionário) para evitar cálculos repetidos. Isso é especialmente útil em problemas de otimização e programação dinâmica.
 
 
-!!! progress
-    continuar...
-
 ### Exemplo Fibonacci
 
-Sequência de Fibonacci é a sequência numérica proposta pelo matemático Leonardo Pisa, mais conhecido como Fibonacci: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89.....
+Outro exemplo clássico é a 'Sequência de Fibonacci' que é a sequência numérica proposta pelo matemático Leonardo Pisa, mais conhecido como Fibonacci: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89.....
 
 Para entender o que é assista o video do [Pato Donald ](https://youtu.be/XVLHX0ddtqo?si=PTR3W-NQCFTuI3v7)
 
@@ -213,7 +241,7 @@ Para entender o que é assista o video do [Pato Donald ](https://youtu.be/XVLHX0
     ![Pato Donald e Fibonacci ](https://youtu.be/XVLHX0ddtqo?si=PTR3W-NQCFTuI3v7)
 
 
-A função fibonacciSimples calcula o n-ésimo termo da sequência de Fibonacci. Para 'n' igual a 0 ou 1, a função retorna 'n' diretamente. Para outros valores de n, a função chama a si mesma 'duas vezes', uma vez para 'n-2' e outra vez para 'n-1', e soma os resultados.
+A função 'fibonacciSimples' calcula o n-ésimo termo da sequência de Fibonacci. Para 'n' igual a 0 ou 1, a função retorna 'n' diretamente. Para outros valores de n, a função chama a si mesma 'duas vezes', uma vez para 'n-2' e outra vez para 'n-1', e soma os resultados.
 
 ```python 
 def fibonacciSimples(n):
@@ -242,10 +270,53 @@ print(fibonacci(10))
 
 Neste exemplo, a função fibonacci utiliza um dicionário memo para armazenar os resultados das chamadas anteriores, evitando assim cálculos redundantes.
 
+!!! progress
+    continuar...
+
+
+## Exercicios
+
+Para aprender recursão, primeiro você tem aprender recursão. Então vamos praticar...
+
+
+!!! exercise
+    Projetar uma função recursiva requer que você escolha cuidadosamente um caso base e certifique-se de que cada sequência de chamadas de função eventualmente atinja um caso base. Neste exercicio, o caso base foi programado para você, mas você escreverá o restante da função recursiva.
+
+    Escreva uma função recursiva somaDigital(n) que recebe um número inteiro positivo n e retorna a soma de seus dígitos. Por exemplo, somaDigital(2024) deve retornar 8 porque 2+0+2+4=8.
+
+    ```python
+    def somaDigital(n):
+    if n < 10:
+    return n
+    else:
+    # caso recursivo
+    # seu código
+    ```
+
+!!! exercise
+    Escreva uma função recursiva raizDigital(n) que retorna a raiz digital de n. Ou seja, A raiz digital de um número inteiro não negativo n é calculada da seguinte forma. Comece somando os dígitos de n. Os dígitos do número resultante são então somados e esse processo continua até que um número de um único dígito seja obtido. Por exemplo, a raiz digital de 2019 é 3 porque 2+0+1+9=12 e 1+2=3. Utilize a função somaDigital para resolver o problema.
 
 
 
-## Exemplo: Busca Binária Recursiva
+
+!!! exercise
+    A sequência de hailstone começando em um número inteiro positivo n é gerada seguindo duas regras simples. Se n for par, o próximo número na sequência será n/2. Se n for ímpar, o próximo número na sequência será 3*n+1. Repetindo esse processo, geramos a sequência do hailstone. Escreva uma função recursiva hailstone(n) que imprime a sequência de granizo começando em n. Pare quando a sequência atingir o número 1 (caso contrário, faríamos um loop eterno de 1, 4, 2, 1, 4, 2, ...)
+    Por exemplo, quando n=5, seu programa deverá gerar a seguinte sequência:
+
+    ```python
+    5
+    16
+    8
+    4
+    2
+    1
+
+    ```
+
+
+
+## E agora o que vem pela frente? 
+
 
 Agora que entendemos o que é recursão podemos aplicar em alguns algoritmos que já conhecemos como a 'busca binária' que é um algoritmo eficiente para encontrar um elemento em uma lista ordenada. A abordagem recursiva divide o problema em subproblemas menores, verificando o elemento do meio e decidindo em qual metade continuar a busca.
 
@@ -280,5 +351,7 @@ Embora muitos problemas possam ser resolvidos tanto com recursão quanto com ite
 
 
 ref: https://acervolima.com/recursao-em-python/
+
 https://cscircles.cemc.uwaterloo.ca/16-recursion/
 
+https://panda.ime.usp.br/algoritmos/static/algoritmos/20-divisao-e-conquista.html
