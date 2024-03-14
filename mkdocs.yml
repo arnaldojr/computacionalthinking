@@ -101,7 +101,7 @@ nav:
   - Agenda: agenda/agenda.md
   - CheckPoint: 
     - sobre: aulas/checkpoint/index.md
-#    - CP3: aulas/checkpoint/cp3.md
+#    - CP4: aulas/checkpoint/cp4.md
   - Pensamento computacional: aulas/ctp/intro/intro-ctp.md
   - Fundamentos de Python:
     - Introdução ao Python: aulas/ctp/python/intro-python.md
@@ -137,8 +137,12 @@ nav:
       - Bubble Sort: aulas/ctp/algorithms/bubble-sort.md
       - Selection Sort: aulas/ctp/algorithms/selection-sort.md
       - Insertion Sort: aulas/ctp/algorithms/insertion-sort.md
+      - Merge Sort: aulas/ctp/algorithms/merge-sort.md
+      - Quick Sort: aulas/ctp/algorithms/quick-sort.md
     - Recursão:
       - Recursividade: aulas/ctp/algorithms/recursion.md
+    - Análise de Algoritmos:
+      - Notação Big O: aulas/ctp/algorithms/big-o-notation.md
   - Laboratórios:
     - Solução Labs:
       - Lab02 - Tipos de dados e Variáveis: aulas/ctp/labs/solutions/solution-data-types.ipynb 
