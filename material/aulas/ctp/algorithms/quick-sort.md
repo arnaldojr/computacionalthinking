@@ -64,10 +64,22 @@ print("Lista ordenada:", lista)
 - Complexidade de Espaço: A complexidade de espaço é O(log n) devido à pilha de chamadas de recursão.
 
 
+!!! exercise
+    Rode o código quick-sort utilizando o python tutor. (https://pythontutor.com/)[https://pythontutor.com/]. Execute o código passo a passo compare a complexidade de espaço de memória com o bubble-sort. Ele ocupa mais ou menos espaço de memoria?
 
 
-ref: https://panda.ime.usp.br/algoritmos/static/algoritmos/20-divisao-e-conquista.html#dividir-para-conquistar
+!!! exercise
+    Escreva uma função recursiva baseada no método do quick-sort que ordene de forma decrescente um vetor aleatório de 15 posições. 
 
-https://algoritmosempython.com.br/cursos/algoritmos-python/pesquisa-ordenacao/mergesort/
 
-https://algs4.cs.princeton.edu/22mergesort/
+!!! progress
+    continuar...
+
+
+Algumas referências: 
+
+    - https://panda.ime.usp.br/algoritmos/static/algoritmos/20-divisao-e-conquista.html#dividir-para-conquistar
+    
+    - https://algoritmosempython.com.br/cursos/algoritmos-python/pesquisa-ordenacao/mergesort/
+
+    - https://algs4.cs.princeton.edu/22mergesort/

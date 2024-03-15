@@ -99,6 +99,15 @@ print("Lista ordenada:", lista)
         A lista parcialmente ordenada depois da primeira divisão e conquista do merge sort é B. `[10, 29, 14, 13, 37]`.
 
 
+
+!!! exercise
+    Rode o código merge-sort utilizando o python tutor. (https://pythontutor.com/)[https://pythontutor.com/]. Execute o código passo a passo compare a complexidade de espaço de memória com o bubble-sort. Ele ocupa mais ou menos espaço de memoria?
+
+
+!!! exercise
+    Escreva uma função recursiva baseada no método do merge-sort que ordene de forma decrescente um vetor aleatório de 15 posições. 
+
+
 ref: https://panda.ime.usp.br/algoritmos/static/algoritmos/20-divisao-e-conquista.html#dividir-para-conquistar
 
 https://algoritmosempython.com.br/cursos/algoritmos-python/pesquisa-ordenacao/mergesort/
