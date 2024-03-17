@@ -101,7 +101,7 @@ nav:
   - Agenda: agenda/agenda.md
   - CheckPoint: 
     - sobre: aulas/checkpoint/index.md
-#    - CP4: aulas/checkpoint/cp4.md
+    - CP4: aulas/checkpoint/cp4.md
   - Pensamento computacional: aulas/ctp/intro/intro-ctp.md
   - Fundamentos de Python:
     - Introdução ao Python: aulas/ctp/python/intro-python.md

@@ -1,71 +1,106 @@
-# CHECKPOINT4
+## CHECKPOINT4
 
-O Checkpoint 4 é baseado no estudo de algoritmos de busca e ordenação aplicados a problemas reais.
+### Objetivo
+
+A proposta é focada no `estudo prático de algoritmos de busca e ordenação aplicados a cenários reais`. Para isso, vocês deverão desenvolver uma biblioteca customizada em Python que incorpore as técnicas de `ordenação` e `busca` estudadas, além de seguir as boas práticas de `programação orientada a objetos` (POO).
+
+### Desenvolvimento:
+
+- Desenvolvimento da Biblioteca:
+
+    - Crie um `pacote` chamado `algoritmos`, que servirá como a biblioteca customizada.
+    Dentro do pacote, crie módulos separados para as técnicas de ordenação e busca, por exemplo, ordenacao.py e busca.py.
+        
+        - Crie um módulo `ordenacao.py` que contenha uma `classe Ordenacao` com métodos estáticos para os algoritmos de ordenação estudados.
+
+        - Crie um módulo `busca.py` que contenha uma `classe Busca` com métodos estáticos para os algoritmos de busca estudados.
+
+    - Crie um `pacote` chamado `testes`, que conterá testes para validar que sua biblioteca está funcionando corretamente. Os testes devem cobrir diferentes tamanhos de entrada e condições (ordenadas e desordenadas).
+
+        - Dentro do pacote testes, crie os módulos test_ordenacao.py e test_busca.py para testar os métodos de ordenação e busca, respectivamente.
+
+    - Vocês devem utilizar a biblioteca customizada como um `módulo` em sua aplicação principal `main.py`.
+
+    - A estrutura de pastas e arquivos para a biblioteca customizada pode ser organizada da seguinte forma:
+
+    ```bash
+    projeto/
+    │
+    ├── algoritmos/
+    │   ├── __init__.py
+    │   ├── ordenacao.py
+    │   └── busca.py
+    │
+    ├── testes/
+    │   ├── __init__.py
+    │   ├── test_ordenacao.py
+    │   └── test_busca.py
+    │
+    └── main.py
+    ```
+
+### implementações:
+
+- Para o pacote `testes` considere realizar os seguinte testes:
+
+    - Testes de Ordenação:
+
+        1. vetor ordenado crescente: [3, 7, 33, 59, 71]
+        1. vetor não ordenado: [71, 7, 3, 9, 7]
+        1. vetor ordenado descrescente: [71, 59, 33, 7, 3]
+        1. Vetor vazio: []
+        1. Vetor com um único elemento: [42]
+        1. Vetor com elementos repetidos: [3, 7, 3, 9, 7]
+        1. Vetor com elementos negativos: [-5, -3, -9, -1]
+
+    - Testes de Busca:
+
+        1. Busca por um elemento que está presente no vetor.
+        1. Busca por um elemento que não está presente no vetor.
+        1. Busca em um vetor vazio.
+        1. Busca em um vetor com um único elemento.
+
+- Para o programa principal `main.py` realize `Análise de Desempenho` e `Relatórios de Teste`:
+
+    - Para realizar a `análise de desempenho`, vocês podem seguir os seguintes passos:
+
+        1. `Importar Módulos Necessários`: Importe os módulos de ordenação e busca da sua biblioteca e modulos adicionais como `import time`, `import random` e `import matplotlib.pyplot as plt`.
+        1. `Gerar Dados de Teste`: - Crie listas de diferentes tamanhos para testar os algoritmos de ordenação e busca. Teste ao menos listas com `100`, `1.000`, `10.000` elementos, etc.
+        1. `Medir Tempo de Execução`: Para cada lista de teste, meça o tempo de execução de cada algoritmo de ordenação e busca. Crie uma função que realize esse teste automaticamente. Use a função `time.time()` para obter o tempo antes e depois da execução do algoritmo e calcule a diferença de tempo.
+
+    - Para realizar o `relatório`, vocês podem seguir os seguintes passos:
+
+        1. `Armazenar Resultados`: Armazene os resultados dos tempos de execução em um dicionário, onde as chaves são os nomes dos algoritmos e os valores são listas dos tempos de execução correspondentes a cada tamanho de lista de teste.
+        1. `Gerar Gráfico`: Use o `matplotlib.pyplot` para gerar um gráfico que compare o tempo de execução dos algoritmos em função do tamanho da lista de teste.
+        1. `Salvar o Gráfico`: Salve o gráfico como uma imagem (plt.savefig("relatorio_grafico.png")).
+        1. `Identificar o Algoritmo Campeão`: Analise o gráfico para determinar qual algoritmo teve o melhor desempenho em termos de tempo de execução para os diferentes tamanhos de lista.
 
 
 ## Datas e Formatos:
 
-A solução será apresentada em aula remota, e cada grupo terá um tempo determinado para demonstrar o funcionamento do projeto, explicar o código e responder a quaisquer perguntas. É importante estar bem preparado para esta apresentação, assegurando que todos os membros do grupo conheçam bem o projeto e estejam aptos a participar da discussão.
+A solução será apresentada em aula remota, e cada grupo terá até `8 min` para demonstrar o funcionamento do projeto, explicar o código e responder a quaisquer perguntas. É importante estar bem preparado para esta apresentação, assegurando que todos os membros do grupo conheçam bem o projeto e estejam aptos a participar da discussão.
 
 | Data | CheckPoint |
 |:---:|:---:|
 | 26/03 | CheckPoint 4 - Apresentação do CP4. |
 
 
-## Propostas de projetos
-
-Os mini-projetos estão categorizados em 2 grandes áreas:
-
-### Sistemas de Gestão
-
-
-### Jogos e Entretenimento
-
-
-### Outras propostas
-
-- [outra opção] O grupo tem a liberdade de propor um tema diferente dos listados anteriormente. Converse com o professor para alinhar as funcionalidades e a estrutura de dados, para garantir nível de dificuldade od projeto.
 
 ## Critérios de Avaliação
 
-### 1. Uso de Estruturas de Dados (20 pontos)
+- `Implementação dos Algoritmos (20%)`: Criação correta do pacote Algoritmos com as implementações dos algoritmos de ordenação e busca estudados (10%). Estrutura e Organização do Código (10%).
 
-- **Iniciante (0-5 pontos):** Uso limitado e incorreto de estruturas de dados.
-- **Intermediário (6-10 pontos):** Uso básico de listas e dicionários.
-- **Avançado (11-15 pontos):** Uso eficiente de listas, dicionários e outras estruturas de dados. Estruturas de dados são utilizadas de forma apropriada para resolver o problema.
-- **Excelente (16-20 pontos):** Demonstração excepcional de conhecimento e habilidade no uso de estruturas de dados, incluindo a criação de classes personalizadas quando necessário.
+- `Implementaçao dos Testes (30%)`: Criação correta do pacote testes incluindo herança e diferentes casos e condições (10%). Casos de testes implementados corretamente (20%).
 
-### 2. Funções e Modularização (20 pontos)
+- `Análise de Desempenho (30%)`: Implementação correta dos testes de desempenho para diferentes tamanhos de listas.
 
-- **Iniciante (0-5 pontos):** Uso limitado de funções, código repetitivo.
-- **Intermediário (6-10 pontos):** Funções são utilizadas, mas ainda há repetição de código ou as funções são muito longas.
-- **Avançado (11-15 pontos):** Funções são bem definidas, modularizadas e reutilizáveis.
-- **Excelente (16-20 pontos):** Código extremamente bem organizado, funções são curtas, focadas e reutilizáveis em diferentes partes do programa.
+- `Relatórios de Teste (20%)`: Análise completa dos resultados, incluindo a apresentação de gráficos e a identificação do algoritmo campeão (20%).
 
-### 3. Manipulação de Arquivos (20 pontos)
-
-- **Iniciante (0-5 pontos):** Erros frequentes ao ler/escrever em arquivos ou não implementa esta funcionalidade.
-- **Intermediário (6-10 pontos):** Consegue ler e escrever em arquivos, mas pode haver problemas de gerenciamento de arquivos (por exemplo, não fechar um arquivo).
-- **Avançado (11-15 pontos):** Manipulação correta de arquivos, incluindo leitura, escrita e fechamento adequado de arquivos.
-- **Excelente (16-20 pontos):** Uso avançado de manipulação de arquivos, incluindo tratamento de exceções e garantia de que os arquivos são sempre fechados corretamente, mesmo em caso de erro.
-
-### 4. Controle de Fluxo e Estruturas de Decisão (20 pontos)
-
-- **Iniciante (0-5 pontos):** Uso limitado e incorreto de estruturas de decisão.
-- **Intermediário (6-10 pontos):** Uso básico de estruturas de decisão, mas o código pode ser difícil de seguir.
-- **Avançado (11-15 pontos):** Estruturas de decisão são utilizadas eficientemente para controlar o fluxo do programa.
-- **Excelente (16-20 pontos):** Uso excepcional de estruturas de decisão, tornando o código limpo, fácil de seguir e eficiente.
-
-### 5. Tratamento de Erros e Validação de Dados (20 pontos)
-
-- **Iniciante (0-5 pontos):** Erros frequentes, sem validação de dados ou tratamento de erros.
-- **Intermediário (6-10 pontos):** Alguma validação de dados e tratamento de erros, mas não é abrangente.
-- **Avançado (11-15 pontos):** Boa validação de dados e tratamento de erros, cobrindo a maioria dos casos de uso.
-- **Excelente (16-20 pontos):** Excelente validação de dados e tratamento de erros, proporcionando uma experiência de usuário robusta e sem falhas.
+- `Documentação e apresentação (Bônus até 10%)`: Documentação do código completa e organizada no repositório, incluindo docstrings e comentários explicativos. Apresentação bem feita, de forma técnica.
 
 ## **Contato e Suporte**
 
-Não existem perguntas ruins, caso tenham dúvidas sobre o projeto, não hesitem em perguntar tanto em aula como fora de aula. O objetivo é que que você tenha uma experiência de aprendizado positiva, produtiva e divertida!
+Não existem perguntas ruins, caso tenham dúvidas sobre o projeto, não hesitem em perguntar tanto em aula como fora de aula. O objetivo é que que vocês tenham uma experiência de aprendizado positiva, produtiva e divertida!
 
 ## **Checklist de Submissão**
 
