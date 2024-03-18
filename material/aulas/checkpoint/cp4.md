@@ -4,20 +4,20 @@
 
 A proposta é focada no `estudo prático de algoritmos de busca e ordenação aplicados a cenários reais`. Para isso, vocês deverão desenvolver uma biblioteca customizada em Python que incorpore as técnicas de `ordenação` e `busca` estudadas, além de seguir as boas práticas de `programação orientada a objetos` (POO).
 
-### Desenvolvimento:
+### Desenvolvimento da infraestrutura:
 
 - Desenvolvimento da Biblioteca:
 
     - Crie um `pacote` chamado `algoritmos`, que servirá como a biblioteca customizada.
-    Dentro do pacote, crie módulos separados para as técnicas de ordenação e busca, por exemplo, ordenacao.py e busca.py.
+    Dentro do pacote, crie módulos separados para as técnicas de ordenação e busca.
         
-        - Crie um módulo `ordenacao.py` que contenha uma `classe Ordenacao` com métodos estáticos para os algoritmos de ordenação estudados.
+        - Crie um módulo `ordenacao.py` que contenha uma `classe Ordenacao` com métodos estáticos para os algoritmos de `ordenação` estudados.
 
-        - Crie um módulo `busca.py` que contenha uma `classe Busca` com métodos estáticos para os algoritmos de busca estudados.
+        - Crie um módulo `busca.py` que contenha uma `classe Busca` com métodos estáticos para os algoritmos de `busca` estudados.
 
     - Crie um `pacote` chamado `testes`, que conterá testes para validar que sua biblioteca está funcionando corretamente. Os testes devem cobrir diferentes tamanhos de entrada e condições (ordenadas e desordenadas).
 
-        - Dentro do pacote testes, crie os módulos test_ordenacao.py e test_busca.py para testar os métodos de ordenação e busca, respectivamente.
+        - Dentro do pacote testes, crie os `módulos` `test_ordenacao.py` e `test_busca.py` para testar os métodos de ordenação e busca, respectivamente.
 
     - Vocês devem utilizar a biblioteca customizada como um `módulo` em sua aplicação principal `main.py`.
 
@@ -39,7 +39,9 @@ A proposta é focada no `estudo prático de algoritmos de busca e ordenação ap
     └── main.py
     ```
 
-### implementações:
+### Implementações:
+
+- Para o pacore `algoritmos`, implemente todos os algoritmos de ordenação e de busca estudados em aula.
 
 - Para o pacote `testes` considere realizar os seguinte testes:
 
@@ -62,10 +64,20 @@ A proposta é focada no `estudo prático de algoritmos de busca e ordenação ap
 
 - Para o programa principal `main.py` realize `Análise de Desempenho` e `Relatórios de Teste`:
 
+    - Vamos realizar uma análise impirica para determinar a performance dos algoritmos, essa análise computa o tempo de execução de cada algortimo para executar. Por exemplo:
+
+    ```python
+    def medir_tempo_execucao(algoritmo, lista):
+    inicio = time.time() ### define o tempo inicial
+    algoritmo(lista)     ### algoritmo sendo executado
+    fim = time.time()    ### tempo final
+    return fim - inicio  ### calcula o tempo total de execução   
+    ```
+    
     - Para realizar a `análise de desempenho`, vocês podem seguir os seguintes passos:
 
         1. `Importar Módulos Necessários`: Importe os módulos de ordenação e busca da sua biblioteca e modulos adicionais como `import time`, `import random` e `import matplotlib.pyplot as plt`.
-        1. `Gerar Dados de Teste`: - Crie listas de diferentes tamanhos para testar os algoritmos de ordenação e busca. Teste ao menos listas com `100`, `1.000`, `10.000` elementos, etc.
+        1. `Gerar Dados de Teste`: - Crie listas de diferentes tamanhos para testar os algoritmos de ordenação e busca. Teste `ao menos` listas com `100`, `1.000` e `10.000` elementos, etc.
         1. `Medir Tempo de Execução`: Para cada lista de teste, meça o tempo de execução de cada algoritmo de ordenação e busca. Crie uma função que realize esse teste automaticamente. Use a função `time.time()` para obter o tempo antes e depois da execução do algoritmo e calcule a diferença de tempo.
 
     - Para realizar o `relatório`, vocês podem seguir os seguintes passos:
@@ -96,7 +108,7 @@ A solução será apresentada em aula remota, e cada grupo terá até `8 min` pa
 
 - `Relatórios de Teste (20%)`: Análise completa dos resultados, incluindo a apresentação de gráficos e a identificação do algoritmo campeão (20%).
 
-- `Documentação e apresentação (Bônus até 10%)`: Documentação do código completa e organizada no repositório, incluindo docstrings e comentários explicativos. Apresentação bem feita, de forma técnica.
+- `Documentação e apresentação (Bônus até 10%)`: Documentação do código completa e organizada no repositório, incluindo docstrings e comentários explicativos. Apresentação coerente, de forma técnica.
 
 ## **Contato e Suporte**
 
