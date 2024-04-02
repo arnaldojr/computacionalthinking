@@ -142,7 +142,27 @@ nav:
     - Recursão:
       - Recursividade: aulas/ctp/algorithms/recursion.md
     - Análise de Algoritmos:
-      - Notação Big O: aulas/ctp/algorithms/big-o-notation.md
+      - Notação Big O: aulas/ctp/algorithms/big-o-notation.md  
+  - Configuração do Ambiente de Desenvolvimento:
+    - Criação de um Ambiente Virtual: aulas/ctp/environment-setup/virtual-environment.md
+  - Desenvolvimento Web com Python:
+    - Introdução ao Desenvolvimento Web: aulas/ctp/web/intro-web-development.md
+    # - Técnicas Básicas de Raspagem de Dados:
+    #   - Introdução ao Web Scraping: aulas/ctp/web/webscraping/intro-webscraping.md
+    #   - Raspagem de Dados com Requests: aulas/ctp/web/webscraping/data-scraping-requests.md
+    # - Consumo de API em Python: aulas/ctp/web/api-consumption.md
+    # - Web Scraping:
+    #   - Técnicas de Raspagem de Dados: Requests + XHR: aulas/ctp/web/webscraping/scraping-techniques-xhr.md
+    #   - Web Scraping com BeautifulSoup: aulas/ctp/web/webscraping/scraping-beautifulsoup.md
+    # - Flask:
+    #   - Introdução ao Flask: aulas/ctp/web/flask/intro-flask.md
+    #   - Rotas e Requisições GET: aulas/ctp/web/flask/routes-get-requests.md
+    #   - Formulários e Requisições POST: aulas/ctp/web/flask/forms-post-requests.md
+    #   - Renderização de Templates: aulas/ctp/web/flask/template-rendering.md
+    #   - Conexão com Banco de Dados: aulas/ctp/web/flask/database-connection.md
+    # - ORM (Object-Relational Mapping): aulas/ctp/web/orm.md
+    # - Segurança em Aplicações Web: aulas/ctp/web/security.md
+    # - Deploy de Aplicações: aulas/ctp/web/deploy.md
   - Laboratórios:
     - Solução Labs:
       - Lab02 - Tipos de dados e Variáveis: aulas/ctp/labs/solutions/solution-data-types.ipynb 
@@ -192,4 +212,20 @@ nav:
     # - Algoritmos de Busca: aulas/ctp/python/search-algorithms.md
     # - Algoritmos de Grafos: aulas/ctp/python/graph-algorithms.md
 
+  # - Desenvolvimento Web com Python:
+  #   - Introdução ao Desenvolvimento Web: aulas/ctp/web/intro-web-development.md
+  #   - Web scraping: aulas/ctp/web/web-scraping.md
 
+    # - Flask:
+    #   - Introdução ao Flask: aulas/ctp/web/flask/intro-flask.md
+    #   - Rotas e Visualizações: aulas/ctp/web/flask/routes-views.md
+    #   - Templates: aulas/ctp/web/flask/templates.md
+    #   - Formulários e Requisições: aulas/ctp/web/flask/forms-requests.md
+    #   - Integração com Banco de Dados: aulas/ctp/web/flask/database-integration.md
+    # # - Django:
+    # #   - Introdução ao Django: aulas/ctp/web/django/intro-django.md
+    # #   - Estrutura de Projeto: aulas/ctp/web/django/project-structure.md
+    # #   - Modelos e Banco de Dados: aulas/ctp/web/django/models-database.md
+    # #   - Autenticação e Autorização: aulas/ctp/web/django/auth.md
+    # - Segurança em Aplicações Web: aulas/ctp/web/security.md
+    # - Deploy de Aplicações: aulas/ctp/web/deploy.md
