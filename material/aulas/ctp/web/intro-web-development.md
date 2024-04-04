@@ -41,8 +41,9 @@ refs:
 - https://realpython.com/python-sockets/ 
 
 
-!!!progress
-    continuar...
+!!! progress
+    Continuar...
+
 
 ## Prática, um pouco sobre sockets
 
@@ -76,6 +77,7 @@ Vamos dar uma olhada em algums pontos básicos de como criar um socket em Python
     server_address = ('localhost', 10000)  # Endereço e porta do servidor
     sock.bind(server_address)
     ```
+
     - `bind()`: para associar o socket a um endereço IP e uma porta específico.
 
 3. Escutar por Conexões de Entrada (Servidor)
@@ -125,6 +127,7 @@ Vamos dar uma olhada em algums pontos básicos de como criar um socket em Python
     data = sock.recv(1024)
     print(f"Recebido: {data.decode()}")
     ```
+
     - `sendall()`: para enviar dados 
     - `recv()`: para receber dados. O argumento especifica o número máximo de bytes a serem lidos. Retorna os dados recebidos como um objeto de bytes.
 
@@ -145,7 +148,8 @@ Agora que já temos uma idéia das principais funções, definir uma estrutura d
 
 
 !!! progress
-    continuar...
+    Continuar...
+
 
 !!! exercise "Question"
     Antes de continuar na aula, pense e responda:
@@ -157,7 +161,7 @@ Agora que já temos uma idéia das principais funções, definir uma estrutura d
 
 
 !!! progress
-    continuar...
+    Continuar...
 
 
 ## Projeto loop-back
@@ -220,7 +224,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             data = conn.recv(1024)
             if not data:
                 break
-            conn.sendall(data)
+            print(f"Recebido: {data.decode('utf-8')}")
+            conn.sendall(data) 
 ```
 
 ### Criando um Cliente Simples
@@ -242,7 +247,9 @@ PORT = 65432        # Porta que o servidor está ouvindo
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.connect((HOST, PORT))
-    s.sendall(b'Olá, servidor!')
+    # Codifique a string 'Olá, servidor!' usando UTF-8 antes de enviá-la
+    mensagem = 'Olá, servidor!'.encode('utf-8')
+    s.sendall(mensagem)
     data = s.recv(1024)
 
 print(f"Recebido: {data.decode('utf-8')}")
@@ -260,7 +267,6 @@ print(f"Recebido: {data.decode('utf-8')}")
     - obseve o que aconteceu  
 
 
-
 Responda as pergutas a seguir para validar seus conhecimentos sobre sockets
 
 !!! exercise choice "Question"
@@ -274,6 +280,7 @@ Responda as pergutas a seguir para validar seus conhecimentos sobre sockets
     !!! answer
         O método `bind()` é utilizado para vincular um endereço e uma porta a um socket em Python.
 
+
 !!! exercise choice "Question"
     Em uma comunicação cliente-servidor, qual dos seguintes métodos é utilizado pelo servidor para escutar por conexões de entrada?
 
@@ -285,6 +292,7 @@ Responda as pergutas a seguir para validar seus conhecimentos sobre sockets
     !!! answer
         O método `listen()` é utilizado pelo servidor para escutar por conexões de entrada.
 
+
 !!! exercise choice "Question"
     Qual das seguintes alternativas é verdadeira sobre o método `accept()` em um servidor de socket?
 
@@ -295,6 +303,7 @@ Responda as pergutas a seguir para validar seus conhecimentos sobre sockets
     
     !!! answer
         O método `accept()` é usado por um servidor de socket para aceitar uma conexão de um cliente.
+
 
 !!! exercise choice "Question"
     Em uma comunicação de rede usando sockets, qual das seguintes afirmações é verdadeira sobre o endereço IP `127.0.0.1`?
@@ -308,9 +317,9 @@ Responda as pergutas a seguir para validar seus conhecimentos sobre sockets
         O endereço IP `127.0.0.1` é conhecido como endereço de loopback e é usado para se referir ao próprio dispositivo na rede.
 
 
-
 !!! progress
-    continuar...
+    Continuar...
+
 
 ## Projeto WebChat via socket
 
@@ -327,13 +336,13 @@ Legal, agora que já conhecemos e sabemos criar uma conexão socket, vamos avan�
     cd client-server
     ```
 
-    2. Inicie `primeiramente` o servidor:
+    2. Inicie `primeiramente` o servidor, nesse caso será o pc do professor será o HOST:
 
     ```bash
     python server.py
     ```
 
-    3. Em outro terminal, inicie um ou mais clientes:
+    3. Em outro terminal, inicie um ou mais clientes. Neste caso é importante ajustar o IP do Host:
 
     ```bash
     python client.py
