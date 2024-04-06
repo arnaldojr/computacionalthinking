@@ -256,7 +256,7 @@ print(f"Recebido: {data.decode('utf-8')}")
 
 ```
 
-!!! exercise choice "Question"
+!!! exercise "Question"
     Teste e valide o funcionamento do client-server simples. Para isso, siga os seguintes passos:
     
     - Crie uma nova pasta de projeto;
