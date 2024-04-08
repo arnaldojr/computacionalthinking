@@ -30,11 +30,6 @@ Vamos definir alguns personagens que estão presentes no desenvolvimento web, ge
 
 No coração do desenvolvimento web está o modelo cliente-servidor, uma arquitetura de rede que separa clientes (navegadores) e servidores (onde os sites são armazenados e executados). Quando um usuário acessa um site, o navegador (cliente) envia uma solicitação HTTP ao servidor, que então processa a solicitação e envia de volta os dados necessários (geralmente em forma de HTML, CSS e JavaScript) para o navegador exibir a página web.
 
-### Protocolo HTTP
-
-O protocolo HTTP (Hypertext Transfer Protocol) é o fundamento da comunicação de dados na web. Ele define um conjunto de regras para a transferência de arquivos (textos, imagens, som, vídeo e outros dados) na internet.
-
- O HTTP é um protocolo baseado em solicitação-resposta, onde o cliente envia uma solicitação ao servidor e espera uma resposta.
 
 refs:
 - https://www.alura.com.br/artigos/o-que-e-front-end-e-back-end
