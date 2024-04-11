@@ -149,7 +149,7 @@ nav:
     - Introdução ao Desenvolvimento Web: aulas/ctp/web/intro-web-development.md
     - Técnicas Básicas de Raspagem de Dados:
       - Introdução ao Web Scraping: aulas/ctp/web/webscraping/intro-webscraping.md
-      - Raspagem de Dados com Requests: aulas/ctp/web/webscraping/data-scraping-requests.md
+      - WWW com Requests e consumo de API: aulas/ctp/web/webscraping/data-scraping-requests.md
     # - Consumo de API em Python: aulas/ctp/web/api-consumption.md
     # - Web Scraping:
     #   - Técnicas de Raspagem de Dados: Requests + XHR: aulas/ctp/web/webscraping/scraping-techniques-xhr.md
