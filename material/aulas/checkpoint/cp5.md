@@ -60,8 +60,9 @@ Os grupos receberão feedback após cada atualização por meio de `issues` no r
 | 23/04 | Atualizações do GitHub: Progresso documentado e código atualizado, mostrando implementação aproximada de `40%`.                            | 0 - 2 pontos |
 | 30/05 | Atualizações do GitHub: Progresso documentado e código atualizado, mostrando implementação aproximada de `60%`.                            | 0 - 2 pontos |
 | 07/05 | Atualizações do GitHub: Progresso documentado e código atualizado, mostrando implementação aproximada de `80%`.                            | 0 - 2 pontos |
-| 14/05 | Atualizações do GitHub: Progresso documentado e código atualizado, mostrando implementação aproximada de `90%`.                            | 0 - 2 pontos |
-| 21/05 | Atualizações do GitHub: Progresso documentado e código atualizado, mostrando implementação aproximada de `100%`.                           | 0 - 2 pontos |
+| 14/05 | Atualizações do GitHub: Progresso documentado e código atualizado, mostrando implementação aproximada de `90%`.                            | 0 - 1 pontos |
+| 17/05 | Atualizações do GitHub: Progresso documentado e código atualizado, mostrando implementação aproximada de `100%`.                           | 0 - 2 pontos |
+| 21/05 | AVALIAÇÃO CP3 para o grupo que `NÃO` participar do do acompanhamento semanal                                                               |     ---      |
 | 24/05 | APRESENTAÇÃO DO PROJETO                                                                                                                    |     ---      |
 
 ### Composição da nota final
@@ -73,7 +74,7 @@ Os grupos receberão feedback após cada atualização por meio de `issues` no r
 | De 12/04 até 17/05 | Acompanhamento semanal (para os grupos que participarem) | 0 - 10 pontos |
 
 - CP2:
-    -  Dia 16/05, composta de `Apresentação e arguição do projeto` + `valiação da Documentação técnica do projeto`.
+    -  Dia 24/05, composta de `Apresentação e arguição do projeto` + `valiação da Documentação técnica do projeto`.
 
 - CP3:
     - Os grupos que realizarem o acompanhamento semanal terá a somatória do `acompanhamento semanal` convertida nota de CP3.
