@@ -150,10 +150,8 @@ nav:
     - Técnicas Básicas de Raspagem de Dados:
       - Introdução ao Web Scraping: aulas/ctp/web/webscraping/intro-webscraping.md
       - WWW com Requests e consumo de API: aulas/ctp/web/webscraping/data-scraping-requests.md
-    # - Consumo de API em Python: aulas/ctp/web/api-consumption.md
-    # - Web Scraping:
-    #   - Técnicas de Raspagem de Dados: Requests + XHR: aulas/ctp/web/webscraping/scraping-techniques-xhr.md
-    #   - Web Scraping com BeautifulSoup: aulas/ctp/web/webscraping/scraping-beautifulsoup.md
+    - Web Scraping:
+      - BeautifulSoup: aulas/ctp/web/webscraping/web_scraping.ipynb
     # - Flask:
     #   - Introdução ao Flask: aulas/ctp/web/flask/intro-flask.md
     #   - Rotas e Requisições GET: aulas/ctp/web/flask/routes-get-requests.md
