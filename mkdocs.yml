@@ -161,6 +161,8 @@ nav:
     # - ORM (Object-Relational Mapping): aulas/ctp/web/orm.md
     # - Segurança em Aplicações Web: aulas/ctp/web/security.md
     # - Deploy de Aplicações: aulas/ctp/web/deploy.md
+    - Banco de dados:
+      - BD com Python: aulas/ctp/bd/index.md
   - Laboratórios:
     - Solução Labs:
       - Lab02 - Tipos de dados e Variáveis: aulas/ctp/labs/solutions/solution-data-types.ipynb 
