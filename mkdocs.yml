@@ -163,6 +163,7 @@ nav:
     # - Deploy de Aplicações: aulas/ctp/web/deploy.md
     - Banco de dados:
       - BD com Python: aulas/ctp/bd/index.md
+      - SQLAlchemy: aulas/ctp/bd/sqlalq.ipynb
   - Laboratórios:
     - Solução Labs:
       - Lab02 - Tipos de dados e Variáveis: aulas/ctp/labs/solutions/solution-data-types.ipynb 
