@@ -25,8 +25,6 @@ Além disso, a aplicação deve realizar o tratamento coerente das informações
 
 - `Importante`: **Não será aceita a simples replicação de projetos prontos de outros repositórios, assim como o uso de prompts de GPT e outras inteligências artificiais generativas sem adaptação significativa e contribuição própria**. 
  
-- A aplicação deve ser capaz de processar vídeos em tempo real, e/ou usando uma webcam.
- 
 ### Critérios de Avaliação:
 
 - Inovação e criatividade na escolha e abordagem do problema.

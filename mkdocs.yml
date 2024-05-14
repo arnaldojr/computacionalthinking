@@ -102,6 +102,8 @@ nav:
   - CheckPoint: 
     - sobre: aulas/checkpoint/index.md
     - CP5: aulas/checkpoint/cp5.md
+  - Configuração do Ambiente de Desenvolvimento:
+    - Criação de um Ambiente Virtual: aulas/ctp/environment-setup/virtual-environment.md
   - Pensamento computacional: aulas/ctp/intro/intro-ctp.md
   - Fundamentos de Python:
     - Introdução ao Python: aulas/ctp/python/intro-python.md
@@ -143,27 +145,24 @@ nav:
       - Recursividade: aulas/ctp/algorithms/recursion.md
     - Análise de Algoritmos:
       - Notação Big O: aulas/ctp/algorithms/big-o-notation.md  
-  - Configuração do Ambiente de Desenvolvimento:
-    - Criação de um Ambiente Virtual: aulas/ctp/environment-setup/virtual-environment.md
   - Desenvolvimento Web com Python:
     - Introdução ao Desenvolvimento Web: aulas/ctp/web/intro-web-development.md
+    - WWW com Requests e consumo de API: aulas/ctp/web/webscraping/data-scraping-requests.md
     - Técnicas Básicas de Raspagem de Dados:
       - Introdução ao Web Scraping: aulas/ctp/web/webscraping/intro-webscraping.md
-      - WWW com Requests e consumo de API: aulas/ctp/web/webscraping/data-scraping-requests.md
-    - Web Scraping:
       - BeautifulSoup: aulas/ctp/web/webscraping/web_scraping.ipynb
     # - Flask:
     #   - Introdução ao Flask: aulas/ctp/web/flask/intro-flask.md
     #   - Rotas e Requisições GET: aulas/ctp/web/flask/routes-get-requests.md
     #   - Formulários e Requisições POST: aulas/ctp/web/flask/forms-post-requests.md
     #   - Renderização de Templates: aulas/ctp/web/flask/template-rendering.md
-    #   - Conexão com Banco de Dados: aulas/ctp/web/flask/database-connection.md
+    #   - Cosnexão com Banco de Dados: aulas/ctp/web/flask/database-connection.md
     # - ORM (Object-Relational Mapping): aulas/ctp/web/orm.md
     # - Segurança em Aplicações Web: aulas/ctp/web/security.md
     # - Deploy de Aplicações: aulas/ctp/web/deploy.md
-    - Banco de dados:
-      - BD com Python: aulas/ctp/bd/index.md
-      - SQLAlchemy: aulas/ctp/bd/sqlalq.ipynb
+  - Banco de dados com Python:
+    - SQL: aulas/ctp/bd/index.md
+    - SQLAlchemy: aulas/ctp/bd/sqlalq.ipynb
   - Laboratórios:
     - Solução Labs:
       - Lab02 - Tipos de dados e Variáveis: aulas/ctp/labs/solutions/solution-data-types.ipynb 
