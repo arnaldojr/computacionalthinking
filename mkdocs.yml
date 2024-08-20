@@ -5,7 +5,7 @@ site_author: Arnaldo Viana
 extra:  
     materia: Computacional Thinking with Python
     professor: Arnaldo Viana
-    ano: 2023
+    ano: 2024
 
 theme:
   feature:
@@ -101,7 +101,7 @@ nav:
   - Agenda: agenda/agenda.md
   - CheckPoint: 
     - sobre: aulas/checkpoint/index.md
-    - CP5: aulas/checkpoint/cp5.md
+    # - CP5: aulas/checkpoint/cp5.md
   - Configuração do Ambiente de Desenvolvimento:
     - Criação de um Ambiente Virtual: aulas/ctp/environment-setup/virtual-environment.md
   - Pensamento computacional: aulas/ctp/intro/intro-ctp.md
@@ -129,28 +129,28 @@ nav:
       - Polimorfismo: aulas/ctp/python/oop-polymorphism.md
     - Erros e Exceções:
       - Tratamento de Erros - Try, Except: aulas/ctp/python/errors-exceptions.md
-  - Algoritmos e Estruturas de Dados:
-    - Busca: 
-      - O problema da busca: aulas/ctp/algorithms/problem-search.md
-      - Busca Sequencial: aulas/ctp/algorithms/sequential-search.md
-      - Busca Binária: aulas/ctp/algorithms/binary-search.md
-    - Ordenação:
-      - O caso da Ordenação: aulas/ctp/algorithms/sorting-algorithms.md
-      - Bubble Sort: aulas/ctp/algorithms/bubble-sort.md
-      - Selection Sort: aulas/ctp/algorithms/selection-sort.md
-      - Insertion Sort: aulas/ctp/algorithms/insertion-sort.md
-      - Merge Sort: aulas/ctp/algorithms/merge-sort.md
-      - Quick Sort: aulas/ctp/algorithms/quick-sort.md
-    - Recursão:
-      - Recursividade: aulas/ctp/algorithms/recursion.md
-    - Análise de Algoritmos:
+  # - Algoritmos e Estruturas de Dados:
+  #   - Busca: 
+  #     - O problema da busca: aulas/ctp/algorithms/problem-search.md
+  #     - Busca Sequencial: aulas/ctp/algorithms/sequential-search.md
+  #     - Busca Binária: aulas/ctp/algorithms/binary-search.md
+  #   - Ordenação:
+  #     - O caso da Ordenação: aulas/ctp/algorithms/sorting-algorithms.md
+  #     - Bubble Sort: aulas/ctp/algorithms/bubble-sort.md
+  #     - Selection Sort: aulas/ctp/algorithms/selection-sort.md
+  #     - Insertion Sort: aulas/ctp/algorithms/insertion-sort.md
+  #     - Merge Sort: aulas/ctp/algorithms/merge-sort.md
+  #     - Quick Sort: aulas/ctp/algorithms/quick-sort.md
+  #   - Recursão:
+  #     - Recursividade: aulas/ctp/algorithms/recursion.md
+  #   - Análise de Algoritmos:
       - Notação Big O: aulas/ctp/algorithms/big-o-notation.md  
-  - Desenvolvimento Web com Python:
-    - Introdução ao Desenvolvimento Web: aulas/ctp/web/intro-web-development.md
-    - WWW com Requests e consumo de API: aulas/ctp/web/webscraping/data-scraping-requests.md
-    - Técnicas Básicas de Raspagem de Dados:
-      - Introdução ao Web Scraping: aulas/ctp/web/webscraping/intro-webscraping.md
-      - BeautifulSoup: aulas/ctp/web/webscraping/web_scraping.ipynb
+  # - Desenvolvimento Web com Python:
+  #   - Introdução ao Desenvolvimento Web: aulas/ctp/web/intro-web-development.md
+  #   - WWW com Requests e consumo de API: aulas/ctp/web/webscraping/data-scraping-requests.md
+  #   - Técnicas Básicas de Raspagem de Dados:
+  #     - Introdução ao Web Scraping: aulas/ctp/web/webscraping/intro-webscraping.md
+  #     - BeautifulSoup: aulas/ctp/web/webscraping/web_scraping.ipynb
     # - Flask:
     #   - Introdução ao Flask: aulas/ctp/web/flask/intro-flask.md
     #   - Rotas e Requisições GET: aulas/ctp/web/flask/routes-get-requests.md
@@ -160,33 +160,33 @@ nav:
     # - ORM (Object-Relational Mapping): aulas/ctp/web/orm.md
     # - Segurança em Aplicações Web: aulas/ctp/web/security.md
     # - Deploy de Aplicações: aulas/ctp/web/deploy.md
-  - Banco de dados com Python:
-    - SQL: aulas/ctp/bd/index.md
-    - SQLAlchemy: aulas/ctp/bd/sqlalq.ipynb
+  # - Banco de dados com Python:
+  #   - SQL: aulas/ctp/bd/index.md
+  #   - SQLAlchemy: aulas/ctp/bd/sqlalq.ipynb
   - Laboratórios:
-    - Solução Labs:
-      - Lab02 - Tipos de dados e Variáveis: aulas/ctp/labs/solutions/solution-data-types.ipynb 
-      - Lab03 - Estrutura de Decisão: aulas/ctp/labs/solutions/solution-decision-structures.ipynb 
-      - Lab04 - Erros comuns: aulas/ctp/labs/solutions/solution-common-errors.ipynb 
-      - Lab05 - Loops for e while, listas e tuplas: aulas/ctp/labs/solutions/solution-loop-structures-data-nivel1.ipynb
-      - Lab06 - Dicionários e conjuntos: aulas/ctp/labs/solutions/solution-dict.ipynb
-      - Lab07 - Problema da busca: aulas/ctp/labs/solutions/solution-search.ipynb
+    # - Solução Labs:
+    #   - Lab02 - Tipos de dados e Variáveis: aulas/ctp/labs/solutions/solution-data-types.ipynb 
+    #   - Lab03 - Estrutura de Decisão: aulas/ctp/labs/solutions/solution-decision-structures.ipynb 
+    #   - Lab04 - Erros comuns: aulas/ctp/labs/solutions/solution-common-errors.ipynb 
+    #   - Lab05 - Loops for e while, listas e tuplas: aulas/ctp/labs/solutions/solution-loop-structures-data-nivel1.ipynb
+    #   - Lab06 - Dicionários e conjuntos: aulas/ctp/labs/solutions/solution-dict.ipynb
+    #   - Lab07 - Problema da busca: aulas/ctp/labs/solutions/solution-search.ipynb
     - Lab01 - Comece aqui!: aulas/ctp/intro/infra.md
     - Lab02 - Tipos de dados e Variáveis: aulas/ctp/labs/lab-data-types.md
     - Lab03 - Estrutura de Decisão: aulas/ctp/labs/lab-decision-structures.md
     - Lab04 - Erros comuns: aulas/ctp/labs/common-errors.ipynb
     - Lab05 - Loops for e while, listas e tuplas: aulas/ctp/labs/lab-loops-data-structures.md
     - Lab06 - Dicionários, conjuntos e afins...: aulas/ctp/labs/lab-loops-dict-sets.md
-    - Lab07 - Problema da busca: aulas/ctp/labs/lab-search.md
-    - Lab08 - Ordenação: aulas/ctp/labs/lab-sorting.md
-  - Projetos Práticos:
-    - Jogo da Adivinhação: aulas/ctp/projects/guessing-game.md
-    - Agenda simples: aulas/ctp/projects/agenda.md
-    - Projetos Temáticos: 
-      - Eventos - Proj1: aulas/ctp/projects/proj1-eventos.md
-      - Finanças - Proj2: aulas/ctp/projects/proj2-financas.md
-      - Jokenpô - Proj3: aulas/ctp/projects/proj3-pedra-papel-tesoura.md
-      - Jogo da Velha - Proj4: aulas/ctp/projects/proj4-jogo-da-velha.md
+    # - Lab07 - Problema da busca: aulas/ctp/labs/lab-search.md
+    # - Lab08 - Ordenação: aulas/ctp/labs/lab-sorting.md
+  # - Projetos Práticos:
+  #   - Jogo da Adivinhação: aulas/ctp/projects/guessing-game.md
+  #   - Agenda simples: aulas/ctp/projects/agenda.md
+    # - Projetos Temáticos: 
+    #   - Eventos - Proj1: aulas/ctp/projects/proj1-eventos.md
+    #   - Finanças - Proj2: aulas/ctp/projects/proj2-financas.md
+    #   - Jokenpô - Proj3: aulas/ctp/projects/proj3-pedra-papel-tesoura.md
+    #   - Jogo da Velha - Proj4: aulas/ctp/projects/proj4-jogo-da-velha.md
   - Recursos Adicionais:
     - Referências e Leituras Complementares: aulas/ctp/resources/references.md
 
