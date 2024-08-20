@@ -16,7 +16,7 @@ Nesta página você irá encontrar os conteúdos ministrados em sala de aula ass
 
 - Curso: Tecnologia de Desenvolvimento de Sistemas
 - Disciplina: Computacional Thinking with Python
-- Turmas 2023-2: 1TDSPB
+- Turmas 2024-2: 1TDSQ
 - Repositório com todos os arquivos está disponivel em: [https://github.com/arnaldojr/computacionalThinking/](https://github.com/arnaldojr/ComputacionalThinking/)
 
 Prof. Arnaldo Viana
@@ -79,3 +79,7 @@ Vamos utilizar bastante uma ferramenta para desenvolvimento de software colabora
 
 * [Github](https://github.com).
 
+
+### Turmas passadas
+
+- Turmas 2023-2: 1TDSPB
