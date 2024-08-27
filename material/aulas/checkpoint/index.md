@@ -22,8 +22,8 @@ Os checkpoints são sempre divulgados/publicados com antecedência tanto aqui no
 
 | Data | CheckPoint |
 |:---:|:---:|
-| 15/09 | CheckPoint 1 - Presencial, individual e sem consulta. |
-| 20/10 | CheckPoint 2 - Presencial, individual e sem consulta. |
-| 10/11 | CheckPoint 3 - Apresentação do mini-projeto. |
+| 20/09 | CheckPoint 1 - Presencial, individual e sem consulta. |
+| 11/10 | CheckPoint 2 - Presencial, individual e sem consulta. |
+| 01/11 | CheckPoint 3 - Apresentação do mini-projeto. |
 
 - Caso seja necessário mudança de data de CP, o estudante **sempre** será avisado com antecedência. 
