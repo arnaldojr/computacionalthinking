@@ -94,19 +94,21 @@ if temperatura > 25:
     Qual será a saída do seguinte código se `valor = 50`?
     
     ```python
-    if valor > 100:
-        print("Alto")
-    else:
+    a = 10
+    valor = a
+    valor = a**2
+    if valor < 100:
         print("Baixo")
+
     ```
     
     - [ ] `Alto`
-    - [x] `Baixo`
-    - [ ] Não haverá saída
+    - [ ] `Baixo`
+    - [x] Não haverá saída
     - [ ] Ocorrerá um erro
 
     !!! answer
-        A saída será `Baixo` porque a condição `valor > 100` é falsa.
+        Não tem saída pois o valor é igual a 100.
 
 ### A Estrutura `else`
 
