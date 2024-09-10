@@ -7,12 +7,12 @@
 | <span style="color:blue"> 20/08 </span> | <span style="color:blue">  23/08 </span> | <span style="color:blue"> Fiap First Week (FFW)  </span>      |
 | 27/08                 | 30/08                     | Aula Magna - Apresentação do curso, dinâmica das aulas, avaliações. Datas importantes (CP)  |
 | 03/09                 | 06/09                     | Preparação infraestrutura, introdução à linguagem de programação Python<br>Variáveis, tipos de dados, operações lógicas e matemáticas ([lista1](https://classroom.github.com/a/zduM4ptG)) |
-| 10/09                 | 13/09                     | Estruturas de decisão + Erros ([lista2](https://classroom.github.com/a/rYJyPWAd))           |
+| 10/09                 | 13/09                     | Estruturas de decisão + Erros ([lista2](https://classroom.github.com/a/TlhBDKBf))           |
 | 17/09                 | <span style="color:green"> 20/09 </span> | <span style="color:green"> CheckPoint 1 - Presencial, individual e sem consulta. </span> |
 | 24/09                 | 27/09                     | Estruturas de repetição Mini-Projeto 1                                                      |
-| 01/10                 | 04/10                     | Trabalhando com listas e tuplas ([lista3](https://classroom.github.com/a/IRVMh0Ox))         |
+| 01/10                 | 04/10                     | Trabalhando com listas e tuplas ([lista3](https://classroom.github.com/a/uQDAVDe0))         |
 | 08/10                 | <span style="color:green"> 11/10                     | <span style="color:green"> CheckPoint 2 - Presencial, individual e sem consulta. </span> |
-| 15/10                 | 18/10                     | Trabalhando com dicionários e conjuntos ([lista4](https://classroom.github.com/a/moEtcHsy)) |
+| 15/10                 | 18/10                     | Trabalhando com dicionários e conjuntos ([lista4](https://classroom.github.com/a/rlvkjzEv)) |
 | 22/10                 | 25/10                     | Trabalhando com arquivos. Evento NEXT sábado 26                                             |
 | 29/10                 | <span style="color:green"> 01/11                     | <span style="color:green"> Apresentação do mini-projeto CP3 </span> |
 | 05/11                 | 08/11                     | Introdução à Programação Orientada a Objetos |

@@ -14,7 +14,7 @@ Neste laboratório, você terá a oportunidade de praticar os conceitos relacion
 
 1. **Acesse o GitHub Classroom**: Acesse o link do GitHub Classroom. 
     
-   - Clique aqui:[https://classroom.github.com/a/rYJyPWAd](https://classroom.github.com/a/rYJyPWAd)
+   - Clique aqui:[https://classroom.github.com/a/TlhBDKBf](https://classroom.github.com/a/TlhBDKBf)
 
 
 ## 2. Resolvendo os Desafios
