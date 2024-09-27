@@ -1,5 +1,8 @@
 ## Jogo "Adivinhe o Número"
 
+link para a base do projeto: [https://classroom.github.com/a/qeE02LHt](https://classroom.github.com/a/qeE02LHt)
+
+
 ## Introdução
 
 Neste projeto, você será desafiado a criar um simples jogo de adivinhação chamado "Adivinhe o Número". O objetivo do jogo é que o jogador adivinhe um número secreto gerado aleatoriamente pelo programa. O jogo oferece feedback ao usuário após cada palpite, informando se o número secreto é maior ou menor do que o palpite fornecido.
