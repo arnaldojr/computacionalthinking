@@ -179,9 +179,9 @@ nav:
     - Lab06 - Dicionários, conjuntos e afins...: aulas/ctp/labs/lab-loops-dict-sets.md
     # - Lab07 - Problema da busca: aulas/ctp/labs/lab-search.md
     # - Lab08 - Ordenação: aulas/ctp/labs/lab-sorting.md
-  # - Projetos Práticos:
-  #   - Jogo da Adivinhação: aulas/ctp/projects/guessing-game.md
-  #   - Agenda simples: aulas/ctp/projects/agenda.md
+  - Projetos Práticos:
+    - Jogo da Adivinhação: aulas/ctp/projects/guessing-game.md
+    - Agenda simples: aulas/ctp/projects/agenda.md
     # - Projetos Temáticos: 
     #   - Eventos - Proj1: aulas/ctp/projects/proj1-eventos.md
     #   - Finanças - Proj2: aulas/ctp/projects/proj2-financas.md
