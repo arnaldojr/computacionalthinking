@@ -129,21 +129,21 @@ nav:
       - Polimorfismo: aulas/ctp/python/oop-polymorphism.md
     - Erros e Exceções:
       - Tratamento de Erros - Try, Except: aulas/ctp/python/errors-exceptions.md
-  # - Algoritmos e Estruturas de Dados:
-  #   - Busca: 
-  #     - O problema da busca: aulas/ctp/algorithms/problem-search.md
-  #     - Busca Sequencial: aulas/ctp/algorithms/sequential-search.md
-  #     - Busca Binária: aulas/ctp/algorithms/binary-search.md
-  #   - Ordenação:
-  #     - O caso da Ordenação: aulas/ctp/algorithms/sorting-algorithms.md
-  #     - Bubble Sort: aulas/ctp/algorithms/bubble-sort.md
-  #     - Selection Sort: aulas/ctp/algorithms/selection-sort.md
-  #     - Insertion Sort: aulas/ctp/algorithms/insertion-sort.md
-  #     - Merge Sort: aulas/ctp/algorithms/merge-sort.md
-  #     - Quick Sort: aulas/ctp/algorithms/quick-sort.md
-  #   - Recursão:
-  #     - Recursividade: aulas/ctp/algorithms/recursion.md
-  #   - Análise de Algoritmos:
+  - Algoritmos e Estruturas de Dados:
+    - Busca: 
+      - O problema da busca: aulas/ctp/algorithms/problem-search.md
+      - Busca Sequencial: aulas/ctp/algorithms/sequential-search.md
+      - Busca Binária: aulas/ctp/algorithms/binary-search.md
+    - Ordenação:
+      - O caso da Ordenação: aulas/ctp/algorithms/sorting-algorithms.md
+      - Bubble Sort: aulas/ctp/algorithms/bubble-sort.md
+      - Selection Sort: aulas/ctp/algorithms/selection-sort.md
+      - Insertion Sort: aulas/ctp/algorithms/insertion-sort.md
+      - Merge Sort: aulas/ctp/algorithms/merge-sort.md
+      - Quick Sort: aulas/ctp/algorithms/quick-sort.md
+    - Recursão:
+      - Recursividade: aulas/ctp/algorithms/recursion.md
+    - Análise de Algoritmos:
       - Notação Big O: aulas/ctp/algorithms/big-o-notation.md  
   # - Desenvolvimento Web com Python:
   #   - Introdução ao Desenvolvimento Web: aulas/ctp/web/intro-web-development.md
@@ -160,9 +160,9 @@ nav:
     # - ORM (Object-Relational Mapping): aulas/ctp/web/orm.md
     # - Segurança em Aplicações Web: aulas/ctp/web/security.md
     # - Deploy de Aplicações: aulas/ctp/web/deploy.md
-  # - Banco de dados com Python:
-  #   - SQL: aulas/ctp/bd/index.md
-  #   - SQLAlchemy: aulas/ctp/bd/sqlalq.ipynb
+  - Banco de dados com Python:
+    - SQL: aulas/ctp/bd/index.md
+    - SQLAlchemy: aulas/ctp/bd/sqlalq.ipynb
   - Laboratórios:
     - Solução Labs:
       - Lab02 - Tipos de dados e Variáveis: aulas/ctp/labs/solutions/solution-data-types.ipynb 
