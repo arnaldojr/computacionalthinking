@@ -1,0 +1,2824 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Arnaldo Viana">
+      
+      
+        <link rel="canonical" href="https://arnaldojr.github.io/computacionalthinking/aulas/ctp/python/errors-exceptions.html">
+      
+      
+        <link rel="prev" href="oop-polymorphism.html">
+      
+      
+        <link rel="next" href="../algorithms/problem-search.html">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+    
+    
+      
+        <title>Tratamento de Erros - Try, Except - Computacional Thinking</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/termynal.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/insper-education/active-handout-css@main/devlife.css">
+    
+      <link rel="stylesheet" href="../../../termynal.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:700|Oxygen+Mono|Source+Sans+Pro:700|Source+Serif+Pro&amp;display=swap">
+<link rel="stylesheet" href="../../../assets/css/devlife.css">
+
+
+    <script>
+        window.ihandout_config = JSON.parse(`{"report": {"api-base": "https://devlife.insper-comp.com.br/api/offerings/1/", "url": "https://devlife.insper-comp.com.br/api/offerings/1/exercises/"}}`);
+    </script>
+
+
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#erros-e-excecoes-em-python" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="Computacional Thinking" class="md-header__button md-logo" aria-label="Computacional Thinking" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Computacional Thinking
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tratamento de Erros - Try, Except
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/arnaldojr/computacionalthinking/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Computacional Thinking with Python
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="Computacional Thinking" class="md-nav__button md-logo" aria-label="Computacional Thinking" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Computacional Thinking
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/arnaldojr/computacionalthinking/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Computacional Thinking with Python
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/playground.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Playground
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sobre/sobre.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sobre o curso
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agenda/agenda.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Agenda
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CheckPoint
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            CheckPoint
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../checkpoint/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sobre
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Configuração do Ambiente de Desenvolvimento
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Configuração do Ambiente de Desenvolvimento
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../environment-setup/virtual-environment.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Criação de um Ambiente Virtual
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/intro-ctp.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pensamento computacional
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Fundamentos de Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Fundamentos de Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="intro-python.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introdução ao Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="data-types.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tipos de Dados e Variáveis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_3" id="__nav_8_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Controle de Fluxo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3">
+            <span class="md-nav__icon md-icon"></span>
+            Controle de Fluxo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_3_1" id="__nav_8_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Estruturas de decisão
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Estruturas de decisão
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="decision-structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    if-elif-else
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_3_2" id="__nav_8_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Estruturas de Repetição
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Estruturas de Repetição
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="repetition-structures-while-loop.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    while loop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="repetition-structures-for-loop.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    for Loop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_4" id="__nav_8_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Estruturas de Dados
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_4">
+            <span class="md-nav__icon md-icon"></span>
+            Estruturas de Dados
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lists-tuples.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Listas e Tuplas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dict-sets.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dicionários e Conjuntos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_5" id="__nav_8_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Funções e Módulos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_5">
+            <span class="md-nav__icon md-icon"></span>
+            Funções e Módulos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="functions-modules.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Funções
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="modules.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Módulos e Pacotes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="modules2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Módulos externos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_6" id="__nav_8_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Manipulação de Dados e Arquivos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_6">
+            <span class="md-nav__icon md-icon"></span>
+            Manipulação de Dados e Arquivos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="files-maniputation.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manipulação de arquivos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_7" id="__nav_8_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Programação Orientada a Objetos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_7">
+            <span class="md-nav__icon md-icon"></span>
+            Programação Orientada a Objetos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="oop-classes-objects.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Classes e Objetos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="oop-inheritance.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Herança, Encapsulamento e Métodos Privados
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="oop-polymorphism.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Polimorfismo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8_8" id="__nav_8_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Erros e Exceções
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8_8">
+            <span class="md-nav__icon md-icon"></span>
+            Erros e Exceções
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Tratamento de Erros - Try, Except
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="errors-exceptions.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Tratamento de Erros - Try, Except
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#erros-e-excecoes-em-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Erros e Exceções em Python
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Erros e Exceções em Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#por-que-ocorrem-erros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Por que ocorrem erros?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#como-os-erros-prejudicam-a-performance-do-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Como os erros prejudicam a performance do sistema?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-importancia-do-tratamento-de-erros-e-excecoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      A importância do tratamento de erros e exceções
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#excecoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exceções
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tratamento-de-excecoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tratamento de Exceções
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-erros-except-excecoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipos de Erros (Except) Exceções
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipos de Erros (Except) Exceções">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercicios-sobre-tipos-de-erros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercícios sobre tipos de erros
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desafios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Desafios
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Algoritmos e Estruturas de Dados
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Algoritmos e Estruturas de Dados
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_1" id="__nav_9_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Busca
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_1">
+            <span class="md-nav__icon md-icon"></span>
+            Busca
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/problem-search.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O problema da busca
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/sequential-search.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Busca Sequencial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/binary-search.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Busca Binária
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_2" id="__nav_9_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Ordenação
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_2">
+            <span class="md-nav__icon md-icon"></span>
+            Ordenação
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/sorting-algorithms.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O caso da Ordenação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/bubble-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bubble Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/selection-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selection Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/insertion-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Insertion Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/merge-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Merge Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/quick-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_3" id="__nav_9_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Recursão
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_3">
+            <span class="md-nav__icon md-icon"></span>
+            Recursão
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/recursion.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recursividade
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_4" id="__nav_9_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Análise de Algoritmos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_4">
+            <span class="md-nav__icon md-icon"></span>
+            Análise de Algoritmos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/big-o-notation.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Notação Big O
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Banco de dados com Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Banco de dados com Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bd/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bd/sqlalq.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQLAlchemy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Laboratórios
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Laboratórios
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_11_1" id="__nav_11_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Solução Labs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_1">
+            <span class="md-nav__icon md-icon"></span>
+            Solução Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/solutions/solution-data-types.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab02 - Tipos de dados e Variáveis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/solutions/solution-decision-structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab03 - Estrutura de Decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/infra.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab01 - Comece aqui!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/lab-data-types.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab02 - Tipos de dados e Variáveis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/lab-decision-structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab03 - Estrutura de Decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/common-errors.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab04 - Erros comuns
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/lab-loops-data-structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab05 - Loops for e while, listas e tuplas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/lab-loops-dict-sets.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab06 - Dicionários, conjuntos e afins...
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Projetos Práticos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Projetos Práticos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projects/guessing-game.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jogo da Adivinhação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projects/agenda.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Agenda simples
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Recursos Adicionais
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Recursos Adicionais
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resources/references.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Referências e Leituras Complementares
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#erros-e-excecoes-em-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Erros e Exceções em Python
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Erros e Exceções em Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#por-que-ocorrem-erros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Por que ocorrem erros?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#como-os-erros-prejudicam-a-performance-do-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Como os erros prejudicam a performance do sistema?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-importancia-do-tratamento-de-erros-e-excecoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      A importância do tratamento de erros e exceções
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#excecoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exceções
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tratamento-de-excecoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tratamento de Exceções
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-erros-except-excecoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipos de Erros (Except) Exceções
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipos de Erros (Except) Exceções">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercicios-sobre-tipos-de-erros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercícios sobre tipos de erros
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desafios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Desafios
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>Tratamento de Erros - Try, Except</h1>
+
+<h2 id="erros-e-excecoes-em-python">Erros e Exceções em Python<a class="headerlink" href="#erros-e-excecoes-em-python" title="Permanent link">&para;</a></h2>
+<p>Ao escrever programas em Python, é comum encontrar situações em que o código não se comporta como esperado. Essas situações indesejadas são geralmente resultado de 'erros e exceções'. Entender e lidar adequadamente com esses problemas é crucial para desenvolver programas robustos e confiáveis.</p>
+<h3 id="por-que-ocorrem-erros">Por que ocorrem erros?<a class="headerlink" href="#por-que-ocorrem-erros" title="Permanent link">&para;</a></h3>
+<p>Erros podem ocorrer por diversos motivos, incluindo:</p>
+<p><code>Erros de Sintaxe</code>: Ocorrem quando o código não segue as regras gramaticais da linguagem Python. São os erros mais fáceis de corrigir, pois o interpretador aponta exatamente onde está o problema.</p>
+<p>Exemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="kc">True</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello world&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>Neste caso, o interpretador indica exatamente onde o erro foi encontrado com uma seta apontando para o local. O erro é causado pelo fato de que falta um dois-pontos (':') antes do <code>print</code>.</p>
+<p><code>Erros Lógicos</code>: São erros que ocorrem quando o programa é sintaticamente correto, mas não produz o resultado esperado. Esses erros são mais difíceis de detectar e corrigir, pois exigem uma compreensão profunda da lógica do programa.</p>
+<p>Exemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Função para calcular a média de dois números</span>
+<span class="k">def</span> <span class="nf">calcular_media</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">media</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="c1"># Erro lógico: deveria ser (a + b) / 2</span>
+    <span class="k">return</span> <span class="n">media</span>
+
+<span class="c1"># Testando a função com valores esperados</span>
+<span class="n">resultado</span> <span class="o">=</span> <span class="n">calcular_media</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;A média de 4 e 6 é </span><span class="si">{</span><span class="n">resultado</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Saída esperada: A média de 4 e 6 é 5</span>
+<span class="c1"># Saída real: A média de 4 e 6 é 12.0</span>
+</code></pre></div>
+<p><code>Exceções</code>: São erros detectados durante a execução do programa. Diferentemente dos erros de sintaxe, as exceções podem ocorrer mesmo quando o código está gramaticalmente correto. Exemplos comuns de exceções incluem tentativas de divisão por zero, acesso a um índice fora dos limites de uma lista e abertura de um arquivo que não existe.</p>
+<iframe src="https://trinket.io/embed/python/47891252d0" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+<p>Note que neste código temos um problema. Não podemos fazer divisão por zero. Imagine esse código rodando em um servidor, esse erro vai fazer o nosso programa python 'quebrar' e parar de executar. E agora como podemos resolver de forma a evitar que o programa pare de funcionar. </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Queremos garantir que nosso programa possa lidar com situações inesperadas sem 'quebrar'."</p>
+</div>
+<h3 id="como-os-erros-prejudicam-a-performance-do-sistema">Como os erros prejudicam a performance do sistema?<a class="headerlink" href="#como-os-erros-prejudicam-a-performance-do-sistema" title="Permanent link">&para;</a></h3>
+<p>Quando ocorrem podem ter várias consequências negativas para um sistema, tais como:</p>
+<p><code>Interrupção do Programa</code>: Um erro não tratado pode causar a interrupção abrupta do programa, o que pode ser particularmente problemático em sistemas críticos ou em produção.</p>
+<p><code>Comportamento Inesperado</code>: Erros lógicos podem levar a comportamentos inesperados, o que pode resultar em decisões incorretas ou em falhas de segurança.</p>
+<p><code>Consumo Excessivo de Recursos</code>: Alguns erros, como vazamentos de memória, podem levar ao consumo excessivo de recursos do sistema, afetando a performance e a estabilidade.</p>
+<h3 id="a-importancia-do-tratamento-de-erros-e-excecoes">A importância do tratamento de erros e exceções<a class="headerlink" href="#a-importancia-do-tratamento-de-erros-e-excecoes" title="Permanent link">&para;</a></h3>
+<p>Tratar adequadamente os erros e exceções é essencial para garantir a confiabilidade e a robustez do sistema. Ao prever e lidar com situações de erro, é possível:</p>
+<p><code>Melhorar a Usabilidade</code>: Programas que tratam erros de forma elegante proporcionam uma experiência de usuário mais amigável, evitando mensagens de erro confusas ou interrupções inesperadas.</p>
+<p><code>Aumentar a Segurança</code>: Um tratamento cuidadoso de exceções pode prevenir falhas de segurança, como a exposição de informações sensíveis através de mensagens de erro.</p>
+<p><code>Facilitar a Manutenção</code>: Códigos que incluem um tratamento claro e consistente de erros são mais fáceis de entender e manter.</p>
+<div class="admonition progress">
+<p class="admonition-title">Progress</p>
+<p>Continuar...</p>
+</div>
+<h2 id="excecoes">Exceções<a class="headerlink" href="#excecoes" title="Permanent link">&para;</a></h2>
+<p>Mesmo que um comando ou expressão estejam sintaticamente corretos, pode ocorrer um erro durante sua execução. Erros detectados durante a execução são chamados de exceções e não são necessariamente fatais.</p>
+<p>Exemplos de exceções:</p>
+<div class="highlight"><pre><span></span><code><span class="mi">10</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">0</span><span class="p">)</span>   <span class="c1"># ZeroDivisionError</span>
+<span class="mi">4</span> <span class="o">+</span> <span class="n">spam</span><span class="o">*</span><span class="mi">3</span>   <span class="c1"># NameError</span>
+<span class="s1">&#39;2&#39;</span> <span class="o">+</span> <span class="mi">2</span>      <span class="c1"># TypeError</span>
+</code></pre></div>
+<h2 id="tratamento-de-excecoes">Tratamento de Exceções<a class="headerlink" href="#tratamento-de-excecoes" title="Permanent link">&para;</a></h2>
+<p>Em python, é possível escrever programas que tratam exceções específicas usando os blocos <code>try</code> e <code>except</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="c1"># bloco de código que pode gerar um erro</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="c1"># bloco de código que será executado em caso de erro</span>
+</code></pre></div>
+<ul>
+<li>O bloco <code>try</code> contém o código que pode gerar um erro. Se ocorrer um erro durante a execução desse bloco, o bloco except será executado.</li>
+<li>O bloco <code>except</code> é utilizado para tratar o erro de uma forma adequada, seja exibindo uma mensagem de erro para o usuário ou realizando alguma outra ação para corrigir o problema.</li>
+</ul>
+<h2 id="tipos-de-erros-except-excecoes">Tipos de Erros (Except) Exceções<a class="headerlink" href="#tipos-de-erros-except-excecoes" title="Permanent link">&para;</a></h2>
+<p>Tratar qualquer tipo de exceção da mesma maneira não é considerado uma boa prática de programação. É recomendável especificar o tipo de erro exato que a cláusula <code>except</code> irá capturar. Por isso, o comando try pode ter <code>mais de um except associado ao tipo de errro</code>, caso o programador queira associar um tratamento diferente para cada um deles.</p>
+<p>O formato geral do comando é:</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="c1"># bloco de código que pode gerar um erro</span>
+<span class="k">except</span> <span class="n">tipo_de_erro1</span><span class="p">:</span>
+    <span class="c1"># bloco de código que será executado em caso de erro do tipo 1</span>
+<span class="k">except</span> <span class="n">tipo_de_erro2</span><span class="p">:</span>
+    <span class="c1"># bloco de código que será executado em caso de erro do tipo 1</span>
+<span class="k">except</span> <span class="n">tipo_de_erro3</span><span class="p">:</span>
+    <span class="c1"># bloco de código que será executado em caso de erro do tipo 1</span>
+</code></pre></div>
+<p>Alguns tipos de exceção mais comuns:</p>
+<p><code>NameError</code>: exceção gerada quando o programa não consegue encontrar um nome de variável local ou global.
+<code>TypeError</code>: exceção gerada quando é passado um objeto de um tipo diferente do tipo que a função espera como argumento.
+<code>ValueError</code>: essa exceção ocorre quando um argumento de uma função tem o tipo certo, mas um valor inadequado.
+<code>ZeroDivisionError</code>: exceção gerada quando você fornece um zero como segundo argumento para uma divisão ou módulo.
+<code>FileNotFoundError</code>: essa exceção é gerada quando o arquivo ou diretório que o programa solicitou não existe.</p>
+<h3 id="exercicios-sobre-tipos-de-erros">Exercícios sobre tipos de erros<a class="headerlink" href="#exercicios-sobre-tipos-de-erros" title="Permanent link">&para;</a></h3>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Qual linha de código abaixo causará um erro <code>ZeroDivisionError</code> em Python?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>print(10 / 2)</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>print(5 * 0)</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>print(1 / 0)</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>print(0 + 10)</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p><code>print(1 / 0)</code> causará um erro <code>ZeroDivisionError</code>, pois não é possível dividir um número por zero.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Qual linha de código abaixo causará um erro <code>NameError</code> em Python?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>x = 5</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>print(y)</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>print("Hello, world!")</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>x = "Python"</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p><code>print(y)</code> causará um erro <code>NameError</code>, pois a variável <code>y</code> não foi definida antes de ser usada.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Qual linha de código abaixo causará um erro <code>TypeError</code> em Python?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>print(10 + 5)</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>print("Python" * 3)</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>print("Python" + 3)</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>print(len("Python"))</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p><code>print("Python" + 3)</code> causará um erro <code>TypeError</code>, pois não é possível concatenar uma string com um número inteiro.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Qual linha de código abaixo causará um erro <code>IndexError</code> em Python?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>lista = [1, 2, 3]</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>print(lista[1])</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>lista.append(4)</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>print(lista[3])</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p><code>print(lista[3])</code> causará um erro <code>IndexError</code>, pois o índice 3 está fora do alcance da lista <code>lista</code> que tem apenas 3 elementos.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Qual linha de código abaixo causará um erro <code>KeyError</code> em Python?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>dicionario = {"nome": "João", "idade": 30}</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>print(dicionario["nome"])</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>print(dicionario["altura"])</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>dicionario["cidade"] = "São Paulo"</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p><code>print(dicionario["altura"])</code> causará um erro <code>KeyError</code>, pois a chave <code>altura</code> não existe no dicionário <code>dicionario</code>.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Qual linha de código abaixo causará um erro <code>AttributeError</code> em Python?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>import math</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>print(math.sqrt(16))</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>print(math.PI)</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>print(math.pow(2, 3))</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p><code>print(math.PI)</code> causará um erro <code>AttributeError</code>, pois o módulo <code>math</code> não possui um atributo chamado <code>PI</code>.</p>
+</div>
+</div>
+<div class="admonition progress">
+<p class="admonition-title">Progress</p>
+<p>Continuar...</p>
+</div>
+<p>Além disso, é possível utilizar a cláusula <code>else</code> para executar um bloco de código caso não ocorra nenhum erro no bloco try. </p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="c1"># bloco de código que pode gerar um erro</span>
+<span class="k">except</span> <span class="n">tipo_de_erro1</span><span class="p">:</span>
+    <span class="c1"># bloco de código que será executado em caso de erro do tipo 1</span>
+<span class="k">except</span> <span class="n">tipo_de_erro2</span><span class="p">:</span>
+    <span class="c1"># bloco de código que será executado em caso de erro do tipo 1</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># bloco de código que será executado se nenhum erro ocorrer no bloco try</span>
+</code></pre></div>
+<p>E também é possível utilizar a cláusula <code>finally</code> para executar um bloco de código que sempre será executado, independentemente de ter ocorrido um erro ou não. Por exemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="c1"># bloco de código que pode gerar um erro</span>
+<span class="k">except</span> <span class="n">tipo_de_erro1</span><span class="p">:</span>
+    <span class="c1"># bloco de código que será executado em caso de erro do tipo 1</span>
+<span class="k">except</span> <span class="n">tipo_de_erro2</span><span class="p">:</span>
+    <span class="c1"># bloco de código que será executado em caso de erro do tipo 1</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># bloco de código que será executado se nenhum erro ocorrer no bloco try</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># bloco de código que sempre será executado, independentemente de ter ocorrido um erro ou não</span>
+</code></pre></div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Qual é a saída do seguinte código?</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Iniciando...&quot;</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="s2">&quot;texto&quot;</span>
+<span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Erro de tipo.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>Iniciando...</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>Iniciando...\nErro de tipo.</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>Erro de tipo.</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>Iniciando...\nErro de tipo.\nFinalizando...</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>A saída será <code>Iniciando...\nErro de tipo.</code> pois ocorre um erro de tipo e o bloco <code>except</code> é executado.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Qual é a saída do seguinte código?</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tentando...&quot;</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Erro de divisão por zero.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nenhum erro ocorreu.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>Tentando...\nErro de divisão por zero.</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>Tentando...\nNenhum erro ocorreu.</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>Nenhum erro ocorreu.</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>Tentando...</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>A saída será <code>Tentando...\nNenhum erro ocorreu.</code> pois não ocorre nenhum erro e o bloco <code>else</code> é executado.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Qual é a saída do seguinte código?</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Iniciando...&quot;</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;texto&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Erro de valor.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Conversão bem-sucedida.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>Iniciando...\nConversão bem-sucedida.</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>Erro de valor.</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>Iniciando...\nErro de valor.</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>Iniciando...</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>A saída será <code>Iniciando...\nErro de valor.</code> pois ocorre um erro de valor e o bloco <code>except</code> é executado.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Qual é a saída do seguinte código?</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Iniciando...&quot;</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Erro de divisão por zero.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nenhum erro ocorreu.&quot;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Finalizando...&quot;</span><span class="p">)</span>
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>Iniciando...\nNenhum erro ocorreu.\nFinalizando...</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>Iniciando...\nErro de divisão por zero.\nFinalizando...</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>Erro de divisão por zero.\nFinalizando...</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>Iniciando...\nFinalizando...</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>A saída será <code>Iniciando...\nErro de divisão por zero.\nFinalizando...</code> pois ocorre um erro de divisão por zero, o bloco <code>except</code> é executado, e o bloco <code>finally</code> é executado independentemente do que acontece antes.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Qual é a saída do seguinte código?</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tentando...&quot;</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">1</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Erro de divisão por zero.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nenhum erro ocorreu.&quot;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Finalizando...&quot;</span><span class="p">)</span>
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>Tentando...\nErro de divisão por zero.\nFinalizando...</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>Tentando...\nFinalizando...</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>Nenhum erro ocorreu.\nFinalizando...</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>Tentando...\nNenhum erro ocorreu.\nFinalizando...</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>A saída será <code>Tentando...\nNenhum erro ocorreu.\nFinalizando...</code> pois não ocorre nenhum erro, o bloco <code>else</code> é executado, e o bloco <code>finally</code> é executado independentemente do que acontece antes.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Qual é a saída do seguinte código?</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Iniciando...&quot;</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;texto&quot;</span> <span class="o">+</span> <span class="mi">5</span>
+<span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Erro de tipo.&quot;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Finalizando...&quot;</span><span class="p">)</span>
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>Iniciando...\nFinalizando...</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>Erro de tipo.\nFinalizando...</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>Iniciando...\nErro de tipo.\nFinalizando...</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>Iniciando...\nErro de tipo.</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>A saída será <code>Iniciando...\nErro de tipo.\nFinalizando...</code> pois ocorre um erro de tipo, o bloco <code>except</code> é executado, e o bloco <code>finally</code> é executado independentemente do que acontece antes.</p>
+</div>
+</div>
+<div class="admonition progress">
+<p class="admonition-title">Progress</p>
+<p>Continuar...</p>
+</div>
+<h3 id="desafios">Desafios<a class="headerlink" href="#desafios" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Refaça o desafios do inicio da aula para encontrar o angulo da reta entre os pontos utilizando as tratativas de erros e exceções.</p>
+</li>
+<li>
+<p>Responda: </p>
+</li>
+</ol>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Considere a seguinte função que realiza uma operação de divisão e trata possíveis erros:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">safe_division</span><span class="p">(</span><span class="n">numerator</span><span class="p">,</span> <span class="n">denominator</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">numerator</span> <span class="o">/</span> <span class="n">denominator</span>
+    <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Erro: Divisão por zero não é permitida.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Erro: Os tipos dos argumentos devem ser numéricos.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Operação concluída.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Qual será a saída ao executar a seguinte linha de código:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">safe_division</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;5&quot;</span><span class="p">))</span>
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>2.0\nOperação concluída.</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>Erro: Divisão por zero não é permitida.\nOperação concluída.</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>Erro: Os tipos dos argumentos devem ser numéricos.\nOperação concluída.\nNone</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>Operação concluída.\nNone</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>A saída será <code>Erro: Os tipos dos argumentos devem ser numéricos.\nOperação concluída.\nNone</code> porque o denominador não é um número, causando um <code>TypeError</code>, e a função retorna <code>None</code> após imprimir a mensagem de erro. O bloco <code>finally</code> é executado independentemente, imprimindo "Operação concluída."</p>
+</div>
+</div>
+<ol>
+<li>
+<p>Para o código a seguir, responda onde e porque é necessário adicionar ao código algum controle de erro exceção:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">adicionar_tarefa</span><span class="p">(</span><span class="n">tarefas</span><span class="p">,</span> <span class="n">tarefa</span><span class="p">):</span>
+    <span class="n">tarefas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tarefa</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tarefa adicionada com sucesso!&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">remover_tarefa</span><span class="p">(</span><span class="n">tarefas</span><span class="p">,</span> <span class="n">tarefa</span><span class="p">):</span>
+    <span class="n">tarefas</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">tarefa</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tarefa removida com sucesso!&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">visualizar_tarefas</span><span class="p">(</span><span class="n">tarefas</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tarefas</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nenhuma tarefa na lista.&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tarefas na lista:&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">tarefa</span> <span class="ow">in</span> <span class="n">tarefas</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">tarefa</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">tarefas</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">1 - Adicionar tarefa&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2 - Remover tarefa&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3 - Visualizar tarefas&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;4 - Sair&quot;</span><span class="p">)</span>
+
+        <span class="n">opcao</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Escolha uma opção: &quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span>
+            <span class="n">tarefa</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Digite a tarefa: &quot;</span><span class="p">)</span>
+            <span class="n">adicionar_tarefa</span><span class="p">(</span><span class="n">tarefas</span><span class="p">,</span> <span class="n">tarefa</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;2&quot;</span><span class="p">:</span>
+            <span class="n">tarefa</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Digite a tarefa a ser removida: &quot;</span><span class="p">)</span>
+            <span class="n">remover_tarefa</span><span class="p">(</span><span class="n">tarefas</span><span class="p">,</span> <span class="n">tarefa</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;3&quot;</span><span class="p">:</span>
+            <span class="n">visualizar_tarefas</span><span class="p">(</span><span class="n">tarefas</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;4&quot;</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Saindo do programa...&quot;</span><span class="p">)</span>
+            <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Opção inválida.&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+</li>
+</ol>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 5, 2024</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.0.0/js-yaml.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/insper-education/active-handout-plugins-js@main/package/plugin-bundle.js"></script>
+      
+        <script src="../../../search/main.js"></script>
+      
+        <script src="../../../termynal.js"></script>
+      
+    
+  </body>
+</html>

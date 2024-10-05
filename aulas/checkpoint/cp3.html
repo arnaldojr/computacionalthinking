@@ -1,0 +1,2459 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Arnaldo Viana">
+      
+      
+        <link rel="canonical" href="https://arnaldojr.github.io/computacionalthinking/aulas/checkpoint/cp3.html">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+    
+    
+      
+        <title>CHECKPOINT3 - Computacional Thinking</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/termynal.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/insper-education/active-handout-css@main/devlife.css">
+    
+      <link rel="stylesheet" href="../../termynal.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:700|Oxygen+Mono|Source+Sans+Pro:700|Source+Serif+Pro&amp;display=swap">
+<link rel="stylesheet" href="../../assets/css/devlife.css">
+
+
+    <script>
+        window.ihandout_config = JSON.parse(`{"report": {"api-base": "https://devlife.insper-comp.com.br/api/offerings/1/", "url": "https://devlife.insper-comp.com.br/api/offerings/1/exercises/"}}`);
+    </script>
+
+
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#checkpoint3" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../index.html" title="Computacional Thinking" class="md-header__button md-logo" aria-label="Computacional Thinking" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Computacional Thinking
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CHECKPOINT3
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/arnaldojr/computacionalthinking/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Computacional Thinking with Python
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="Computacional Thinking" class="md-nav__button md-logo" aria-label="Computacional Thinking" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Computacional Thinking
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/arnaldojr/computacionalthinking/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Computacional Thinking with Python
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/intro/playground.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Playground
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sobre/sobre.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sobre o curso
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agenda/agenda.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Agenda
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CheckPoint
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            CheckPoint
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sobre
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Configuração do Ambiente de Desenvolvimento
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Configuração do Ambiente de Desenvolvimento
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/environment-setup/virtual-environment.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Criação de um Ambiente Virtual
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/intro/intro-ctp.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pensamento computacional
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Fundamentos de Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Fundamentos de Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/python/intro-python.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introdução ao Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/python/data-types.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tipos de Dados e Variáveis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_3" id="__nav_8_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Controle de Fluxo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3">
+            <span class="md-nav__icon md-icon"></span>
+            Controle de Fluxo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_3_1" id="__nav_8_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Estruturas de decisão
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Estruturas de decisão
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/python/decision-structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    if-elif-else
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_3_2" id="__nav_8_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Estruturas de Repetição
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Estruturas de Repetição
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/python/repetition-structures-while-loop.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    while loop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/python/repetition-structures-for-loop.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    for Loop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_4" id="__nav_8_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Estruturas de Dados
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_4">
+            <span class="md-nav__icon md-icon"></span>
+            Estruturas de Dados
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/python/lists-tuples.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Listas e Tuplas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/python/dict-sets.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dicionários e Conjuntos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_5" id="__nav_8_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Funções e Módulos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_5">
+            <span class="md-nav__icon md-icon"></span>
+            Funções e Módulos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/python/functions-modules.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Funções
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/python/modules.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Módulos e Pacotes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/python/modules2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Módulos externos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_6" id="__nav_8_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Manipulação de Dados e Arquivos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_6">
+            <span class="md-nav__icon md-icon"></span>
+            Manipulação de Dados e Arquivos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/python/files-maniputation.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manipulação de arquivos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_7" id="__nav_8_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Programação Orientada a Objetos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_7">
+            <span class="md-nav__icon md-icon"></span>
+            Programação Orientada a Objetos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/python/oop-classes-objects.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Classes e Objetos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/python/oop-inheritance.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Herança, Encapsulamento e Métodos Privados
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/python/oop-polymorphism.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Polimorfismo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_8" id="__nav_8_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Erros e Exceções
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_8">
+            <span class="md-nav__icon md-icon"></span>
+            Erros e Exceções
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/python/errors-exceptions.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tratamento de Erros - Try, Except
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Algoritmos e Estruturas de Dados
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Algoritmos e Estruturas de Dados
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_1" id="__nav_9_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Busca
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_1">
+            <span class="md-nav__icon md-icon"></span>
+            Busca
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/algorithms/problem-search.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O problema da busca
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/algorithms/sequential-search.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Busca Sequencial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/algorithms/binary-search.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Busca Binária
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_2" id="__nav_9_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Ordenação
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_2">
+            <span class="md-nav__icon md-icon"></span>
+            Ordenação
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/algorithms/sorting-algorithms.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O caso da Ordenação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/algorithms/bubble-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bubble Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/algorithms/selection-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selection Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/algorithms/insertion-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Insertion Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/algorithms/merge-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Merge Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/algorithms/quick-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_3" id="__nav_9_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Recursão
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_3">
+            <span class="md-nav__icon md-icon"></span>
+            Recursão
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/algorithms/recursion.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recursividade
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_4" id="__nav_9_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Análise de Algoritmos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_4">
+            <span class="md-nav__icon md-icon"></span>
+            Análise de Algoritmos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/algorithms/big-o-notation.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Notação Big O
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Banco de dados com Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Banco de dados com Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/bd/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/bd/sqlalq.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQLAlchemy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Laboratórios
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Laboratórios
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_11_1" id="__nav_11_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Solução Labs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_1">
+            <span class="md-nav__icon md-icon"></span>
+            Solução Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/labs/solutions/solution-data-types.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab02 - Tipos de dados e Variáveis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/labs/solutions/solution-decision-structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab03 - Estrutura de Decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/intro/infra.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab01 - Comece aqui!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/labs/lab-data-types.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab02 - Tipos de dados e Variáveis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/labs/lab-decision-structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab03 - Estrutura de Decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/labs/common-errors.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab04 - Erros comuns
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/labs/lab-loops-data-structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab05 - Loops for e while, listas e tuplas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/labs/lab-loops-dict-sets.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab06 - Dicionários, conjuntos e afins...
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Projetos Práticos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Projetos Práticos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/projects/guessing-game.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jogo da Adivinhação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/projects/agenda.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Agenda simples
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Recursos Adicionais
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Recursos Adicionais
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctp/resources/references.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Referências e Leituras Complementares
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#datas-e-formatos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Datas e Formatos:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#propostas-de-projetos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Propostas de projetos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Propostas de projetos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sistemas-de-gestao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sistemas de Gestão
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sistemas de Gestão">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sistema-de-reservas-para-eventos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sistema de Reservas para Eventos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gerenciador-de-financas-pessoais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gerenciador de Finanças Pessoais
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jogos-e-entretenimento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Jogos e Entretenimento
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Jogos e Entretenimento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jogo-pedra-papel-ou-tesoura" class="md-nav__link">
+    <span class="md-ellipsis">
+      Jogo Pedra, Papel ou Tesoura
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jogo-da-velha" class="md-nav__link">
+    <span class="md-ellipsis">
+      Jogo da Velha
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outras-propostas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Outras propostas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criterios-de-avaliacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Critérios de Avaliação
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Critérios de Avaliação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-uso-de-estruturas-de-dados-20-pontos" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Uso de Estruturas de Dados (20 pontos)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-funcoes-e-modularizacao-20-pontos" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Funções e Modularização (20 pontos)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-manipulacao-de-arquivos-20-pontos" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Manipulação de Arquivos (20 pontos)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-controle-de-fluxo-e-estruturas-de-decisao-20-pontos" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Controle de Fluxo e Estruturas de Decisão (20 pontos)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-tratamento-de-erros-e-validacao-de-dados-20-pontos" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Tratamento de Erros e Validação de Dados (20 pontos)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contato-e-suporte" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contato e Suporte
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checklist-de-submissao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checklist de Submissão
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="checkpoint3">CHECKPOINT3<a class="headerlink" href="#checkpoint3" title="Permanent link">&para;</a></h1>
+<p>O Checkpoint 3 é baseado em um <code>mini-projeto em grupo</code>, com objetivo de reforçar os conceitos adquiridos dos conteúdos ensinados, na prática.</p>
+<h2 id="datas-e-formatos">Datas e Formatos:<a class="headerlink" href="#datas-e-formatos" title="Permanent link">&para;</a></h2>
+<p>A solução será apresentada em sala de aula, e cada grupo terá um tempo determinado para demonstrar o funcionamento do projeto, explicar o código e responder a quaisquer perguntas. É importante estar bem preparado para esta apresentação, assegurando que todos os membros do grupo conheçam bem o projeto e estejam aptos a participar da discussão.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Data</th>
+<th style="text-align: center;">CheckPoint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">10/11</td>
+<td style="text-align: center;">CheckPoint 3 - Apresentação do mini-projeto.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="propostas-de-projetos">Propostas de projetos<a class="headerlink" href="#propostas-de-projetos" title="Permanent link">&para;</a></h2>
+<p>Os mini-projetos estão categorizados em 2 grandes áreas:</p>
+<h3 id="sistemas-de-gestao">Sistemas de Gestão<a class="headerlink" href="#sistemas-de-gestao" title="Permanent link">&para;</a></h3>
+<h4 id="sistema-de-reservas-para-eventos">Sistema de Reservas para Eventos<a class="headerlink" href="#sistema-de-reservas-para-eventos" title="Permanent link">&para;</a></h4>
+<p><strong>Objetivo:</strong> Criar um programa para gerenciar reservas de ingressos para eventos.</p>
+<p><strong>Funcionalidades:</strong> 
+- Adicionar eventos
+- Comprar ingressos
+- Cancelar reservas
+- Listar eventos disponíveis
+- Mostrar informações sobre eventos</p>
+<p><strong>Estruturas de Dados:</strong> Dicionários para armazenar eventos e listas para armazenar reservas.</p>
+<h4 id="gerenciador-de-financas-pessoais">Gerenciador de Finanças Pessoais<a class="headerlink" href="#gerenciador-de-financas-pessoais" title="Permanent link">&para;</a></h4>
+<p><strong>Objetivo:</strong> Criar um programa para ajudar os usuários a gerenciar suas finanças pessoais.</p>
+<p><strong>Funcionalidades:</strong> 
+- Adicionar transações (receitas e despesas)
+- Visualizar o saldo atual
+- Gerar um relatório de transações
+- Categorizar transações</p>
+<p><strong>Estruturas de Dados:</strong> Utilize listas para armazenar as transações, onde cada transação é um dicionário contendo tipo (receita ou despesa), valor, categoria, e data. Dicionários podem ser usados para categorizar as transações e calcular totais por categoria.</p>
+<h3 id="jogos-e-entretenimento">Jogos e Entretenimento<a class="headerlink" href="#jogos-e-entretenimento" title="Permanent link">&para;</a></h3>
+<h4 id="jogo-pedra-papel-ou-tesoura">Jogo Pedra, Papel ou Tesoura<a class="headerlink" href="#jogo-pedra-papel-ou-tesoura" title="Permanent link">&para;</a></h4>
+<p><strong>Objetivo:</strong> Criar um jogo simples de pedra, papel ou tesoura contra o computador.</p>
+<p><strong>Funcionalidades:</strong> 
+- Escolha do usuário
+- Escolha aleatória do computador
+- Determinar o vencedor
+- Manter uma contagem de vitórias/derrotas</p>
+<p><strong>Estruturas de Dados:</strong> Variáveis para armazenar escolhas e contadores para vitórias/derrotas.</p>
+<h4 id="jogo-da-velha">Jogo da Velha<a class="headerlink" href="#jogo-da-velha" title="Permanent link">&para;</a></h4>
+<p><strong>Objetivo:</strong> Desenvolver uma versão simples do jogo da velha para dois jogadores.</p>
+<p><strong>Funcionalidades:</strong> 
+- Exibir o tabuleiro
+- Fazer uma jogada
+- Verificar se há um vencedor
+- Alternar entre os jogadores</p>
+<p><strong>Estruturas de Dados:</strong> Utilize uma lista de listas para representar o tabuleiro, onde cada sub-lista representa uma linha do tabuleiro e cada elemento é uma célula. Inicialize o tabuleiro com valores vazios e atualize à medida que os jogadores fazem suas jogadas.</p>
+<h3 id="outras-propostas">Outras propostas<a class="headerlink" href="#outras-propostas" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[outra opção] O grupo tem a liberdade de propor um tema diferente dos listados anteriormente. Converse com o professor para alinhar as funcionalidades e a estrutura de dados, para garantir nível de dificuldade od projeto.</li>
+</ul>
+<h2 id="criterios-de-avaliacao">Critérios de Avaliação<a class="headerlink" href="#criterios-de-avaliacao" title="Permanent link">&para;</a></h2>
+<h3 id="1-uso-de-estruturas-de-dados-20-pontos">1. Uso de Estruturas de Dados (20 pontos)<a class="headerlink" href="#1-uso-de-estruturas-de-dados-20-pontos" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Iniciante (0-5 pontos):</strong> Uso limitado e incorreto de estruturas de dados.</li>
+<li><strong>Intermediário (6-10 pontos):</strong> Uso básico de listas e dicionários.</li>
+<li><strong>Avançado (11-15 pontos):</strong> Uso eficiente de listas, dicionários e outras estruturas de dados. Estruturas de dados são utilizadas de forma apropriada para resolver o problema.</li>
+<li><strong>Excelente (16-20 pontos):</strong> Demonstração excepcional de conhecimento e habilidade no uso de estruturas de dados, incluindo a criação de classes personalizadas quando necessário.</li>
+</ul>
+<h3 id="2-funcoes-e-modularizacao-20-pontos">2. Funções e Modularização (20 pontos)<a class="headerlink" href="#2-funcoes-e-modularizacao-20-pontos" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Iniciante (0-5 pontos):</strong> Uso limitado de funções, código repetitivo.</li>
+<li><strong>Intermediário (6-10 pontos):</strong> Funções são utilizadas, mas ainda há repetição de código ou as funções são muito longas.</li>
+<li><strong>Avançado (11-15 pontos):</strong> Funções são bem definidas, modularizadas e reutilizáveis.</li>
+<li><strong>Excelente (16-20 pontos):</strong> Código extremamente bem organizado, funções são curtas, focadas e reutilizáveis em diferentes partes do programa.</li>
+</ul>
+<h3 id="3-manipulacao-de-arquivos-20-pontos">3. Manipulação de Arquivos (20 pontos)<a class="headerlink" href="#3-manipulacao-de-arquivos-20-pontos" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Iniciante (0-5 pontos):</strong> Erros frequentes ao ler/escrever em arquivos ou não implementa esta funcionalidade.</li>
+<li><strong>Intermediário (6-10 pontos):</strong> Consegue ler e escrever em arquivos, mas pode haver problemas de gerenciamento de arquivos (por exemplo, não fechar um arquivo).</li>
+<li><strong>Avançado (11-15 pontos):</strong> Manipulação correta de arquivos, incluindo leitura, escrita e fechamento adequado de arquivos.</li>
+<li><strong>Excelente (16-20 pontos):</strong> Uso avançado de manipulação de arquivos, incluindo tratamento de exceções e garantia de que os arquivos são sempre fechados corretamente, mesmo em caso de erro.</li>
+</ul>
+<h3 id="4-controle-de-fluxo-e-estruturas-de-decisao-20-pontos">4. Controle de Fluxo e Estruturas de Decisão (20 pontos)<a class="headerlink" href="#4-controle-de-fluxo-e-estruturas-de-decisao-20-pontos" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Iniciante (0-5 pontos):</strong> Uso limitado e incorreto de estruturas de decisão.</li>
+<li><strong>Intermediário (6-10 pontos):</strong> Uso básico de estruturas de decisão, mas o código pode ser difícil de seguir.</li>
+<li><strong>Avançado (11-15 pontos):</strong> Estruturas de decisão são utilizadas eficientemente para controlar o fluxo do programa.</li>
+<li><strong>Excelente (16-20 pontos):</strong> Uso excepcional de estruturas de decisão, tornando o código limpo, fácil de seguir e eficiente.</li>
+</ul>
+<h3 id="5-tratamento-de-erros-e-validacao-de-dados-20-pontos">5. Tratamento de Erros e Validação de Dados (20 pontos)<a class="headerlink" href="#5-tratamento-de-erros-e-validacao-de-dados-20-pontos" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Iniciante (0-5 pontos):</strong> Erros frequentes, sem validação de dados ou tratamento de erros.</li>
+<li><strong>Intermediário (6-10 pontos):</strong> Alguma validação de dados e tratamento de erros, mas não é abrangente.</li>
+<li><strong>Avançado (11-15 pontos):</strong> Boa validação de dados e tratamento de erros, cobrindo a maioria dos casos de uso.</li>
+<li><strong>Excelente (16-20 pontos):</strong> Excelente validação de dados e tratamento de erros, proporcionando uma experiência de usuário robusta e sem falhas.</li>
+</ul>
+<h2 id="contato-e-suporte"><strong>Contato e Suporte</strong><a class="headerlink" href="#contato-e-suporte" title="Permanent link">&para;</a></h2>
+<p>Não existem perguntas ruins, caso tenham dúvidas sobre o projeto, não hesitem em perguntar tanto em aula como fora de aula. O objetivo é que que você tenha uma experiência de aprendizado positiva, produtiva e divertida!</p>
+<h2 id="checklist-de-submissao"><strong>Checklist de Submissão</strong><a class="headerlink" href="#checklist-de-submissao" title="Permanent link">&para;</a></h2>
+<p>O projeto deve ser submetido em um repositório github que o grupo irá criar. Aguns pontos relevantes para garantir que todos os requisitos foram atendidos:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Código Fonte</strong>: Todo o código fonte está bem comentado e formatado de acordo com as boas práticas de programação?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Funcionalidades</strong>: Todas as funcionalidades requisitadas foram implementadas e estão funcionando corretamente?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Estruturas de Dados</strong>: As estruturas de dados escolhidas são adequadas para as tarefas propostas?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Testes</strong>: O código foi testado e é funcional?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Apresentação</strong>: O grupo está preparado para a apresentação, com todos os membros conhecendo bem o projeto e aptos a responder perguntas?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Documentação</strong>: A documentação do projeto está completa?</li>
+</ul>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 5, 2024</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.0.0/js-yaml.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/insper-education/active-handout-plugins-js@main/package/plugin-bundle.js"></script>
+      
+        <script src="../../search/main.js"></script>
+      
+        <script src="../../termynal.js"></script>
+      
+    
+  </body>
+</html>

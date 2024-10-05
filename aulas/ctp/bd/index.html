@@ -1,0 +1,2881 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Arnaldo Viana">
+      
+      
+        <link rel="canonical" href="https://arnaldojr.github.io/computacionalthinking/aulas/ctp/bd/index.html">
+      
+      
+        <link rel="prev" href="../algorithms/big-o-notation.html">
+      
+      
+        <link rel="next" href="sqlalq.html">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+    
+    
+      
+        <title>SQL - Computacional Thinking</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/termynal.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/insper-education/active-handout-css@main/devlife.css">
+    
+      <link rel="stylesheet" href="../../../termynal.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:700|Oxygen+Mono|Source+Sans+Pro:700|Source+Serif+Pro&amp;display=swap">
+<link rel="stylesheet" href="../../../assets/css/devlife.css">
+
+
+    <script>
+        window.ihandout_config = JSON.parse(`{"report": {"api-base": "https://devlife.insper-comp.com.br/api/offerings/1/", "url": "https://devlife.insper-comp.com.br/api/offerings/1/exercises/"}}`);
+    </script>
+
+
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#operacoes-crud-com-python-em-um-banco-de-dados-oracle" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="Computacional Thinking" class="md-header__button md-logo" aria-label="Computacional Thinking" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Computacional Thinking
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SQL
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/arnaldojr/computacionalthinking/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Computacional Thinking with Python
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="Computacional Thinking" class="md-nav__button md-logo" aria-label="Computacional Thinking" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Computacional Thinking
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/arnaldojr/computacionalthinking/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Computacional Thinking with Python
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/playground.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Playground
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sobre/sobre.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sobre o curso
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agenda/agenda.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Agenda
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CheckPoint
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            CheckPoint
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../checkpoint/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sobre
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Configuração do Ambiente de Desenvolvimento
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Configuração do Ambiente de Desenvolvimento
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../environment-setup/virtual-environment.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Criação de um Ambiente Virtual
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/intro-ctp.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pensamento computacional
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Fundamentos de Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Fundamentos de Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/intro-python.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introdução ao Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/data-types.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tipos de Dados e Variáveis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_3" id="__nav_8_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Controle de Fluxo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3">
+            <span class="md-nav__icon md-icon"></span>
+            Controle de Fluxo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_3_1" id="__nav_8_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Estruturas de decisão
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Estruturas de decisão
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/decision-structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    if-elif-else
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_3_2" id="__nav_8_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Estruturas de Repetição
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Estruturas de Repetição
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/repetition-structures-while-loop.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    while loop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/repetition-structures-for-loop.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    for Loop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_4" id="__nav_8_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Estruturas de Dados
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_4">
+            <span class="md-nav__icon md-icon"></span>
+            Estruturas de Dados
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/lists-tuples.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Listas e Tuplas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/dict-sets.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dicionários e Conjuntos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_5" id="__nav_8_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Funções e Módulos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_5">
+            <span class="md-nav__icon md-icon"></span>
+            Funções e Módulos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/functions-modules.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Funções
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/modules.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Módulos e Pacotes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/modules2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Módulos externos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_6" id="__nav_8_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Manipulação de Dados e Arquivos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_6">
+            <span class="md-nav__icon md-icon"></span>
+            Manipulação de Dados e Arquivos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/files-maniputation.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manipulação de arquivos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_7" id="__nav_8_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Programação Orientada a Objetos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_7">
+            <span class="md-nav__icon md-icon"></span>
+            Programação Orientada a Objetos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/oop-classes-objects.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Classes e Objetos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/oop-inheritance.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Herança, Encapsulamento e Métodos Privados
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/oop-polymorphism.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Polimorfismo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_8" id="__nav_8_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Erros e Exceções
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_8">
+            <span class="md-nav__icon md-icon"></span>
+            Erros e Exceções
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/errors-exceptions.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tratamento de Erros - Try, Except
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Algoritmos e Estruturas de Dados
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Algoritmos e Estruturas de Dados
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_1" id="__nav_9_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Busca
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_1">
+            <span class="md-nav__icon md-icon"></span>
+            Busca
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/problem-search.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O problema da busca
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/sequential-search.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Busca Sequencial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/binary-search.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Busca Binária
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_2" id="__nav_9_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Ordenação
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_2">
+            <span class="md-nav__icon md-icon"></span>
+            Ordenação
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/sorting-algorithms.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O caso da Ordenação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/bubble-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bubble Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/selection-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selection Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/insertion-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Insertion Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/merge-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Merge Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/quick-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_3" id="__nav_9_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Recursão
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_3">
+            <span class="md-nav__icon md-icon"></span>
+            Recursão
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/recursion.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recursividade
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_4" id="__nav_9_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Análise de Algoritmos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_4">
+            <span class="md-nav__icon md-icon"></span>
+            Análise de Algoritmos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/big-o-notation.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Notação Big O
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Banco de dados com Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Banco de dados com Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    SQL
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="index.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    SQL
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#operacoes-crud-com-python-em-um-banco-de-dados-oracle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operações CRUD com Python em um Banco de Dados Oracle
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Operações CRUD com Python em um Banco de Dados Oracle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-requisitos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pré-requisitos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importando-a-biblioteca" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importando a biblioteca
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Importando a biblioteca">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configurando-a-string-de-conexao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurando a String de Conexão
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schema
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Schema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uso-simples-apenas-para-entender-a-ideia-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uso simples (apenas para entender a ideia principal)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boas-praticas-de-acesso-a-banco-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Boas Práticas de Acesso a Banco de Dados
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Boas Práticas de Acesso a Banco de Dados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prevencao-de-sql-injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prevenção de SQL Injection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consulta-parametrizada" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consulta Parametrizada
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operacoes-crud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operações CRUD
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Operações CRUD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-inserir-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create (Inserir Dados)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#read-ler-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Read (Ler Dados)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-atualizar-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update (Atualizar Dados)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-deletar-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delete (Deletar Dados)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criar-uma-tabela-caso-nao-exista" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criar uma tabela (caso não exista)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encerrando-a-conexao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Encerrando a Conexão
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      DICAS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DICAS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tratamento-de-excecoes-e-fechar-conexoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tratamento de exceções e fechar conexões
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parametrizacao-das-consultas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parametrização das Consultas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desafios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Desafios
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sqlalq.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQLAlchemy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Laboratórios
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Laboratórios
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_11_1" id="__nav_11_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Solução Labs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_1">
+            <span class="md-nav__icon md-icon"></span>
+            Solução Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/solutions/solution-data-types.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab02 - Tipos de dados e Variáveis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/solutions/solution-decision-structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab03 - Estrutura de Decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/infra.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab01 - Comece aqui!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/lab-data-types.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab02 - Tipos de dados e Variáveis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/lab-decision-structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab03 - Estrutura de Decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/common-errors.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab04 - Erros comuns
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/lab-loops-data-structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab05 - Loops for e while, listas e tuplas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/lab-loops-dict-sets.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab06 - Dicionários, conjuntos e afins...
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Projetos Práticos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Projetos Práticos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projects/guessing-game.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jogo da Adivinhação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projects/agenda.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Agenda simples
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Recursos Adicionais
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Recursos Adicionais
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resources/references.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Referências e Leituras Complementares
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#operacoes-crud-com-python-em-um-banco-de-dados-oracle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operações CRUD com Python em um Banco de Dados Oracle
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Operações CRUD com Python em um Banco de Dados Oracle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-requisitos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pré-requisitos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importando-a-biblioteca" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importando a biblioteca
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Importando a biblioteca">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configurando-a-string-de-conexao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurando a String de Conexão
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schema
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Schema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uso-simples-apenas-para-entender-a-ideia-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uso simples (apenas para entender a ideia principal)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boas-praticas-de-acesso-a-banco-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Boas Práticas de Acesso a Banco de Dados
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Boas Práticas de Acesso a Banco de Dados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prevencao-de-sql-injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prevenção de SQL Injection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consulta-parametrizada" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consulta Parametrizada
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operacoes-crud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operações CRUD
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Operações CRUD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-inserir-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create (Inserir Dados)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#read-ler-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Read (Ler Dados)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-atualizar-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update (Atualizar Dados)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-deletar-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delete (Deletar Dados)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criar-uma-tabela-caso-nao-exista" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criar uma tabela (caso não exista)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encerrando-a-conexao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Encerrando a Conexão
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      DICAS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DICAS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tratamento-de-excecoes-e-fechar-conexoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tratamento de exceções e fechar conexões
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parametrizacao-das-consultas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parametrização das Consultas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desafios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Desafios
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>SQL</h1>
+
+<h2 id="operacoes-crud-com-python-em-um-banco-de-dados-oracle">Operações CRUD com Python em um Banco de Dados Oracle<a class="headerlink" href="#operacoes-crud-com-python-em-um-banco-de-dados-oracle" title="Permanent link">&para;</a></h2>
+<p>Nesta aula vamos realizar o processo de conexão a um banco de dados utilizando Python. Trata-se de um guia rápido de consulta para operações CRUD (Create, Read, Update, Delete) com uma abordagem mais simples e direta.</p>
+<p><img alt="" src="imgs/oracledb.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Apenas por compatibilidade com o que é estudado no curso, vamos utilizar o banco de dados <code>ORACLE</code>, e no python a biblioteca <code>oracledb</code>, mas você ainda encontra bastante código legado com a biblioteca <code>cx_Oracle</code>. </p>
+</div>
+<p>É possível realizar a conexão de qualquer banco de dados com o Python, incluindo MySQL, SQLite, MongoDB, Oracle, e PostgreSQL. De forma geral, os mesmos passos básicos são seguidos para estabelecer uma conexão e executar operações CRUD (Create, Read, Update, Delete). No entanto, é fundamental acessar a documentação oficial de cada banco de dados e da biblioteca Python específica para entender as particularidades e o que é necessário adaptar. </p>
+<p>Aqui estão algumas considerações importantes para cada um dos principais sistemas de gerenciamento de banco de dados (SGBDs):</p>
+<ul>
+<li>
+<p><code>MySQL</code>: Para interagir com MySQL usando Python, a biblioteca mais comum é o <code>mysql-connector-python</code>. Após a instalação via pip, a conexão pode ser estabelecida fornecendo os detalhes do host, usuário, senha e o banco de dados. É importante verificar questões de segurança e desempenho, como o uso de conexões pool.</p>
+<ul>
+<li>ACESSE A DOCUMETAÇÃO OFICIAL EM: <a href="https://www.mysql.com/">https://www.mysql.com/</a></li>
+</ul>
+</li>
+<li>
+<p><code>SQLite</code>: SQLite é uma biblioteca que fornece um banco de dados SQL acessível sem a necessidade de um processo de servidor separado. Python vem com suporte embutido para SQLite através do módulo <code>sqlite3</code>. Isso facilita a execução de operações de banco de dados sem configuração adicional e é ideal para desenvolvimento e testes.</p>
+<ul>
+<li>ACESSE A DOCUMETAÇÃO OFICIAL EM: <a href="https://www.sqlite.org/">https://www.sqlite.org/</a></li>
+</ul>
+</li>
+<li>
+<p><code>MongoDB</code>: MongoDB é um <code>banco de dados NoSQL</code> que armazena dados em documentos semelhantes a <code>JSON</code>. Para usá-lo com Python, você deve instalar <code>pymongo</code>. A conexão com MongoDB difere significativamente em comparação com os bancos de dados relacionais, focando mais na manipulação de documentos e coleções em vez de tabelas e linhas.</p>
+<ul>
+<li>ACESSE A DOCUMETAÇÃO OFICIAL EM: <a href="https://www.mongodb.com/">https://www.mongodb.com/</a></li>
+</ul>
+</li>
+<li>
+<p><code>Oracledb</code> O oracleb, é uma biblioteca poderosa que permite a conexão entre Python e bancos de dados Oracle. É essencial configurar os parametros de usuário, senha e DNS para uma conexão bem-sucedida.</p>
+<ul>
+<li>ACESSE A DOCUMETAÇÃO OFICIAL EM: <a href="https://oracle.github.io/python-oracledb/">https://oracle.github.io/python-oracledb/</a></li>
+</ul>
+</li>
+<li>
+<p><code>PostgreSQL</code>: Para conectar-se ao PostgreSQL, o <code>psycopg2</code> é uma escolha popular. Esta biblioteca é eficaz tanto para operações simples quanto para uso em produção, oferecendo suporte robusto para diferentes tipos de dados e conformidade com os padrões SQL.</p>
+<ul>
+<li>ACESSE A DOCUMETAÇÃO OFICIAL EM: <a href="https://www.postgresql.org/">https://www.postgresql.org/</a></li>
+</ul>
+</li>
+<li>
+<p><code>Microsoft SQL Server</code>: Trata-se tambem de um dos maiores bancos de dados mantido pela microsoft. Há vários drivers SQL do Python disponíveis. No entanto, a Microsoft coloca esforços de teste e confiança no driver <code>pyodbc</code> outro conhecido é o <code>pymssql</code>.</p>
+<ul>
+<li>ACESSE A DOCUMETAÇÃO OFICIAL EM: <a href="https://mkleehammer.github.io/pyodbc/">https://mkleehammer.github.io/pyodbc/</a></li>
+</ul>
+</li>
+</ul>
+<div class="admonition progress">
+<p class="admonition-title">Progress</p>
+<p>continuar...</p>
+</div>
+<h3 id="pre-requisitos">Pré-requisitos<a class="headerlink" href="#pre-requisitos" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>oracledb</strong>: Biblioteca Python para conectar ao Oracle. Instale via pip:</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>oracledb
+</code></pre></div>
+- <strong>Oracle Developer</strong>: Instalado e configurado no seu sistema operacional. Este é necessário para que funcione corretamente.</p>
+<h3 id="importando-a-biblioteca">Importando a biblioteca<a class="headerlink" href="#importando-a-biblioteca" title="Permanent link">&para;</a></h3>
+<p>Comece seu script Python importando a <code>oracledb</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">oracledb</span>
+</code></pre></div>
+<h4 id="configurando-a-string-de-conexao">Configurando a String de Conexão<a class="headerlink" href="#configurando-a-string-de-conexao" title="Permanent link">&para;</a></h4>
+<p>Crie uma <code>Data Source Name</code> (DSN) utilizando as credenciais e o endereço do seu banco de dados Oracle:</p>
+<div class="highlight"><pre><span></span><code><span class="n">dsn</span> <span class="o">=</span> <span class="n">oracledb</span><span class="o">.</span><span class="n">makedsn</span><span class="p">(</span><span class="s1">&#39;hostname&#39;</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">service_name</span><span class="o">=</span><span class="s1">&#39;service_name&#39;</span><span class="p">)</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">oracledb</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">&#39;password&#39;</span><span class="p">,</span> <span class="n">dsn</span><span class="o">=</span><span class="n">dsn</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Você já possui essas credenciais de acesso. abra o seu oracle developer e adicione as informações
+é esperado alguma coisa do tipo:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Conecta o servidor</span>
+<span class="n">dsnStr</span> <span class="o">=</span> <span class="n">oracledb</span><span class="o">.</span><span class="n">makedsn</span><span class="p">(</span><span class="s2">&quot;oracle.fiap.com.br&quot;</span><span class="p">,</span> <span class="mi">1521</span><span class="p">,</span> <span class="s2">&quot;ORCL&quot;</span><span class="p">)</span>
+<span class="c1"># Efetua a conexão com o Usuário</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">oracledb</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">USER</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">PASS</span><span class="p">,</span> <span class="n">dsn</span><span class="o">=</span><span class="n">dsnStr</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Cuidado!!!! para não vazar seus acessos e senhas na internet. <strong>NUNCA DE COMMIT</strong> dessas informações. Crie um aruqivo separado com essas informações ou utilize variaveis de ambiente. Como fazer? Leia este tutorial: <a href="https://www.dio.me/articles/protegendo-credenciais-de-banco-de-dados-em-aplicacoes-python">protegendo credenciais de banco de dados em aplicacoes python</a></p>
+</div>
+<p>Se tudo der certo, <strong>parabéns!</strong> você já está conectado ao seu banco de dados. Agora podemos seguir com as operações de CRUD.</p>
+<h2 id="schema">Schema<a class="headerlink" href="#schema" title="Permanent link">&para;</a></h2>
+<p>No seu Oracle Developer, crie o seguinte <code>tabela</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">table</span><span class="p">:</span><span class="w"> </span><span class="n">petshop</span>
+<span class="k">schema</span><span class="p">:</span>
+<span class="w">    </span><span class="n">id</span><span class="w">  </span><span class="c1">-- PK number</span>
+<span class="w">    </span><span class="n">tipo_pet</span><span class="w"> </span><span class="c1">-- varchar 30</span>
+<span class="w">    </span><span class="n">nome_pet</span><span class="w"> </span><span class="c1">-- varchar 30</span>
+<span class="w">    </span><span class="n">idade</span><span class="w"> </span><span class="c1">-- number</span>
+</code></pre></div>
+<p>Vamos utilizar essa tabela como base do nosso exemplo.</p>
+<h3 id="uso-simples-apenas-para-entender-a-ideia-principal">Uso simples (apenas para entender a ideia principal)<a class="headerlink" href="#uso-simples-apenas-para-entender-a-ideia-principal" title="Permanent link">&para;</a></h3>
+<p>Depois de estabelecer uma conexão com o banco de dados, você pode executar instruções SQL usando o <code>objeto cursor</code>. </p>
+<p>O objeto cursor permite executar instruções SQL e recuperar os resultados. Você pode criar um objeto cursor usando o seguinte código:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Cria um cursor</span>
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+</code></pre></div>
+<p>Para executar uma instrução SQL, você pode usar o método <code>execute()</code> do objeto cursor. Por exemplo, para executar uma instrução <code>SELECT</code>, você pode usar o seguinte código:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Executa uma instrução SELECT</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM nome_tabela&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>Você também pode usar o método execute() para executar outros tipos de instruções SQL, como INSERT, UPDATE e DELETE. Por exemplo, para inserir uma nova linha em uma tabela, você pode usar o seguinte código:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Executa uma instrução INSERT</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;INSERT INTO nome_tabela (coluna1, coluna2) VALORES (valor1, valor2)&quot;</span><span class="p">)</span>
+
+<span class="c1"># Confirme as alterações no banco de dados</span>
+<span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>É importante lembrar de chamar o método <code>commit()</code> após executar qualquer instrução SQL que modifique o banco de dados. Isso garante que as alterações sejam salvas no banco de dados.</p>
+</div>
+<p>Quando terminar de trabalhar com o banco de dados, você deve fechar a conexão e os objetos cursor para liberar recursos. Você pode fazer isso usando o seguinte código:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#fecha o cursor</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1">#Fecha a conexão</span>
+<span class="n">connextion</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<p>Com esse entendimento básico, podemos avançar para criar algumas funções mais robustas.</p>
+<div class="admonition progress">
+<p class="admonition-title">Progress</p>
+<p>continuar...</p>
+</div>
+<h2 id="boas-praticas-de-acesso-a-banco-de-dados">Boas Práticas de Acesso a Banco de Dados<a class="headerlink" href="#boas-praticas-de-acesso-a-banco-de-dados" title="Permanent link">&para;</a></h2>
+<p>A segurança é um dos pilares fundamentais no desenvolvimento de qualquer aplicação que interaja com bancos de dados. Um dos riscos mais comuns e perigosos em aplicações web é o ataque de <code>SQL Injection</code>, onde um invasor consegue executar comandos SQL maliciosos através da interface da aplicação. Para mitigar esse risco, é crucial adotar práticas robustas de segurança no acesso a banco de dados.</p>
+<p>Vamos fazer o teste: </p>
+<ul>
+<li><a href="https://www.codingame.com/playgrounds/154/sql-injection-demo/sql-injection">https://www.codingame.com/playgrounds/154/sql-injection-demo/sql-injection</a></li>
+<li><a href="https://www.hacksplaining.com/lessons/sql-injection">https://www.hacksplaining.com/lessons/sql-injection</a></li>
+</ul>
+<h3 id="prevencao-de-sql-injection">Prevenção de SQL Injection<a class="headerlink" href="#prevencao-de-sql-injection" title="Permanent link">&para;</a></h3>
+<p>SQL Injection pode comprometer a segurança dos dados e até mesmo permitir o controle total de um banco de dados. Para prevenir esses ataques, uma das técnicas mais eficazes é o uso de <code>consultas parametrizadas</code>. </p>
+<h3 id="consulta-parametrizada">Consulta Parametrizada<a class="headerlink" href="#consulta-parametrizada" title="Permanent link">&para;</a></h3>
+<p>Consultas parametrizadas ajudam a separar o código SQL dos dados que ele manipula. Isso é feito usando <code>placeholders</code> (como <code>:1, :2, :3</code>), que são substituídos pelos valores reais no momento da execução da consulta. Esses <code>placeholders garantem que os valores inseridos são tratados como dados e não como parte do código SQL</code>.</p>
+<p>Vamos explorar como implementar essa técnica em Python, usando a biblioteca oracledb, com exemplos de uma funções genérica para inserir dados de forma segura.</p>
+<h2 id="operacoes-crud"><strong>Operações CRUD</strong><a class="headerlink" href="#operacoes-crud" title="Permanent link">&para;</a></h2>
+<p>As operações de CRUD (Create, Read, Update, Delete) são fundamentais para qualquer sistema que interaja com bancos de dados, servindo como a base para a maioria das aplicações que armazenam e recuperam informações. No entanto, além dessas operações básicas, existem outras ações e conceitos importantes em gerenciamento de banco de dados (<code>que não serão estudados neste momento</code>) que podem ampliar a eficiência e funcionalidade das suas aplicações, tais como: Procedimentos Armazenados (Stored Procedures), Gatilhos (Triggers), Transações, Backup e Recuperação e muitos outros. </p>
+<h3 id="create-inserir-dados"><strong>Create (Inserir Dados)</strong><a class="headerlink" href="#create-inserir-dados" title="Permanent link">&para;</a></h3>
+<p>Utilize o método <code>cursor</code> para interagir com o banco de dados. Aqui está como inserir um novo registro na tabela <code>petshop</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;INSERT INTO petshop (tipo_pet, nome_pet, idade) VALUES (:1, :2, :3)&quot;</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Cachorro&#39;</span><span class="p">,</span> <span class="s1">&#39;Bolt&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<span class="k">except</span> <span class="n">oracledb</span><span class="o">.</span><span class="n">DatabaseError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">error</span><span class="p">,</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">args</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An error occurred: </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">code</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="read-ler-dados"><strong>Read (Ler Dados)</strong><a class="headerlink" href="#read-ler-dados" title="Permanent link">&para;</a></h3>
+<p>Para ler dados, você pode executar uma consulta SQL simples. O método <code>fetchall()</code> é usado para recuperar todos os registros retornados:</p>
+<div class="highlight"><pre><span></span><code><span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM petshop&quot;</span><span class="p">)</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">oracledb</span><span class="o">.</span><span class="n">DatabaseError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">error</span><span class="p">,</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">args</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An error occurred: </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">code</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="update-atualizar-dados"><strong>Update (Atualizar Dados)</strong><a class="headerlink" href="#update-atualizar-dados" title="Permanent link">&para;</a></h3>
+<p>Atualize registros especificando condições que correspondam aos registros desejados:</p>
+<div class="highlight"><pre><span></span><code><span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;UPDATE petshop SET nome_pet = :1 WHERE id = :2&quot;</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Loki&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<span class="k">except</span> <span class="n">oracledb</span><span class="o">.</span><span class="n">DatabaseError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">error</span><span class="p">,</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">args</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An error occurred: </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">code</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="delete-deletar-dados"><strong>Delete (Deletar Dados)</strong><a class="headerlink" href="#delete-deletar-dados" title="Permanent link">&para;</a></h3>
+<p>Para deletar registros:</p>
+<div class="highlight"><pre><span></span><code><span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;DELETE FROM petshop WHERE id = :1&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<span class="k">except</span> <span class="n">oracledb</span><span class="o">.</span><span class="n">DatabaseError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">error</span><span class="p">,</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">args</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An error occurred: </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">code</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="criar-uma-tabela-caso-nao-exista">Criar uma tabela (caso não exista)<a class="headerlink" href="#criar-uma-tabela-caso-nao-exista" title="Permanent link">&para;</a></h3>
+<p>Caso seja necessário, é possivel criar uma tabela: </p>
+<div class="highlight"><pre><span></span><code><span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Verifica se a tabela já existe e cria a tabela se não existir</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        DECLARE</span>
+<span class="s2">            cnt NUMBER;</span>
+<span class="s2">        BEGIN</span>
+<span class="s2">            SELECT COUNT(*) INTO cnt FROM user_tables WHERE table_name = &#39;ALUNOS&#39;;</span>
+<span class="s2">            IF cnt = 0 THEN</span>
+<span class="s2">                EXECUTE IMMEDIATE &#39;CREATE TABLE alunos (</span>
+<span class="s2">                    id NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,</span>
+<span class="s2">                    nome VARCHAR2(100) NOT NULL,</span>
+<span class="s2">                    nota INTEGER NOT NULL</span>
+<span class="s2">                )&#39;;</span>
+<span class="s2">            END IF;</span>
+<span class="s2">        END;</span>
+<span class="s2">    &quot;&quot;&quot;</span><span class="p">)</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<span class="k">except</span> <span class="n">oracledb</span><span class="o">.</span><span class="n">DatabaseError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">error</span><span class="p">,</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">args</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An error occurred: </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">code</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="encerrando-a-conexao"><strong>Encerrando a Conexão</strong><a class="headerlink" href="#encerrando-a-conexao" title="Permanent link">&para;</a></h3>
+<p>Sempre encerre o cursor e a conexão para liberar recursos do banco de dados:</p>
+<div class="highlight"><pre><span></span><code><span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="dicas"><strong>DICAS</strong><a class="headerlink" href="#dicas" title="Permanent link">&para;</a></h2>
+<h3 id="tratamento-de-excecoes-e-fechar-conexoes">Tratamento de exceções e fechar conexões<a class="headerlink" href="#tratamento-de-excecoes-e-fechar-conexoes" title="Permanent link">&para;</a></h3>
+<p>Ao realizar essas operações, é crucial gerenciar exceções e fechar conexões para manter a integridade e a segurança do banco de dados.</p>
+<h3 id="parametrizacao-das-consultas">Parametrização das Consultas<a class="headerlink" href="#parametrizacao-das-consultas" title="Permanent link">&para;</a></h3>
+<p>Parametrização é uma prática importante para prevenir ataques de injeção de SQL (<code>SQL Injection</code>). A parametrização assegura que os comandos enviados ao banco de dados são interpretados como dados, e não como código executável. Isso não só aumenta a segurança da aplicação, evitando que agentes maliciosos executem operações indesejadas no banco de dados, como também ajuda a manter a integridade dos dados.</p>
+<p>Além de outros beneficios como:</p>
+<p><code>Melhora a Performance</code>: Muitos SGBDs otimizam o desempenho de consultas parametrizadas ao preparar o SQL uma vez e executá-lo múltiplas vezes com diferentes parâmetros.</p>
+<p><code>Aumenta a Portabilidade do Código</code>: Consultas parametrizadas ajudam a garantir que o código funcione de maneira consistente em diferentes sistemas de banco de dados.</p>
+<h2 id="desafios">Desafios<a class="headerlink" href="#desafios" title="Permanent link">&para;</a></h2>
+<p>1) Faça a conexão com o seu banco de dados e pra as operações de CRUD. Crie uma nova tabela e popule com dados aleatórios para práticar. </p>
+<p>2) Otime o uso para aplicações mais genéricas, para isso crie um modulo python <code>bd.py</code> separando apenas as funções de relacionadas ao banco de dados. Crie um código principal <code>main.py</code> com um menu interativo de navagação com as opções de CRUD e que importa bd.py.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 5, 2024</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.0.0/js-yaml.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/insper-education/active-handout-plugins-js@main/package/plugin-bundle.js"></script>
+      
+        <script src="../../../search/main.js"></script>
+      
+        <script src="../../../termynal.js"></script>
+      
+    
+  </body>
+</html>

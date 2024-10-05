@@ -1,0 +1,2994 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Arnaldo Viana">
+      
+      
+        <link rel="canonical" href="https://arnaldojr.github.io/computacionalthinking/aulas/ctp/python/dict-sets.html">
+      
+      
+        <link rel="prev" href="lists-tuples.html">
+      
+      
+        <link rel="next" href="functions-modules.html">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+    
+    
+      
+        <title>Dicionários e Conjuntos - Computacional Thinking</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/termynal.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/insper-education/active-handout-css@main/devlife.css">
+    
+      <link rel="stylesheet" href="../../../termynal.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:700|Oxygen+Mono|Source+Sans+Pro:700|Source+Serif+Pro&amp;display=swap">
+<link rel="stylesheet" href="../../../assets/css/devlife.css">
+
+
+    <script>
+        window.ihandout_config = JSON.parse(`{"report": {"api-base": "https://devlife.insper-comp.com.br/api/offerings/1/", "url": "https://devlife.insper-comp.com.br/api/offerings/1/exercises/"}}`);
+    </script>
+
+
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dicionarios-em-python" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="Computacional Thinking" class="md-header__button md-logo" aria-label="Computacional Thinking" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Computacional Thinking
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Dicionários e Conjuntos
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/arnaldojr/computacionalthinking/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Computacional Thinking with Python
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="Computacional Thinking" class="md-nav__button md-logo" aria-label="Computacional Thinking" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Computacional Thinking
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/arnaldojr/computacionalthinking/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Computacional Thinking with Python
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/playground.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Playground
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sobre/sobre.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sobre o curso
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agenda/agenda.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Agenda
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CheckPoint
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            CheckPoint
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../checkpoint/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sobre
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Configuração do Ambiente de Desenvolvimento
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Configuração do Ambiente de Desenvolvimento
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../environment-setup/virtual-environment.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Criação de um Ambiente Virtual
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/intro-ctp.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pensamento computacional
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Fundamentos de Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Fundamentos de Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="intro-python.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introdução ao Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="data-types.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tipos de Dados e Variáveis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_3" id="__nav_8_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Controle de Fluxo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3">
+            <span class="md-nav__icon md-icon"></span>
+            Controle de Fluxo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_3_1" id="__nav_8_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Estruturas de decisão
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Estruturas de decisão
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="decision-structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    if-elif-else
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_3_2" id="__nav_8_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Estruturas de Repetição
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Estruturas de Repetição
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="repetition-structures-while-loop.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    while loop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="repetition-structures-for-loop.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    for Loop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8_4" id="__nav_8_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Estruturas de Dados
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8_4">
+            <span class="md-nav__icon md-icon"></span>
+            Estruturas de Dados
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lists-tuples.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Listas e Tuplas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Dicionários e Conjuntos
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="dict-sets.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Dicionários e Conjuntos
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dicionarios-em-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dicionários em Python
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dicionários em Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criacao-de-dicionarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criação de Dicionários
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acesso-a-elementos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Acesso a Elementos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adicao-remocao-e-alteracao-de-elementos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adição, Remoção e Alteração de Elementos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adição, Remoção e Alteração de Elementos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adicao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adição
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alteracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alteração
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remocao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remoção
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodos-mais-utilizados-de-dicionarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Métodos mais utilizados de Dicionários
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iterando-em-dicionarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iterando em Dicionários
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aninhamento-em-dicionarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aninhamento em Dicionários
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listas-de-dicionarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Listas de Dicionários
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Listas de Dicionários">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iterando-pela-lista" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iterando pela Lista
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adicionando-um-novo-dicionario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adicionando um Novo Dicionário
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atualizando-um-dicionario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Atualizando um Dicionário
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removendo-um-dicionario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Removendo um Dicionário
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conjuntos-em-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conjuntos em Python
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conjuntos em Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criacao-de-conjuntos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criação de Conjuntos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operacoes-com-conjuntos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operações com Conjuntos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodos-mais-utilizados-de-conjuntos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Métodos mais utilizados de Conjuntos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iterando-em-conjuntos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iterando em Conjuntos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_5" id="__nav_8_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Funções e Módulos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_5">
+            <span class="md-nav__icon md-icon"></span>
+            Funções e Módulos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="functions-modules.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Funções
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="modules.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Módulos e Pacotes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="modules2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Módulos externos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_6" id="__nav_8_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Manipulação de Dados e Arquivos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_6">
+            <span class="md-nav__icon md-icon"></span>
+            Manipulação de Dados e Arquivos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="files-maniputation.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manipulação de arquivos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_7" id="__nav_8_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Programação Orientada a Objetos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_7">
+            <span class="md-nav__icon md-icon"></span>
+            Programação Orientada a Objetos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="oop-classes-objects.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Classes e Objetos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="oop-inheritance.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Herança, Encapsulamento e Métodos Privados
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="oop-polymorphism.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Polimorfismo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_8" id="__nav_8_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Erros e Exceções
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_8">
+            <span class="md-nav__icon md-icon"></span>
+            Erros e Exceções
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="errors-exceptions.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tratamento de Erros - Try, Except
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Algoritmos e Estruturas de Dados
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Algoritmos e Estruturas de Dados
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_1" id="__nav_9_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Busca
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_1">
+            <span class="md-nav__icon md-icon"></span>
+            Busca
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/problem-search.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O problema da busca
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/sequential-search.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Busca Sequencial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/binary-search.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Busca Binária
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_2" id="__nav_9_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Ordenação
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_2">
+            <span class="md-nav__icon md-icon"></span>
+            Ordenação
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/sorting-algorithms.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O caso da Ordenação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/bubble-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bubble Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/selection-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selection Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/insertion-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Insertion Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/merge-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Merge Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/quick-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_3" id="__nav_9_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Recursão
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_3">
+            <span class="md-nav__icon md-icon"></span>
+            Recursão
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/recursion.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recursividade
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_4" id="__nav_9_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Análise de Algoritmos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_4">
+            <span class="md-nav__icon md-icon"></span>
+            Análise de Algoritmos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/big-o-notation.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Notação Big O
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Banco de dados com Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Banco de dados com Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bd/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bd/sqlalq.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQLAlchemy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Laboratórios
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Laboratórios
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_11_1" id="__nav_11_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Solução Labs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_1">
+            <span class="md-nav__icon md-icon"></span>
+            Solução Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/solutions/solution-data-types.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab02 - Tipos de dados e Variáveis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/solutions/solution-decision-structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab03 - Estrutura de Decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/infra.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab01 - Comece aqui!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/lab-data-types.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab02 - Tipos de dados e Variáveis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/lab-decision-structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab03 - Estrutura de Decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/common-errors.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab04 - Erros comuns
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/lab-loops-data-structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab05 - Loops for e while, listas e tuplas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/lab-loops-dict-sets.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab06 - Dicionários, conjuntos e afins...
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Projetos Práticos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Projetos Práticos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projects/guessing-game.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jogo da Adivinhação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projects/agenda.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Agenda simples
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Recursos Adicionais
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Recursos Adicionais
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resources/references.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Referências e Leituras Complementares
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dicionarios-em-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dicionários em Python
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dicionários em Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criacao-de-dicionarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criação de Dicionários
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acesso-a-elementos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Acesso a Elementos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adicao-remocao-e-alteracao-de-elementos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adição, Remoção e Alteração de Elementos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adição, Remoção e Alteração de Elementos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adicao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adição
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alteracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alteração
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remocao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remoção
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodos-mais-utilizados-de-dicionarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Métodos mais utilizados de Dicionários
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iterando-em-dicionarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iterando em Dicionários
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aninhamento-em-dicionarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aninhamento em Dicionários
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listas-de-dicionarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Listas de Dicionários
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Listas de Dicionários">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iterando-pela-lista" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iterando pela Lista
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adicionando-um-novo-dicionario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adicionando um Novo Dicionário
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atualizando-um-dicionario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Atualizando um Dicionário
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removendo-um-dicionario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Removendo um Dicionário
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conjuntos-em-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conjuntos em Python
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conjuntos em Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criacao-de-conjuntos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criação de Conjuntos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operacoes-com-conjuntos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operações com Conjuntos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodos-mais-utilizados-de-conjuntos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Métodos mais utilizados de Conjuntos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iterando-em-conjuntos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iterando em Conjuntos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>Dicionários e Conjuntos</h1>
+
+<h2 id="dicionarios-em-python">Dicionários em Python<a class="headerlink" href="#dicionarios-em-python" title="Permanent link">&para;</a></h2>
+<p>Dicionários são estruturas de dados que permitem armazenar pares de <code>chave-valor</code>. Em Python, dicionários são delimitados por chaves <code>{}</code>. As strings, listas e tuplas utilizam inteiros como indices. Se voce tentar utilizar
+qualquer outro tipo como indice, voce receberá um erro. O dicionario vai nos ajudar nisso.</p>
+<h3 id="criacao-de-dicionarios">Criação de Dicionários<a class="headerlink" href="#criacao-de-dicionarios" title="Permanent link">&para;</a></h3>
+<p>Dicionários são criados usando chaves <code>{}</code>, contendo pares chave-valor separados por dois pontos <code>:</code>.</p>
+<p><div class="highlight"><pre><span></span><code><span class="n">meu_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>    <span class="c1"># primeira forma de inicializar um dicionario</span>
+<span class="n">meu_dict</span> <span class="o">=</span> <span class="p">{}</span>        <span class="c1"># segunda forma de inicializar um dicionario</span>
+</code></pre></div>
+Podemos inicializar um dicionário com valores</p>
+<div class="highlight"><pre><span></span><code><span class="n">pessoa</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;nome&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;idade&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;profissão&quot;</span><span class="p">:</span> <span class="s2">&quot;Engenheira&quot;</span><span class="p">}</span>
+</code></pre></div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Qual alternativa indica um dicionário?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ['nome': 'arnaldo', 'idade': 10, 'sexo': 'masculino']</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> {'nome': 'arnaldo', 'idade': 10, 'sexo': 'masculino'}</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ('nome': 'arnaldo'), ('idade': 10), ('sexo': 'masculino')</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> [['nome': 'arnaldo'], ['idade': 10], ['sexo': 'masculino']]</li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>A saída é {'nome': 'arnaldo', 'idade': 10, 'sexo': 'masculino'}.</p>
+</div>
+</div>
+<div class="admonition progress">
+<p class="admonition-title">Progress</p>
+<p>Continuar...</p>
+</div>
+<h3 id="acesso-a-elementos">Acesso a Elementos<a class="headerlink" href="#acesso-a-elementos" title="Permanent link">&para;</a></h3>
+<p>Para acessar o valor associado a uma chave, use a chave como índice.</p>
+<div class="highlight"><pre><span></span><code><span class="n">pessoa</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;nome&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;idade&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;profissão&quot;</span><span class="p">:</span> <span class="s2">&quot;Engenheira&quot;</span><span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">pessoa</span><span class="p">[</span><span class="s2">&quot;idade&quot;</span><span class="p">])</span>  <span class="c1"># Saída: 30</span>
+</code></pre></div>
+<p>Se tentarmos acessar uma chave que não existe, obteremos um <code>KeyError</code>.</p>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Qual é a saída do código a seguir?</p>
+<div class="highlight"><pre><span></span><code><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">])</span>
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 1</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 2</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 3</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> KeyError</li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>A saída é <code>2</code>.</p>
+</div>
+</div>
+<h3 id="adicao-remocao-e-alteracao-de-elementos">Adição, Remoção e Alteração de Elementos<a class="headerlink" href="#adicao-remocao-e-alteracao-de-elementos" title="Permanent link">&para;</a></h3>
+<p>Dicionários em Python são mutáveis, o que significa que você pode adicionar, alterar ou remover pares chave-valor após sua criação.</p>
+<h4 id="adicao">Adição<a class="headerlink" href="#adicao" title="Permanent link">&para;</a></h4>
+<p>Para adicionar um novo par chave-valor a um dicionário, você simplesmente atribui um valor a uma nova chave:</p>
+<div class="highlight"><pre><span></span><code><span class="n">pessoa</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">pessoa</span><span class="p">[</span><span class="s2">&quot;nome&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Carlos&quot;</span>
+</code></pre></div>
+<p>Após executar o código acima, o dicionário pessoa conterá <code>{"nome": "Carlos"}</code>.</p>
+<h4 id="alteracao">Alteração<a class="headerlink" href="#alteracao" title="Permanent link">&para;</a></h4>
+<p>Se você atribuir um valor a uma chave já existente, o valor anterior associado a essa chave será substituído:</p>
+<p><div class="highlight"><pre><span></span><code><span class="n">pessoa</span><span class="p">[</span><span class="s2">&quot;nome&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Roberto&quot;</span>
+</code></pre></div>
+Agora, o dicionário <code>pessoa</code> foi atualizado para <code>{"nome": "Roberto"}</code>.</p>
+<p>O método <code>update()</code> é usado para inserir pares chave-valor de um dicionário em outro dicionário. Se a chave já existir no dicionário original, o valor para essa chave será atualizado. Se a chave não existir, o par chave-valor será adicionado.</p>
+<h4 id="remocao">Remoção<a class="headerlink" href="#remocao" title="Permanent link">&para;</a></h4>
+<p>Para remover um par chave-valor de um dicionário, você pode usar a instrução <code>del</code> seguida da chave que deseja remover:</p>
+<p><div class="highlight"><pre><span></span><code><span class="k">del</span> <span class="n">pessoa</span><span class="p">[</span><span class="s2">&quot;nome&quot;</span><span class="p">]</span>
+</code></pre></div>
+Após a execução deste código, a chave "nome" e seu valor associado serão removidos do dicionário pessoa, deixando-o vazio.</p>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Dado o dicionário:</p>
+<div class="highlight"><pre><span></span><code><span class="n">dados</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;alunos&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;Ana&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;idade&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;curso&quot;</span><span class="p">:</span> <span class="s2">&quot;Engenharia&quot;</span><span class="p">},</span>
+        <span class="s2">&quot;Pedro&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;idade&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;curso&quot;</span><span class="p">:</span> <span class="s2">&quot;Matemática&quot;</span><span class="p">},</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;professores&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;Dr. Silva&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;idade&quot;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span> <span class="s2">&quot;disciplina&quot;</span><span class="p">:</span> <span class="s2">&quot;Física&quot;</span><span class="p">},</span>
+        <span class="s2">&quot;Dra. Fernanda&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;idade&quot;</span><span class="p">:</span> <span class="mi">35</span><span class="p">,</span> <span class="s2">&quot;disciplina&quot;</span><span class="p">:</span> <span class="s2">&quot;Química&quot;</span><span class="p">},</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Qual será a saída do código a seguir?</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">dados</span><span class="p">[</span><span class="s2">&quot;alunos&quot;</span><span class="p">][</span><span class="s2">&quot;Pedro&quot;</span><span class="p">][</span><span class="s2">&quot;curso&quot;</span><span class="p">])</span>
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Engenharia</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Física</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Matemática</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Química</li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>A saída é <code>Matemática</code>, pois estamos acessando o curso do aluno "Pedro" no dicionário aninhado.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Considere os dicionários:</p>
+<div class="highlight"><pre><span></span><code><span class="n">d1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span> 
+<span class="n">d2</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span> 
+</code></pre></div>
+<p>Após executar o código a seguir, qual será o valor associado à chave "b" em d1?</p>
+<div class="highlight"><pre><span></span><code><span class="n">d1</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">d2</span><span class="p">)</span> 
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 1</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 4</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 5</li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>O valor associado à chave "b" em <code>d1</code> será <code>3</code>, pois o método <code>update()</code> atualiza o dicionário <code>d1</code> com os pares chave-valor de <code>d2</code>, sobrescrevendo valores de chaves existentes em <code>d1</code>.</p>
+</div>
+</div>
+<div class="admonition progress">
+<p class="admonition-title">Progress</p>
+<p>Continuar...</p>
+</div>
+<h3 id="metodos-mais-utilizados-de-dicionarios">Métodos mais utilizados de Dicionários<a class="headerlink" href="#metodos-mais-utilizados-de-dicionarios" title="Permanent link">&para;</a></h3>
+<p>Os dicionários possuem uma série de métodos incorporados que facilitam a manipulação e interação com os dados. Vamos abordar alguns dos métodos mais usados:</p>
+<ul>
+<li><code>keys()</code>: Retorna uma lista de todas as chaves.</li>
+<li><code>values()</code>: Retorna uma lista de todos os valores.</li>
+<li><code>items()</code>: Retorna uma lista de tuplas (chave, valor).</li>
+<li><code>get(key, default)</code>: Retorna o valor para a chave especificada ou o valor default.</li>
+</ul>
+<p>Vamos usar o dicionario <code>d</code> neste exemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;nome&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;idade&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;nacionalidade&quot;</span><span class="p">:</span> <span class="s2">&quot;Brasileira&quot;</span><span class="p">}</span>
+</code></pre></div>
+<p><strong><code>keys()</code></strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;nome&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;idade&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;nacionalidade&quot;</span><span class="p">:</span> <span class="s2">&quot;Brasileira&quot;</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>  <span class="c1"># Saída: dict_keys([&#39;nome&#39;, &#39;idade&#39;, &#39;nacionalidade&#39;])</span>
+</code></pre></div>
+<p><strong><code>value()</code></strong></p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>  <span class="c1"># Saída: dict_values([&#39;Alice&#39;, 31, &#39;Brasileira&#39;])</span>
+</code></pre></div>
+<p><strong><code>items()</code></strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Jeito simples</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">())</span> 
+</code></pre></div>
+<p><strong><code>get()</code></strong></p>
+<p>O método get() é uma maneira segura de acessar os valores de um dicionário. Se a chave especificada não for encontrada, ele retorna o valor default especificado (ou None se nenhum valor default for fornecido).</p>
+<div class="highlight"><pre><span></span><code><span class="n">cidade</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;cidade&quot;</span><span class="p">,</span> <span class="s2">&quot;Não especificado&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cidade</span><span class="p">)</span>  <span class="c1"># Saída: Não especificado</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Note que usar <code>d["cidade"]</code> diretamente causaria um <code>KeyError</code>, mas com <code>get()</code>, evitamos esse erro e temos uma saída controlada.</p>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Dado o dicionário:</p>
+<div class="highlight"><pre><span></span><code><span class="n">produtos</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;maçã&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;preço&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;estoque&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">},</span><span class="s2">&quot;banana&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;preço&quot;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;estoque&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">},</span> <span class="s2">&quot;cereja&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;preço&quot;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span> <span class="s2">&quot;estoque&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">}</span> <span class="p">}</span> 
+</code></pre></div>
+<p>Qual será a saída do código a seguir?</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">produtos</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;pêssego&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;preço&quot;</span><span class="p">,</span> <span class="s2">&quot;Produto não encontrado&quot;</span><span class="p">))</span>
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 0.5</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 0.3</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 2.0</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Produto não encontrado</li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>A saída é <code>Produto não encontrado</code>. O método <code>get()</code> tenta buscar a chave "pêssego", que não existe no dicionário <code>produtos</code>. Como resultado, ele retorna um dicionário vazio (<code>{}</code>). O segundo <code>get()</code> tenta buscar a chave "preço" neste dicionário vazio e, como ela não existe, retorna a string "Produto não encontrado".</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Considerando o seguinte dicionário:</p>
+<div class="highlight"><pre><span></span><code><span class="n">alunos</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;Ana&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">8.5</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">],</span> <span class="s2">&quot;Pedro&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">6.0</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">],</span> <span class="s2">&quot;Mariana&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">9.5</span><span class="p">,</span> <span class="mf">8.5</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">]</span> <span class="p">}</span> 
+</code></pre></div>
+<p>Após executar o código abaixo, qual será a saída?</p>
+<div class="highlight"><pre><span></span><code><span class="n">notas</span> <span class="o">=</span> <span class="n">alunos</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Ana&quot;</span><span class="p">)</span> 
+<span class="n">media</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">notas</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">notas</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">media</span><span class="p">)</span>
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 8.33</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 7.0</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 8.5</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 9.0</li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>A média das notas de "Ana" é (8.5 + 9.0 + 7.5)/3 = 8.33. Portanto, a saída correta é 8.33.</p>
+</div>
+</div>
+<div class="admonition progress">
+<p class="admonition-title">Progress</p>
+<p>Continuar...       </p>
+</div>
+<h3 id="iterando-em-dicionarios">Iterando em Dicionários<a class="headerlink" href="#iterando-em-dicionarios" title="Permanent link">&para;</a></h3>
+<p>Podemos iterar pelas chaves, valores ou pares chave-valor de um dicionário.</p>
+<p>Considerando o dicionário pessoa:</p>
+<div class="highlight"><pre><span></span><code><span class="n">pessoa</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;nome&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;idade&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;profissão&quot;</span><span class="p">:</span> <span class="s2">&quot;Engenheira&quot;</span><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">chave</span> <span class="ow">in</span> <span class="n">pessoa</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">chave</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">valor</span> <span class="ow">in</span> <span class="n">pessoa</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">valor</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">chave</span><span class="p">,</span> <span class="n">valor</span> <span class="ow">in</span> <span class="n">pessoa</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">chave</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">valor</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Ao usar o método <code>items()</code> em um dicionário e <code>desempacotar</code> os resultados em <code>chave</code> e <code>valor</code>, você obtém acesso direto a ambos os componentes do <code>par chave-valor</code> durante a iteração.</p>
+</div>
+<div class="admonition progress">
+<p class="admonition-title">Progress</p>
+<p>Continuar...</p>
+</div>
+<h3 id="aninhamento-em-dicionarios">Aninhamento em Dicionários<a class="headerlink" href="#aninhamento-em-dicionarios" title="Permanent link">&para;</a></h3>
+<p>Podemos encontrar estruturas de Dicionários que conter outros dicionários, um conceito conhecido como aninhamento. Isso é especialmente útil quando se deseja representar informações estruturadas de forma hierárquica.</p>
+<p>Por exemplo, suponha que queremos representar informações sobre uma pessoa, incluindo seu endereço:</p>
+<div class="highlight"><pre><span></span><code><span class="n">pessoa</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;nome&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;idade&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+    <span class="s2">&quot;endereço&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;rua&quot;</span><span class="p">:</span> <span class="s2">&quot;Av. Central&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;número&quot;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+        <span class="s2">&quot;cidade&quot;</span><span class="p">:</span> <span class="s2">&quot;Campinas&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;estado&quot;</span><span class="p">:</span> <span class="s2">&quot;SP&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Para acessar informações aninhadas, você pode encadear os índices:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">pessoa</span><span class="p">[</span><span class="s2">&quot;endereço&quot;</span><span class="p">][</span><span class="s2">&quot;cidade&quot;</span><span class="p">])</span>  <span class="c1"># Saída: Campinas</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Dicionários aninhados são comuns ao trabalhar com dados estruturados, como <code>arquivos JSON</code>.</p>
+</div>
+<h3 id="listas-de-dicionarios">Listas de Dicionários<a class="headerlink" href="#listas-de-dicionarios" title="Permanent link">&para;</a></h3>
+<p>Listas de dicionários são uma estrutura de dados comum em Python. Elas permitem armazenar um conjunto de registros, onde cada registro é um dicionário com pares chave-valor.</p>
+<p>Consideremos uma lista que representa uma série de produtos:</p>
+<div class="highlight"><pre><span></span><code><span class="n">produtos</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;nome&quot;</span><span class="p">:</span> <span class="s2">&quot;camiseta&quot;</span><span class="p">,</span> <span class="s2">&quot;preço&quot;</span><span class="p">:</span> <span class="mf">29.99</span><span class="p">,</span> <span class="s2">&quot;estoque&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;nome&quot;</span><span class="p">:</span> <span class="s2">&quot;calça&quot;</span><span class="p">,</span> <span class="s2">&quot;preço&quot;</span><span class="p">:</span> <span class="mf">59.99</span><span class="p">,</span> <span class="s2">&quot;estoque&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;nome&quot;</span><span class="p">:</span> <span class="s2">&quot;tênis&quot;</span><span class="p">,</span> <span class="s2">&quot;preço&quot;</span><span class="p">:</span> <span class="mf">129.99</span><span class="p">,</span> <span class="s2">&quot;estoque&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<h4 id="iterando-pela-lista">Iterando pela Lista<a class="headerlink" href="#iterando-pela-lista" title="Permanent link">&para;</a></h4>
+<p>Para iterar pela lista e acessar cada dicionário:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">produto</span> <span class="ow">in</span> <span class="n">produtos</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">produto</span><span class="p">[</span><span class="s2">&quot;nome&quot;</span><span class="p">],</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">produto</span><span class="p">[</span><span class="s2">&quot;preço&quot;</span><span class="p">])</span>
+</code></pre></div>
+<h4 id="adicionando-um-novo-dicionario">Adicionando um Novo Dicionário<a class="headerlink" href="#adicionando-um-novo-dicionario" title="Permanent link">&para;</a></h4>
+<p>Para adicionar um novo produto:</p>
+<div class="highlight"><pre><span></span><code><span class="n">novo_produto</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;nome&quot;</span><span class="p">:</span> <span class="s2">&quot;boné&quot;</span><span class="p">,</span> <span class="s2">&quot;preço&quot;</span><span class="p">:</span> <span class="mf">19.99</span><span class="p">,</span> <span class="s2">&quot;estoque&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">}</span>
+<span class="n">produtos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">novo_produto</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="atualizando-um-dicionario">Atualizando um Dicionário<a class="headerlink" href="#atualizando-um-dicionario" title="Permanent link">&para;</a></h4>
+<p>Para atualizar o preço do primeiro produto:</p>
+<div class="highlight"><pre><span></span><code><span class="n">produtos</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;preço&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">24.99</span>
+</code></pre></div>
+<h4 id="removendo-um-dicionario">Removendo um Dicionário<a class="headerlink" href="#removendo-um-dicionario" title="Permanent link">&para;</a></h4>
+<p>Para remover um produto da lista (por exemplo, o terceiro produto):</p>
+<div class="highlight"><pre><span></span><code><span class="k">del</span> <span class="n">produtos</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</code></pre></div>
+<p>Ou, se você quiser remover um produto com base em um critério específico:</p>
+<div class="highlight"><pre><span></span><code><span class="n">produtos</span> <span class="o">=</span> <span class="p">[</span><span class="n">produto</span> <span class="k">for</span> <span class="n">produto</span> <span class="ow">in</span> <span class="n">produtos</span> <span class="k">if</span> <span class="n">produto</span><span class="p">[</span><span class="s2">&quot;nome&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;tênis&quot;</span><span class="p">]</span>
+</code></pre></div>
+<p>Este último exemplo utiliza <code>list comprehension</code> para criar uma nova lista, excluindo o produto cujo nome é "tênis".</p>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Considerando a seguinte lista de dicionários <code>biblioteca</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">biblioteca</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;título&quot;</span><span class="p">:</span> <span class="s2">&quot;Orgulho e Preconceito&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;autor&quot;</span><span class="p">:</span> <span class="s2">&quot;Jane Austen&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ano&quot;</span><span class="p">:</span> <span class="mi">1813</span><span class="p">,</span>
+        <span class="s2">&quot;categoria&quot;</span><span class="p">:</span> <span class="s2">&quot;Romance&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;título&quot;</span><span class="p">:</span> <span class="s2">&quot;1984&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;autor&quot;</span><span class="p">:</span> <span class="s2">&quot;George Orwell&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ano&quot;</span><span class="p">:</span> <span class="mi">1949</span><span class="p">,</span>
+        <span class="s2">&quot;categoria&quot;</span><span class="p">:</span> <span class="s2">&quot;Ficção distópica&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;título&quot;</span><span class="p">:</span> <span class="s2">&quot;Moby Dick&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;autor&quot;</span><span class="p">:</span> <span class="s2">&quot;Herman Melville&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ano&quot;</span><span class="p">:</span> <span class="mi">1851</span><span class="p">,</span>
+        <span class="s2">&quot;categoria&quot;</span><span class="p">:</span> <span class="s2">&quot;Aventura&quot;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>Após executar o código abaixo, qual será a saída?</p>
+<div class="highlight"><pre><span></span><code><span class="n">resultado</span> <span class="o">=</span> <span class="p">[</span><span class="n">livro</span><span class="p">[</span><span class="s2">&quot;título&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">livro</span> <span class="ow">in</span> <span class="n">biblioteca</span> <span class="k">if</span> <span class="n">livro</span><span class="p">[</span><span class="s2">&quot;categoria&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Romance&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span>
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> ["Orgulho e Preconceito"]</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ["Orgulho e Preconceito", "1984"]</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ["Moby Dick", "1984"]</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ["Moby Dick"]</li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>O código está utilizando list comprehension para filtrar livros da categoria "Romance". O único livro desta categoria na lista <code>biblioteca</code> é "Orgulho e Preconceito". Portanto, a saída correta é ["Orgulho e Preconceito"].</p>
+</div>
+</div>
+<div class="admonition progress">
+<p class="admonition-title">Progress</p>
+<p>Continuar...</p>
+</div>
+<h2 id="conjuntos-em-python">Conjuntos em Python<a class="headerlink" href="#conjuntos-em-python" title="Permanent link">&para;</a></h2>
+<p>Conjuntos são uma coleção de <code>elementos únicos</code>. Em Python, conjuntos são similares a listas ou dicionários, mas <code>não podem ter elementos duplicados</code> e <code>não são ordenados</code>.</p>
+<h3 id="criacao-de-conjuntos">Criação de Conjuntos<a class="headerlink" href="#criacao-de-conjuntos" title="Permanent link">&para;</a></h3>
+<p>Conjuntos são criados usando chaves <code>{}</code> ou a função <code>set()</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">moradia</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+<span class="n">frutas</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;maçã&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;cereja&quot;</span><span class="p">}</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Cuidado para não confundir conjunto com dicionario. 
+Diferentemente dos dicionarios, os conjuntos não são ordenados e não possuem pares de chave-valor. </p>
+</div>
+<h3 id="operacoes-com-conjuntos">Operações com Conjuntos<a class="headerlink" href="#operacoes-com-conjuntos" title="Permanent link">&para;</a></h3>
+<p>Podemos realizar operações típicas de conjuntos, como união, interseção e diferença.</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">|</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># União: {1, 2, 3, 4, 5}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># Interseção: {3}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># Diferença: {1, 2}</span>
+</code></pre></div>
+<h3 id="metodos-mais-utilizados-de-conjuntos">Métodos mais utilizados de Conjuntos<a class="headerlink" href="#metodos-mais-utilizados-de-conjuntos" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>add(elem)</code>: Adiciona um elemento ao conjunto.</li>
+<li><code>remove(elem)</code>: Remove um elemento do conjunto.</li>
+<li><code>pop()</code>: Remove e retorna um elemento do conjunto.</li>
+<li><code>clear()</code>: Limpa todos os elementos do conjunto.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">frutas</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;uva&quot;</span><span class="p">)</span>
+<span class="n">frutas</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;banana&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">frutas</span><span class="p">)</span>  <span class="c1"># Saída: {&quot;maçã&quot;, &quot;cereja&quot;, &quot;uva&quot;}</span>
+</code></pre></div>
+<h3 id="iterando-em-conjuntos">Iterando em Conjuntos<a class="headerlink" href="#iterando-em-conjuntos" title="Permanent link">&para;</a></h3>
+<p>Assim como listas e dicionários, podemos iterar pelos elementos de um conjunto.</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">fruta</span> <span class="ow">in</span> <span class="n">frutas</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fruta</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Considere os conjuntos <code>a = {1, 2, 3, 4}</code> e <code>b = {3, 4, 5, 6}</code>. Qual é a saída de <code>print(a &amp; b)</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> {1, 2}</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> {5, 6}</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> {3, 4}</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> {1, 2, 3, 4, 5, 6}</li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>A saída é {3, 4} porque essa é a interseção dos conjuntos <code>a</code> e <code>b</code>.</p>
+</div>
+</div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 5, 2024</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.0.0/js-yaml.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/insper-education/active-handout-plugins-js@main/package/plugin-bundle.js"></script>
+      
+        <script src="../../../search/main.js"></script>
+      
+        <script src="../../../termynal.js"></script>
+      
+    
+  </body>
+</html>

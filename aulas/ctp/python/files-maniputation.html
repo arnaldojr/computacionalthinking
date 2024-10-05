@@ -1,0 +1,2911 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Arnaldo Viana">
+      
+      
+        <link rel="canonical" href="https://arnaldojr.github.io/computacionalthinking/aulas/ctp/python/files-maniputation.html">
+      
+      
+        <link rel="prev" href="modules2.html">
+      
+      
+        <link rel="next" href="oop-classes-objects.html">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+    
+    
+      
+        <title>Manipulação de arquivos - Computacional Thinking</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/termynal.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/insper-education/active-handout-css@main/devlife.css">
+    
+      <link rel="stylesheet" href="../../../termynal.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:700|Oxygen+Mono|Source+Sans+Pro:700|Source+Serif+Pro&amp;display=swap">
+<link rel="stylesheet" href="../../../assets/css/devlife.css">
+
+
+    <script>
+        window.ihandout_config = JSON.parse(`{"report": {"api-base": "https://devlife.insper-comp.com.br/api/offerings/1/", "url": "https://devlife.insper-comp.com.br/api/offerings/1/exercises/"}}`);
+    </script>
+
+
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#trabalhando-com-arquivos-em-python" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="Computacional Thinking" class="md-header__button md-logo" aria-label="Computacional Thinking" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Computacional Thinking
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Manipulação de arquivos
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/arnaldojr/computacionalthinking/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Computacional Thinking with Python
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="Computacional Thinking" class="md-nav__button md-logo" aria-label="Computacional Thinking" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Computacional Thinking
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/arnaldojr/computacionalthinking/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Computacional Thinking with Python
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/playground.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Playground
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sobre/sobre.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sobre o curso
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agenda/agenda.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Agenda
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CheckPoint
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            CheckPoint
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../checkpoint/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sobre
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Configuração do Ambiente de Desenvolvimento
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Configuração do Ambiente de Desenvolvimento
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../environment-setup/virtual-environment.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Criação de um Ambiente Virtual
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/intro-ctp.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pensamento computacional
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Fundamentos de Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Fundamentos de Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="intro-python.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introdução ao Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="data-types.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tipos de Dados e Variáveis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_3" id="__nav_8_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Controle de Fluxo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3">
+            <span class="md-nav__icon md-icon"></span>
+            Controle de Fluxo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_3_1" id="__nav_8_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Estruturas de decisão
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Estruturas de decisão
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="decision-structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    if-elif-else
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_3_2" id="__nav_8_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Estruturas de Repetição
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Estruturas de Repetição
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="repetition-structures-while-loop.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    while loop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="repetition-structures-for-loop.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    for Loop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_4" id="__nav_8_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Estruturas de Dados
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_4">
+            <span class="md-nav__icon md-icon"></span>
+            Estruturas de Dados
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lists-tuples.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Listas e Tuplas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dict-sets.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dicionários e Conjuntos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_5" id="__nav_8_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Funções e Módulos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_5">
+            <span class="md-nav__icon md-icon"></span>
+            Funções e Módulos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="functions-modules.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Funções
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="modules.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Módulos e Pacotes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="modules2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Módulos externos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8_6" id="__nav_8_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Manipulação de Dados e Arquivos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8_6">
+            <span class="md-nav__icon md-icon"></span>
+            Manipulação de Dados e Arquivos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Manipulação de arquivos
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="files-maniputation.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Manipulação de arquivos
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#trabalhando-com-arquivos-em-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trabalhando com Arquivos em Python
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introducao-ao-trabalho-com-arquivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introdução ao Trabalho com Arquivos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introdução ao Trabalho com Arquivos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objeto-de-arquivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objeto de Arquivo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modos-de-abertura" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modos de Abertura
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemplos-simples-e-praticos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplos Simples e Práticos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lendo-e-escrevendo-arquivos-de-texto-txt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lendo e Escrevendo Arquivos de Texto (.txt)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lendo e Escrevendo Arquivos de Texto (.txt)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#leitura" class="md-nav__link">
+    <span class="md-ellipsis">
+      Leitura:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escrita" class="md-nav__link">
+    <span class="md-ellipsis">
+      Escrita:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trabalhando-com-csvs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trabalhando com CSVs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trabalhando com CSVs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#leitura_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Leitura:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escrita_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Escrita:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trabalhando-com-arquivos-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trabalhando com Arquivos JSON
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trabalhando com Arquivos JSON">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lendo-de-um-arquivo-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lendo de um Arquivo JSON
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escrevendo-em-um-arquivo-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Escrevendo em um Arquivo JSON
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trabalhando-com-strings-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trabalhando com Strings JSON
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trabalhando com Strings JSON">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diferenca-entre-load-e-loads" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diferença entre load() e loads()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diferenca-entre-dump-e-dumps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diferença entre dump() e dumps()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arquivos-binarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arquivos Binários
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tratamento-de-excecoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tratamento de Exceções
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boas-praticas-ao-trabalhar-com-arquivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Boas Práticas ao Trabalhar com Arquivos
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_7" id="__nav_8_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Programação Orientada a Objetos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_7">
+            <span class="md-nav__icon md-icon"></span>
+            Programação Orientada a Objetos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="oop-classes-objects.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Classes e Objetos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="oop-inheritance.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Herança, Encapsulamento e Métodos Privados
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="oop-polymorphism.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Polimorfismo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_8" id="__nav_8_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Erros e Exceções
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_8">
+            <span class="md-nav__icon md-icon"></span>
+            Erros e Exceções
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="errors-exceptions.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tratamento de Erros - Try, Except
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Algoritmos e Estruturas de Dados
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Algoritmos e Estruturas de Dados
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_1" id="__nav_9_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Busca
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_1">
+            <span class="md-nav__icon md-icon"></span>
+            Busca
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/problem-search.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O problema da busca
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/sequential-search.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Busca Sequencial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/binary-search.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Busca Binária
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_2" id="__nav_9_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Ordenação
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_2">
+            <span class="md-nav__icon md-icon"></span>
+            Ordenação
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/sorting-algorithms.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O caso da Ordenação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/bubble-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bubble Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/selection-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selection Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/insertion-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Insertion Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/merge-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Merge Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/quick-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_3" id="__nav_9_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Recursão
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_3">
+            <span class="md-nav__icon md-icon"></span>
+            Recursão
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/recursion.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recursividade
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_4" id="__nav_9_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Análise de Algoritmos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_4">
+            <span class="md-nav__icon md-icon"></span>
+            Análise de Algoritmos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/big-o-notation.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Notação Big O
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Banco de dados com Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Banco de dados com Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bd/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bd/sqlalq.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQLAlchemy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Laboratórios
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Laboratórios
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_11_1" id="__nav_11_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Solução Labs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_1">
+            <span class="md-nav__icon md-icon"></span>
+            Solução Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/solutions/solution-data-types.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab02 - Tipos de dados e Variáveis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/solutions/solution-decision-structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab03 - Estrutura de Decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/infra.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab01 - Comece aqui!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/lab-data-types.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab02 - Tipos de dados e Variáveis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/lab-decision-structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab03 - Estrutura de Decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/common-errors.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab04 - Erros comuns
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/lab-loops-data-structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab05 - Loops for e while, listas e tuplas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/lab-loops-dict-sets.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab06 - Dicionários, conjuntos e afins...
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Projetos Práticos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Projetos Práticos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projects/guessing-game.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jogo da Adivinhação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projects/agenda.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Agenda simples
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Recursos Adicionais
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Recursos Adicionais
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resources/references.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Referências e Leituras Complementares
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#trabalhando-com-arquivos-em-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trabalhando com Arquivos em Python
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introducao-ao-trabalho-com-arquivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introdução ao Trabalho com Arquivos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introdução ao Trabalho com Arquivos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objeto-de-arquivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objeto de Arquivo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modos-de-abertura" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modos de Abertura
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemplos-simples-e-praticos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplos Simples e Práticos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lendo-e-escrevendo-arquivos-de-texto-txt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lendo e Escrevendo Arquivos de Texto (.txt)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lendo e Escrevendo Arquivos de Texto (.txt)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#leitura" class="md-nav__link">
+    <span class="md-ellipsis">
+      Leitura:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escrita" class="md-nav__link">
+    <span class="md-ellipsis">
+      Escrita:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trabalhando-com-csvs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trabalhando com CSVs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trabalhando com CSVs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#leitura_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Leitura:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escrita_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Escrita:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trabalhando-com-arquivos-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trabalhando com Arquivos JSON
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trabalhando com Arquivos JSON">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lendo-de-um-arquivo-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lendo de um Arquivo JSON
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escrevendo-em-um-arquivo-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Escrevendo em um Arquivo JSON
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trabalhando-com-strings-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trabalhando com Strings JSON
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trabalhando com Strings JSON">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diferenca-entre-load-e-loads" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diferença entre load() e loads()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diferenca-entre-dump-e-dumps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diferença entre dump() e dumps()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arquivos-binarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arquivos Binários
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tratamento-de-excecoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tratamento de Exceções
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boas-praticas-ao-trabalhar-com-arquivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Boas Práticas ao Trabalhar com Arquivos
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>Manipulação de arquivos</h1>
+
+<h2 id="trabalhando-com-arquivos-em-python">Trabalhando com Arquivos em Python<a class="headerlink" href="#trabalhando-com-arquivos-em-python" title="Permanent link">&para;</a></h2>
+<p>Em Python, fa manipulação de arquivos é muito simples, além de ser uma habilidade essencial, pois permite que os programas interajam com dados persistentes, realizem análises, modifiquem e armazenem resultados para uso futuro. </p>
+<p>Note que, neste conteúdo, estamos focando na manipulação de arquivos locais, e não abordaremos banco de dados.</p>
+<h2 id="introducao-ao-trabalho-com-arquivos">Introdução ao Trabalho com Arquivos<a class="headerlink" href="#introducao-ao-trabalho-com-arquivos" title="Permanent link">&para;</a></h2>
+<p>Em Python, os arquivos são objetos que oferecem uma interface para interagir com conteúdo armazenado no sistema de arquivos do computador. A manipulação de arquivos é fundamental para muitas operações, desde a simples leitura de dados até operações mais complexas de processamento de dados.</p>
+<h3 id="objeto-de-arquivo">Objeto de Arquivo<a class="headerlink" href="#objeto-de-arquivo" title="Permanent link">&para;</a></h3>
+<p>Quando abrimos um arquivo em Python usando a função <code>open()</code>, obtemos um objeto de arquivo. Este objeto fornece métodos e atributos que nos permitem realizar operações como ler, escrever e fechar o arquivo.</p>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># Abre um arquivo chamado &quot;exemplo.txt&quot; para leitura</span>
+<span class="n">arquivo</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;exemplo.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+
+<span class="c1"># Lê o conteúdo do arquivo</span>
+<span class="n">conteudo</span> <span class="o">=</span> <span class="n">arquivo</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1"># Fecha o arquivo após a leitura</span>
+<span class="n">arquivo</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># Agora você pode usar o conteúdo do arquivo</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">conteudo</span><span class="p">)</span>
+</code></pre></div>
+A partir do Python 3.3, é recomendado usar a sintaxe <code>with open</code> para abrir arquivos, pois ele garante que o arquivo seja fechado automaticamente após a conclusão das operações.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Abre um arquivo chamado &quot;exemplo.txt&quot; para leitura usando o bloco with</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;exemplo.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">arquivo</span><span class="p">:</span>
+    <span class="n">conteudo</span> <span class="o">=</span> <span class="n">arquivo</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1"># O arquivo é automaticamente fechado quando o bloco with é concluído</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">conteudo</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition progress">
+<p class="admonition-title">Progress</p>
+<p>Continuar...</p>
+</div>
+<h3 id="modos-de-abertura">Modos de Abertura<a class="headerlink" href="#modos-de-abertura" title="Permanent link">&para;</a></h3>
+<p>Existem vários modos em que um arquivo pode ser aberto:</p>
+<ul>
+<li><strong>'r'</strong>: Modo de leitura. (padrão)</li>
+<li><strong>'w'</strong>: Modo de escrita. Cria um novo arquivo ou sobrescreve um existente.</li>
+<li><strong>'a'</strong>: Modo de anexação. Escreve no final do arquivo sem sobrescrever o conteúdo existente. </li>
+</ul>
+<p>Podemos especificar se o arquivo deve ser tratado como modo binário ou texto.</p>
+<ul>
+<li><strong>'b'</strong>: Modo binário. Usado para arquivos não-textuais como imagens ou arquivos binários.</li>
+<li><strong>'t'</strong>: Modo de texto. (padrão) Usado para arquivos de texto.</li>
+</ul>
+<h3 id="exemplos-simples-e-praticos">Exemplos Simples e Práticos<a class="headerlink" href="#exemplos-simples-e-praticos" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Ler um arquivo e imprimir seu conteúdo</strong>:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;exemplo.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">conteudo</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">conteudo</span><span class="p">)</span>
+</code></pre></div>
+<ol>
+<li><strong>Ler uma imagem e imprimir seu conteúdo</strong>:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;exemplo.jpg&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">conteudo</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">conteudo</span><span class="p">)</span>
+</code></pre></div>
+<ol>
+<li><strong>Escrever uma strings em um arquivo</strong>:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># Abre o arquivo para escrita</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;exemplo.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Conteúdo de exemplo.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<ol>
+<li><strong>Escrever uma lista de strings em um arquivo</strong>:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Linha 1&quot;</span><span class="p">,</span> <span class="s2">&quot;Linha 2&quot;</span><span class="p">,</span> <span class="s2">&quot;Linha 3&quot;</span><span class="p">]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;exemplo.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition progress">
+<p class="admonition-title">Progress</p>
+<p>Continuar...</p>
+</div>
+<h2 id="lendo-e-escrevendo-arquivos-de-texto-txt">Lendo e Escrevendo Arquivos de Texto (<code>.txt</code>)<a class="headerlink" href="#lendo-e-escrevendo-arquivos-de-texto-txt" title="Permanent link">&para;</a></h2>
+<h3 id="leitura">Leitura:<a class="headerlink" href="#leitura" title="Permanent link">&para;</a></h3>
+<p>Para entender como utilizar os métodos de leitura vamos assumir que já exite o arquivo <code>exemplo.txt</code>, com o seguinte conteúdo.</p>
+<div class="highlight"><pre><span></span><code><span class="n">Olá</span> <span class="n">universo</span><span class="err">!</span>
+<span class="n">Pensamento</span> <span class="n">computacional</span>
+<span class="n">Com</span> <span class="n">Python</span> <span class="n">é</span> <span class="n">facil</span><span class="o">.</span>
+</code></pre></div>
+<p>Usamos <code>read()</code> para ler todo o arquivo, por padrão o arquivo é lido como string (texto).  </p>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;exemplo.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">conteudo</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">conteudo</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>O erro <code>FileNotFoundError: [Errno 2] No such file or directory: 'exemplo.txt'</code> significa que ou o arquivo não existe ou está em um diretório diferente do script python.</p>
+</div>
+<p>Abrindo um arquivo de um diretório diferente: Caso o script python e o arquivo não estejam no mesmo diretório é necessário passar o caminho <code>path</code> relativo ou completo na hora da leitura.</p>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;c:</span><span class="se">\\</span><span class="s2">&lt;caminho_ate_o_arquivo&gt;\exemplo.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">conteudo</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">conteudo</span><span class="p">)</span>
+</code></pre></div>
+<p>Podemos ler apenas uma parte do arquivo:</p>
+<ul>
+<li>Definindo a quantidade de caracteres: <code>read(10)</code> retorna os 10 primeiros caracteres do arquivo <code>Olá unive</code>.</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;exemplo.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">conteudo</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">conteudo</span><span class="p">)</span>
+</code></pre></div>
+O resultado é: <code>Olá unive</code>.</p>
+<ul>
+<li>Lendo uma linha inteira: <code>readline()</code> retorna o conteudo da linha toda <code>\n</code>.  </li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;exemplo.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">conteudo</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">conteudo</span><span class="p">)</span>
+</code></pre></div>
+<p>Se tudo deu certo, o resultado será: <code>Olá universo!</code>. </p>
+<p>Para para ler mais uma linha do arquivo temos que realizar mais um <code>readline()</code>, para facilitar pode ser iterado em um laço for.</p>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;exemplo.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">conteudo</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">linha</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">conteudo</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">linha</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">conteudo</span><span class="p">)</span>
+</code></pre></div>
+<p>O resultado será: <code>['Olá universo!', 'Pensamento computacional', 'Com Python é facil.']</code></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Para ler o arquivo e remover o caractere de nova linha <code>\n</code> de cada linha, você pode usar o método <code>strip()</code>. Esse método retorna uma cópia da string original, removendo os espaços em branco no início e no final da string. No contexto de leitura de arquivos, ele efetivamente remove os caracteres de nova linha <code>\n</code> do final das linhas.</p>
+</div>
+<h3 id="escrita">Escrita:<a class="headerlink" href="#escrita" title="Permanent link">&para;</a></h3>
+<p>Ao escrever em um arquivo, temos que saber que:</p>
+<ul>
+<li>Se tentarmos abrir um arquivo que não existe, um novo arquivo será criado;</li>
+<li>Se um arquivo já existir, seu conteúdo será apagado e um novo conteúdo será adicionado ao arquivo.</li>
+<li>Pode ser utilizado <code>\n</code> para dar quebra de linha ao escrever no arquivo.</li>
+<li>Para escrever em um arquivo em Python, precisamos abri-lo no modo de gravação passando <code>w</code> dentro de <code>open()</code> como segundo argumento.</li>
+</ul>
+<p>Se o arquivo <code>exemplo2.txt</code> não existe. Vamos ver o que acontece se escrevermos conteúdo nele.</p>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;exemplo2.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Olá, Mundo!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Pensamento Computacional&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition progress">
+<p class="admonition-title">Progress</p>
+<p>Continuar...</p>
+</div>
+<h2 id="trabalhando-com-csvs">Trabalhando com CSVs<a class="headerlink" href="#trabalhando-com-csvs" title="Permanent link">&para;</a></h2>
+<p>O módulo <code>csv</code> do Python facilita a leitura e a escrita de arquivos CSV.</p>
+<h3 id="leitura_1">Leitura:<a class="headerlink" href="#leitura_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">csv</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;exemplo.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="escrita_1">Escrita:<a class="headerlink" href="#escrita_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">csv</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;exemplo.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s2">&quot;nome&quot;</span><span class="p">,</span> <span class="s2">&quot;idade&quot;</span><span class="p">,</span> <span class="s2">&quot;profissão&quot;</span><span class="p">])</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s2">&quot;João&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;Engenheiro&quot;</span><span class="p">])</span>
+</code></pre></div>
+<div class="admonition progress">
+<p class="admonition-title">Progress</p>
+<p>Continuar...</p>
+</div>
+<h2 id="trabalhando-com-arquivos-json">Trabalhando com Arquivos JSON<a class="headerlink" href="#trabalhando-com-arquivos-json" title="Permanent link">&para;</a></h2>
+<p>JSON (JavaScript Object Notation) é um formato leve de troca de dados que é fácil de ler e escrever para humanos e fácil de analisar e gerar para máquinas. Em Python, o módulo <code>json</code> facilita a leitura e escrita de arquivos JSON.</p>
+<p>Ao trabalhar com JSON em Python, os objetos JSON são convertidos em tipos de dados Python, como dicionários, listas, strings, números, booleanos (<code>true</code>/<code>false</code> em JSON se tornam <code>True</code>/<code>False</code> em Python) e <code>null</code> (em JSON) se torna <code>None</code> em Python.</p>
+<h3 id="lendo-de-um-arquivo-json">Lendo de um Arquivo JSON<a class="headerlink" href="#lendo-de-um-arquivo-json" title="Permanent link">&para;</a></h3>
+<p>Para ler dados de um arquivo JSON, você pode usar o método <code>load()</code> do módulo <code>json</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;dados.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="escrevendo-em-um-arquivo-json">Escrevendo em um Arquivo JSON<a class="headerlink" href="#escrevendo-em-um-arquivo-json" title="Permanent link">&para;</a></h3>
+<p>Para escrever dados em um arquivo JSON, você pode usar o método <code>dump()</code> do módulo <code>json</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">pizza</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;marguerita&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;tamanho&quot;</span><span class="p">:</span> <span class="s2">&quot;médio&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;preço&quot;</span><span class="p">:</span> <span class="mf">22.99</span><span class="p">,</span>
+        <span class="s2">&quot;ingredientes&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;tomate&quot;</span><span class="p">,</span> <span class="s2">&quot;muçarela&quot;</span><span class="p">,</span> <span class="s2">&quot;manjericão&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;queijo_extra&quot;</span><span class="p">:</span> <span class="kc">False</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;pepperoni&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;tamanho&quot;</span><span class="p">:</span> <span class="s2">&quot;grande&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;preço&quot;</span><span class="p">:</span> <span class="mf">55.67</span><span class="p">,</span>
+        <span class="s2">&quot;ingredientes&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;pepperoni&quot;</span><span class="p">,</span> <span class="s2">&quot;muçarela&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;queijo_extra&quot;</span><span class="p">:</span> <span class="kc">True</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;vegetariana&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;tamanho&quot;</span><span class="p">:</span> <span class="s2">&quot;pequena&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;preço&quot;</span><span class="p">:</span> <span class="mf">10.5</span><span class="p">,</span>
+        <span class="s2">&quot;ingredientes&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;cogumelos&quot;</span><span class="p">,</span> <span class="s2">&quot;pimentão verde&quot;</span><span class="p">,</span> <span class="s2">&quot;cebolas&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;queijo_extra&quot;</span><span class="p">:</span> <span class="kc">False</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;cliente&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;nome&quot;</span><span class="p">:</span> <span class="s2">&quot;Janaina Faminta&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;telefone&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;jana@email.com&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;dados_pizza.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">pizza</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="trabalhando-com-strings-json">Trabalhando com Strings JSON<a class="headerlink" href="#trabalhando-com-strings-json" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Para converter uma string JSON em um objeto Python:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">data_string</span> <span class="o">=</span> <span class="s1">&#39;{&quot;nome&quot;: &quot;Renato&quot;, &quot;idade&quot;: 30, &quot;cidade&quot;: &quot;São Paulo&quot;}&#39;</span>
+<span class="n">data_object</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">data_string</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data_object</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>Para converter um objeto Python em uma string JSON:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">data_object</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;nome&quot;</span><span class="p">:</span> <span class="s2">&quot;Arnaldo&quot;</span><span class="p">,</span> <span class="s2">&quot;idade&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;cidade&quot;</span><span class="p">:</span> <span class="s2">&quot;Rio de Janeiro&quot;</span><span class="p">}</span>
+<span class="n">data_string</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data_object</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data_string</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>O argumento <code>indent</code> em <code>dumps()</code> é usado para formatar a saída JSON, tornando-a mais legível.</p>
+</div>
+<h4 id="diferenca-entre-load-e-loads">Diferença entre <code>load()</code> e <code>loads()</code><a class="headerlink" href="#diferenca-entre-load-e-loads" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p><code>json.load()</code>: Este método é usado para ler dados JSON de um arquivo. Ele lê o arquivo e converte o conteúdo JSON em um objeto Python.</p>
+</li>
+<li>
+<p><code>json.loads()</code>: Este método é usado para analisar uma string JSON e convertê-la em um objeto Python.</p>
+</li>
+</ul>
+<h3 id="diferenca-entre-dump-e-dumps">Diferença entre <code>dump()</code> e <code>dumps()</code><a class="headerlink" href="#diferenca-entre-dump-e-dumps" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><code>json.dump()</code>: Este método é usado para escrever dados JSON em um arquivo.</p>
+</li>
+<li>
+<p><code>json.dumps()</code>: Este método converte um objeto Python em uma string JSON.</p>
+</li>
+</ul>
+<div class="admonition progress">
+<p class="admonition-title">Progress</p>
+<p>Continuar...</p>
+</div>
+<h3 id="arquivos-binarios">Arquivos Binários<a class="headerlink" href="#arquivos-binarios" title="Permanent link">&para;</a></h3>
+<p>Ao trabalhar com arquivos não-textuais, como imagens ou executáveis, utilizamos o modo binário. </p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Lendo um arquivo binário</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;imagem.jpg&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="tratamento-de-excecoes">Tratamento de Exceções<a class="headerlink" href="#tratamento-de-excecoes" title="Permanent link">&para;</a></h3>
+<p>É importante tratar exceções ao trabalhar com arquivos para evitar falhas no programa. O erro mais comum é o <code>FileNotFoundError</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;arquivo_inexistente.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Arquivo não encontrado.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="boas-praticas-ao-trabalhar-com-arquivos">Boas Práticas ao Trabalhar com Arquivos<a class="headerlink" href="#boas-praticas-ao-trabalhar-com-arquivos" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Sempre use o gerenciador de contexto <code>with</code> ao abrir arquivos para garantir que eles sejam fechados corretamente.</li>
+<li>Manipule exceções ao trabalhar com arquivos para lidar com possíveis erros.</li>
+<li>Evite a leitura de arquivos inteiros na memória se eles forem muito grandes. Existem tecnicas e bibliotecas mais apropriadas para isso, como <code>Pandas</code></li>
+</ul>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 5, 2024</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.0.0/js-yaml.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/insper-education/active-handout-plugins-js@main/package/plugin-bundle.js"></script>
+      
+        <script src="../../../search/main.js"></script>
+      
+        <script src="../../../termynal.js"></script>
+      
+    
+  </body>
+</html>

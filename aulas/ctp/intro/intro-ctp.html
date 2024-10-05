@@ -1,0 +1,3104 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Arnaldo Viana">
+      
+      
+        <link rel="canonical" href="https://arnaldojr.github.io/computacionalthinking/aulas/ctp/intro/intro-ctp.html">
+      
+      
+        <link rel="prev" href="../environment-setup/virtual-environment.html">
+      
+      
+        <link rel="next" href="../python/intro-python.html">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+    
+    
+      
+        <title>Pensamento computacional - Computacional Thinking</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/termynal.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/insper-education/active-handout-css@main/devlife.css">
+    
+      <link rel="stylesheet" href="../../../termynal.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:700|Oxygen+Mono|Source+Sans+Pro:700|Source+Serif+Pro&amp;display=swap">
+<link rel="stylesheet" href="../../../assets/css/devlife.css">
+
+
+    <script>
+        window.ihandout_config = JSON.parse(`{"report": {"api-base": "https://devlife.insper-comp.com.br/api/offerings/1/", "url": "https://devlife.insper-comp.com.br/api/offerings/1/exercises/"}}`);
+    </script>
+
+
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#computacional-thinking" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="Computacional Thinking" class="md-header__button md-logo" aria-label="Computacional Thinking" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Computacional Thinking
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Pensamento computacional
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/arnaldojr/computacionalthinking/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Computacional Thinking with Python
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="Computacional Thinking" class="md-nav__button md-logo" aria-label="Computacional Thinking" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Computacional Thinking
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/arnaldojr/computacionalthinking/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Computacional Thinking with Python
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="playground.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Playground
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sobre/sobre.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sobre o curso
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agenda/agenda.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Agenda
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CheckPoint
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            CheckPoint
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../checkpoint/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sobre
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Configuração do Ambiente de Desenvolvimento
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Configuração do Ambiente de Desenvolvimento
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../environment-setup/virtual-environment.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Criação de um Ambiente Virtual
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Pensamento computacional
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="intro-ctp.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Pensamento computacional
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#computacional-thinking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Computacional Thinking
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vamos-jogar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vamos jogar!
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vamos jogar!">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#o-jogo" class="md-nav__link">
+    <span class="md-ellipsis">
+      O jogo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desafio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Desafio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regras" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regras
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jogar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Jogar
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-que-e-pensamento-computacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      O que é pensamento computacional?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quais-sao-os-4-pilares-do-pensamento-computacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quais são os 4 pilares do pensamento computacional?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quais são os 4 pilares do pensamento computacional?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-decomposicao" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Decomposição
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-abstracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Abstração
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-reconhecimento-de-padroes" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Reconhecimento de Padrões
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-algoritmo" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Algoritmo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-desenvolver-o-pensamento-computacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Como desenvolver o Pensamento Computacional?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desafios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Desafios
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#representacao-de-algoritimos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Representação de algoritimos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Representação de algoritimos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pseudocodigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pseudocódigo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxograma" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fluxograma
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-que-e-um-computador" class="md-nav__link">
+    <span class="md-ellipsis">
+      O que é um computador?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="O que é um computador?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#como-um-computador-computa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Como um computador computa?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linguagens-naturais-vs-linguagens-de-programacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linguagens naturais vs linguagens de programação
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Fundamentos de Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Fundamentos de Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/intro-python.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introdução ao Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/data-types.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tipos de Dados e Variáveis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_3" id="__nav_8_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Controle de Fluxo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3">
+            <span class="md-nav__icon md-icon"></span>
+            Controle de Fluxo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_3_1" id="__nav_8_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Estruturas de decisão
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Estruturas de decisão
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/decision-structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    if-elif-else
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_3_2" id="__nav_8_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Estruturas de Repetição
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Estruturas de Repetição
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/repetition-structures-while-loop.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    while loop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/repetition-structures-for-loop.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    for Loop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_4" id="__nav_8_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Estruturas de Dados
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_4">
+            <span class="md-nav__icon md-icon"></span>
+            Estruturas de Dados
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/lists-tuples.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Listas e Tuplas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/dict-sets.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dicionários e Conjuntos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_5" id="__nav_8_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Funções e Módulos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_5">
+            <span class="md-nav__icon md-icon"></span>
+            Funções e Módulos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/functions-modules.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Funções
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/modules.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Módulos e Pacotes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/modules2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Módulos externos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_6" id="__nav_8_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Manipulação de Dados e Arquivos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_6">
+            <span class="md-nav__icon md-icon"></span>
+            Manipulação de Dados e Arquivos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/files-maniputation.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manipulação de arquivos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_7" id="__nav_8_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Programação Orientada a Objetos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_7">
+            <span class="md-nav__icon md-icon"></span>
+            Programação Orientada a Objetos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/oop-classes-objects.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Classes e Objetos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/oop-inheritance.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Herança, Encapsulamento e Métodos Privados
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/oop-polymorphism.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Polimorfismo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_8" id="__nav_8_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Erros e Exceções
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_8">
+            <span class="md-nav__icon md-icon"></span>
+            Erros e Exceções
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/errors-exceptions.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tratamento de Erros - Try, Except
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Algoritmos e Estruturas de Dados
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Algoritmos e Estruturas de Dados
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_1" id="__nav_9_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Busca
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_1">
+            <span class="md-nav__icon md-icon"></span>
+            Busca
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/problem-search.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O problema da busca
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/sequential-search.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Busca Sequencial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/binary-search.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Busca Binária
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_2" id="__nav_9_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Ordenação
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_2">
+            <span class="md-nav__icon md-icon"></span>
+            Ordenação
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/sorting-algorithms.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O caso da Ordenação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/bubble-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bubble Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/selection-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selection Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/insertion-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Insertion Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/merge-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Merge Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/quick-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_3" id="__nav_9_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Recursão
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_3">
+            <span class="md-nav__icon md-icon"></span>
+            Recursão
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/recursion.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recursividade
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_4" id="__nav_9_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Análise de Algoritmos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_4">
+            <span class="md-nav__icon md-icon"></span>
+            Análise de Algoritmos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/big-o-notation.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Notação Big O
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Banco de dados com Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Banco de dados com Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bd/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bd/sqlalq.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQLAlchemy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Laboratórios
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Laboratórios
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_11_1" id="__nav_11_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Solução Labs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_1">
+            <span class="md-nav__icon md-icon"></span>
+            Solução Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/solutions/solution-data-types.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab02 - Tipos de dados e Variáveis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/solutions/solution-decision-structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab03 - Estrutura de Decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="infra.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab01 - Comece aqui!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/lab-data-types.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab02 - Tipos de dados e Variáveis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/lab-decision-structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab03 - Estrutura de Decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/common-errors.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab04 - Erros comuns
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/lab-loops-data-structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab05 - Loops for e while, listas e tuplas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/lab-loops-dict-sets.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab06 - Dicionários, conjuntos e afins...
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Projetos Práticos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Projetos Práticos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projects/guessing-game.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jogo da Adivinhação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projects/agenda.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Agenda simples
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Recursos Adicionais
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Recursos Adicionais
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resources/references.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Referências e Leituras Complementares
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#computacional-thinking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Computacional Thinking
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vamos-jogar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vamos jogar!
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vamos jogar!">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#o-jogo" class="md-nav__link">
+    <span class="md-ellipsis">
+      O jogo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desafio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Desafio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regras" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regras
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jogar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Jogar
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-que-e-pensamento-computacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      O que é pensamento computacional?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quais-sao-os-4-pilares-do-pensamento-computacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quais são os 4 pilares do pensamento computacional?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quais são os 4 pilares do pensamento computacional?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-decomposicao" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Decomposição
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-abstracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Abstração
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-reconhecimento-de-padroes" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Reconhecimento de Padrões
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-algoritmo" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Algoritmo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-desenvolver-o-pensamento-computacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Como desenvolver o Pensamento Computacional?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desafios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Desafios
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#representacao-de-algoritimos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Representação de algoritimos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Representação de algoritimos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pseudocodigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pseudocódigo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxograma" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fluxograma
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-que-e-um-computador" class="md-nav__link">
+    <span class="md-ellipsis">
+      O que é um computador?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="O que é um computador?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#como-um-computador-computa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Como um computador computa?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linguagens-naturais-vs-linguagens-de-programacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linguagens naturais vs linguagens de programação
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>Pensamento computacional</h1>
+
+<h2 id="computacional-thinking">Computacional Thinking<a class="headerlink" href="#computacional-thinking" title="Permanent link">&para;</a></h2>
+<p>Seja bem-vindo à jornada do pensamento computacional!</p>
+<p>Hoje, o pensamento computacional é visto não apenas como uma habilidade essencial para aqueles que trabalham em campos relacionados à tecnologia, mas também como uma habilidade valiosa para a resolução de problemas em diversas áreas. A capacidade analítica de compreender problemas e propor soluções sistêmicas é aplicável em muitas áreas, desde a ciência e engenharia até as artes e ciências sociais.</p>
+<h2 id="vamos-jogar">Vamos jogar!<a class="headerlink" href="#vamos-jogar" title="Permanent link">&para;</a></h2>
+<h3 id="o-jogo">O jogo<a class="headerlink" href="#o-jogo" title="Permanent link">&para;</a></h3>
+<p>A <code>Torre de Hanói</code> é um dos mais famosos jogos de Matemática. Ele consiste de uma base contendo três pilares (hastes), em um dos quais está disposta uma torre formada por alguns discos colocados uns sobre os outros, em ordem crescente de diâmetro, de cima para baixo. O número de discos pode variar. Observe a disposição inicial de um jogo com seis discos.</p>
+<p><img alt="" src="img/hanoi02.png" /></p>
+<h3 id="desafio">Desafio<a class="headerlink" href="#desafio" title="Permanent link">&para;</a></h3>
+<p>Transferir todos os discos de um pino para outro qualquer. Tente transferi-los de um pino para outro em
+apenas 31 movimentos, sendo que você poderá mover apenas um disco por vez.</p>
+<h3 id="regras">Regras<a class="headerlink" href="#regras" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Um disco maior nunca poderá ficar em cima de um disco menor.</p>
+</div>
+<h3 id="jogar">Jogar<a class="headerlink" href="#jogar" title="Permanent link">&para;</a></h3>
+<p>Desenvolva uma estratégia para conseguir solucionar com a menor quantidade de movimentos. </p>
+<iframe title="Torre de Hanoi" src="https://www.geogebra.org/material/iframe/id/ebnrujnm/width/755/height/415/border/ffffff/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="760px" height="420px" style="border: 2px solid #008000;"> </iframe>
+
+<blockquote>
+<blockquote>
+<p>Se o jogo não abrir acesse o link: <a href="https://www.geogebra.org/m/s5hd5qum">https://www.geogebra.org/m/s5hd5qum</a></p>
+</blockquote>
+</blockquote>
+<div class="admonition progress">
+<p class="admonition-title">Progress</p>
+<p>Continuar...</p>
+</div>
+<h2 id="o-que-e-pensamento-computacional">O que é pensamento computacional?<a class="headerlink" href="#o-que-e-pensamento-computacional" title="Permanent link">&para;</a></h2>
+<p>O pensamento computacional é uma forma de abordar problemas e sistemas de uma maneira que um computador poderia entender. Não se trata apenas de programar, mas sim de uma mentalidade que utiliza conceitos fundamentais da ciência da computação para resolver problemas, projetar sistemas e compreender o comportamento humano. Então não relacione pensamento computacional a computador, não necessariamente são utilizados computadores nesse processo. A ideia central é trazer a forma de raciocínio que as máquinas aplicam nos problemas. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Pensamento computacional não depende computadores e nem de linguagem computacional, logo não se resume a programação ou software ou internet...</p>
+</div>
+<h2 id="quais-sao-os-4-pilares-do-pensamento-computacional">Quais são os 4 pilares do pensamento computacional?<a class="headerlink" href="#quais-sao-os-4-pilares-do-pensamento-computacional" title="Permanent link">&para;</a></h2>
+<p>Para que o pensamento computacional seja aplicado, vamos conhecer os seus 4 pilares. </p>
+<h3 id="1-decomposicao">1. Decomposição<a class="headerlink" href="#1-decomposicao" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definição</strong>: Dividir um problema complexo em partes menores e mais gerenciáveis.</li>
+<li><strong>Por que é importante?</strong>: Ao decompor um problema, podemos focar em solucionar cada parte individualmente, tornando a tarefa global mais simples.</li>
+<li><strong>Exemplo</strong>: Ao criar um website, podemos decompor o projeto em partes como design, funcionalidades, conteúdo e otimização para dispositivos móveis.</li>
+</ul>
+<p><img alt="" src="img/decomposicao.png" /></p>
+<h3 id="2-abstracao">2. Abstração<a class="headerlink" href="#2-abstracao" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definição</strong>: Focar nas informações essenciais de um problema, ignorando detalhes desnecessários.</li>
+<li><strong>Por que é importante?</strong>: Ajuda a simplificar problemas complexos, permitindo que nos concentremos nos aspectos mais cruciais.</li>
+<li><strong>Exemplo</strong>: Ao desenvolver um aplicativo de transporte, não precisamos saber como um carro funciona internamente, mas sim como ele se move de um ponto a outro.</li>
+</ul>
+<p><img alt="" src="img/abstracao.png" /></p>
+<h3 id="3-reconhecimento-de-padroes">3. Reconhecimento de Padrões<a class="headerlink" href="#3-reconhecimento-de-padroes" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definição</strong>: Identificar semelhanças ou tendências em problemas ou conjuntos de dados.</li>
+<li><strong>Por que é importante?</strong>: Reconhecer padrões nos permite fazer previsões e identificar soluções mais rapidamente.</li>
+<li><strong>Exemplo</strong>: Ao analisar dados de vendas, podemos identificar em quais meses as vendas aumentam e planejar estratégias de marketing com base nisso.</li>
+</ul>
+<p><img alt="" src="img/reconhecimentopadrao.png" /></p>
+<h3 id="4-algoritmo">4. Algoritmo<a class="headerlink" href="#4-algoritmo" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definição</strong>: Criar uma série de instruções passo a passo para resolver um problema ou realizar uma tarefa.</li>
+<li><strong>Por que é importante?</strong>: Os algoritmos garantem que uma tarefa seja realizada de forma eficiente e correta.</li>
+<li><strong>Exemplo</strong>: Ao preparar uma receita, seguimos um algoritmo para garantir que o prato seja feito corretamente.</li>
+</ul>
+<p><img alt="" src="img/algoritmo.png" /></p>
+<h2 id="como-desenvolver-o-pensamento-computacional">Como desenvolver o Pensamento Computacional?<a class="headerlink" href="#como-desenvolver-o-pensamento-computacional" title="Permanent link">&para;</a></h2>
+<p>Desenvolver o pensamento computacional requer prática e imersão. Durante este curso, usaremos Python, uma linguagem de programação poderosa e versátil, como nossa ferramenta principal. Através de exercícios práticos, projetos e discussões em sala de aula, você será desafiado a aplicar os conceitos de pensamento computacional para resolver problemas reais. Encorajamos a colaboração, a experimentação e, acima de tudo, a curiosidade. </p>
+<div class="admonition progress">
+<p class="admonition-title">Progress</p>
+<p>Continuar...</p>
+</div>
+<h2 id="desafios">Desafios<a class="headerlink" href="#desafios" title="Permanent link">&para;</a></h2>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Assinale o que você entende sobre Decomposição:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Analisar o problema e aumentar partes</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Conhecer o problema e dividir em partes menores</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Apagar partes de um programa</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Testar um Algoritmos</li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>Dividir para conquistar.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Assinale o que você entende sobre Reconhecimento de Padrões</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Identificar situações que se repetem dentro do problema ou entre problemas</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Reconhecer um erro em um programa</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Identificar o que há de diferente em um problema</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Reconhecer o final de um problema</li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Assinale o que você entende sobre Abstração</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> É pensar sobre o que vem antes do problema</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Escolher o que é o mais importante para resolver um problema</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Escolher o que é o menos destacado no problema</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> É pensar sobre como deveria ser o problema</li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Assinale o que você entende sobre Algoritmo</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Organizar um passo a passo que não deve ser testado na solução do problema</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Organizar os passos para a solução de um problema e testar</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Listar as ações que o problema não apresentou</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Organizar a escrita do problema</li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Podemos relacionar o mapa do metro de SP com qual pilar do pensamento computacional?
+<img alt="" src="img/metro.png" /></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Abstração</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Reconhecimento de Padrões</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Decomposição</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Algoritmo</li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>O mapa do metrô como exemplo de abstração do mundo real    </p>
+</div>
+</div>
+<div class="admonition progress">
+<p class="admonition-title">Progress</p>
+<p>Continuar...</p>
+</div>
+<h2 id="representacao-de-algoritimos">Representação de algoritimos<a class="headerlink" href="#representacao-de-algoritimos" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Um algoritmo é, de fato, uma sequência definida de passos ou instruções para resolver um problema ou realizar uma tarefa. Ele serve como um "plano" ou "receita" para uma solução. Um algoritmo não é, por si só, um programa de computador. No entanto, um programa de computador pode ser desenvolvido com base em um ou mais algoritmos. Podemos representar algoritmos por meio de pseudocódigos ou fluxogramas.</p>
+</div>
+<h3 id="pseudocodigo">Pseudocódigo<a class="headerlink" href="#pseudocodigo" title="Permanent link">&para;</a></h3>
+<p>É uma descrição de alto nível de um algoritmo que usa a estrutura de um programa de computador, mas pode ser lido por humanos. Ele não é escrito em uma linguagem de programação específica, mas sim em uma forma que pode ser facilmente convertida em código real.</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>Algoritmo<span class="w"> </span>CalcularMedia
+<span class="w">       </span>//<span class="w"> </span>Entrada<span class="w"> </span>de<span class="w"> </span>dados
+<span class="w">       </span>Ler<span class="w"> </span>num1
+<span class="w">       </span>Ler<span class="w"> </span>num2
+<span class="w">       </span>Ler<span class="w"> </span>num3
+
+<span class="w">       </span>//<span class="w"> </span>Cálculo<span class="w"> </span>da<span class="w"> </span>média
+<span class="w">       </span>media<span class="w"> </span>&lt;-<span class="w"> </span><span class="o">(</span>num1<span class="w"> </span>+<span class="w"> </span>num2<span class="w"> </span>+<span class="w"> </span>num3<span class="o">)</span><span class="w"> </span>/<span class="w"> </span><span class="m">3</span>
+
+<span class="w">       </span>//<span class="w"> </span>Saída<span class="w"> </span>de<span class="w"> </span>dados
+<span class="w">       </span>Escrever<span class="w"> </span><span class="s2">&quot;A média é: &quot;</span>,<span class="w"> </span>media
+<span class="w">    </span>FimAlgoritmo
+</code></pre></div>
+<h3 id="fluxograma">Fluxograma<a class="headerlink" href="#fluxograma" title="Permanent link">&para;</a></h3>
+<p>É uma representação gráfica de um algoritmo. Usa símbolos padrão (como retângulos, losangos e ovais) conectados por setas para representar os passos e o fluxo de um algoritmo.</p>
+<p><img alt="" src="img/fluxograma.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>O objetivo de desenvolvidores de sistemas e profissionais de tecnologia é encontrar algoritimos mais eficientes para resolução do problema.</p>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Assinale a definição correta de um algoritmo:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Uma linguagem de programação específica.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Uma sequência definida de passos ou instruções para resolver um problema ou realizar uma tarefa.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Um programa de computador.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Uma representação gráfica de um programa.</li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>Um algoritmo é uma sequência definida de passos ou instruções para resolver um problema ou realizar uma tarefa.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>O que é pseudocódigo?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Um código escrito em uma linguagem de programação específica.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Uma descrição de alto nível de um algoritmo que pode ser lido por humanos.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Um tipo de fluxograma.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Um programa de computador.</li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>Pseudocódigo é uma descrição de alto nível de um algoritmo que pode ser lido por humanos.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Qual é o objetivo dos desenvolvedores de sistemas e profissionais de tecnologia ao trabalhar com algoritmos?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Criar fluxogramas.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Escrever pseudocódigos.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Encontrar algoritmos mais eficientes para a resolução do problema.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Aumentar a complexidade do problema.</li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>O objetivo é encontrar algoritmos mais eficientes para a resolução do problema.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Imagine que você foi contratado para desenvolver um algoritmo que calcule o desconto em uma compra. O desconto é de 10% se o valor da compra for maior que R$100. Dentre os pseudocódigos abaixo, qual deles implementa corretamente essa lógica?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> DescontoA
+        <div class="highlight"><pre><span></span><code>Algoritmo<span class="w"> </span>DescontoA
+<span class="w">    </span>Ler<span class="w"> </span>valorCompra
+<span class="w">    </span>Se<span class="w"> </span>valorCompra<span class="w"> </span>&gt;<span class="w"> </span><span class="m">100</span><span class="w"> </span>Então
+<span class="w">        </span>desconto<span class="w"> </span>&lt;-<span class="w"> </span>valorCompra<span class="w"> </span>*<span class="w"> </span><span class="m">0</span>.10
+<span class="w">    </span>Senão
+<span class="w">        </span>desconto<span class="w"> </span>&lt;-<span class="w"> </span><span class="m">0</span>
+<span class="w">    </span>FimSe
+<span class="w">    </span>Escrever<span class="w"> </span><span class="s2">&quot;Desconto: &quot;</span>,<span class="w"> </span>desconto
+FimAlgoritmo
+</code></pre></div></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> DescontoB
+        <div class="highlight"><pre><span></span><code>Algoritmo<span class="w"> </span>DescontoB
+<span class="w">   </span>Ler<span class="w"> </span>valorCompra
+<span class="w">   </span>Se<span class="w"> </span>valorCompra<span class="w"> </span>&lt;<span class="w"> </span><span class="m">100</span><span class="w"> </span>Então
+<span class="w">       </span>desconto<span class="w"> </span>&lt;-<span class="w"> </span>valorCompra<span class="w"> </span>*<span class="w"> </span><span class="m">0</span>.10
+<span class="w">   </span>Senão
+<span class="w">       </span>desconto<span class="w"> </span>&lt;-<span class="w"> </span><span class="m">0</span>
+<span class="w">   </span>FimSe
+<span class="w">   </span>Escrever<span class="w"> </span><span class="s2">&quot;Desconto: &quot;</span>,<span class="w"> </span>desconto
+FimAlgoritmo
+</code></pre></div></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> DescontoC
+        <div class="highlight"><pre><span></span><code>Algoritmo<span class="w"> </span>DescontoC
+<span class="w">   </span>Ler<span class="w"> </span>valorCompra
+<span class="w">   </span>desconto<span class="w"> </span>&lt;-<span class="w"> </span>valorCompra<span class="w"> </span>*<span class="w"> </span><span class="m">0</span>.10
+<span class="w">   </span>Escrever<span class="w"> </span><span class="s2">&quot;Desconto: &quot;</span>,<span class="w"> </span>desconto
+FimAlgoritmo
+</code></pre></div></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> DescontoD
+        <div class="highlight"><pre><span></span><code>Algoritmo<span class="w"> </span>DescontoD
+<span class="w">   </span>Ler<span class="w"> </span>valorCompra
+<span class="w">   </span>Se<span class="w"> </span>valorCompra<span class="w"> </span>&gt;<span class="w"> </span><span class="m">100</span><span class="w"> </span>Então
+<span class="w">       </span>desconto<span class="w"> </span>&lt;-<span class="w"> </span><span class="m">0</span>
+<span class="w">   </span>Senão
+<span class="w">       </span>desconto<span class="w"> </span>&lt;-<span class="w"> </span>valorCompra<span class="w"> </span>*<span class="w"> </span><span class="m">0</span>.10
+<span class="w">   </span>FimSe
+<span class="w">   </span>Escrever<span class="w"> </span><span class="s2">&quot;Desconto: &quot;</span>,<span class="w"> </span>desconto
+FimAlgoritmo
+</code></pre></div></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>O pseudocódigo DescontoA implementa corretamente a lógica de dar 10% de desconto se o valor da compra for maior que R$100.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Você foi solicitado a criar um algoritmo para calcular juros simples. O juro simples é calculado pela fórmula J = P * i * n, onde <span class="arithmatex"><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span> é o Capital, <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> é a taxa de juro e <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> é o número de períodos. Qual dos pseudocódigos abaixo implementa corretamente essa lógica?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> JuroSimplesA
+        <div class="highlight"><pre><span></span><code>Algoritmo<span class="w"> </span>JuroSimplesA
+<span class="w">    </span>Ler<span class="w"> </span>P,<span class="w"> </span>i,<span class="w"> </span>n
+<span class="w">    </span>J<span class="w"> </span>&lt;-<span class="w"> </span>P<span class="w"> </span>*<span class="w"> </span>i<span class="w"> </span>*<span class="w"> </span>n
+<span class="w">    </span>Escrever<span class="w"> </span><span class="s2">&quot;Juros: &quot;</span>,<span class="w"> </span>J
+FimAlgoritmo
+</code></pre></div></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> JuroSimplesB
+        <div class="highlight"><pre><span></span><code>Algoritmo<span class="w"> </span>JuroSimplesB
+<span class="w">    </span>Ler<span class="w"> </span>P,<span class="w"> </span>i,<span class="w"> </span>n
+<span class="w">    </span>J<span class="w"> </span>&lt;-<span class="w"> </span>P<span class="w"> </span>+<span class="w"> </span>i<span class="w"> </span>+<span class="w"> </span>n
+<span class="w">    </span>Escrever<span class="w"> </span><span class="s2">&quot;Juros: &quot;</span>,<span class="w"> </span>J
+FimAlgoritmo
+</code></pre></div></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> JuroSimplesC
+        <div class="highlight"><pre><span></span><code>Algoritmo<span class="w"> </span>JuroSimplesC
+<span class="w">    </span>Ler<span class="w"> </span>P,<span class="w"> </span>i,<span class="w"> </span>n
+<span class="w">    </span>J<span class="w"> </span>&lt;-<span class="w"> </span>P<span class="w"> </span>*<span class="w"> </span>i<span class="w"> </span>/<span class="w"> </span>n
+<span class="w">    </span>Escrever<span class="w"> </span><span class="s2">&quot;Juros: &quot;</span>,<span class="w"> </span>J
+FimAlgoritmo
+</code></pre></div></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> JuroSimplesD
+        <div class="highlight"><pre><span></span><code>Algoritmo<span class="w"> </span>JuroSimplesD
+<span class="w">    </span>Ler<span class="w"> </span>P,<span class="w"> </span>i
+<span class="w">    </span>J<span class="w"> </span>&lt;-<span class="w"> </span>P<span class="w"> </span>*<span class="w"> </span>i
+<span class="w">    </span>Escrever<span class="w"> </span><span class="s2">&quot;Juros: &quot;</span>,<span class="w"> </span>J
+FimAlgoritmo
+</code></pre></div></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>O pseudocódigo JuroSimplesA implementa corretamente a fórmula para calcular juros simples.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Seu objetivo é desenvolver um algoritmo que verifique se um número é par. Qual dos pseudocódigos abaixo implementa corretamente essa verificação?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ParOuImparA
+        <div class="highlight"><pre><span></span><code>Algoritmo<span class="w"> </span>ParOuImparA
+<span class="w">    </span>Ler<span class="w"> </span>num
+<span class="w">    </span>Se<span class="w"> </span>num<span class="w"> </span>/<span class="w"> </span><span class="nv">2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>Então
+<span class="w">        </span>Escrever<span class="w"> </span><span class="s2">&quot;Par&quot;</span>
+<span class="w">    </span>Senão
+<span class="w">        </span>Escrever<span class="w"> </span><span class="s2">&quot;Ímpar&quot;</span>
+<span class="w">    </span>FimSe
+FimAlgoritmo
+</code></pre></div></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> ParOuImparB
+        <div class="highlight"><pre><span></span><code>Algoritmo<span class="w"> </span>ParOuImparB
+<span class="w">    </span>Ler<span class="w"> </span>num
+<span class="w">    </span>Se<span class="w"> </span>num<span class="w"> </span>MOD<span class="w"> </span><span class="nv">2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>Então
+<span class="w">        </span>Escrever<span class="w"> </span><span class="s2">&quot;Par&quot;</span>
+<span class="w">    </span>Senão
+<span class="w">        </span>Escrever<span class="w"> </span><span class="s2">&quot;Ímpar&quot;</span>
+<span class="w">    </span>FimSe
+FimAlgoritmo
+</code></pre></div></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ParOuImparC
+        <div class="highlight"><pre><span></span><code>Algoritmo<span class="w"> </span>ParOuImparC
+<span class="w">    </span>Ler<span class="w"> </span>num
+<span class="w">    </span>Se<span class="w"> </span>num<span class="w"> </span>MOD<span class="w"> </span><span class="nv">2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>Então
+<span class="w">        </span>Escrever<span class="w"> </span><span class="s2">&quot;Par&quot;</span>
+<span class="w">    </span>Senão
+<span class="w">        </span>Escrever<span class="w"> </span><span class="s2">&quot;Ímpar&quot;</span>
+<span class="w">    </span>FimSe
+FimAlgoritmo
+</code></pre></div></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ParOuImparD
+        <div class="highlight"><pre><span></span><code>Algoritmo<span class="w"> </span>ParOuImparD
+<span class="w">    </span>Ler<span class="w"> </span>num
+<span class="w">    </span>Se<span class="w"> </span>num<span class="w"> </span>/<span class="w"> </span><span class="nv">2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>Então
+<span class="w">        </span>Escrever<span class="w"> </span><span class="s2">&quot;Par&quot;</span>
+<span class="w">    </span>Senão
+<span class="w">        </span>Escrever<span class="w"> </span><span class="s2">&quot;Ímpar&quot;</span>
+<span class="w">    </span>FimSe
+FimAlgoritmo
+</code></pre></div></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>O pseudocódigo ParOuImparB verifica corretamente se um número é par ou ímpar.</p>
+</div>
+</div>
+<div class="admonition progress">
+<p class="admonition-title">Progress</p>
+<p>Continuar...</p>
+</div>
+<h2 id="o-que-e-um-computador">O que é um computador?<a class="headerlink" href="#o-que-e-um-computador" title="Permanent link">&para;</a></h2>
+<p>O dicionario talvez defina o termo computador como um “dispositivo eletrônico que é capaz de receber informações (dados) de uma forma particular e de realizar uma sequência de operações [...] para produzir um resultado”. No entanto, a definição original do mesmo termo, em uso do século XVII, é ligeiramente diferente. Refere-se a alguém “que computa” ou uma “pessoa que realiza cálculos matemáticos” – da Wikipedia.
+Quando usamos o termo <code>computador</code>, consideramos sempre a definição mais genérica: qualquer agente processador de informação (ou seja, uma máquina ou uma pessoa agindo mecanicamente se devidamente instruído) que pode fazer cálculos e produzir alguma saída a partir de informações de entrada.</p>
+<p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Eniac.jpg/800px-Eniac.jpg" />
+Eniac - um marco na computação.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Para saber mais sobre a história da computação:</p>
+<ul>
+<li><a href="https://www.cos.ufrj.br/semana/2019/slides/Jayme_Semana_PESC_2019.pdf">https://www.cos.ufrj.br/semana/2019/slides/Jayme_Semana_PESC_2019.pdf</a></li>
+<li><a href="https://www.ime.usp.br/~macmulti/historico/">https://www.ime.usp.br/~macmulti/historico/</a></li>
+</ul>
+</div>
+<h3 id="como-um-computador-computa">Como um computador computa?<a class="headerlink" href="#como-um-computador-computa" title="Permanent link">&para;</a></h3>
+<p>O processo de computação envolve a execução de instruções específicas em uma sequência determinada. Estas instruções são fornecidas ao computador na forma de programas. Quando um programa é executado, ele passa por várias etapas:</p>
+<ul>
+<li>Entrada: O computador recebe dados, seja por meio de um teclado, mouse, sensores ou outros dispositivos.</li>
+<li>Processamento: A CPU (Unidade Central de Processamento) processa os dados, executando operações aritméticas e lógicas.</li>
+<li>Armazenamento: Os dados processados podem ser armazenados na memória do computador ou em dispositivos de armazenamento, como discos rígidos.</li>
+<li>Saída: O computador exibe ou transmite os resultados do processamento, seja em um monitor, impressora ou através de sinais para outros dispositivos.</li>
+</ul>
+<h3 id="linguagens-naturais-vs-linguagens-de-programacao">Linguagens naturais vs linguagens de programação<a class="headerlink" href="#linguagens-naturais-vs-linguagens-de-programacao" title="Permanent link">&para;</a></h3>
+<p><code>Linguagens naturais</code> são as línguas que as pessoas falam, como inglês, português ou mandarim. Elas evoluíram naturalmente ao longo do tempo e são ricas em nuances, ambiguidades e contextos culturais.</p>
+<p><code>Linguagens de programação</code>, pelo contrário, são línguas de origem formal. Obrigam a regras sintáticas específicas. Tais regras evitam possíveis afirmações ambíguas, principalmente por restringir a expressividade da linguagem. Portanto, todas as sentenças em tal linguagem estão transmitindo apenas um significado possível.</p>
+<p>Em particular, podemos distinguir três macroconjuntos de linguagens de programação:</p>
+<ul>
+<li><code>linguagem de máquina</code> é um conjunto de instruções que podem ser executadas diretamente pela unidade central de processamento (CPU) de um computador eletrônico. Por exemplo, o código a seguir é o código executável binário (ou seja, uma sequência de 0 e 1) definindo uma função (ou seja, um tipo de ferramenta que recebe algumas entradas e produz algumas saídas) para calcular o n-ésimo número de Fibonacci:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="err">100010110101010000100100000010001000001111111010000000000111011</span>
+<span class="err">100000110101110000000000000000000000000000000000011000011100000</span>
+<span class="err">111111101000000010011101110000011010111000000000010000000000000</span>
+<span class="err">000000000001100001101010011101110110000000100000000000000000000</span>
+<span class="err">000010111001000000010000000000000000000000001000110100000100000</span>
+<span class="err">110011000001111111010000000110111011000000111100010111101100110</span>
+<span class="err">001001110000010100101011101011111100010101101111000011</span>
+</code></pre></div>
+<ul>
+<li><code>linguagem de baixo nivel</code> são linguagens que fornecem um nível de abstração acima da linguagem de máquina. Desta forma, permite escrever programas de uma forma mais inteligível para os humanos. A linguagem mais popular desse tipo é Assembly (ASM). Mesmo que introduzindo símbolos humanamente reconhecíveis, uma linha de código assembly normalmente representa uma instrução de máquina em linguagem de máquina. Por exemplo, a mesma função para calcular o n-ésimo número de Fibonacci é definida em Assembly da seguinte forma:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="w">   </span><span class="nl">fib:</span>
+<span class="w">      </span><span class="nf">mov</span><span class="w"> </span><span class="no">edx</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">esp</span><span class="err">+</span><span class="mi">8</span><span class="p">]</span>
+<span class="w">      </span><span class="nf">cmp</span><span class="w"> </span><span class="no">edx</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">      </span><span class="nf">ja</span><span class="w"> </span><span class="err">@</span><span class="no">f</span>
+<span class="w">      </span><span class="nf">mov</span><span class="w"> </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">      </span><span class="nf">ret</span>
+
+<span class="w">      </span><span class="err">@@:</span>
+<span class="w">      </span><span class="nf">cmp</span><span class="w"> </span><span class="no">edx</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">      </span><span class="nf">ja</span><span class="w"> </span><span class="err">@</span><span class="no">f</span>
+<span class="w">      </span><span class="nf">mov</span><span class="w"> </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">      </span><span class="nf">ret</span>
+
+<span class="w">      </span><span class="err">@@:</span>
+<span class="w">      </span><span class="nf">push</span><span class="w"> </span><span class="no">ebx</span>
+<span class="w">      </span><span class="nf">mov</span><span class="w"> </span><span class="no">ebx</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">      </span><span class="nf">mov</span><span class="w"> </span><span class="no">ecx</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+
+<span class="w">      </span><span class="err">@@:</span>
+<span class="w">            </span><span class="nf">lea</span><span class="w"> </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">ebx</span><span class="err">+</span><span class="no">ecx</span><span class="p">]</span>
+<span class="w">            </span><span class="nf">cmp</span><span class="w"> </span><span class="no">edx</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">            </span><span class="nf">jbe</span><span class="w"> </span><span class="err">@</span><span class="no">f</span>
+<span class="w">            </span><span class="nf">mov</span><span class="w"> </span><span class="no">ebx</span><span class="p">,</span><span class="w"> </span><span class="no">ecx</span>
+<span class="w">            </span><span class="nf">mov</span><span class="w"> </span><span class="no">ecx</span><span class="p">,</span><span class="w"> </span><span class="no">eax</span>
+<span class="w">            </span><span class="nf">dec</span><span class="w"> </span><span class="no">edx</span>
+<span class="w">      </span><span class="nf">jmp</span><span class="w"> </span><span class="err">@</span><span class="no">b</span>
+
+<span class="w">      </span><span class="err">@@:</span>
+<span class="w">      </span><span class="nf">pop</span><span class="w"> </span><span class="no">ebx</span>
+<span class="w">      </span><span class="nf">ret</span>
+</code></pre></div>
+<ul>
+<li><code>linguagem de alto nivel</code> são caracterizados por uma forte abstração da especificabilidade da linguagem de máquina. Em particular, pode usar palavras de linguagem natural para construções específicas para serem fáceis de usar e entender por humanos. De um modo geral, quanto mais abstração das linguagens de programação de baixo nível for fornecida, mais compreensível será a linguagem. Por exemplo, no exemplo a seguir, mostramos como usar a linguagem de programação C para implementar a mesma função de antes:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">fib</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">       </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">       </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">       </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">;</span>
+<span class="w">          </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">          </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">          </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="w">                </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">                </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="w">                </span><span class="n">n</span><span class="o">--</span><span class="p">;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">       </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div>
+<div class="admonition exercise choice two-cols">
+<p class="admonition-title">Exercise</p>
+<p>Quais são linguagens de alto nível? existe mais de uma alternativa correta.</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Java.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> JavaScript.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ruby.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Python.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> C#.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> PHP.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Assembly.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Swift.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Kotlin.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Go.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Perl.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Lua.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> R.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> TypeScript.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Rust.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Scala.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Groovy.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> MATLAB.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> C++.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Elixir.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> C.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> VHDL.</li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>As linguagens de alto nível são: Java, JavaScript, Ruby, Python, C#, PHP, Swift, Kotlin, Go, Perl, Lua, R, TypeScript, Rust, Scala, Groovy e MATLAB. Assembly e VHDL são linguagens de baixo nível.</p>
+</div>
+</div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 5, 2024</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.0.0/js-yaml.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/insper-education/active-handout-plugins-js@main/package/plugin-bundle.js"></script>
+      
+        <script src="../../../search/main.js"></script>
+      
+        <script src="../../../termynal.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,3366 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Arnaldo Viana">
+      
+      
+        <link rel="canonical" href="https://arnaldojr.github.io/computacionalthinking/aulas/ctp/python/data-types.html">
+      
+      
+        <link rel="prev" href="intro-python.html">
+      
+      
+        <link rel="next" href="decision-structures.html">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+    
+    
+      
+        <title>Tipos de Dados e Variáveis - Computacional Thinking</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/termynal.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/insper-education/active-handout-css@main/devlife.css">
+    
+      <link rel="stylesheet" href="../../../termynal.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:700|Oxygen+Mono|Source+Sans+Pro:700|Source+Serif+Pro&amp;display=swap">
+<link rel="stylesheet" href="../../../assets/css/devlife.css">
+
+
+    <script>
+        window.ihandout_config = JSON.parse(`{"report": {"api-base": "https://devlife.insper-comp.com.br/api/offerings/1/", "url": "https://devlife.insper-comp.com.br/api/offerings/1/exercises/"}}`);
+    </script>
+
+
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tipos-de-dados-em-python" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="Computacional Thinking" class="md-header__button md-logo" aria-label="Computacional Thinking" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Computacional Thinking
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tipos de Dados e Variáveis
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/arnaldojr/computacionalthinking/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Computacional Thinking with Python
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="Computacional Thinking" class="md-nav__button md-logo" aria-label="Computacional Thinking" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Computacional Thinking
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/arnaldojr/computacionalthinking/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Computacional Thinking with Python
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/playground.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Playground
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sobre/sobre.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sobre o curso
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agenda/agenda.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Agenda
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CheckPoint
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            CheckPoint
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../checkpoint/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sobre
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Configuração do Ambiente de Desenvolvimento
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Configuração do Ambiente de Desenvolvimento
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../environment-setup/virtual-environment.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Criação de um Ambiente Virtual
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/intro-ctp.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pensamento computacional
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Fundamentos de Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Fundamentos de Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="intro-python.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introdução ao Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Tipos de Dados e Variáveis
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="data-types.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Tipos de Dados e Variáveis
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-dados-em-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipos de Dados em Python
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipos de Dados em Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipos-built-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipos built-in
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipos built-in">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#numeros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Números
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#booleanos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Booleanos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicios-sobre-tipos-primitivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercícios sobre Tipos Primitivos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variaveis-e-atribuicao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variáveis e Atribuição
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variáveis e Atribuição">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#convencao-para-nomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Convenção para Nomes:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#erros-de-nomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Erros de Nomes:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atribuicao-aumentada" class="md-nav__link">
+    <span class="md-ellipsis">
+      Atribuição Aumentada
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicios-sobre-variaveis-e-atribuicao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercícios sobre Variáveis e Atribuição
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversao-de-tipos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversão de Tipos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicios-sobre-conversao-de-tipos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercícios sobre Conversão de Tipos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entrada-e-saida" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entrada e Saída
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicios-sobre-entrada-e-saida" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercícios sobre Entrada e Saída
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operadores
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Operadores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operadores-aritmeticos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operadores Aritméticos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operadores-aritmeticos_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operadores Aritméticos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Operadores Aritméticos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operadores-relacionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operadores Relacionais
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operadores-logicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operadores Lógicos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operador-and-e-logico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operador and (E lógico)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operador-or-ou-logico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operador or (OU lógico)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operador-not-nao-logico-barrado-inversor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operador not (NÃO lógico, barrado, inversor)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicios-sobre-operadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercícios sobre Operadores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicios-problema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercicios problema
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_3" id="__nav_8_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Controle de Fluxo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3">
+            <span class="md-nav__icon md-icon"></span>
+            Controle de Fluxo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_3_1" id="__nav_8_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Estruturas de decisão
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Estruturas de decisão
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="decision-structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    if-elif-else
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_3_2" id="__nav_8_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Estruturas de Repetição
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Estruturas de Repetição
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="repetition-structures-while-loop.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    while loop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="repetition-structures-for-loop.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    for Loop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_4" id="__nav_8_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Estruturas de Dados
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_4">
+            <span class="md-nav__icon md-icon"></span>
+            Estruturas de Dados
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lists-tuples.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Listas e Tuplas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dict-sets.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dicionários e Conjuntos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_5" id="__nav_8_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Funções e Módulos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_5">
+            <span class="md-nav__icon md-icon"></span>
+            Funções e Módulos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="functions-modules.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Funções
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="modules.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Módulos e Pacotes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="modules2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Módulos externos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_6" id="__nav_8_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Manipulação de Dados e Arquivos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_6">
+            <span class="md-nav__icon md-icon"></span>
+            Manipulação de Dados e Arquivos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="files-maniputation.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manipulação de arquivos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_7" id="__nav_8_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Programação Orientada a Objetos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_7">
+            <span class="md-nav__icon md-icon"></span>
+            Programação Orientada a Objetos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="oop-classes-objects.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Classes e Objetos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="oop-inheritance.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Herança, Encapsulamento e Métodos Privados
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="oop-polymorphism.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Polimorfismo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_8" id="__nav_8_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Erros e Exceções
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_8">
+            <span class="md-nav__icon md-icon"></span>
+            Erros e Exceções
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="errors-exceptions.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tratamento de Erros - Try, Except
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Algoritmos e Estruturas de Dados
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Algoritmos e Estruturas de Dados
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_1" id="__nav_9_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Busca
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_1">
+            <span class="md-nav__icon md-icon"></span>
+            Busca
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/problem-search.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O problema da busca
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/sequential-search.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Busca Sequencial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/binary-search.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Busca Binária
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_2" id="__nav_9_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Ordenação
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_2">
+            <span class="md-nav__icon md-icon"></span>
+            Ordenação
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/sorting-algorithms.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O caso da Ordenação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/bubble-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bubble Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/selection-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selection Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/insertion-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Insertion Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/merge-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Merge Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/quick-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_3" id="__nav_9_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Recursão
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_3">
+            <span class="md-nav__icon md-icon"></span>
+            Recursão
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/recursion.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recursividade
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_4" id="__nav_9_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Análise de Algoritmos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_4">
+            <span class="md-nav__icon md-icon"></span>
+            Análise de Algoritmos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/big-o-notation.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Notação Big O
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Banco de dados com Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Banco de dados com Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bd/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bd/sqlalq.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQLAlchemy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Laboratórios
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Laboratórios
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_11_1" id="__nav_11_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Solução Labs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_1">
+            <span class="md-nav__icon md-icon"></span>
+            Solução Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/solutions/solution-data-types.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab02 - Tipos de dados e Variáveis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/solutions/solution-decision-structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab03 - Estrutura de Decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/infra.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab01 - Comece aqui!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/lab-data-types.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab02 - Tipos de dados e Variáveis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/lab-decision-structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab03 - Estrutura de Decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/common-errors.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab04 - Erros comuns
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/lab-loops-data-structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab05 - Loops for e while, listas e tuplas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/lab-loops-dict-sets.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab06 - Dicionários, conjuntos e afins...
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Projetos Práticos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Projetos Práticos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projects/guessing-game.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jogo da Adivinhação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projects/agenda.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Agenda simples
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Recursos Adicionais
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Recursos Adicionais
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resources/references.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Referências e Leituras Complementares
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-dados-em-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipos de Dados em Python
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipos de Dados em Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipos-built-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipos built-in
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipos built-in">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#numeros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Números
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#booleanos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Booleanos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicios-sobre-tipos-primitivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercícios sobre Tipos Primitivos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variaveis-e-atribuicao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variáveis e Atribuição
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variáveis e Atribuição">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#convencao-para-nomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Convenção para Nomes:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#erros-de-nomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Erros de Nomes:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atribuicao-aumentada" class="md-nav__link">
+    <span class="md-ellipsis">
+      Atribuição Aumentada
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicios-sobre-variaveis-e-atribuicao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercícios sobre Variáveis e Atribuição
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversao-de-tipos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversão de Tipos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicios-sobre-conversao-de-tipos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercícios sobre Conversão de Tipos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entrada-e-saida" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entrada e Saída
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicios-sobre-entrada-e-saida" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercícios sobre Entrada e Saída
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operadores
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Operadores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operadores-aritmeticos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operadores Aritméticos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operadores-aritmeticos_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operadores Aritméticos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Operadores Aritméticos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operadores-relacionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operadores Relacionais
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operadores-logicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operadores Lógicos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operador-and-e-logico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operador and (E lógico)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operador-or-ou-logico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operador or (OU lógico)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operador-not-nao-logico-barrado-inversor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operador not (NÃO lógico, barrado, inversor)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicios-sobre-operadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercícios sobre Operadores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicios-problema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercicios problema
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>Tipos de Dados e Variáveis</h1>
+
+<h2 id="tipos-de-dados-em-python">Tipos de Dados em Python<a class="headerlink" href="#tipos-de-dados-em-python" title="Permanent link">&para;</a></h2>
+<p>O Python é uma linguagem de tipagem dinÂmica, ou seja, o tipo de uma variável é determinado em tempo de execução, com base no valor que ela contém. Isso significa que as variáveis não precisam ser explicitamente declaradas com um tipo específico. </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Vale a pena mensionar que no Python, tudo é considerado um objeto. Isso significa que todos os valores, variáveis, funções e até mesmo tipos de dados são tratados como objetos. Mais adiante no curso vamos voltar e falar mais sobre isso.</p>
+</div>
+<h3 id="tipos-built-in">Tipos built-in<a class="headerlink" href="#tipos-built-in" title="Permanent link">&para;</a></h3>
+<p>Os tipos primitivos em Python se referem aos tipos de dados básicos e fundamentais que são usados para representar valores simples. Vamos dar uma olhada e conhecer os principais. </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Como sugestão leia a documentação oficial do python que trata deste assunto: <a href="https://docs.python.org/pt-br/3.5/library/stdtypes.html">https://docs.python.org/pt-br/3.5/library/stdtypes.html</a> </p>
+</div>
+<h4 id="numeros">Números<a class="headerlink" href="#numeros" title="Permanent link">&para;</a></h4>
+<p>Os números são uma parte essencial de qualquer linguagem de programação. Em Python, eles são definidos como objetos imutáveis, o que significa que seu valor não pode ser alterado após a criação.</p>
+<ul>
+<li><strong>Inteiros (int)</strong>: São números sem uma parte decimal e podem ser positivos, negativos ou zero. Em Python, os inteiros são representados em base decimal por padrão, mas também podem ser expressos em base binária, octal ou hexadecimal.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">decimal</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">binario</span> <span class="o">=</span> <span class="mb">0b10</span>
+<span class="n">octal</span> <span class="o">=</span> <span class="mo">0o10</span>
+<span class="n">hexadecimal</span> <span class="o">=</span> <span class="mh">0x10</span>
+</code></pre></div>
+<ul>
+<li><strong>Ponto Flutuante (float)</strong>: Representam números reais e são escritos com uma parte decimal. Eles são especificados em notação decimal ou em notação científica.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">decimal</span> <span class="o">=</span> <span class="mf">3.14</span>
+<span class="n">notacao_cientifica</span> <span class="o">=</span> <span class="mf">2.5e3</span>
+</code></pre></div>
+<h4 id="strings">Strings<a class="headerlink" href="#strings" title="Permanent link">&para;</a></h4>
+<p>Strings são sequências de caracteres Unicode. Em Python, as strings são imutáveis, o que significa que uma vez definidas, seus valores não podem ser alterados. Elas podem ser indexadas e fatiadas para obter sub-strings.</p>
+<div class="highlight"><pre><span></span><code><span class="n">texto</span> <span class="o">=</span> <span class="s2">&quot;Python&quot;</span>
+<span class="n">primeira_letra</span> <span class="o">=</span> <span class="n">texto</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># Resultado: &#39;P&#39;</span>
+<span class="n">sub_string</span> <span class="o">=</span> <span class="n">texto</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>  <span class="c1"># Resultado: &#39;yth&#39;</span>
+</code></pre></div>
+<h4 id="booleanos">Booleanos<a class="headerlink" href="#booleanos" title="Permanent link">&para;</a></h4>
+<p>Os booleanos são usados para representar valores de verdade. Em Python, eles são subtipos de inteiros e têm apenas dois valores possíveis: <code>True</code> e <code>False</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">verdadeiro</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">falso</span> <span class="o">=</span> <span class="kc">False</span>
+</code></pre></div>
+<h3 id="exercicios-sobre-tipos-primitivos">Exercícios sobre Tipos Primitivos<a class="headerlink" href="#exercicios-sobre-tipos-primitivos" title="Permanent link">&para;</a></h3>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Qual dos seguintes é um exemplo válido de um número de ponto flutuante em Python?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>12345</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>123.45</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>"123.45"</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>True</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p><code>123.45</code> é um número de ponto flutuante válido em Python.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Qual é o valor da string após a execução do seguinte código: <code>texto = "Py" + "thon"</code></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>Py</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>thon</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>Python</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>Pythonthon</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>A string resultante da concatenação é <code>Python</code>.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Qual é o resultado da seguinte expressão booleana: <code>True and False</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>True</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>False</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>0</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>1</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>O resultado da expressão <code>True and False</code> é <code>False</code>.</p>
+</div>
+</div>
+<div class="admonition progress">
+<p class="admonition-title">Progress</p>
+<p>Continuar...</p>
+</div>
+<h3 id="variaveis-e-atribuicao">Variáveis e Atribuição<a class="headerlink" href="#variaveis-e-atribuicao" title="Permanent link">&para;</a></h3>
+<p>Variáveis em Python são referências a objetos na memória. A atribuição em Python é dinâmica, o que significa que o tipo de uma variável é determinado em tempo de execução.</p>
+<div class="highlight"><pre><span></span><code><span class="n">idade</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">nome</span> <span class="o">=</span> <span class="s2">&quot;Maria&quot;</span>
+</code></pre></div>
+<h4 id="convencao-para-nomes">Convenção para Nomes:<a class="headerlink" href="#convencao-para-nomes" title="Permanent link">&para;</a></h4>
+<p>Nomes de variáveis devem ser minúsculos com palavras separadas por underlines.</p>
+<div class="highlight"><pre><span></span><code><span class="n">nome_completo</span> <span class="o">=</span> <span class="s2">&quot;João Silva&quot;</span>
+<span class="n">idade_pessoa</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">valor_total_compra</span> <span class="o">=</span> <span class="mf">150.50</span>
+</code></pre></div>
+<h4 id="erros-de-nomes">Erros de Nomes:<a class="headerlink" href="#erros-de-nomes" title="Permanent link">&para;</a></h4>
+<p>No Python, cada variável deve ser atribuída antes de ser acessada. Se você tentar acessar uma variável que não foi atribuída, receberá um erro.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Isto causará um erro porque a variável &#39;salario&#39; não foi definida antes de ser usada.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">salario</span><span class="p">)</span>
+<span class="n">salario</span> <span class="o">=</span> <span class="mi">1000</span>
+</code></pre></div>
+<h3 id="atribuicao-aumentada">Atribuição Aumentada<a class="headerlink" href="#atribuicao-aumentada" title="Permanent link">&para;</a></h3>
+<p>A atribuição aumentada é a combinação, em uma única instrução, de uma operação binária e uma instrução de atribuição:</p>
+<table>
+<thead>
+<tr>
+<th>Operação</th>
+<th>Exemplo</th>
+<th>Equivalente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+=</td>
+<td>a += b</td>
+<td>a = a + b</td>
+</tr>
+<tr>
+<td>-=</td>
+<td>a -= b</td>
+<td>a = a - b</td>
+</tr>
+<tr>
+<td>*=</td>
+<td>a *= b</td>
+<td>a = a * b</td>
+</tr>
+<tr>
+<td>/=</td>
+<td>a /= b</td>
+<td>a = a / b</td>
+</tr>
+</tbody>
+</table>
+<h3 id="exercicios-sobre-variaveis-e-atribuicao">Exercícios sobre Variáveis e Atribuição<a class="headerlink" href="#exercicios-sobre-variaveis-e-atribuicao" title="Permanent link">&para;</a></h3>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Após a execução do código <code>x = 5</code> e <code>y = x</code>, qual é o valor de <code>y</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>0</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>5</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>x</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>None</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>O valor de <code>y</code> é <code>5</code>.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Se <code>nome = "Ana"</code>, qual é o resultado de <code>nome * 3</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>AnaAnaAnaAna</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>AnaAnaAna</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>Ana3</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>9</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>O resultado é <code>AnaAnaAna</code>.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Qual é o tipo da variável após a execução do seguinte código: <code>valor = "123"</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>int</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>str</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>float</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>bool</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>O tipo da variável <code>valor</code> é <code>str</code>.</p>
+</div>
+</div>
+<div class="admonition progress">
+<p class="admonition-title">Progress</p>
+<p>Continuar...</p>
+</div>
+<h3 id="conversao-de-tipos">Conversão de Tipos<a class="headerlink" href="#conversao-de-tipos" title="Permanent link">&para;</a></h3>
+<p>Python permite a conversão explícita entre diferentes tipos de dados. Isso é útil quando você precisa operar valores de diferentes tipos juntos.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Convertendo float para int</span>
+<span class="n">numero_inteiro</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">7.8</span><span class="p">)</span>  <span class="c1"># Resultado: 7</span>
+
+<span class="c1"># Convertendo int para float</span>
+<span class="n">numero_float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># Resultado: 4.0</span>
+
+<span class="c1"># Convertendo número para string</span>
+<span class="n">texto_numero</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>  <span class="c1"># Resultado: &#39;25&#39;</span>
+</code></pre></div>
+<h3 id="exercicios-sobre-conversao-de-tipos">Exercícios sobre Conversão de Tipos<a class="headerlink" href="#exercicios-sobre-conversao-de-tipos" title="Permanent link">&para;</a></h3>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Qual é o resultado da seguinte conversão: <code>int("123")</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>123</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>"123"</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>12.3</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>None</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>A conversão resulta no número inteiro <code>123</code>.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Se <code>x = 5.7</code>, qual é o valor de <code>int(x)</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>5</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>5.7</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>6</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>57</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>O valor de <code>int(x)</code> é <code>5</code>.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Qual é o resultado da seguinte conversão: <code>float("123.45")</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>123</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>123.45</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>"123.45"</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>None</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>A conversão resulta no número de ponto flutuante <code>123.45</code>.</p>
+</div>
+</div>
+<div class="admonition progress">
+<p class="admonition-title">Progress</p>
+<p>Continuar...</p>
+</div>
+<h3 id="entrada-e-saida">Entrada e Saída<a class="headerlink" href="#entrada-e-saida" title="Permanent link">&para;</a></h3>
+<p>A interação com o usuário é fundamental para muitos programas. Python fornece funções simples para entrada e saída de dados. A função <code>input()</code> sempre retorna uma string, se queremos armazenar um valor numerico precisamos converter esse valor.</p>
+<div class="highlight"><pre><span></span><code><span class="n">nome_usuario</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Qual é o seu nome? &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Olá, </span><span class="si">{</span><span class="n">nome_usuario</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="exercicios-sobre-entrada-e-saida">Exercícios sobre Entrada e Saída<a class="headerlink" href="#exercicios-sobre-entrada-e-saida" title="Permanent link">&para;</a></h3>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Qual função é usada em Python para obter entrada do usuário?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>input()</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>print()</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>get()</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>read()</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>A função <code>input()</code> é usada para obter entrada do usuário em Python.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Se usarmos o código <code>valor = input("Digite um número: ")</code>, e o usuário digitar <code>5</code>, qual será o tipo da variável <code>valor</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>int</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>str</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>float</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>bool</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>Mesmo que o usuário digite um número, a função <code>input()</code> sempre retorna uma string. Portanto, o tipo da variável <code>valor</code> é <code>str</code>.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Qual é a saída do seguinte código: <code>print("Olá", "Mundo", sep="-")</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>Olá Mundo</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>Olá-Mundo</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>Olá, Mundo</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>OláMundo</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>A saída do código é <code>Olá-Mundo</code> porque o argumento <code>sep</code> especifica o caractere usado para separar os valores.</p>
+</div>
+</div>
+<div class="admonition progress">
+<p class="admonition-title">Progress</p>
+<p>Continuar...</p>
+</div>
+<h3 id="operadores">Operadores<a class="headerlink" href="#operadores" title="Permanent link">&para;</a></h3>
+<p>Os operadores são símbolos especiais que realizam operações em variáveis e valores.</p>
+<h4 id="operadores-aritmeticos">Operadores Aritméticos<a class="headerlink" href="#operadores-aritmeticos" title="Permanent link">&para;</a></h4>
+<p>Os operadores aritméticos são usados para realizar operações matemáticas básicas. Eles seguem a ordem padrão de operações matemáticas.</p>
+<table>
+<thead>
+<tr>
+<th>Operador</th>
+<th>Significado</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td>Adição</td>
+<td>a + b</td>
+</tr>
+<tr>
+<td>-</td>
+<td>Subtração</td>
+<td>a - b</td>
+</tr>
+<tr>
+<td>*</td>
+<td>Multiplicação</td>
+<td>a * b</td>
+</tr>
+<tr>
+<td>/</td>
+<td>Divisão</td>
+<td>a / b</td>
+</tr>
+<tr>
+<td>%</td>
+<td>Módulo</td>
+<td>a % b</td>
+</tr>
+<tr>
+<td>**</td>
+<td>Exponenciação</td>
+<td>a ** b</td>
+</tr>
+<tr>
+<td>//</td>
+<td>Divisão Inteira</td>
+<td>a // b</td>
+</tr>
+</tbody>
+</table>
+<h2 id="operadores-aritmeticos_1">Operadores Aritméticos<a class="headerlink" href="#operadores-aritmeticos_1" title="Permanent link">&para;</a></h2>
+<p>Os operadores aritméticos são usados para realizar operações matemáticas básicas. Durante o cálculo de uma expressão, o Python precisa decidir também o tipo do valor calculado.</p>
+<p>Por exemplo, ao avaliar a expressão “5 * 3”, o Python tenta manter o tipo dos operandos. Neste caso, ambos os operandos são do tipo <code>int</code>, então o resultado é <code>15</code>, que também é do tipo <code>int</code>.</p>
+<p>No entanto, a expressão “8 / 2” resulta em <code>4.0</code>, que é do tipo <code>float</code>. Isso ocorre porque a divisão em Python sempre retorna um número de ponto flutuante, mesmo que o resultado seja um número inteiro. Contudo, se usarmos o operador de divisão inteira <code>//</code>, o resultado será <code>4</code>, que é do tipo <code>int</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Exemplos:</span>
+<span class="n">soma</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">3</span>  <span class="c1"># 8</span>
+<span class="n">subtracao</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">-</span> <span class="mi">3</span>  <span class="c1"># 2</span>
+<span class="n">multiplicacao</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">3</span>  <span class="c1"># Resultado: 15 (int)</span>
+<span class="n">divisao</span> <span class="o">=</span> <span class="mi">8</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># Resultado: 4.0 (float)</span>
+<span class="n">divisao_inteira</span> <span class="o">=</span> <span class="mi">8</span> <span class="o">//</span> <span class="mi">2</span> <span class="c1"># Resultado: 4 (int)</span>
+</code></pre></div>
+<p>Uma regra geral no Python é que, quando os operandos são de tipos distintos, como <code>int</code> e <code>float</code>, o operando de tipo "menor" é promovido ao tipo "maior" (ou mais abrangente, no caso o <code>float</code>). Assim, a operação é realizada no tipo mais abrangente.</p>
+<p>A conversão entre tipos nativos do Python pode ser realizada usando funções com o nome do tipo desejado. Veja os exemplos abaixo:</p>
+<div class="highlight"><pre><span></span><code><span class="n">numero_float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>         <span class="c1"># Resultado: 4.0</span>
+<span class="n">numero_int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">4.5</span><span class="p">)</span>           <span class="c1"># Resultado: 4</span>
+</code></pre></div>
+<h4 id="operadores-relacionais">Operadores Relacionais<a class="headerlink" href="#operadores-relacionais" title="Permanent link">&para;</a></h4>
+<p>Os operadores relacionais são usados para comparar valores. Eles retornam um valor booleano (<code>True</code> ou <code>False</code>) com base na comparação.</p>
+<table>
+<thead>
+<tr>
+<th>Operador</th>
+<th>Significado</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>==</td>
+<td>Igual a</td>
+<td>a == b</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>Diferente de</td>
+<td>a != b</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>Maior que</td>
+<td>a &gt; b</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>Menor que</td>
+<td>a &lt; b</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>Maior ou igual a</td>
+<td>a &gt;= b</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>Menor ou igual a</td>
+<td>a &lt;= b</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="c1"># Exemplos:</span>
+<span class="n">igual</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span>  <span class="c1"># True</span>
+<span class="n">diferente</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># True</span>
+<span class="n">menor</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">)</span>  <span class="c1"># True</span>
+<span class="n">maior</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># True</span>
+</code></pre></div>
+<h4 id="operadores-logicos">Operadores Lógicos<a class="headerlink" href="#operadores-logicos" title="Permanent link">&para;</a></h4>
+<p>Os operadores lógicos são usados para combinar múltiplas condições. Eles são fundamentais em estruturas de decisão e loops. Verdadeiro (V), Falso (F).</p>
+<h4 id="operador-and-e-logico">Operador <code>and</code> (E lógico)<a class="headerlink" href="#operador-and-e-logico" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+</tr>
+<tr>
+<td>V</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr>
+<td>F</td>
+<td>V</td>
+<td>F</td>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exemplo:</strong> <code>a and b</code></p>
+<h4 id="operador-or-ou-logico">Operador <code>or</code> (OU lógico)<a class="headerlink" href="#operador-or-ou-logico" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+</tr>
+<tr>
+<td>V</td>
+<td>F</td>
+<td>V</td>
+</tr>
+<tr>
+<td>F</td>
+<td>V</td>
+<td>V</td>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exemplo:</strong> <code>a or b</code></p>
+<h4 id="operador-not-nao-logico-barrado-inversor">Operador <code>not</code> (NÃO lógico, barrado, inversor)<a class="headerlink" href="#operador-not-nao-logico-barrado-inversor" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V</td>
+<td>F</td>
+</tr>
+<tr>
+<td>F</td>
+<td>V</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exemplo:</strong> <code>not a</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Exemplos:</span>
+<span class="n">resultado1</span> <span class="o">=</span> <span class="kc">True</span> <span class="ow">and</span> <span class="kc">False</span>  <span class="c1"># False</span>
+<span class="n">resultado2</span> <span class="o">=</span> <span class="kc">True</span> <span class="ow">or</span> <span class="kc">False</span>  <span class="c1"># True</span>
+<span class="n">resultado3</span> <span class="o">=</span> <span class="ow">not</span> <span class="kc">True</span>  <span class="c1"># False</span>
+</code></pre></div>
+<h3 id="exercicios-sobre-operadores">Exercícios sobre Operadores<a class="headerlink" href="#exercicios-sobre-operadores" title="Permanent link">&para;</a></h3>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Qual é o resultado da seguinte operação: <code>10 % 3</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>3</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>0</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>1</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>10</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>O resultado da operação <code>10 % 3</code> é <code>1</code>.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Se <code>x = 5</code> e <code>y = 3</code>, qual é o valor de <code>x ** y</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>8</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>15</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>125</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>2</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>O valor de <code>x ** y</code> é <code>125</code>.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Qual é o resultado da seguinte expressão: <code>5 &gt; 3 and 5 &lt; 10</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>True</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>False</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>None</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>Error</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>O resultado da expressão <code>5 &gt; 3 and 5 &lt; 10</code> é <code>True</code>.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Qual é o resultado da seguinte operação: <code>7 // 3</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>2</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>2.33</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>3</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>1</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>O resultado da operação <code>7 // 3</code> é <code>2</code>, pois <code>//</code> é o operador de divisão inteira.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Dado <code>x = 10</code> e <code>y = 3</code>, qual é o valor de <code>x != y</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>True</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>False</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>None</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>Error</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>A expressão <code>x != y</code> verifica se <code>x</code> é diferente de <code>y</code>. Como 10 é diferente de 3, o resultado é <code>True</code>.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Qual é o resultado da seguinte expressão: <code>not (5 &lt;= 3)</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>True</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>False</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>None</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>Error</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>A expressão <code>5 &lt;= 3</code> é <code>False</code>, mas o operador <code>not</code> inverte o valor booleano. Portanto, o resultado é <code>True</code>.</p>
+</div>
+</div>
+<div class="admonition progress">
+<p class="admonition-title">Progress</p>
+<p>Continuar...</p>
+</div>
+<h3 id="exercicios-problema">Exercicios problema<a class="headerlink" href="#exercicios-problema" title="Permanent link">&para;</a></h3>
+<div class="admonition exercise">
+<p class="admonition-title">Question</p>
+<p>Cálculo de Juros Compostos
+Você está planejando fazer um depósito em uma conta poupança que paga juros compostos mensalmente. Para ajudá-lo a entender quanto dinheiro você terá após um determinado período, você decide escrever um programa.</p>
+<p>Instruções:</p>
+<ul>
+<li>O programa deve começar perguntando quanto você planeja depositar inicialmente.</li>
+<li>Em seguida, o programa deve perguntar a taxa de juros anual (em porcentagem) que será paga.</li>
+<li>Por fim, o programa deve perguntar por quantos anos o dinheiro ficará depositado.</li>
+<li>
+<p>O programa então calculará o montante final usando a fórmula de juros compostos e exibirá o resultado.</p>
+</li>
+<li>
+<p>Fórmula de Juros Compostos:
+$$
+A = P(1 + \frac{r}{n})^{nt}
+$$</p>
+</li>
+</ul>
+<p>Onde:</p>
+<ul>
+<li><span class="arithmatex"><span class="MathJax_Preview"> A </span><script type="math/tex"> A </script></span> é o valor futuro do investimento/empréstimo, incluindo juros.</li>
+<li><span class="arithmatex"><span class="MathJax_Preview"> P </span><script type="math/tex"> P </script></span> é o valor principal do investimento (depósito inicial ou valor do empréstimo).</li>
+<li><span class="arithmatex"><span class="MathJax_Preview"> r </span><script type="math/tex"> r </script></span> é a taxa de juro anual (em formato decimal).</li>
+<li><span class="arithmatex"><span class="MathJax_Preview"> n </span><script type="math/tex"> n </script></span> é o número de vezes que o juro é capitalizado por ano.</li>
+<li><span class="arithmatex"><span class="MathJax_Preview"> t </span><script type="math/tex"> t </script></span> é o número de anos que o dinheiro é investido ou emprestado.</li>
+</ul>
+<p>Teste o seu código com: </p>
+<div class="codehilite"><pre><span></span><code>- Deposito inicial = 1000
+- taxa de juros = 5
+- tempo = 2
+- O resultado esperado é: 1104.94
+</code></pre></div>
+
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>Uma possivel solução é:
+<div class="highlight"><pre><span></span><code><span class="n">P</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Quanto você planeja depositar inicialmente? &quot;</span><span class="p">))</span>
+<span class="n">r</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Qual a taxa de juros anual (em porcentagem)? &quot;</span><span class="p">))</span>
+<span class="n">t</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Por quantos anos o dinheiro ficará depositado? &quot;</span><span class="p">))</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">r</span><span class="o">/</span><span class="mi">100</span> <span class="c1"># Converte a taxa de juros de % para decimal dividindo por 100</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">P</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">r</span><span class="o">/</span><span class="mi">12</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">12</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="c1"># equação de juros compostos</span>
+<span class="n">A</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># arredonda o valor com 2 casas decimais</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total após &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; anos: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+</code></pre></div></p>
+</div>
+</div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 5, 2024</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.0.0/js-yaml.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/insper-education/active-handout-plugins-js@main/package/plugin-bundle.js"></script>
+      
+        <script src="../../../search/main.js"></script>
+      
+        <script src="../../../termynal.js"></script>
+      
+    
+  </body>
+</html>

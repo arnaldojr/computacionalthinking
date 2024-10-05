@@ -1,0 +1,3168 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Arnaldo Viana">
+      
+      
+        <link rel="canonical" href="https://arnaldojr.github.io/computacionalthinking/aulas/ctp/python/lists-tuples.html">
+      
+      
+        <link rel="prev" href="repetition-structures-for-loop.html">
+      
+      
+        <link rel="next" href="dict-sets.html">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+    
+    
+      
+        <title>Listas e Tuplas - Computacional Thinking</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/termynal.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/insper-education/active-handout-css@main/devlife.css">
+    
+      <link rel="stylesheet" href="../../../termynal.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:700|Oxygen+Mono|Source+Sans+Pro:700|Source+Serif+Pro&amp;display=swap">
+<link rel="stylesheet" href="../../../assets/css/devlife.css">
+
+
+    <script>
+        window.ihandout_config = JSON.parse(`{"report": {"api-base": "https://devlife.insper-comp.com.br/api/offerings/1/", "url": "https://devlife.insper-comp.com.br/api/offerings/1/exercises/"}}`);
+    </script>
+
+
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#listas-e-tuplas-em-python" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="Computacional Thinking" class="md-header__button md-logo" aria-label="Computacional Thinking" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Computacional Thinking
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Listas e Tuplas
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/arnaldojr/computacionalthinking/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Computacional Thinking with Python
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="Computacional Thinking" class="md-nav__button md-logo" aria-label="Computacional Thinking" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Computacional Thinking
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/arnaldojr/computacionalthinking/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Computacional Thinking with Python
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/playground.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Playground
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sobre/sobre.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sobre o curso
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agenda/agenda.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Agenda
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CheckPoint
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            CheckPoint
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../checkpoint/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sobre
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Configuração do Ambiente de Desenvolvimento
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Configuração do Ambiente de Desenvolvimento
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../environment-setup/virtual-environment.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Criação de um Ambiente Virtual
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/intro-ctp.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pensamento computacional
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Fundamentos de Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Fundamentos de Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="intro-python.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introdução ao Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="data-types.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tipos de Dados e Variáveis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_3" id="__nav_8_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Controle de Fluxo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3">
+            <span class="md-nav__icon md-icon"></span>
+            Controle de Fluxo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_3_1" id="__nav_8_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Estruturas de decisão
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Estruturas de decisão
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="decision-structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    if-elif-else
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_3_2" id="__nav_8_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Estruturas de Repetição
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Estruturas de Repetição
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="repetition-structures-while-loop.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    while loop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="repetition-structures-for-loop.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    for Loop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8_4" id="__nav_8_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Estruturas de Dados
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8_4">
+            <span class="md-nav__icon md-icon"></span>
+            Estruturas de Dados
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Listas e Tuplas
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="lists-tuples.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Listas e Tuplas
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#listas-e-tuplas-em-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Listas e Tuplas em Python
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Listas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Listas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criacao-de-listas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criação de Listas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acesso-a-elementos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Acesso a Elementos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adicao-remocao-e-alteracao-de-elementos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adição, Remoção e Alteração de Elementos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adição, Remoção e Alteração de Elementos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adicionar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adicionar
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remocao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remoção
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alteracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alteração
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodos-mais-utilizados-de-listas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Métodos mais utilizados de Listas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fatiamento-slices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fatiamento (slices)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tuplas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tuplas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tuplas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definindo-tuplas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definindo Tuplas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acessando-elementos-de-tuplas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Acessando Elementos de Tuplas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imutabilidade-das-tuplas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Imutabilidade das Tuplas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fatiamento-em-tuplas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fatiamento em Tuplas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcoes-com-tuplas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Funções com Tuplas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e-agora-qual-eu-escolho-por-que-usar-listas-ou-tuplas" class="md-nav__link">
+    <span class="md-ellipsis">
+      E agora qual eu escolho?? Por que usar Listas ou Tuplas?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dict-sets.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dicionários e Conjuntos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_5" id="__nav_8_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Funções e Módulos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_5">
+            <span class="md-nav__icon md-icon"></span>
+            Funções e Módulos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="functions-modules.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Funções
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="modules.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Módulos e Pacotes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="modules2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Módulos externos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_6" id="__nav_8_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Manipulação de Dados e Arquivos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_6">
+            <span class="md-nav__icon md-icon"></span>
+            Manipulação de Dados e Arquivos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="files-maniputation.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manipulação de arquivos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_7" id="__nav_8_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Programação Orientada a Objetos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_7">
+            <span class="md-nav__icon md-icon"></span>
+            Programação Orientada a Objetos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="oop-classes-objects.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Classes e Objetos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="oop-inheritance.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Herança, Encapsulamento e Métodos Privados
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="oop-polymorphism.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Polimorfismo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_8" id="__nav_8_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Erros e Exceções
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_8">
+            <span class="md-nav__icon md-icon"></span>
+            Erros e Exceções
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="errors-exceptions.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tratamento de Erros - Try, Except
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Algoritmos e Estruturas de Dados
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Algoritmos e Estruturas de Dados
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_1" id="__nav_9_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Busca
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_1">
+            <span class="md-nav__icon md-icon"></span>
+            Busca
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/problem-search.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O problema da busca
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/sequential-search.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Busca Sequencial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/binary-search.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Busca Binária
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_2" id="__nav_9_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Ordenação
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_2">
+            <span class="md-nav__icon md-icon"></span>
+            Ordenação
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/sorting-algorithms.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O caso da Ordenação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/bubble-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bubble Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/selection-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selection Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/insertion-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Insertion Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/merge-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Merge Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/quick-sort.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_3" id="__nav_9_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Recursão
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_3">
+            <span class="md-nav__icon md-icon"></span>
+            Recursão
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/recursion.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recursividade
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_4" id="__nav_9_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Análise de Algoritmos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_4">
+            <span class="md-nav__icon md-icon"></span>
+            Análise de Algoritmos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/big-o-notation.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Notação Big O
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Banco de dados com Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Banco de dados com Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bd/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bd/sqlalq.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQLAlchemy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Laboratórios
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Laboratórios
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_11_1" id="__nav_11_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Solução Labs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_1">
+            <span class="md-nav__icon md-icon"></span>
+            Solução Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/solutions/solution-data-types.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab02 - Tipos de dados e Variáveis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/solutions/solution-decision-structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab03 - Estrutura de Decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/infra.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab01 - Comece aqui!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/lab-data-types.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab02 - Tipos de dados e Variáveis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/lab-decision-structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab03 - Estrutura de Decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/common-errors.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab04 - Erros comuns
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/lab-loops-data-structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab05 - Loops for e while, listas e tuplas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/lab-loops-dict-sets.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab06 - Dicionários, conjuntos e afins...
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Projetos Práticos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Projetos Práticos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projects/guessing-game.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jogo da Adivinhação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projects/agenda.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Agenda simples
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Recursos Adicionais
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Recursos Adicionais
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resources/references.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Referências e Leituras Complementares
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#listas-e-tuplas-em-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Listas e Tuplas em Python
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Listas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Listas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criacao-de-listas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criação de Listas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acesso-a-elementos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Acesso a Elementos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adicao-remocao-e-alteracao-de-elementos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adição, Remoção e Alteração de Elementos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adição, Remoção e Alteração de Elementos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adicionar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adicionar
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remocao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remoção
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alteracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alteração
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodos-mais-utilizados-de-listas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Métodos mais utilizados de Listas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fatiamento-slices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fatiamento (slices)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tuplas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tuplas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tuplas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definindo-tuplas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definindo Tuplas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acessando-elementos-de-tuplas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Acessando Elementos de Tuplas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imutabilidade-das-tuplas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Imutabilidade das Tuplas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fatiamento-em-tuplas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fatiamento em Tuplas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcoes-com-tuplas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Funções com Tuplas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e-agora-qual-eu-escolho-por-que-usar-listas-ou-tuplas" class="md-nav__link">
+    <span class="md-ellipsis">
+      E agora qual eu escolho?? Por que usar Listas ou Tuplas?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>Listas e Tuplas</h1>
+
+<h2 id="listas-e-tuplas-em-python">Listas e Tuplas em Python<a class="headerlink" href="#listas-e-tuplas-em-python" title="Permanent link">&para;</a></h2>
+<p>Python oferece uma variedade de estruturas de dados compostas usadas para agrupar outros valores. As mais versáteis são as <code>listas</code> e as <code>tuplas</code>, que podem ser compostas por itens de diferentes tipos.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Tanto listas quanto tuplas são parte integrante da linguagem Python e são usadas em uma variedade de aplicações.</p>
+</div>
+<h2 id="listas">Listas<a class="headerlink" href="#listas" title="Permanent link">&para;</a></h2>
+<p>Uma lista (<code>list</code>) uma lista é uma estrutura de dados que pode armazenar múltiplos itens (coleção de itens) em uma única variável (vetor). Em outras palavras, trata-se de uma sequência ordenada de objetos que podem ser acessados por meio de seu índice (<code>index</code>), um marcador de sua posição. </p>
+<h3 id="criacao-de-listas">Criação de Listas<a class="headerlink" href="#criacao-de-listas" title="Permanent link">&para;</a></h3>
+<p>Em Python, as listas são delimitadas por colchetes (<code>[]</code>) e separadas por vigulas (<code>,</code>). Esses itens podem ser de qualquer tipo, incluindo números, strings e até outras listas</p>
+<div class="highlight"><pre><span></span><code><span class="n">números</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">nomes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">]</span>
+<span class="n">misturada</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
+<span class="n">frutas</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;maçã&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;cereja&quot;</span><span class="p">]</span>  <span class="c1"># exemplo de uma lista com 3 valores</span>
+</code></pre></div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Qual das alternativas apresenta corretamenta uma lista?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> numeros = [10, 20, 30, 40]</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> numeros = 10, 20, 30, 40</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> numeros = {10, 20, 30, 40}</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> numeros = (10, 20, 30, 40)</li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>as listas são delimitadas por colchetes <code>[]</code> e separadas por vigulas <code>,</code>.</p>
+</div>
+</div>
+<h3 id="acesso-a-elementos">Acesso a Elementos<a class="headerlink" href="#acesso-a-elementos" title="Permanent link">&para;</a></h3>
+<p>Cada item em uma lista tem um índice, começando do zero. Você pode acessar itens individuais usando esse índice.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">frutas</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># Saída: banana</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nomes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># Saída: Alice</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">misturada</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># ATENCÃO nesta Saída: 3</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Em python assim como em outras linguagens de programação, começamos a contar o indice a partir de zero, isso significa que o valor da primeira posição da lista possui indice <code>0</code> (zero).</p>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Dada a lista <code>numeros = [10, 20, 30, 40]</code>, qual é a saída de <code>print(numeros[0])</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>10</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>20</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>30</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>40</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>A saída de <code>print(numeros[0])</code> é <code>10</code>, pois as listas em Python são indexadas a partir de 0.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Dada a lista <code>numeros = [10, 20, 30, 40]</code>, qual é a saída de <code>print(numeros[-1])</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>10</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>20</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>30</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>40</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>A saída de <code>print(numeros[-1])</code> é <code>40</code>, pois em Python, índices negativos referem-se aos elementos da lista de trás para frente.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Questão 2</p>
+<p>Dado a lista <code>frutas = ["maçã", "banana", "cereja"]</code>, qual é a saída de <code>print(frutas[1])</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>maçã</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>banana</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>cereja</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>frutas</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>A saída de <code>print(frutas[1])</code> é <code>banana</code>, pois as listas em Python são indexadas a partir de 0.</p>
+</div>
+</div>
+<div class="admonition progress">
+<p class="admonition-title">Progress</p>
+<p>Continuar...</p>
+</div>
+<p>Quando criamos uma lista em Python, além de poder manipular essa estrutura pelo seu indice, ela já vem equipada com diversos métodos predefinidos que nos ajudam a operar e manipular essa estrutura de forma mais facil, vamos ver alguns deles.</p>
+<h3 id="adicao-remocao-e-alteracao-de-elementos">Adição, Remoção e Alteração de Elementos<a class="headerlink" href="#adicao-remocao-e-alteracao-de-elementos" title="Permanent link">&para;</a></h3>
+<p>Listas são estruturas de dados <code>mutáveis</code>, o que significa dizer que podemos alterar (editar), adicionar (expandir) e remover (reduzir) itens após a lista ser criada.</p>
+<h4 id="adicionar">Adicionar<a class="headerlink" href="#adicionar" title="Permanent link">&para;</a></h4>
+<p>Método para adicionar item a uma lista</p>
+<div class="codehilite"><pre><span></span><code>- append(): Adiciona um item ao final da lista.
+- insert(): Insere um item em uma posição específica.
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">frutas</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;maçã&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">]</span>
+
+<span class="n">frutas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;uva&quot;</span><span class="p">)</span>
+<span class="n">frutas</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;laranja&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Qual dos seguintes é um método válido para adicionar um elemento ao final de uma lista em Python?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>append()</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>add()</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>insertend()</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>put()</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>O método <code>append()</code> é o método válido para adicionar um elemento ao final de uma lista em Python.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Dado o código Python a seguir, qual é a saída? </p>
+<div class="highlight"><pre><span></span><code><span class="n">numeros</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">soma</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">while</span> <span class="n">soma</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">:</span>
+    <span class="n">numeros</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">soma</span> <span class="o">+=</span> <span class="n">n</span>
+    <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Números na lista: </span><span class="si">{</span><span class="n">numeros</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>Números na lista: soma, n, numeros</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>Números na lista: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>Números na lista: [0, 1, 3, 6, 10, 15, 21, 28, 36, 45, 55, 66, 78, 91]</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>Números na lista: [[...], [...], [...], [...], [...], [...], [...], [...], [...], [...], [...], [...], [...], [...]]</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>O código cria uma lista vazia e armazena os valores do contador <code>n</code> na lista numeros até o valor da soma ser maior ou igual a 100. Números na lista: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]</p>
+</div>
+</div>
+<h4 id="remocao">Remoção<a class="headerlink" href="#remocao" title="Permanent link">&para;</a></h4>
+<p>Método para remoção de item da lista:</p>
+<div class="codehilite"><pre><span></span><code>- remove(): Remove o primeiro item com o valor especificado.
+- pop(): Remove o item em um índice específico (ou o último item se o índice não for especificado).
+- clear(): Limpa todos os itens da lista.
+</code></pre></div>
+
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Cuidado com o método <code>remove()</code>,  quando o item não existe na lista vai gerar o erro <code>ValueError</code></p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="n">frutas</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;banana&quot;</span><span class="p">)</span>
+<span class="n">frutas</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="n">frutas</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+</code></pre></div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Qual dos seguintes métodos remove o último item de uma lista?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>delete()</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>pop()</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>removeend()</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>discard()</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>O método <code>pop()</code> remove e retorna o último item de uma lista se nenhum índice for especificado.</p>
+</div>
+</div>
+<h4 id="alteracao">Alteração<a class="headerlink" href="#alteracao" title="Permanent link">&para;</a></h4>
+<p>Você pode alterar um item referenciando seu índice.</p>
+<div class="highlight"><pre><span></span><code><span class="n">frutas</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;manga&quot;</span>
+</code></pre></div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Dada a lista <code>animais = ["cachorro", "gato", "peixe", "pássaro"]</code>, qual das opções a seguir irá substituir "peixe" por "hamster"?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 
+    <div class="highlight"><pre><span></span><code><span class="n">animais</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;hamster&quot;</span>
+</code></pre></div></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 
+    <div class="highlight"><pre><span></span><code><span class="n">animais</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;peixe&quot;</span><span class="p">,</span> <span class="s2">&quot;hamster&quot;</span><span class="p">)</span>
+</code></pre></div></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 
+    <div class="highlight"><pre><span></span><code><span class="n">animais</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;hamster&quot;</span>
+</code></pre></div></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 
+    <div class="highlight"><pre><span></span><code><span class="n">animais</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;hamster&quot;</span><span class="p">)</span>
+</code></pre></div></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>A opção que substitui o item "peixe" por "hamster" na lista é <code>animais[2] = "hamster"</code>. Em Python, as listas são indexadas a partir de 0, então o índice 2 corresponde ao terceiro item da lista.</p>
+</div>
+</div>
+<h3 id="metodos-mais-utilizados-de-listas">Métodos mais utilizados de Listas<a class="headerlink" href="#metodos-mais-utilizados-de-listas" title="Permanent link">&para;</a></h3>
+<p>Alguns dos métodos mais utilizados são:</p>
+<div class="codehilite"><pre><span></span><code>- len(): Retorna o número de itens em uma lista.
+- extend(): Adiciona elementos de outra lista (ou qualquer iterável) ao final da lista atual.
+- index(): Retorna o índice do primeiro item com o valor especificado.
+- count(): Retorna o número de vezes que um valor aparece na lista.
+- sort(): Ordena a lista.
+- reverse(): Inverte a ordem da lista.
+</code></pre></div>
+
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>É importante mencionar que o método <code>sort()</code> altera a lista original, enquanto a função incorporada <code>sorted()</code> retorna uma nova lista ordenada.</p>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Dada a lista <code>numeros = [2, 5, 8, 1, 7]</code>, qual será a saída do código <code>print(len(numeros))</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>2</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>5</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>8</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>1</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>A saída será <code>5</code>, pois o método <code>len()</code> retorna o número de itens na lista.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Se temos <code>listaA = [1, 2, 3]</code> e <code>listaB = [4, 5, 6]</code>, e executamos <code>listaA.extend(listaB)</code>, qual será o valor de <code>listaA</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>[1, 2, 3]</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>[4, 5, 6]</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>[1, 2, 3, 4, 5, 6]</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>[1, 2, 3, [4, 5, 6]]</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>O valor de <code>listaA</code> será <code>[1, 2, 3, 4, 5, 6]</code> após o uso do método <code>extend()</code>.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Dada a lista <code>cores = ["verde", "azul", "vermelho"]</code>, qual será a saída de <code>print(cores.index("azul"))</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>0</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>1</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>2</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>3</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>A saída será <code>1</code>, pois o método <code>index()</code> retorna o índice do primeiro item com o valor especificado.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Na lista <code>letras = ['a', 'b', 'c', 'a', 'a', 'b']</code>, qual será a saída de <code>print(letras.count('a'))</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>1</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>2</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>3</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>4</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>A saída será <code>3</code>, pois o método <code>count()</code> retorna o número de vezes que o valor 'a' aparece na lista.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Dada a lista <code>valores = [3, 1, 4, 1, 5, 9, 2]</code>, após executar <code>valores.sort()</code>, qual será o primeiro elemento da lista?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>1</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>2</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>3</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>4</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>Após ordenar a lista, o primeiro elemento será <code>1</code>.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Se temos a lista <code>ordem = [1, 2, 3, 4]</code> e executamos <code>ordem.reverse()</code>, qual será o valor de <code>ordem</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>[1, 2, 3, 4]</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>[4, 3, 2, 1, 0]</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>[4, 3, 2, 1]</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>[1, 0, 4, 3]</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>Após a execução do método <code>reverse()</code>, a lista <code>ordem</code> terá os elementos na ordem <code>[4, 3, 2, 1]</code>.</p>
+</div>
+</div>
+<p>Teste o código a seguir:</p>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># definimos uma lista de listas (com nome e senha)</span>
+<span class="n">usuarios</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s1">&#39;alberto&#39;</span><span class="p">,</span> <span class="s1">&#39;1234&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;mario&#39;</span><span class="p">,</span> <span class="s1">&#39;6282&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;maria&#39;</span><span class="p">,</span> <span class="s1">&#39;5274&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;joana&#39;</span><span class="p">,</span> <span class="s1">&#39;9943&#39;</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="n">nome</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Nome do usuário: &#39;</span><span class="p">)</span>
+<span class="n">senha</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Senha: &#39;</span><span class="p">)</span>
+
+<span class="c1"># Verificando se a combinação nome e senha está na lista de usuários</span>
+<span class="n">usuario_encontrado</span> <span class="o">=</span> <span class="p">[</span><span class="n">nome</span><span class="p">,</span> <span class="n">senha</span><span class="p">]</span> <span class="ow">in</span> <span class="n">usuarios</span>
+
+<span class="k">if</span> <span class="n">usuario_encontrado</span><span class="p">:</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;Acesso liberado&#39;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;Acesso negado&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</code></pre></div>
+Neste código estamos usando a expressão <code>[nome, senha] in usuarios</code> para verificar se a combinação de nome e senha existe na lista usuarios. Esta expressão retornará True se a combinação for encontrada e False caso contrário.</p>
+<div class="admonition progress">
+<p class="admonition-title">Progress</p>
+<p>Continuar...</p>
+</div>
+<h3 id="fatiamento-slices">Fatiamento (slices)<a class="headerlink" href="#fatiamento-slices" title="Permanent link">&para;</a></h3>
+<p>Além de acessar elementos da lista por meio de índices, podemos realizar o fatiamento de listas. O fatiamento é uma operação que permite extrair uma sublista de uma lista. A sintaxe de fatiamento é representada por colchetes <code>[]</code> e dois pontos <code>:</code>.</p>
+<p>A notação básica do fatiamento é: <code>lista[início:fim]</code>, onde:</p>
+<ul>
+<li>início: é o índice inicial do fatiamento (inclusivo).</li>
+<li>fim: é o índice final do fatiamento (exclusivo).</li>
+</ul>
+<p>Por exemplo, <code>lista[1:4]</code> retorna uma sublista que começa no índice 1 e vai até (mas não inclui) o índice 4.</p>
+<p>A notação <code>[ : ]</code> pode ser expandida para incluir um terceiro parâmetro, <code>o passo</code>, usando a sintaxe <code>lista[início:fim:passo]</code>:</p>
+<ul>
+<li>passo: especifica a "distância" entre os índices. Por exemplo, um passo de 2 pula um índice entre cada item incluído na sublista.</li>
+</ul>
+<p>A notação <code>[ : ]</code> por si só cria uma cópia superficial da lista original. Isso significa que você obtém uma nova lista com os mesmos elementos, mas é uma lista diferente em termos de identidade (ou seja, está armazenada em um local diferente da memória).</p>
+<p>Alguns exemplos comuns incluem:</p>
+<p>lista[::2]: retorna todos os elementos em índices pares.
+lista[::-1]: inverte a lista.
+lista[1:5:2]: retorna os elementos nos índices 1 e 3 (começa no índice 1, termina antes do índice 5, com um passo de 2).</p>
+<div class="highlight"><pre><span></span><code><span class="n">números</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="n">sub_lista</span> <span class="o">=</span> <span class="n">números</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span>  <span class="c1"># [2, 3, 4, 5, 6]</span>
+</code></pre></div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Dada a lista <code>numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</code>, qual fatiamento retorna <code>[2, 3, 4, 5]</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>numeros[2:5]</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>numeros[2:6]</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>numeros[3:6]</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>numeros[2:7:2]</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>O fatiamento <code>numeros[2:6]</code> retorna a sublista <code>[2, 3, 4, 5]</code>.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Dada a lista <code>numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</code>, qual fatiamento retorna todos os números pares da lista?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>numeros[2::2]</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>numeros[1::2]</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>numeros[::2]</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>numeros[::-2]</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>O fatiamento <code>numeros[0::2]</code> retorna todos os números em índices pares, ou seja, <code>[0, 2, 4, 6, 8]</code>.</p>
+</div>
+</div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Dada a lista <code>numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</code>. Em <code>numeros[2:8:2]</code>, qual é o propósito do último <code>2</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Indica o início do fatiamento.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Indica o fim do fatiamento.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Especifica o passo do fatiamento, ou seja, a "distância" entre os índices.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Dobra os valores no intervalo especificado.</li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>No fatiamento <code>numeros[2:8:2]</code>, o último <code>2</code> especifica o passo, ou seja, a "distância" entre os índices. Isso resultaria na sublista <code>[2, 4, 6]</code>.</p>
+</div>
+</div>
+<p>juntando as coisas, varrendo uma lista com while. Exemplo de como usar um loop while para iterar através de uma lista</p>
+<div class="highlight"><pre><span></span><code><span class="n">primos</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">primos</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;elemento de indice </span><span class="si">%d</span><span class="s2"> = </span><span class="si">%d</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">primos</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+</code></pre></div>
+<p>Esse é um exemplo básico de como usar um loop while para iterar através de uma lista em Python. No entanto, em muitos casos, um <code>loop for</code> seria uma escolha mais razoável para essa tarefa.</p>
+<div class="admonition progress">
+<p class="admonition-title">Progress</p>
+<p>Continuar...</p>
+</div>
+<h2 id="tuplas">Tuplas<a class="headerlink" href="#tuplas" title="Permanent link">&para;</a></h2>
+<p>Tuplas são uma estrutura de dados em Python semelhante às listas. No entanto, enquanto as listas são mutáveis (ou seja, podem ser alteradas após a criação), as tuplas são <strong><code>imutáveis</code></strong>. Isso significa que, uma vez que uma tupla é criada, seus elementos não podem ser modificados, adicionados ou removidos.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A principal diferença entre listas e tuplas é que listas são mutáveis, enquanto tuplas são imutáveis.</p>
+</div>
+<h3 id="definindo-tuplas">Definindo Tuplas<a class="headerlink" href="#definindo-tuplas" title="Permanent link">&para;</a></h3>
+<p>Uma tupla é definida colocando-se uma sequência de valores separados por vírgulas entre parênteses <code>()</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">variavel</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">a</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">variavel</span><span class="p">)</span>
+
+<span class="n">tupla_exemplo</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tupla_exemplo</span><span class="p">)</span>  <span class="c1"># Saída: (1, 2, 3, 4, 5)</span>
+</code></pre></div>
+<p>É possível definir uma tupla sem parênteses, usando apenas vírgulas:</p>
+<div class="highlight"><pre><span></span><code><span class="n">tupla_simples</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tupla_simples</span><span class="p">)</span>  <span class="c1"># Saída: (1, 2, 3)</span>
+</code></pre></div>
+<p>Para tuplas com um único elemento, é necessário incluir uma vírgula após o elemento:</p>
+<div class="highlight"><pre><span></span><code><span class="n">tupla_simples</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tupla_simples</span><span class="p">)</span>  <span class="c1"># Saída: (1,)</span>
+</code></pre></div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Qual das opções a seguir define corretamente uma tupla com os elementos 5, 10 e 15?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>tupla = 5; 10; 15</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>tupla = [5, 10, 15]</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>tupla = (5, 10, 15)</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>tupla = {5, 10, 15}</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>A opção correta é <code>tupla = (5, 10, 15)</code>.</p>
+</div>
+</div>
+<h3 id="acessando-elementos-de-tuplas">Acessando Elementos de Tuplas<a class="headerlink" href="#acessando-elementos-de-tuplas" title="Permanent link">&para;</a></h3>
+<p>Assim como as listas, as tuplas são ordenadas e indexadas. Você pode acessar elementos de uma tupla usando índices:</p>
+<div class="highlight"><pre><span></span><code><span class="n">tupla</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tupla</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># Saída: 20</span>
+</code></pre></div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Dada a tupla <code>cores = ("vermelho", "verde", "azul")</code>, qual é o resultado de <code>cores[1]</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>"vermelho"</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>"verde"</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>"azul"</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>TypeError</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>O resultado de <code>cores[1]</code> é <code>"verde"</code>.</p>
+</div>
+</div>
+<h3 id="imutabilidade-das-tuplas">Imutabilidade das Tuplas<a class="headerlink" href="#imutabilidade-das-tuplas" title="Permanent link">&para;</a></h3>
+<p>A principal característica das tuplas é sua imutabilidade:</p>
+<div class="highlight"><pre><span></span><code><span class="n">tupla</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="c1"># tupla[1] = 4  # Isso causará um TypeError</span>
+</code></pre></div>
+<p>Mesmo que você não possa modificar os elementos de uma tupla após sua criação, você pode concatenar ou repetir tuplas para formar novas tuplas:</p>
+<div class="highlight"><pre><span></span><code><span class="n">tupla1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">tupla2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">tupla3</span> <span class="o">=</span> <span class="n">tupla1</span> <span class="o">+</span> <span class="n">tupla2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tupla3</span><span class="p">)</span>  <span class="c1"># Saída: (1, 2, 3, 4, 5, 6)</span>
+</code></pre></div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>O que acontece se tentarmos modificar um elemento de uma tupla existente, como <code>tupla[0] = 100</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A tupla é modificada com sucesso.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A tupla é recriada com o novo valor.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Um <code>TypeError</code> é lançado.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> O programa encerra sem erros.</li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>Um <code>TypeError</code> é lançado porque as tuplas são imutáveis.</p>
+</div>
+</div>
+<h3 id="fatiamento-em-tuplas">Fatiamento em Tuplas<a class="headerlink" href="#fatiamento-em-tuplas" title="Permanent link">&para;</a></h3>
+<p>Assim como as listas, as tuplas também suportam operações de fatiamento:</p>
+<div class="highlight"><pre><span></span><code><span class="n">tupla</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+<span class="n">fatiado</span> <span class="o">=</span> <span class="n">tupla</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fatiado</span><span class="p">)</span>  <span class="c1"># Saída: (2, 3, 4, 5)</span>
+</code></pre></div>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Dada a tupla <code>numeros = (0, 1, 2, 3, 4, 5)</code>, qual é o resultado de <code>numeros[1:4]</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>(0, 1, 2)</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>(1, 2, 3)</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>(2, 3, 4)</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>(1, 2, 3, 4)</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>O resultado de <code>numeros[1:4]</code> é <code>(1, 2, 3)</code>.</p>
+</div>
+</div>
+<h3 id="funcoes-com-tuplas">Funções com Tuplas<a class="headerlink" href="#funcoes-com-tuplas" title="Permanent link">&para;</a></h3>
+<p>Várias funções que funcionam com listas também são aplicáveis às tuplas:</p>
+<ul>
+<li>len(tupla): Retorna o número de itens na tupla.</li>
+<li>min(tupla): Retorna o menor item da tupla.</li>
+<li>max(tupla): Retorna o maior item da tupla.</li>
+</ul>
+<div class="admonition exercise choice">
+<p class="admonition-title">Question</p>
+<p>Qual é o resultado da função <code>max()</code> aplicada à tupla <code>(5, 3, 8, 1)</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>1</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>3</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>5</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>8</code></li>
+</ul>
+<div class="admonition answer">
+<p class="admonition-title">Answer</p>
+<p>O resultado da função <code>max()</code> aplicada à tupla <code>(5, 3, 8, 1)</code> é <code>8</code>.</p>
+</div>
+</div>
+<h2 id="e-agora-qual-eu-escolho-por-que-usar-listas-ou-tuplas">E agora qual eu escolho?? Por que usar Listas ou Tuplas?<a class="headerlink" href="#e-agora-qual-eu-escolho-por-que-usar-listas-ou-tuplas" title="Permanent link">&para;</a></h2>
+<p>Estudamos duas estruturas de dados muito utlizadas em programação, mas... Você pode se perguntar: <code>"Por que usar tuplas se as listas são mais flexíveis?"</code>. </p>
+<p>A escolha entre lista e tupla dependerá do contexto e das necessidades específicas do seu programa. Vamos tentar listar algumas caracteristicas de cada uma delas.</p>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th>Lista</th>
+<th>Tupla</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mutabilidade</td>
+<td>Mutável (itens podem ser adicionados, removidos ou alterados).</td>
+<td>Imutável (não pode ser alterada após a criação).</td>
+</tr>
+<tr>
+<td>Sintaxe</td>
+<td>Usa colchetes <code>[]</code>: <code>[1, 2, 3]</code></td>
+<td>Usa parênteses <code>()</code>: <code>(1, 2, 3)</code></td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>Geralmente mais lenta para algumas operações devido à mutabilidade.</td>
+<td>Geralmente mais rápida por ser imutável.</td>
+</tr>
+<tr>
+<td>Utilização em dicionários</td>
+<td>Não pode ser usada como chave devido à mutabilidade.</td>
+<td>Pode ser usada como chave por ser imutável.</td>
+</tr>
+<tr>
+<td>Métodos integrados</td>
+<td>Vários, como <code>append()</code>, <code>remove()</code>, <code>pop()</code>, <code>reverse()</code>, <code>extend()</code>.</td>
+<td>Limitados, como <code>count()</code> e <code>index()</code>.</td>
+</tr>
+<tr>
+<td>Tamanho (uso de memória)</td>
+<td>Geralmente ocupa mais memória devido à sobrecarga associada à mutabilidade.</td>
+<td>Ocupa menos memória devido à sua estrutura fixa e imutável.</td>
+</tr>
+<tr>
+<td>Casos de uso comuns</td>
+<td>Dados dinâmicos, armazenamento temporário, onde a mutabilidade é necessária.</td>
+<td>Representações imutáveis, como pontos em geometria, chaves de dicionários.</td>
+</tr>
+</tbody>
+</table>
+<p>Se você precisa de mutabilidade, vá de lista. Se você quer imutabilidade (por razões de segurança, performance ou semântica), escolha tupla.</p>
+<p>Em geral, as tuplas são usadas em situações onde a imutabilidade é necessária ou benéfica. Por exemplo, tuplas podem ser usadas como chaves em dicionários (veremos isso em breve no curso ), enquanto listas não podem. Além disso, as tuplas, por serem imutáveis, podem ser mais seguras para certos tipos de operações onde não queremos que os dados sejam alterados acidentalmente. Vamos tentar ver algumas aplicações.</p>
+<table>
+<thead>
+<tr>
+<th>Aplicação</th>
+<th>Escolha</th>
+<th>Justificativa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mantendo uma lista de tarefas pendentes</td>
+<td>Lista</td>
+<td>As tarefas podem ser adicionadas, removidas ou reordenadas dinamicamente.</td>
+</tr>
+<tr>
+<td>Representando um ponto no espaço 3D</td>
+<td>Tupla</td>
+<td>Um ponto no espaço é imutável.</td>
+</tr>
+<tr>
+<td>Chaves para coordenadas geográficas em dicionários</td>
+<td>Tupla</td>
+<td>Dicionários requerem que as chaves sejam imutáveis.</td>
+</tr>
+<tr>
+<td>Coletar e processar dados em tempo real</td>
+<td>Lista</td>
+<td>Dados podem precisar ser constantemente atualizados, adicionados ou removidos.</td>
+</tr>
+<tr>
+<td>Retorno de múltiplos valores de função</td>
+<td>Tupla</td>
+<td>Retorna um grupo fixo de valores que representam diferentes coisas.</td>
+</tr>
+<tr>
+<td>Edição de Strings por Caractere</td>
+<td>Lista</td>
+<td>Strings são imutáveis em Python, então para edição eficiente é convertido para lista e depois de volta para string.</td>
+</tr>
+</tbody>
+</table>
+<p>-------- estou testando essa ferramenta, ficou legal? --------</p>
+<iframe title="Lista" width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=list1%20%3D%20%5B%22Let's%20%22,%20%22Rock%20%22,%20%22the%20Future!%22%5D%0Alist2%20%3D%20%5B'FIAP',%20'e',%20'pensamento',%20'computacional'%5D%0Aprint%28'%20'.join%28list1%20%2B%20list2%29%29%0AmyTuple%20%3D%20%28'Aprendendo',%20'programa%C3%A7%C3%A3o%20juntos'%29%0Aprint%28'%20'.join%28myTuple%29%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 5, 2024</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.0.0/js-yaml.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/insper-education/active-handout-plugins-js@main/package/plugin-bundle.js"></script>
+      
+        <script src="../../../search/main.js"></script>
+      
+        <script src="../../../termynal.js"></script>
+      
+    
+  </body>
+</html>
