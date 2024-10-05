@@ -9,7 +9,10 @@ extra:
 
 theme:
   feature:
-    tabs: true
+    - search.highlight
+    - search.suggest
+    - toc.integrate
+  tabs: true
   name: active-handout
 #  custom_dir: overrides
 
