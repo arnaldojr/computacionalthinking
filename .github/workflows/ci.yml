@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v2
         with:
           python-version: 3.x
@@ -20,4 +22,3 @@ jobs:
       - run: |
           mkdocs gh-deploy --force
           mkdocs --version
-

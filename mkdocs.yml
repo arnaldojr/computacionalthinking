@@ -9,8 +9,9 @@ extra:
 
 theme:
   feature:
-    - search.highlight
     - search.suggest
+    - search.highlight
+    - search.share
     - toc.integrate
   tabs: true
   name: active-handout
@@ -34,24 +35,23 @@ extra_javascript:
 
 extra:
   ihandout_config:
-#    counter:
-#      - question
-#      - tip
-#      - exercise
-#      - example
-    report:
-      api-base: https://devlife.insper-comp.com.br/api/offerings/1/
-      url: https://devlife.insper-comp.com.br/api/offerings/1/exercises/
+    # counter:
+    #   - question
+    #   - tip
+    #   - exercise
+    #   - example
+  report:
+    api-base: https://devlife.insper-comp.com.br/api/offerings/1/
+    url: https://devlife.insper-comp.com.br/api/offerings/1/exercises/
 
 use_directory_urls: false
 
 # Extensions / plugins
 plugins:
-  - git-revision-date-localized
   - search
+  - git-revision-date-localized
   - termynal
   - mkdocs-jupyter:
-
       include_source: True
       execute: False
 
