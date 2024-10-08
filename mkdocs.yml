@@ -9,12 +9,41 @@ extra:
 
 theme:
   feature:
-    - search.suggest
+    - content.code.copy
+    - content.code.annotate 
+    - content.tabs.link
+    - header.autohide
+    - navigation.path
+    - navigation.sections
+    - navigation.scroll   
+    - navigation.expand
+    - navigation.instant
+    - navigation.tabs
+    - navigation.top
     - search.highlight
-    - search.share
+    - search.suggest
     - toc.integrate
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
   tabs: true
-  name: active-handout
+  name: material #active-handout
 #  custom_dir: overrides
 
 docs_dir: material
@@ -31,7 +60,7 @@ extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.0.0/js-yaml.min.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-  - https://cdn.jsdelivr.net/gh/insper-education/active-handout-plugins-js@main/package/plugin-bundle.js
+  # - https://cdn.jsdelivr.net/gh/insper-education/active-handout-plugins-js@main/package/plugin-bundle.js
 
 extra:
   ihandout_config:
@@ -54,10 +83,11 @@ plugins:
   - mkdocs-jupyter:
       include_source: True
       execute: False
-
+  - mkdocs_quiz
+  
 extra_css:
   - css/termynal.css
-  - https://cdn.jsdelivr.net/gh/insper-education/active-handout-css@main/devlife.css
+  # - https://cdn.jsdelivr.net/gh/insper-education/active-handout-css@main/devlife.css
 
 
 markdown_extensions:

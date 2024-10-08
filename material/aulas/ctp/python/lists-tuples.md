@@ -24,17 +24,14 @@ misturada = [1, "Alice", [2, 3, 4]]
 frutas = ["maçã", "banana", "cereja"]  # exemplo de uma lista com 3 valores
 ```
 
-!!! exercise choice "Question"
-    Qual das alternativas apresenta corretamenta uma lista?
-    
-    - [x] numeros = [10, 20, 30, 40]
-    - [ ] numeros = 10, 20, 30, 40
-    - [ ] numeros = {10, 20, 30, 40}
-    - [ ] numeros = (10, 20, 30, 40)
-
-    !!! answer
-        as listas são delimitadas por colchetes `[]` e separadas por vigulas `,`.
-
+<?quiz?>
+question: Qual das alternativas apresenta corretamente uma lista?
+answer-correct: numeros = [10, 20, 30, 40]
+answer: numeros = 10, 20, 30, 40
+answer: numeros = {10, 20, 30, 40}
+answer: numeros = (10, 20, 30, 40)
+content: As listas são delimitadas por colchetes `[]` e separadas por vírgulas `,`.
+<?/quiz?>
 
 
 ### Acesso a Elementos
@@ -50,40 +47,33 @@ print(misturada[2][1])  # ATENCÃO nesta Saída: 3
     Em python assim como em outras linguagens de programação, começamos a contar o indice a partir de zero, isso significa que o valor da primeira posição da lista possui indice `0` (zero).
 
 
-!!! exercise choice "Question"
-    Dada a lista `numeros = [10, 20, 30, 40]`, qual é a saída de `print(numeros[0])`?
+<?quiz?>
+question: Dada a lista `numeros = [10, 20, 30, 40]`, qual é a saída de `print(numeros[0])`?
+answer-correct: 10
+answer: 20
+answer: 30
+answer: 40
+content: A saída de `print(numeros[0])` é `10`, pois as listas em Python são indexadas a partir de 0.
+<?/quiz?>
 
-    - [x] `10`
-    - [ ] `20`
-    - [ ] `30`
-    - [ ] `40`
-    
-    !!! answer
-        A saída de `print(numeros[0])` é `10`, pois as listas em Python são indexadas a partir de 0.
+<?quiz?>
+question: Dada a lista `numeros = [10, 20, 30, 40]`, qual é a saída de `print(numeros[-1])`?
+answer: 10
+answer: 20
+answer: 30
+answer-correct: 40
+content: A saída de `print(numeros[-1])` é `40`, pois em Python, índices negativos referem-se aos elementos da lista de trás para frente.
+<?/quiz?>
 
+<?quiz?>
+question: Dada a lista `frutas = ["maçã", "banana", "cereja"]`, qual é a saída de `print(frutas[1])`?
+answer: maçã
+answer-correct: banana
+answer: cereja
+answer: frutas
+content: A saída de `print(frutas[1])` é `banana`, pois as listas em Python são indexadas a partir de 0.
+<?/quiz?>
 
-!!! exercise choice "Question"
-    Dada a lista `numeros = [10, 20, 30, 40]`, qual é a saída de `print(numeros[-1])`?
-
-    - [ ] `10`
-    - [ ] `20`
-    - [ ] `30`
-    - [x] `40`
-    
-    !!! answer
-        A saída de `print(numeros[-1])` é `40`, pois em Python, índices negativos referem-se aos elementos da lista de trás para frente.
-
-!!! exercise choice "Questão 2"
-    Dado a lista `frutas = ["maçã", "banana", "cereja"]`, qual é a saída de `print(frutas[1])`?
-    
-    - [ ] `maçã`
-    - [x] `banana`
-    - [ ] `cereja`
-    - [ ] `frutas`
-    
-    !!! answer
-        A saída de `print(frutas[1])` é `banana`, pois as listas em Python são indexadas a partir de 0.
-    
 
 
 !!! progress
@@ -110,40 +100,42 @@ frutas.append("uva")
 frutas.insert(1, "laranja")
 ```
 
-!!! exercise choice "Question"
-    Qual dos seguintes é um método válido para adicionar um elemento ao final de uma lista em Python?
+<?quiz?>
+question: Qual dos seguintes é um método válido para adicionar um elemento ao final de uma lista em Python?
+answer-correct: append()
+answer: add()
+answer: insertend()
+answer: put()
+content: O método `append()` é o método válido para adicionar um elemento ao final de uma lista em Python.
+<?/quiz?>
 
-    - [x] `append()`
-    - [ ] `add()`
-    - [ ] `insertend()`
-    - [ ] `put()`
-    
-    !!! answer
-        O método `append()` é o método válido para adicionar um elemento ao final de uma lista em Python.
 
-!!! exercise choice "Question"
-    Dado o código Python a seguir, qual é a saída? 
-    
-    ```python
-    numeros = []
-    soma = 0
-    n = 1
-    
-    while soma <= 100:
-        numeros.append(n)
-        soma += n
-        n += 1
-    
-    print(f"Números na lista: {numeros}")
-    ```
-    
-    - [ ] `Números na lista: soma, n, numeros`
-    - [x] `Números na lista: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]`
-    - [ ] `Números na lista: [0, 1, 3, 6, 10, 15, 21, 28, 36, 45, 55, 66, 78, 91]`
-    - [ ] `Números na lista: [[...], [...], [...], [...], [...], [...], [...], [...], [...], [...], [...], [...], [...], [...]]`
-    
-    !!! answer
-        O código cria uma lista vazia e armazena os valores do contador `n` na lista numeros até o valor da soma ser maior ou igual a 100. Números na lista: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+```quiz
+{
+    "questao": "Dado o código Python a seguir, qual é a saída?",
+	"opcoes": {
+		"a": "Números na lista: soma, n, numeros",
+		"b": "Números na lista: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]",
+		"c": "Números na lista: [0, 1, 3, 6, 10, 15, 21, 28, 36, 45, 55, 66, 78, 91]",
+        "d": "Números na lista: [[...], [...], [...], [...], [...], [...], [...], [...], [...], [...], [...], [...], [...], [...]]",
+	},
+	"correta": "b",
+	"code" : """
+```python hl_lines="4"
+numeros = []
+soma = 0
+n = 1
+
+while soma <= 100:
+    numeros.append(n)
+    soma += n
+    n += 1
+
+print(f"Números na lista: {numeros}")
+```"""
+}
+```
+
 
 #### Remoção
 
@@ -162,16 +154,15 @@ frutas.remove("banana")
 frutas.pop()
 frutas.clear()
 ```
-!!! exercise choice "Question"
-    Qual dos seguintes métodos remove o último item de uma lista?
-    
-    - [ ] `delete()`
-    - [x] `pop()`
-    - [ ] `removeend()`
-    - [ ] `discard()`
-    
-    !!! answer
-        O método `pop()` remove e retorna o último item de uma lista se nenhum índice for especificado.
+<?quiz?>
+question: Qual dos seguintes métodos remove o último item de uma lista?
+answer: delete()
+answer-correct: pop()
+answer: removeend()
+answer: discard()
+content: O método `pop()` remove e retorna o último item de uma lista se nenhum índice for especificado.
+<?/quiz?>
+
 
 #### Alteração
 
@@ -180,28 +171,27 @@ Você pode alterar um item referenciando seu índice.
 ```python
 frutas[0] = "manga"
 ```
-!!! exercise choice "Question"
-    Dada a lista `animais = ["cachorro", "gato", "peixe", "pássaro"]`, qual das opções a seguir irá substituir "peixe" por "hamster"?
+<?quiz?>
+question: Dada a lista `animais = ["cachorro", "gato", "peixe", "pássaro"]`, qual das opções a seguir irá substituir "peixe" por "hamster"?
+answer-correct: 
+    ```python
+    animais[2] = "hamster"
+    ```
+answer: 
+    ```python
+    animais.replace("peixe", "hamster")
+    ```
+answer: 
+    ```python
+    animais[3] = "hamster"
+    ```
+answer: 
+    ```python
+    animais.insert(2, "hamster")
+    ```
+content: A opção que substitui o item "peixe" por "hamster" na lista é `animais[2] = "hamster"`. Em Python, as listas são indexadas a partir de 0, então o índice 2 corresponde ao terceiro item da lista.
+<?/quiz?>
 
-    - [x] 
-        ```python
-        animais[2] = "hamster"
-        ```
-    - [ ] 
-        ```python
-        animais.replace("peixe", "hamster")
-        ```
-    - [ ] 
-        ```python
-        animais[3] = "hamster"
-        ```
-    - [ ] 
-        ```python
-        animais.insert(2, "hamster")
-        ```
-
-    !!! answer
-        A opção que substitui o item "peixe" por "hamster" na lista é `animais[2] = "hamster"`. Em Python, as listas são indexadas a partir de 0, então o índice 2 corresponde ao terceiro item da lista.
 
 
 ### Métodos mais utilizados de Listas
@@ -219,72 +209,60 @@ Alguns dos métodos mais utilizados são:
     É importante mencionar que o método `sort()` altera a lista original, enquanto a função incorporada `sorted()` retorna uma nova lista ordenada.
 
 
-!!! exercise choice "Question"
-    Dada a lista `numeros = [2, 5, 8, 1, 7]`, qual será a saída do código `print(len(numeros))`?
+<?quiz?>
+question: Dada a lista `numeros = [2, 5, 8, 1, 7]`, qual será a saída do código `print(len(numeros))`?
+answer: 2
+answer-correct: 5
+answer: 8
+answer: 1
+content: A saída será `5`, pois o método `len()` retorna o número de itens na lista.
+<?/quiz?>
 
-    - [ ] `2`
-    - [x] `5`
-    - [ ] `8`
-    - [ ] `1`
+<?quiz?>
+question: Se temos `listaA = [1, 2, 3]` e `listaB = [4, 5, 6]`, e executamos `listaA.extend(listaB)`, qual será o valor de `listaA`?
+answer: [1, 2, 3]
+answer: [4, 5, 6]
+answer-correct: [1, 2, 3, 4, 5, 6]
+answer: [1, 2, 3, [4, 5, 6]]
+content: O valor de `listaA` será `[1, 2, 3, 4, 5, 6]` após o uso do método `extend()`.
+<?/quiz?>
 
-    !!! answer
-        A saída será `5`, pois o método `len()` retorna o número de itens na lista.
+<?quiz?>
+question: Dada a lista `cores = ["verde", "azul", "vermelho"]`, qual será a saída de `print(cores.index("azul"))`?
+answer: 0
+answer-correct: 1
+answer: 2
+answer: 3
+content: A saída será `1`, pois o método `index()` retorna o índice do primeiro item com o valor especificado.
+<?/quiz?>
 
-!!! exercise choice "Question"
-    Se temos `listaA = [1, 2, 3]` e `listaB = [4, 5, 6]`, e executamos `listaA.extend(listaB)`, qual será o valor de `listaA`?
+<?quiz?>
+question: Na lista `letras = ['a', 'b', 'c', 'a', 'a', 'b']`, qual será a saída de `print(letras.count('a'))`?
+answer: 1
+answer: 2
+answer-correct: 3
+answer: 4
+content: A saída será `3`, pois o método `count()` retorna o número de vezes que o valor 'a' aparece na lista.
+<?/quiz?>
 
-    - [ ] `[1, 2, 3]`
-    - [ ] `[4, 5, 6]`
-    - [x] `[1, 2, 3, 4, 5, 6]`
-    - [ ] `[1, 2, 3, [4, 5, 6]]`
+<?quiz?>
+question: Dada a lista `valores = [3, 1, 4, 1, 5, 9, 2]`, após executar `valores.sort()`, qual será o primeiro elemento da lista?
+answer-correct: 1
+answer: 2
+answer: 3
+answer: 4
+content: Após ordenar a lista, o primeiro elemento será `1`.
+<?/quiz?>
 
-    !!! answer
-        O valor de `listaA` será `[1, 2, 3, 4, 5, 6]` após o uso do método `extend()`.
+<?quiz?>
+question: Se temos a lista `ordem = [1, 2, 3, 4]` e executamos `ordem.reverse()`, qual será o valor de `ordem`?
+answer: [1, 2, 3, 4]
+answer: [4, 3, 2, 1, 0]
+answer-correct: [4, 3, 2, 1]
+answer: [1, 0, 4, 3]
+content: Após a execução do método `reverse()`, a lista `ordem` terá os elementos na ordem `[4, 3, 2, 1]`.
+<?/quiz?>
 
-
-!!! exercise choice "Question"
-    Dada a lista `cores = ["verde", "azul", "vermelho"]`, qual será a saída de `print(cores.index("azul"))`?
-
-    - [ ] `0`
-    - [x] `1`
-    - [ ] `2`
-    - [ ] `3`
-
-    !!! answer
-        A saída será `1`, pois o método `index()` retorna o índice do primeiro item com o valor especificado.
-
-!!! exercise choice "Question"
-    Na lista `letras = ['a', 'b', 'c', 'a', 'a', 'b']`, qual será a saída de `print(letras.count('a'))`?
-
-    - [ ] `1`
-    - [ ] `2`
-    - [x] `3`
-    - [ ] `4`
-    
-    !!! answer
-        A saída será `3`, pois o método `count()` retorna o número de vezes que o valor 'a' aparece na lista.
-
-!!! exercise choice "Question"
-    Dada a lista `valores = [3, 1, 4, 1, 5, 9, 2]`, após executar `valores.sort()`, qual será o primeiro elemento da lista?
-
-    - [x] `1`
-    - [ ] `2`
-    - [ ] `3`
-    - [ ] `4`
-
-    !!! answer
-        Após ordenar a lista, o primeiro elemento será `1`.
-    
-!!! exercise choice "Question"
-    Se temos a lista `ordem = [1, 2, 3, 4]` e executamos `ordem.reverse()`, qual será o valor de `ordem`?
-
-    - [ ] `[1, 2, 3, 4]`
-    - [ ] `[4, 3, 2, 1, 0]`
-    - [x] `[4, 3, 2, 1]`
-    - [ ] `[1, 0, 4, 3]`
-
-    !!! answer
-        Após a execução do método `reverse()`, a lista `ordem` terá os elementos na ordem `[4, 3, 2, 1]`.
 
 Teste o código a seguir:
 
@@ -346,40 +324,33 @@ lista[1:5:2]: retorna os elementos nos índices 1 e 3 (começa no índice 1, ter
 números = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 sub_lista = números[2:7]  # [2, 3, 4, 5, 6]
 ```
-!!! exercise choice "Question"
-    Dada a lista `numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]`, qual fatiamento retorna `[2, 3, 4, 5]`?
+<?quiz?>
+question: Dada a lista `numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]`, qual fatiamento retorna `[2, 3, 4, 5]`?
+answer: numeros[2:5]
+answer-correct: numeros[2:6]
+answer: numeros[3:6]
+answer: numeros[2:7:2]
+content: O fatiamento `numeros[2:6]` retorna a sublista `[2, 3, 4, 5]`.
+<?/quiz?>
 
-    - [ ] `numeros[2:5]`
-    - [x] `numeros[2:6]`
-    - [ ] `numeros[3:6]`
-    - [ ] `numeros[2:7:2]`
+<?quiz?>
+question: Dada a lista `numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]`, qual fatiamento retorna todos os números pares da lista?
+answer: numeros[2::2]
+answer: numeros[1::2]
+answer-correct: numeros[::2]
+answer: numeros[::-2]
+content: O fatiamento `numeros[::2]` retorna todos os números em índices pares, ou seja, `[0, 2, 4, 6, 8]`.
+<?/quiz?>
 
-    !!! answer
-        O fatiamento `numeros[2:6]` retorna a sublista `[2, 3, 4, 5]`.
-    
+<?quiz?>
+question: Dada a lista `numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]`. Em `numeros[2:8:2]`, qual é o propósito do último `2`?
+answer: Indica o início do fatiamento.
+answer: Indica o fim do fatiamento.
+answer-correct: Especifica o passo do fatiamento, ou seja, a "distância" entre os índices.
+answer: Dobra os valores no intervalo especificado.
+content: No fatiamento `numeros[2:8:2]`, o último `2` especifica o passo, ou seja, a "distância" entre os índices. Isso resultaria na sublista `[2, 4, 6]`.
+<?/quiz?>
 
-!!! exercise choice "Question"
-    Dada a lista `numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]`, qual fatiamento retorna todos os números pares da lista?
-
-    - [ ] `numeros[2::2]`
-    - [ ] `numeros[1::2]`
-    - [x] `numeros[::2]`
-    - [ ] `numeros[::-2]`
-    
-    !!! answer
-        O fatiamento `numeros[0::2]` retorna todos os números em índices pares, ou seja, `[0, 2, 4, 6, 8]`.
-
-
-!!! exercise choice "Question"
-    Dada a lista `numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]`. Em `numeros[2:8:2]`, qual é o propósito do último `2`?
-
-    - [ ] Indica o início do fatiamento.
-    - [ ] Indica o fim do fatiamento.
-    - [x] Especifica o passo do fatiamento, ou seja, a "distância" entre os índices.
-    - [ ] Dobra os valores no intervalo especificado.
-    
-    !!! answer
-        No fatiamento `numeros[2:8:2]`, o último `2` especifica o passo, ou seja, a "distância" entre os índices. Isso resultaria na sublista `[2, 4, 6]`.
 
 juntando as coisas, varrendo uma lista com while. Exemplo de como usar um loop while para iterar através de uma lista
 
@@ -433,16 +404,16 @@ tupla_simples = 1,
 print(tupla_simples)  # Saída: (1,)
 
 ```
-!!! exercise choice "Question"
-    Qual das opções a seguir define corretamente uma tupla com os elementos 5, 10 e 15?
 
-    - [ ] `tupla = 5; 10; 15`
-    - [ ] `tupla = [5, 10, 15]`
-    - [x] `tupla = (5, 10, 15)`
-    - [ ] `tupla = {5, 10, 15}`
+<?quiz?>
+question: Qual das opções a seguir define corretamente uma tupla com os elementos 5, 10 e 15?
+answer: tupla = 5; 10; 15
+answer: tupla = [5, 10, 15]
+answer-correct: tupla = (5, 10, 15)
+answer: tupla = {5, 10, 15}
+content: A opção correta é `tupla = (5, 10, 15)`.
+<?/quiz?>
 
-    !!! answer
-        A opção correta é `tupla = (5, 10, 15)`.
     
 
 ### Acessando Elementos de Tuplas
@@ -455,17 +426,15 @@ print(tupla[1])  # Saída: 20
 
 ```
 
-!!! exercise choice "Question"
-    Dada a tupla `cores = ("vermelho", "verde", "azul")`, qual é o resultado de `cores[1]`?
+<?quiz?>
+question: Dada a tupla `cores = ("vermelho", "verde", "azul")`, qual é o resultado de `cores[1]`?
+answer: "vermelho"
+answer-correct: "verde"
+answer: "azul"
+answer: TypeError
+content: O resultado de `cores[1]` é `"verde"`.
+<?/quiz?>
 
-    - [ ] `"vermelho"`
-    - [x] `"verde"`
-    - [ ] `"azul"`
-    - [ ] `TypeError`
-    
-    !!! answer
-        O resultado de `cores[1]` é `"verde"`.
-    
 
 
 ### Imutabilidade das Tuplas
@@ -488,16 +457,15 @@ tupla3 = tupla1 + tupla2
 print(tupla3)  # Saída: (1, 2, 3, 4, 5, 6)
 ```
 
-!!! exercise choice "Question"
-    O que acontece se tentarmos modificar um elemento de uma tupla existente, como `tupla[0] = 100`?
+<?quiz?>
+question: O que acontece se tentarmos modificar um elemento de uma tupla existente, como `tupla[0] = 100`?
+answer: A tupla é modificada com sucesso.
+answer: A tupla é recriada com o novo valor.
+answer-correct: Um `TypeError` é lançado.
+answer: O programa encerra sem erros.
+content: Um `TypeError` é lançado porque as tuplas são imutáveis.
+<?/quiz?>
 
-    - [ ] A tupla é modificada com sucesso.
-    - [ ] A tupla é recriada com o novo valor.
-    - [x] Um `TypeError` é lançado.
-    - [ ] O programa encerra sem erros.
-
-    !!! answer
-        Um `TypeError` é lançado porque as tuplas são imutáveis.
     
 
 ### Fatiamento em Tuplas
@@ -512,16 +480,15 @@ print(fatiado)  # Saída: (2, 3, 4, 5)
 
 ```
 
-!!! exercise choice "Question"
-    Dada a tupla `numeros = (0, 1, 2, 3, 4, 5)`, qual é o resultado de `numeros[1:4]`?
+<?quiz?>
+question: Dada a tupla `numeros = (0, 1, 2, 3, 4, 5)`, qual é o resultado de `numeros[1:4]`?
+answer: (0, 1, 2)
+answer-correct: (1, 2, 3)
+answer: (2, 3, 4)
+answer: (1, 2, 3, 4)
+content: O resultado de `numeros[1:4]` é `(1, 2, 3)`.
+<?/quiz?>
 
-    - [ ] `(0, 1, 2)`
-    - [x] `(1, 2, 3)`
-    - [ ] `(2, 3, 4)`
-    - [ ] `(1, 2, 3, 4)`
-    
-    !!! answer
-        O resultado de `numeros[1:4]` é `(1, 2, 3)`.
 
 
 ### Funções com Tuplas
@@ -532,17 +499,15 @@ Várias funções que funcionam com listas também são aplicáveis às tuplas:
 - min(tupla): Retorna o menor item da tupla.
 - max(tupla): Retorna o maior item da tupla.
 
-!!! exercise choice "Question"
-    Qual é o resultado da função `max()` aplicada à tupla `(5, 3, 8, 1)`?
+<?quiz?>
+question: Qual é o resultado da função `max()` aplicada à tupla `(5, 3, 8, 1)`?
+answer: 1
+answer: 3
+answer: 5
+answer-correct: 8
+content: O resultado da função `max()` aplicada à tupla `(5, 3, 8, 1)` é `8`.
+<?/quiz?>
 
-    - [ ] `1`
-    - [ ] `3`
-    - [ ] `5`
-    - [x] `8`
-
-    !!! answer
-        O resultado da função `max()` aplicada à tupla `(5, 3, 8, 1)` é `8`.
-    
 
 
 ## E agora qual eu escolho?? Por que usar Listas ou Tuplas?
