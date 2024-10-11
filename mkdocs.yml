@@ -83,7 +83,7 @@ plugins:
   - mkdocs-jupyter:
       include_source: True
       execute: False
-  # - mkdocs_quiz
+  - mkdocs_quiz
   
 extra_css:
   - css/termynal.css
