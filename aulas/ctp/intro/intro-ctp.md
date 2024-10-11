@@ -90,66 +90,59 @@ Desenvolver o pensamento computacional requer prática e imersão. Durante este 
 
 ## Desafios
 
-!!! exercise choice "Question"
-    Assinale o que você entende sobre Decomposição:
-    
-    - [ ] Analisar o problema e aumentar partes
-    - [x] Conhecer o problema e dividir em partes menores
-    - [ ] Apagar partes de um programa
-    - [ ] Testar um Algoritmos
+<?quiz?>
+question: Assinale o que você entende sobre Decomposição 
+answer: Analisar o problema e aumentar partes 
+answer-correct: Conhecer o problema e dividir em partes menores 
+answer: Apagar partes de um programa 
+answer: Testar um algoritmo 
+content:
 
-    !!! answer
-        Dividir para conquistar.
+<h2>Dividir para conquistar.</h2> 
+<?/quiz?> 
 
+<?quiz?>
+question: Assinale o que você entende sobre Reconhecimento de Padrões 
+answer-correct: Identificar situações que se repetem dentro do problema ou entre problemas 
+answer: Reconhecer um erro em um programa 
+answer: Identificar o que há de diferente em um problema 
+answer: Reconhecer o final de um problema 
+content:
 
+<h2>Reconhecer padrões nos permite fazer previsões e identificar soluções mais rapidamente.</h2> 
+<?/quiz?> 
 
-!!! exercise choice "Question"
-    Assinale o que você entende sobre Reconhecimento de Padrões
+<?quiz?>
+question: Assinale o que você entende sobre Abstração 
+answer: É pensar sobre o que vem antes do problema 
+answer-correct: Escolher o que é o mais importante para resolver um problema 
+answer: Escolher o que é o menos destacado no problema 
+answer: É pensar sobre como deveria ser o problema 
+content:
 
-    - [x] Identificar situações que se repetem dentro do problema ou entre problemas
-    - [ ] Reconhecer um erro em um programa
-    - [ ] Identificar o que há de diferente em um problema
-    - [ ] Reconhecer o final de um problema
+<h2>Focar nas informações essenciais, ignorando detalhes desnecessários.</h2> 
+<?/quiz?>
 
-    !!! answer
-        .
+<?quiz?>
+question: Assinale o que você entende sobre Algoritmo
+answer: Organizar um passo a passo que não deve ser testado na solução do problema
+answer-correct: Organizar os passos para a solução de um problema e testar
+answer: Listar as ações que o problema não apresentou
+answer: Organizar a escrita do problema
+content:
 
+<h2>Um algoritmo é uma sequência definida de passos ou instruções para resolver um problema.</h2>
+<?/quiz?>
 
-!!! exercise choice "Question"
-    Assinale o que você entende sobre Abstração
+<?quiz?>
+question: Podemos relacionar o mapa do metrô de SP com qual pilar do pensamento computacional? 
+answer-correct: Abstração
+answer: Reconhecimento de Padrões 
+answer: Decomposição
+answer: Algoritmo
+content:
 
-    - [ ] É pensar sobre o que vem antes do problema
-    - [x] Escolher o que é o mais importante para resolver um problema
-    - [ ] Escolher o que é o menos destacado no problema
-    - [ ] É pensar sobre como deveria ser o problema
-
-    !!! answer
-        .
-
-
-!!! exercise choice "Question"
-    Assinale o que você entende sobre Algoritmo
-
-    - [ ] Organizar um passo a passo que não deve ser testado na solução do problema
-    - [x] Organizar os passos para a solução de um problema e testar
-    - [ ] Listar as ações que o problema não apresentou
-    - [ ] Organizar a escrita do problema
-
-    !!! answer
-        .
-
-
-!!! exercise choice "Question"
-    Podemos relacionar o mapa do metro de SP com qual pilar do pensamento computacional?
-    ![](img/metro.png)
-    
-    - [x] Abstração
-    - [ ] Reconhecimento de Padrões
-    - [ ] Decomposição
-    - [ ] Algoritmo
-
-    !!! answer
-        O mapa do metrô como exemplo de abstração do mundo real    
+<h2>O mapa do metrô é um exemplo de abstração do mundo real.</h2> <?/quiz?>  
 
 
 !!! progress
@@ -471,34 +464,31 @@ Em particular, podemos distinguir três macroconjuntos de linguagens de programa
     }
 
 ```
+<?quiz?>
+question: Quais são linguagens de alto nível? Existe mais de uma alternativa correta. 
+answer-correct: Java. 
+answer-correct: JavaScript. 
+answer-correct: Ruby. 
+answer-correct: Python. 
+answer-correct: C#. 
+answer-correct: PHP. 
+answer: Assembly. 
+answer-correct: Swift. 
+answer-correct: Kotlin. 
+answer-correct: Go. 
+answer-correct: Perl. 
+answer-correct: Lua.
+answer-correct: R. 
+answer-correct: TypeScript. 
+answer-correct: Rust. 
+answer-correct: Scala. 
+answer-correct: Groovy. 
+answer-correct: MATLAB. 
+answer-correct: C++. 
+answer-correct: Elixir. 
+answer-correct: C. 
+answer: VHDL. 
+content:
 
-!!! exercise choice two-cols
-    Quais são linguagens de alto nível? existe mais de uma alternativa correta.
-    
-    - [x] Java.
-    - [x] JavaScript.
-    - [x] Ruby.
-    - [x] Python.
-    - [x] C#.
-    - [x] PHP.
-    - [ ] Assembly.
-    - [x] Swift.
-    - [x] Kotlin.
-    - [x] Go.
-    - [x] Perl.
-    - [x] Lua.
-    - [x] R.
-    - [x] TypeScript.
-    - [x] Rust.
-    - [x] Scala.
-    - [x] Groovy.
-    - [x] MATLAB.
-    - [x] C++.
-    - [x] Elixir.
-    - [x] C.
-    - [ ] VHDL.
-
-    !!! answer
-        As linguagens de alto nível são: Java, JavaScript, Ruby, Python, C#, PHP, Swift, Kotlin, Go, Perl, Lua, R, TypeScript, Rust, Scala, Groovy e MATLAB. Assembly e VHDL são linguagens de baixo nível.
-
-
+<h3>Da lista acima, apenas Assembly e VHDL são linguagens de baixo nível.</h3> 
+<?/quiz?>
