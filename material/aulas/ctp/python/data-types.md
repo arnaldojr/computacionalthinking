@@ -25,6 +25,7 @@ Os números são uma parte essencial de qualquer linguagem de programação. Em 
   hexadecimal = 0x10
   ```
 
+
 - **Ponto Flutuante (float)**: Representam números reais e são escritos com uma parte decimal. Eles são especificados em notação decimal ou em notação científica.
 
   ```python
@@ -52,34 +53,6 @@ falso = False
 ```
 
 ### Exercícios sobre Tipos Primitivos
-
-<?quiz?>
-question: Qual dos seguintes é um exemplo válido de um número de ponto flutuante em Python?
-answer: 12345
-answer-correct: 123.45
-answer: "123.45"
-answer: True
-content: `123.45` é um número de ponto flutuante válido em Python.
-<?/quiz?>
-
-<?quiz?>
-question: Qual é o valor da string após a execução do seguinte código: `texto = "Py" + "thon"`?
-answer: Py
-answer: thon
-answer-correct: Python
-answer: Pythonthon
-content: A string resultante da concatenação é `Python`.
-<?/quiz?>
-
-<?quiz?>
-question: Qual é o resultado da seguinte expressão booleana: `True and False`?
-answer: True
-answer-correct: False
-answer: 0
-answer: 1
-content: O resultado da expressão `True and False` é `False`.
-<?/quiz?>
-
 
 
 !!! progress
@@ -130,34 +103,6 @@ A atribuição aumentada é a combinação, em uma única instrução, de uma op
 
 ### Exercícios sobre Variáveis e Atribuição
 
-<?quiz?>
-question: Após a execução do código `x = 5` e `y = x`, qual é o valor de `y`?
-answer: 0
-answer-correct: 5
-answer: x
-answer: None
-content: O valor de `y` é `5`.
-<?/quiz?>
-
-
-<?quiz?>
-question: Se `nome = "Ana"`, qual é o resultado de `nome * 3`?
-answer: AnaAnaAnaAna
-answer-correct: AnaAnaAna
-answer: Ana3
-answer: 9
-content: O resultado é `AnaAnaAna`.
-<?/quiz?>
-
-
-<?quiz?>
-question: Qual é o tipo da variável após a execução do seguinte código: `valor = "123"`?
-answer: int
-answer-correct: str
-answer: float
-answer: bool
-content: O tipo da variável `valor` é `str`.
-<?/quiz?>
 
 
 !!! progress
@@ -181,34 +126,6 @@ texto_numero = str(25)  # Resultado: '25'
 
 ### Exercícios sobre Conversão de Tipos
 
-<?quiz?>
-question: Qual é o resultado da seguinte conversão: `int("123")`?
-answer-correct: 123
-answer: "123"
-answer: 12.3
-answer: None
-content: A conversão resulta no número inteiro `123`.
-<?/quiz?>
-
-
-<?quiz?>
-question: Se `x = 5.7`, qual é o valor de `int(x)`?
-answer-correct: 5
-answer: 5.7
-answer: 6
-answer: 57
-content: O valor de `int(x)` é `5`.
-<?/quiz?>
-
-
-<?quiz?>
-question: Qual é o resultado da seguinte conversão: `float("123.45")`?
-answer: 123
-answer-correct: 123.45
-answer: "123.45"
-answer: None
-content: A conversão resulta no número de ponto flutuante `123.45`.
-<?/quiz?>
 
 
 !!! progress
@@ -227,34 +144,6 @@ print(f"Olá, {nome_usuario}!")
 
 ### Exercícios sobre Entrada e Saída
 
-<?quiz?>
-question: Qual função é usada em Python para obter entrada do usuário?
-answer-correct: input()
-answer: print()
-answer: get()
-answer: read()
-content: A função `input()` é usada para obter entrada do usuário em Python.
-<?/quiz?>
-
-
-<?quiz?>
-question: Se usarmos o código `valor = input("Digite um número: ")`, e o usuário digitar `5`, qual será o tipo da variável `valor`?
-answer: int
-answer-correct: str
-answer: float
-answer: bool
-content: Mesmo que o usuário digite um número, a função `input()` sempre retorna uma string. Portanto, o tipo da variável `valor` é `str`.
-<?/quiz?>
-
-
-<?quiz?>
-question: Qual é a saída do seguinte código: `print("Olá", "Mundo", sep="-")`?
-answer: Olá Mundo
-answer-correct: Olá-Mundo
-answer: Olá, Mundo
-answer: OláMundo
-content: A saída do código é `Olá-Mundo` porque o argumento `sep` especifica o caractere usado para separar os valores.
-<?/quiz?>
 
 
 !!! progress
@@ -370,60 +259,7 @@ resultado3 = not True  # False
 
 ### Exercícios sobre Operadores
 
-<?quiz?>
-question: Qual é o resultado da seguinte operação: `10 % 3`?
-answer: 3
-answer: 0
-answer-correct: 1
-answer: 10
-content: O resultado da operação `10 % 3` é `1`.
-<?/quiz?>
 
-<?quiz?>
-question: Se `x = 5` e `y = 3`, qual é o valor de `x ** y`?
-answer: 8
-answer: 15
-answer-correct: 125
-answer: 2
-content: O valor de `x ** y` é `125`.
-<?/quiz?>
-
-<?quiz?>
-question: Qual é o resultado da seguinte expressão: `5 > 3 and 5 < 10`?
-answer-correct: True
-answer: False
-answer: None
-answer: Error
-content: O resultado da expressão `5 > 3 and 5 < 10` é `True`.
-<?/quiz?>
-
-
-<?quiz?>
-question: Qual é o resultado da seguinte operação: `7 // 3`?
-answer-correct: 2
-answer: 2.33
-answer: 3
-answer: 1
-content: O resultado da operação `7 // 3` é `2`, pois `//` é o operador de divisão inteira.
-<?/quiz?>
-
-<?quiz?>
-question: Dado `x = 10` e `y = 3`, qual é o valor de `x != y`?
-answer-correct: True
-answer: False
-answer: None
-answer: Error
-content: A expressão `x != y` verifica se `x` é diferente de `y`. Como 10 é diferente de 3, o resultado é `True`.
-<?/quiz?>
-
-<?quiz?>
-question: Qual é o resultado da seguinte expressão: `not (5 <= 3)`?
-answer-correct: True
-answer: False
-answer: None
-answer: Error
-content: A expressão `5 <= 3` é `False`, mas o operador `not` inverte o valor booleano. Portanto, o resultado é `True`.
-<?/quiz?>
 
 
 
