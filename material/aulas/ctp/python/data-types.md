@@ -2,6 +2,50 @@
 
 O Python é uma linguagem de tipagem dinÂmica, ou seja, o tipo de uma variável é determinado em tempo de execução, com base no valor que ela contém. Isso significa que as variáveis não precisam ser explicitamente declaradas com um tipo específico. 
 
+```quiz
+{
+    "questao": "09 - Dentro do nosso teste, qual a função da chamada na linha em destaque?",
+	"opcoes": {
+		"a": "assert",
+		"b": "arrange",
+		"c": "act",
+	},
+	"correta": "c",
+	"code" : """
+```python hl_lines="4"
+def test_root_deve_retornar_ok_e_ola_mundo():
+    client = TestClient(app)
+
+    response = client.get('/')
+
+    assert response.status_code == HTTPStatus.OK
+    assert response.json() == {'message': 'Olá Mundo!'}
+```"""
+}
+```
+<?quiz?>
+
+question: Are you ready?
+answer-correct: Yes!
+answer: No!
+answer-correct: Maybe!
+content:
+tste
+<?/quiz?>
+
+
+
+<?quiz?>
+
+question: Are you ready?
+answer-correct: Yes!
+answer: No!
+answer-correct: Maybe!
+content:
+
+<h2>Provide some additional content</h2>
+<?/quiz?>
+
 !!! tip
     Vale a pena mensionar que no Python, tudo é considerado um objeto. Isso significa que todos os valores, variáveis, funções e até mesmo tipos de dados são tratados como objetos. Mais adiante no curso vamos voltar e falar mais sobre isso.
 
