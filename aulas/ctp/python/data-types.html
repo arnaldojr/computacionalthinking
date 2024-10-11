@@ -52,8 +52,6 @@
     
       <link rel="stylesheet" href="../../../css/termynal.css">
     
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/insper-education/active-handout-css@main/devlife.css">
-    
       <link rel="stylesheet" href="../../../termynal.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -63,11 +61,6 @@
     
     
     
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:700|Oxygen+Mono|Source+Sans+Pro:700|Source+Serif+Pro&amp;display=swap">
-<link rel="stylesheet" href="../../../assets/css/devlife.css">
-
-
-
   </head>
   
   
@@ -170,6 +163,43 @@
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
     
     
       <div class="md-header__source">
@@ -2771,33 +2801,6 @@
 <span class="n">falso</span> <span class="o">=</span> <span class="kc">False</span>
 </code></pre></div>
 <h3 id="exercicios-sobre-tipos-primitivos">Exercícios sobre Tipos Primitivos<a class="headerlink" href="#exercicios-sobre-tipos-primitivos" title="Permanent link">&para;</a></h3>
-<?quiz?>
-<p>question: Qual dos seguintes é um exemplo válido de um número de ponto flutuante em Python?
-answer: 12345
-answer-correct: 123.45
-answer: "123.45"
-answer: True
-content: <code>123.45</code> é um número de ponto flutuante válido em Python.</p>
-<?/quiz?>
-
-<?quiz?>
-<p>question: Qual é o valor da string após a execução do seguinte código: <code>texto = "Py" + "thon"</code>?
-answer: Py
-answer: thon
-answer-correct: Python
-answer: Pythonthon
-content: A string resultante da concatenação é <code>Python</code>.</p>
-<?/quiz?>
-
-<?quiz?>
-<p>question: Qual é o resultado da seguinte expressão booleana: <code>True and False</code>?
-answer: True
-answer-correct: False
-answer: 0
-answer: 1
-content: O resultado da expressão <code>True and False</code> é <code>False</code>.</p>
-<?/quiz?>
-
 <div class="admonition progress">
 <p class="admonition-title">Progress</p>
 <p>Continuar...</p>
@@ -2853,33 +2856,6 @@ content: O resultado da expressão <code>True and False</code> é <code>False</c
 </tbody>
 </table>
 <h3 id="exercicios-sobre-variaveis-e-atribuicao">Exercícios sobre Variáveis e Atribuição<a class="headerlink" href="#exercicios-sobre-variaveis-e-atribuicao" title="Permanent link">&para;</a></h3>
-<?quiz?>
-<p>question: Após a execução do código <code>x = 5</code> e <code>y = x</code>, qual é o valor de <code>y</code>?
-answer: 0
-answer-correct: 5
-answer: x
-answer: None
-content: O valor de <code>y</code> é <code>5</code>.</p>
-<?/quiz?>
-
-<?quiz?>
-<p>question: Se <code>nome = "Ana"</code>, qual é o resultado de <code>nome * 3</code>?
-answer: AnaAnaAnaAna
-answer-correct: AnaAnaAna
-answer: Ana3
-answer: 9
-content: O resultado é <code>AnaAnaAna</code>.</p>
-<?/quiz?>
-
-<?quiz?>
-<p>question: Qual é o tipo da variável após a execução do seguinte código: <code>valor = "123"</code>?
-answer: int
-answer-correct: str
-answer: float
-answer: bool
-content: O tipo da variável <code>valor</code> é <code>str</code>.</p>
-<?/quiz?>
-
 <div class="admonition progress">
 <p class="admonition-title">Progress</p>
 <p>Continuar...</p>
@@ -2896,33 +2872,6 @@ content: O tipo da variável <code>valor</code> é <code>str</code>.</p>
 <span class="n">texto_numero</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>  <span class="c1"># Resultado: &#39;25&#39;</span>
 </code></pre></div>
 <h3 id="exercicios-sobre-conversao-de-tipos">Exercícios sobre Conversão de Tipos<a class="headerlink" href="#exercicios-sobre-conversao-de-tipos" title="Permanent link">&para;</a></h3>
-<?quiz?>
-<p>question: Qual é o resultado da seguinte conversão: <code>int("123")</code>?
-answer-correct: 123
-answer: "123"
-answer: 12.3
-answer: None
-content: A conversão resulta no número inteiro <code>123</code>.</p>
-<?/quiz?>
-
-<?quiz?>
-<p>question: Se <code>x = 5.7</code>, qual é o valor de <code>int(x)</code>?
-answer-correct: 5
-answer: 5.7
-answer: 6
-answer: 57
-content: O valor de <code>int(x)</code> é <code>5</code>.</p>
-<?/quiz?>
-
-<?quiz?>
-<p>question: Qual é o resultado da seguinte conversão: <code>float("123.45")</code>?
-answer: 123
-answer-correct: 123.45
-answer: "123.45"
-answer: None
-content: A conversão resulta no número de ponto flutuante <code>123.45</code>.</p>
-<?/quiz?>
-
 <div class="admonition progress">
 <p class="admonition-title">Progress</p>
 <p>Continuar...</p>
@@ -2933,33 +2882,6 @@ content: A conversão resulta no número de ponto flutuante <code>123.45</code>.
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Olá, </span><span class="si">{</span><span class="n">nome_usuario</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="exercicios-sobre-entrada-e-saida">Exercícios sobre Entrada e Saída<a class="headerlink" href="#exercicios-sobre-entrada-e-saida" title="Permanent link">&para;</a></h3>
-<?quiz?>
-<p>question: Qual função é usada em Python para obter entrada do usuário?
-answer-correct: input()
-answer: print()
-answer: get()
-answer: read()
-content: A função <code>input()</code> é usada para obter entrada do usuário em Python.</p>
-<?/quiz?>
-
-<?quiz?>
-<p>question: Se usarmos o código <code>valor = input("Digite um número: ")</code>, e o usuário digitar <code>5</code>, qual será o tipo da variável <code>valor</code>?
-answer: int
-answer-correct: str
-answer: float
-answer: bool
-content: Mesmo que o usuário digite um número, a função <code>input()</code> sempre retorna uma string. Portanto, o tipo da variável <code>valor</code> é <code>str</code>.</p>
-<?/quiz?>
-
-<?quiz?>
-<p>question: Qual é a saída do seguinte código: <code>print("Olá", "Mundo", sep="-")</code>?
-answer: Olá Mundo
-answer-correct: Olá-Mundo
-answer: Olá, Mundo
-answer: OláMundo
-content: A saída do código é <code>Olá-Mundo</code> porque o argumento <code>sep</code> especifica o caractere usado para separar os valores.</p>
-<?/quiz?>
-
 <div class="admonition progress">
 <p class="admonition-title">Progress</p>
 <p>Continuar...</p>
@@ -3173,60 +3095,6 @@ content: A saída do código é <code>Olá-Mundo</code> porque o argumento <code
 <span class="n">resultado3</span> <span class="o">=</span> <span class="ow">not</span> <span class="kc">True</span>  <span class="c1"># False</span>
 </code></pre></div>
 <h3 id="exercicios-sobre-operadores">Exercícios sobre Operadores<a class="headerlink" href="#exercicios-sobre-operadores" title="Permanent link">&para;</a></h3>
-<?quiz?>
-<p>question: Qual é o resultado da seguinte operação: <code>10 % 3</code>?
-answer: 3
-answer: 0
-answer-correct: 1
-answer: 10
-content: O resultado da operação <code>10 % 3</code> é <code>1</code>.</p>
-<?/quiz?>
-
-<?quiz?>
-<p>question: Se <code>x = 5</code> e <code>y = 3</code>, qual é o valor de <code>x ** y</code>?
-answer: 8
-answer: 15
-answer-correct: 125
-answer: 2
-content: O valor de <code>x ** y</code> é <code>125</code>.</p>
-<?/quiz?>
-
-<?quiz?>
-<p>question: Qual é o resultado da seguinte expressão: <code>5 &gt; 3 and 5 &lt; 10</code>?
-answer-correct: True
-answer: False
-answer: None
-answer: Error
-content: O resultado da expressão <code>5 &gt; 3 and 5 &lt; 10</code> é <code>True</code>.</p>
-<?/quiz?>
-
-<?quiz?>
-<p>question: Qual é o resultado da seguinte operação: <code>7 // 3</code>?
-answer-correct: 2
-answer: 2.33
-answer: 3
-answer: 1
-content: O resultado da operação <code>7 // 3</code> é <code>2</code>, pois <code>//</code> é o operador de divisão inteira.</p>
-<?/quiz?>
-
-<?quiz?>
-<p>question: Dado <code>x = 10</code> e <code>y = 3</code>, qual é o valor de <code>x != y</code>?
-answer-correct: True
-answer: False
-answer: None
-answer: Error
-content: A expressão <code>x != y</code> verifica se <code>x</code> é diferente de <code>y</code>. Como 10 é diferente de 3, o resultado é <code>True</code>.</p>
-<?/quiz?>
-
-<?quiz?>
-<p>question: Qual é o resultado da seguinte expressão: <code>not (5 &lt;= 3)</code>?
-answer-correct: True
-answer: False
-answer: None
-answer: Error
-content: A expressão <code>5 &lt;= 3</code> é <code>False</code>, mas o operador <code>not</code> inverte o valor booleano. Portanto, o resultado é <code>True</code>.</p>
-<?/quiz?>
-
 <div class="admonition progress">
 <p class="admonition-title">Progress</p>
 <p>Continuar...</p>
@@ -3273,7 +3141,117 @@ $$</p>
 <span class="n">A</span> <span class="o">=</span> <span class="n">P</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">r</span><span class="o">/</span><span class="mi">12</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">12</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="c1"># equação de juros compostos</span>
 <span class="n">A</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># arredonda o valor com 2 casas decimais</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total após &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; anos: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
-</code></pre></div>
+</code></pre></div><style type="text/css">.quiz {
+  border: 1px solid black;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+/* Set margin-top of first quiz child */
+.quiz > *:first-child {
+  margin-top: 0;
+}
+.hidden {
+  display: none;
+}
+
+form button {
+  background-color: var(--md-primary-fg-color);
+  border: none;
+  color: var(--md-primary-bg-color);
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.8rem;
+}
+
+.wrong label {
+  color: red;
+}
+.correct label {
+  color: green;
+}
+
+fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+}
+fieldset input {
+  margin: 0 10px;
+}
+fieldset label {
+  margin: 0 10px;
+}
+
+label.correct {
+  color: green;
+}
+label.wrong {
+  color: red;
+}
+input[type='radio'].correct {
+  accent-color: green;
+}
+input[type='radio'].wrong {
+  accent-color: red;
+}
+.content {
+  margin: 10px;
+}
+</style><script type="text/javascript" defer>document.querySelectorAll('.quiz').forEach((quiz) => {
+  let form = quiz.querySelector('form');
+  let fieldset = form.querySelector('fieldset');
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    let selectedAnswers = form.querySelectorAll('input[name="answer"]:checked');
+    let correctAnswers = fieldset.querySelectorAll(
+      'input[name="answer"][correct]'
+    );
+    // Check if all correct answers are selected
+    let is_correct = selectedAnswers.length === correctAnswers.length;
+    for (let i = 0; i < selectedAnswers.length; i++) {
+      if (!selectedAnswers[i].hasAttribute('correct')) {
+        is_correct = false;
+        break;
+      }
+    }
+    let section = quiz.querySelector('section');
+    if (is_correct) {
+      section.classList.remove('hidden');
+      resetFieldset(fieldset);
+      // Mark all fields with colors
+      const allAnswers = fieldset.querySelectorAll('input[name="answer"]');
+      for (let i = 0; i < allAnswers.length; i++) {
+        if (allAnswers[i].hasAttribute('correct')) {
+          allAnswers[i].parentElement.classList.add('correct');
+        } else {
+          allAnswers[i].parentElement.classList.add('wrong');
+        }
+      }
+    } else {
+      section.classList.add('hidden');
+      resetFieldset(fieldset);
+      // Mark wrong fields with colors
+      for (let i = 0; i < selectedAnswers.length; i++) {
+        if (!selectedAnswers[i].hasAttribute('correct')) {
+          selectedAnswers[i].parentElement.classList.add('wrong');
+        } else {
+          selectedAnswers[i].parentElement.classList.add('correct');
+        }
+      }
+    }
+  });
+});
+
+function resetFieldset(fieldset) {
+  const fieldsetChildren = fieldset.children;
+  for (let i = 0; i < fieldsetChildren.length; i++) {
+    fieldsetChildren[i].classList.remove('wrong');
+    fieldsetChildren[i].classList.remove('correct');
+  }
+}
+</script>
 
 
 
@@ -3294,7 +3272,7 @@ $$</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 8, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 11, 2024</span>
   </span>
 
     
@@ -3351,10 +3329,6 @@ $$</p>
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-      
-        <script src="https://cdn.jsdelivr.net/gh/insper-education/active-handout-plugins-js@main/package/plugin-bundle.js"></script>
-      
-        <script src="../../../search/main.js"></script>
       
         <script src="../../../termynal.js"></script>
       
