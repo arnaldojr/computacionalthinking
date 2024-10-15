@@ -38,12 +38,6 @@ print(misturada[2][1])  # ATENCÃO nesta Saída: 3
     Em python assim como em outras linguagens de programação, começamos a contar o indice a partir de zero, isso significa que o valor da primeira posição da lista possui indice `0` (zero).
 
 
-
-
-!!! progress
-    Continuar...
-
-
 Quando criamos uma lista em Python, além de poder manipular essa estrutura pelo seu indice, ela já vem equipada com diversos métodos predefinidos que nos ajudam a operar e manipular essa estrutura de forma mais facil, vamos ver alguns deles.
 
 ### Adição, Remoção e Alteração de Elementos
@@ -64,7 +58,6 @@ frutas.append("uva")
 frutas.insert(1, "laranja")
 ```
 
-
 #### Remoção
 
 Método para remoção de item da lista:
@@ -83,8 +76,6 @@ frutas.pop()
 frutas.clear()
 ```
 
-
-
 #### Alteração
 
 Você pode alterar um item referenciando seu índice.
@@ -92,8 +83,6 @@ Você pode alterar um item referenciando seu índice.
 ```python
 frutas[0] = "manga"
 ```
-
-
 
 ### Métodos mais utilizados de Listas
 
@@ -137,12 +126,6 @@ print(msg)
 ```
 Neste código estamos usando a expressão `[nome, senha] in usuarios` para verificar se a combinação de nome e senha existe na lista usuarios. Esta expressão retornará True se a combinação for encontrada e False caso contrário.
 
-    
-!!! progress
-    Continuar...
-
-
-
 
 ### Fatiamento (slices)
 
@@ -173,7 +156,6 @@ sub_lista = números[2:7]  # [2, 3, 4, 5, 6]
 ```
 
 
-
 juntando as coisas, varrendo uma lista com while. Exemplo de como usar um loop while para iterar através de uma lista
 
 ```python 
@@ -185,10 +167,6 @@ while i < len(primos):
 ```
 
 Esse é um exemplo básico de como usar um loop while para iterar através de uma lista em Python. No entanto, em muitos casos, um `loop for` seria uma escolha mais razoável para essa tarefa.
-
-
-!!! progress
-    Continuar...
 
 
 ## Tuplas
@@ -237,8 +215,6 @@ print(tupla[1])  # Saída: 20
 
 ```
 
-
-
 ### Imutabilidade das Tuplas
 
 A principal característica das tuplas é sua imutabilidade:
@@ -281,8 +257,6 @@ Várias funções que funcionam com listas também são aplicáveis às tuplas:
 - max(tupla): Retorna o maior item da tupla.
 
 
-
-
 ## E agora qual eu escolho?? Por que usar Listas ou Tuplas?
 
 Estudamos duas estruturas de dados muito utlizadas em programação, mas... Você pode se perguntar: `"Por que usar tuplas se as listas são mais flexíveis?"`. 
@@ -312,11 +286,3 @@ Em geral, as tuplas são usadas em situações onde a imutabilidade é necessár
 | Coletar e processar dados em tempo real                | Lista   | Dados podem precisar ser constantemente atualizados, adicionados ou removidos.                               |
 | Retorno de múltiplos valores de função                 | Tupla   | Retorna um grupo fixo de valores que representam diferentes coisas.                                         |
 | Edição de Strings por Caractere                        | Lista   | Strings são imutáveis em Python, então para edição eficiente é convertido para lista e depois de volta para string. |
-
-
-
-
--------- estou testando essa ferramenta, ficou legal? --------
-
-
-<iframe title="Lista" width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=list1%20%3D%20%5B%22Let's%20%22,%20%22Rock%20%22,%20%22the%20Future!%22%5D%0Alist2%20%3D%20%5B'FIAP',%20'e',%20'pensamento',%20'computacional'%5D%0Aprint%28'%20'.join%28list1%20%2B%20list2%29%29%0AmyTuple%20%3D%20%28'Aprendendo',%20'programa%C3%A7%C3%A3o%20juntos'%29%0Aprint%28'%20'.join%28myTuple%29%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
