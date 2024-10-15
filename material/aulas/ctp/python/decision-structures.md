@@ -19,27 +19,27 @@ Estes operadores são usados para comparar valores:
 
 ### Exercícios sobre Operadores de Comparação
 
-!!! exercise choice "Questão"
-    Dado `x = 5` e `y = 10`, qual das seguintes afirmações é verdadeira?
-    
-    - [x] `x < y`
-    - [ ] `x > y`
-    - [ ] `x == y`
-    - [ ] `x >= y`
+<?quiz?>
 
-    !!! answer
-        `x < y` é verdadeiro porque 5 é menor que 10.
+question: Dado `x = 5` e `y = 10`, qual das seguintes afirmações é verdadeira?
+answer-correct: `x < y`
+answer: `x > y`
+answer: `x == y`
+answer: `x >= y`
+content:
+`x < y` é verdadeiro porque 5 é menor que 10.
+<?/quiz?>
 
-!!! exercise choice "Questão"
-    Se `a = "hello"` e `b = "world"`, qual das seguintes condições é verdadeira?
-    
-    - [ ] `a == b`
-    - [x] `a != b`
-    - [ ] `a > b`
-    - [ ] `a < b`
+<?quiz?>
 
-    !!! answer
-        `a != b` é verdadeiro porque "hello" é diferente de "world".
+question: Se `a = "hello"` e `b = "world"`, qual das seguintes condições é verdadeira?
+answer: `a == b`
+answer-correct: `a != b`
+answer: `a > b`
+answer: `a < b`
+content:
+`a != b` é verdadeiro porque "hello" é diferente de "world".
+<?/quiz?>
 
 #### Operadores Lógicos
 
@@ -51,27 +51,27 @@ Estes operadores são usados para combinar condições:
 
 ### Exercícios sobre Operadores Lógicos
 
-!!! exercise choice "Questão"
-    Dado `x = True` e `y = False`, qual das seguintes expressões retorna `True`?
-    
-    - [x] `x and not y`
-    - [ ] `not x and y`
-    - [ ] `x and y`
-    - [ ] `not x or y`
+<?quiz?>
 
-    !!! answer
-        `x and not y` retorna `True` porque `x` é verdadeiro e `y` é falso (e `not y` é verdadeiro).
+question: Dado `x = True` e `y = False`, qual das seguintes expressões retorna `True`?
+answer-correct: `x and not y`
+answer: `not x and y`
+answer: `x and y`
+answer: `not x or y`
+content:
+`x and not y` retorna `True` porque `x` é verdadeiro e `y` é falso (e `not y` é verdadeiro).
+<?/quiz?>
 
-!!! exercise choice "Questão"
-    Se `m = False` e `n = False`, qual das seguintes expressões é `True`?
-    
-    - [ ] `m and n`
-    - [ ] `m or n`
-    - [x] `not m and not n`
-    - [ ] `not m or n`
+<?quiz?>
 
-    !!! answer
-        `not m and not n` é verdadeiro porque ambos `m` e `n` são falsos e a negação de ambos é verdadeira.
+question: Se `m = False` e `n = False`, qual das seguintes expressões é `True`?
+answer: `m and n`
+answer: `m or n`
+answer-correct: `not m and not n`
+answer: `not m or n`
+content:
+`not m and not n` é verdadeiro porque ambos `m` e `n` são falsos e a negação de ambos é verdadeira.
+<?/quiz?>
 
 
 !!! progress
@@ -90,25 +90,26 @@ if temperatura > 25:
 
 ### Exercícios sobre `if`
 
-!!! exercise choice "Questão"
-    Qual será a saída do seguinte código se `valor = 50`?
-    
-    ```python
-    a = 10
-    valor = a
-    valor = a**2
-    if valor < 100:
-        print("Baixo")
-
-    ```
-    
-    - [ ] `Alto`
-    - [ ] `Baixo`
-    - [x] Não haverá saída
-    - [ ] Ocorrerá um erro
-
-    !!! answer
-        Não tem saída pois o valor é igual a 100.
+```quiz
+{
+    "questao": "Qual será a saída do seguinte código se `valor = 50`?",
+    "opcoes": {
+        "a": "`Alto`",
+        "b": "`Baixo`",
+        "c": "Não haverá saída",
+        "d": "Ocorrerá um erro",
+    },
+    "correta": "c",
+    "code": """
+```python
+a = 10
+valor = a
+valor = a**2
+if valor < 100:
+    print("Baixo")
+```"""
+}
+```
 
 ### A Estrutura `else`
 
@@ -116,34 +117,36 @@ O `else` captura qualquer condição que não tenha sido capturada pelas cláusu
 
 ### Exercícios sobre `else`
 
-!!! exercise choice "Questão"
-    Dado o código abaixo, qual será a saída se `num = 10`?
-    
-    ```python
-    if num % 2 == 0:
-        print("Par")
-    else:
-        print("Ímpar")
-    ```
-    
-    - [x] `Par`
-    - [ ] `Ímpar`
-    - [ ] Não haverá saída
-    - [ ] Ocorrerá um erro
+```quiz
+{
+    "questao": "Dado o código abaixo, qual será a saída se `num = 10`?",
+    "opcoes": {
+        "a": "`Par`",
+        "b": "`Impar`",
+        "c": "Não haverá saída",
+        "d": "Ocorrerá um erro",
+    },
+    "correta": "a",
+    "code": """
+```python
+if num % 2 == 0:
+    print("Par")
+else:
+    print("Ímpar")
+```"""
+}
+```
 
-    !!! answer
-        A saída será `Par` porque 10 é divisível por 2.
+<?quiz?>
 
-!!! exercise choice "Questão"
-    Usando o mesmo código, qual será a saída se `num = 15`?
-    
-    - [ ] `Par`
-    - [x] `Ímpar`
-    - [ ] Não haverá saída
-    - [ ] Ocorrerá um erro
-
-    !!! answer
-        A saída será `Ímpar` porque 15 não é divisível por 2.
+question: Usando o mesmo código, qual será a saída se `num = 15`?
+answer: `Par`
+answer-correct: `Ímpar`
+answer: Não haverá saída
+answer: Ocorrerá um erro
+content:
+A saída será `Ímpar` porque 15 não é divisível por 2.
+<?/quiz?>
 
 
 ### A Estrutura `elif`
@@ -162,42 +165,41 @@ else:
 
 ### Exercícios sobre `elif`
 
-!!! exercise choice "Questão"
-    Dado o código abaixo, qual será a saída se `pontos = 75`?
-    
+```quiz
+{
+    "questao": "Dado o código abaixo, qual será a saída se `pontos = 75`?",
+    "opcoes": {
+        "a": "`Bom!`",
+        "b": "`Excelente!`",
+        "c": "Tente novamente",
+        "d": "Muito bom!",
+    },
+    "correta": "a",
+    "code": """
     ```python
-    if pontos > 90:
-        print("Excelente!")
-    elif pontos > 80:
-        print("Muito bom!")
-    elif pontos > 70:
-        print("Bom!")
-    else:
-        print("Tente novamente")
-    ```
-    
-    - [ ] `Excelente!`
-    - [ ] `Muito bom!`
-    - [x] `Bom!`
-    - [ ] `Tente novamente`
-
-    !!! answer
-        A saída será `Bom!` porque 75 é maior que 70 mas menor que 80.
-
-!!! exercise choice "Questão"
-    Considerando o código acima, qual será a saída se `pontos = 50`?
-    
-    - [ ] `Excelente!`
-    - [ ] `Muito bom!`
-    - [ ] `Bom!`
-    - [x] `Tente novamente`
-
-    !!! answer
-        A saída será `Tente novamente` porque 50 é menor do que todos os pontos de corte especificados.
+if pontos > 90:
+    print("Excelente!")
+elif pontos > 80:
+    print("Muito bom!")
+elif pontos > 70:
+    print("Bom!")
+else:
+    print("Tente novamente")
+```"""
+}
+```
 
 
-!!! progress
-    Continuar...
+<?quiz?>
+
+question: Considerando o código da questão anterior, qual será a saída se `pontos = 50`?
+answer: `Excelente!`
+answer: `Muito bom!`
+answer: `Bom!`
+answer-correct: `Tente novamente`
+content:
+A saída será `Tente novamente` porque 50 é menor do que todos os pontos de corte especificados.
+<?/quiz?>
 
 
 ### Aninhamento
@@ -219,16 +221,16 @@ else:
 
 ### Exercícios sobre Aninhamento
 
-!!! exercise choice "Questão"
-    Usando o código acima, qual será a saída se `idade = 13` e `acompanhado = False`?
-    
-    - [ ] `Menor de idade, mas está acompanhado.`
-    - [x] `Menor de idade e desacompanhado.`
-    - [ ] `Maior de idade.`
-    - [ ] Não haverá saída
+<?quiz?>
 
-    !!! answer
-        A saída será `Menor de idade e desacompanhado.` porque a idade é menor que 18 e a variável `acompanhado` é `False`.
+question: Usando o código acima, qual será a saída se `idade = 13` e `acompanhado = False`?
+answer: `Menor de idade, mas está acompanhado.`
+answer-correct: `Menor de idade e desacompanhado.`
+answer: `Maior de idade.`
+answer: Não haverá saída
+content:
+A saída será `Menor de idade e desacompanhado.` porque a idade é menor que 18 e a variável `acompanhado` é `False`.
+<?/quiz?>
 
 ### Dicas e Boas Práticas
 

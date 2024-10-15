@@ -2,50 +2,6 @@
 
 O Python é uma linguagem de tipagem dinÂmica, ou seja, o tipo de uma variável é determinado em tempo de execução, com base no valor que ela contém. Isso significa que as variáveis não precisam ser explicitamente declaradas com um tipo específico. 
 
-```quiz
-{
-    "questao": "09 - Dentro do nosso teste, qual a função da chamada na linha em destaque?",
-	"opcoes": {
-		"a": "assert",
-		"b": "arrange",
-		"c": "act",
-	},
-	"correta": "c",
-	"code" : """
-```python hl_lines="4"
-def test_root_deve_retornar_ok_e_ola_mundo():
-    client = TestClient(app)
-
-    response = client.get('/')
-
-    assert response.status_code == HTTPStatus.OK
-    assert response.json() == {'message': 'Olá Mundo!'}
-```"""
-}
-```
-<?quiz?>
-
-question: Are you ready?
-answer-correct: Yes!
-answer: No!
-answer-correct: Maybe!
-content:
-tste
-<?/quiz?>
-
-
-
-<?quiz?>
-
-question: Are you ready?
-answer-correct: Yes!
-answer: No!
-answer-correct: Maybe!
-content:
-
-<h2>Provide some additional content</h2>
-<?/quiz?>
-
 !!! tip
     Vale a pena mensionar que no Python, tudo é considerado um objeto. Isso significa que todos os valores, variáveis, funções e até mesmo tipos de dados são tratados como objetos. Mais adiante no curso vamos voltar e falar mais sobre isso.
 
@@ -96,12 +52,6 @@ verdadeiro = True
 falso = False
 ```
 
-### Exercícios sobre Tipos Primitivos
-
-
-!!! progress
-    Continuar...
-
 ### Variáveis e Atribuição
 
 Variáveis em Python são referências a objetos na memória. A atribuição em Python é dinâmica, o que significa que o tipo de uma variável é determinado em tempo de execução.
@@ -143,16 +93,6 @@ A atribuição aumentada é a combinação, em uma única instrução, de uma op
 | /=       | a /= b  | a = a / b   |
 
 
-
-
-### Exercícios sobre Variáveis e Atribuição
-
-
-
-!!! progress
-    Continuar...
-
-
 ### Conversão de Tipos
 
 Python permite a conversão explícita entre diferentes tipos de dados. Isso é útil quando você precisa operar valores de diferentes tipos juntos.
@@ -168,14 +108,6 @@ numero_float = float(4)  # Resultado: 4.0
 texto_numero = str(25)  # Resultado: '25'
 ```
 
-### Exercícios sobre Conversão de Tipos
-
-
-
-!!! progress
-    Continuar...
-
-
 ### Entrada e Saída
 
 A interação com o usuário é fundamental para muitos programas. Python fornece funções simples para entrada e saída de dados. A função `input()` sempre retorna uma string, se queremos armazenar um valor numerico precisamos converter esse valor.
@@ -184,15 +116,6 @@ A interação com o usuário é fundamental para muitos programas. Python fornec
 nome_usuario = input("Qual é o seu nome? ")
 print(f"Olá, {nome_usuario}!")
 ```
-
-
-### Exercícios sobre Entrada e Saída
-
-
-
-!!! progress
-    Continuar...
-
 
 ### Operadores
 
@@ -301,16 +224,7 @@ resultado2 = True or False  # True
 resultado3 = not True  # False
 ```
 
-### Exercícios sobre Operadores
-
-
-
-
-
-!!! progress
-    Continuar...
-
-### Exercicios problema
+### Exercicio problema
 
 
 Cálculo de Juros Compostos

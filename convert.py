@@ -38,22 +38,16 @@ def convert_structure(exercise_choice):
     return new_structure
 
 # Testar o script com a estrutura original
-original_structure = '''!!! exercise choice "Question"
-    Qual é a saída do código a seguir?
-
-    ```python
-    d = {"a": 1, "b": 2, "c": 3}
-    print(d["b"])
-    ```
-
-    - [ ] 1
-    - [ ] 2
-    - [ ] 3
-    - [x] KeyError
+original_structure = '''!!! exercise choice "Questão"
+    Usando o código acima, qual será a saída se `idade = 13` e `acompanhado = False`?
+    
+    - [ ] `Menor de idade, mas está acompanhado.`
+    - [x] `Menor de idade e desacompanhado.`
+    - [ ] `Maior de idade.`
+    - [ ] Não haverá saída
 
     !!! answer
-        A saída é `2`.
-
+        A saída será `Menor de idade e desacompanhado.` porque a idade é menor que 18 e a variável `acompanhado` é `False`.
 '''
 
 # Gerar o novo formato
