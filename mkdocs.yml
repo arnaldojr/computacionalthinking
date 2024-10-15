@@ -131,6 +131,8 @@ markdown_extensions:
       base_path: code
       check_paths: true
 
+hooks:
+  - hooks/quiz_hook.py
 
 nav:
   - Home: index.md

@@ -19,19 +19,17 @@ Podemos inicializar um dicionário com valores
 pessoa = {"nome": "Alice", "idade": 30, "profissão": "Engenheira"}
 ```
 
-!!! exercise choice "Question"
-    Qual alternativa indica um dicionário?
+<?quiz?>
 
-    - [ ] ['nome': 'arnaldo', 'idade': 10, 'sexo': 'masculino']
-    - [x] {'nome': 'arnaldo', 'idade': 10, 'sexo': 'masculino'}
-    - [ ] ('nome': 'arnaldo'), ('idade': 10), ('sexo': 'masculino')
-    - [ ] [['nome': 'arnaldo'], ['idade': 10], ['sexo': 'masculino']]
+question: Qual alternativa indica um dicionário?
+answer: ['nome': 'arnaldo', 'idade': 10, 'sexo': 'masculino']
+answer-correct: {'nome': 'arnaldo', 'idade': 10, 'sexo': 'masculino'}
+answer: ('nome': 'arnaldo'), ('idade': 10), ('sexo': 'masculino')
+answer: [['nome': 'arnaldo'], ['idade': 10], ['sexo': 'masculino']]
+content:
+A saída é {'nome': 'arnaldo', 'idade': 10, 'sexo': 'masculino'}.
+<?/quiz?>
 
-    !!! answer
-        A saída é {'nome': 'arnaldo', 'idade': 10, 'sexo': 'masculino'}.
-
-!!! progress
-    Continuar...
 
 ### Acesso a Elementos
 
@@ -45,22 +43,23 @@ print(pessoa["idade"])  # Saída: 30
 
 Se tentarmos acessar uma chave que não existe, obteremos um `KeyError`.
 
-!!! exercise choice "Question"
-    Qual é a saída do código a seguir?
-
-    ```python
+```quiz
+{
+    "questao": "Qual é a saída do código a seguir?",
+	"opcoes": {
+		"a": 1,
+		"b": 2,
+		"c": 3,
+        "d": "KeyError",
+	},
+	"correta": "b",
+	"code" : """
+```python
     d = {"a": 1, "b": 2, "c": 3}
     print(d["b"])
-    ```
-
-    - [ ] 1
-    - [x] 2
-    - [ ] 3
-    - [ ] KeyError
-
-    !!! answer
-        A saída é `2`.
-
+```"""
+}
+```
 
 ### Adição, Remoção e Alteração de Elementos
 
@@ -98,63 +97,52 @@ del pessoa["nome"]
 ```
 Após a execução deste código, a chave "nome" e seu valor associado serão removidos do dicionário pessoa, deixando-o vazio.
 
+```quiz
+{
+    "questao": "Qual é a saída do código a seguir?",
+	"opcoes": {
+		"a": "Engenharia",
+		"b": "Matemática",
+		"c": 20,
+        "d": "Dra. Fernanda",
+	},
+	"correta": "b",
+	"code" : """
+```python
+dados = {
+    "alunos": {
+        "Ana": {"idade": 20, "curso": "Engenharia"},
+        "Pedro": {"idade": 25, "curso": "Matemática"},
+    },
+    "professores": {
+        "Dr. Silva": {"idade": 40, "disciplina": "Física"},
+        "Dra. Fernanda": {"idade": 35, "disciplina": "Química"},
+    },
+}
+print(dados["alunos"]["Pedro"]["curso"])
+```"""
+}
+```
+```quiz
+{
+    "questao": "Qual é a saída do código a seguir?",
+	"opcoes": {
+		"a": 1,
+		"b": 3,
+		"c": 4,
+        "d": 5,
+	},
+	"correta": "b",
+	"code" : """
+```python
+d1 = {"a": 1, "b": 2, "c": 3} 
+d2 = {"b": 3, "c": 4, "d": 5}
 
-!!! exercise choice "Question"
-    Dado o dicionário:
-    
-    ```python
-    dados = {
-        "alunos": {
-            "Ana": {"idade": 20, "curso": "Engenharia"},
-            "Pedro": {"idade": 25, "curso": "Matemática"},
-        },
-        "professores": {
-            "Dr. Silva": {"idade": 40, "disciplina": "Física"},
-            "Dra. Fernanda": {"idade": 35, "disciplina": "Química"},
-        },
-    }
-    ```
+d1.update(d2) 
+```"""
+}
+```
 
-    Qual será a saída do código a seguir?
-
-
-    ```python
-    print(dados["alunos"]["Pedro"]["curso"])
-    ```
-
-    - [ ] Engenharia
-    - [ ] Física
-    - [x] Matemática
-    - [ ] Química
-    
-    !!! answer
-        A saída é `Matemática`, pois estamos acessando o curso do aluno "Pedro" no dicionário aninhado.
-
-
-!!! exercise choice "Question"
-    Considere os dicionários:
-    
-    ```python 
-    d1 = {"a": 1, "b": 2, "c": 3} 
-    d2 = {"b": 3, "c": 4, "d": 5} 
-    ```
-    
-    Após executar o código a seguir, qual será o valor associado à chave "b" em d1?
-    
-    ```python 
-    d1.update(d2) 
-    ```
-    
-    - [ ] 1
-    - [x] 3
-    - [ ] 4
-    - [ ] 5
-   
-    !!! answer
-        O valor associado à chave "b" em `d1` será `3`, pois o método `update()` atualiza o dicionário `d1` com os pares chave-valor de `d2`, sobrescrevendo valores de chaves existentes em `d1`.
-
-!!! progress
-    Continuar...
 
 ### Métodos mais utilizados de Dicionários
 
@@ -203,54 +191,41 @@ print(cidade)  # Saída: Não especificado
     Note que usar `d["cidade"]` diretamente causaria um `KeyError`, mas com `get()`, evitamos esse erro e temos uma saída controlada.
 
 
-!!! exercise choice "Question"
-    Dado o dicionário:
+```quiz
+{
+    "questao": "Dado o dicionário:\n\n```python\nprodutos = {\n    \"maçã\": {\"preço\": 0.5, \"estoque\": 100},\n    \"banana\": {\"preço\": 0.3, \"estoque\": 50},\n    \"cereja\": {\"preço\": 2.0, \"estoque\": 20}\n}\n```\n\nQual será a saída do código a seguir?",
+    "opcoes": {
+        "a": "0.5",
+        "b": "0.3",
+        "c": "2.0",
+        "d": "Produto não encontrado"
+    },
+    "correta": "d",
+    "code": """
+```python
+print(produtos.get("pêssego", {}).get("preço", "Produto não encontrado"))
+```"""
+}
+```
 
-    ```python 
-    produtos = { "maçã": {"preço": 0.5, "estoque": 100},"banana": {"preço": 0.3, "estoque": 50}, "cereja": {"preço": 2.0, "estoque": 20} } 
-    ```
-
-    Qual será a saída do código a seguir?
-
-    ```python 
-    print(produtos.get("pêssego", {}).get("preço", "Produto não encontrado"))
-    ```
-
-    - [ ] 0.5
-    - [ ] 0.3
-    - [ ] 2.0
-    - [x] Produto não encontrado
-
-    !!! answer
-        A saída é `Produto não encontrado`. O método `get()` tenta buscar a chave "pêssego", que não existe no dicionário `produtos`. Como resultado, ele retorna um dicionário vazio (`{}`). O segundo `get()` tenta buscar a chave "preço" neste dicionário vazio e, como ela não existe, retorna a string "Produto não encontrado".
-
-
-!!! exercise choice "Question"
-    Considerando o seguinte dicionário:
-
-    ```python 
-    alunos = { "Ana": [8.5, 9.0, 7.5], "Pedro": [6.0, 7.0, 8.0], "Mariana": [9.5, 8.5, 9.0] } 
-    ```
-
-    Após executar o código abaixo, qual será a saída?
-
-    ```python 
-    notas = alunos.get("Ana") 
-    media = sum(notas) / len(notas)
-    print(media)
-    ```
-
-    - [x] 8.33
-    - [ ] 7.0
-    - [ ] 8.5
-    - [ ] 9.0
-
-    !!! answer
-        A média das notas de "Ana" é (8.5 + 9.0 + 7.5)/3 = 8.33. Portanto, a saída correta é 8.33.
-
- 
-!!! progress
-    Continuar...       
+```quiz
+{
+    "questao": "Considerando o seguinte dicionário:\n\n```python\nalunos = {\n    \"Ana\": [8.5, 9.0, 7.5],\n    \"Pedro\": [6.0, 7.0, 8.0],\n    \"Mariana\": [9.5, 8.5, 9.0]\n}\n```\n\nApós executar o código abaixo, qual será a saída?",
+    "opcoes": {
+        "a": "8.33",
+        "b": "7.0",
+        "c": "8.5",
+        "d": "9.0"
+    },
+    "correta": "a",
+    "code": """
+```python
+notas = alunos.get("Ana") 
+media = sum(notas) / len(notas)
+print(media)
+```"""
+}
+```     
 
 ### Iterando em Dicionários
 
@@ -275,10 +250,6 @@ for chave, valor in pessoa.items():
 
 !!! Tip
     Ao usar o método `items()` em um dicionário e `desempacotar` os resultados em `chave` e `valor`, você obtém acesso direto a ambos os componentes do `par chave-valor` durante a iteração.
-
-
-!!! progress
-    Continuar...
 
 
 ### Aninhamento em Dicionários
@@ -372,50 +343,25 @@ produtos = [produto for produto in produtos if produto["nome"] != "tênis"]
 
 Este último exemplo utiliza `list comprehension` para criar uma nova lista, excluindo o produto cujo nome é "tênis".
 
-!!! exercise choice "Question"
-    Considerando a seguinte lista de dicionários `biblioteca`:
-    
-    ```python
-    biblioteca = [
-        {
-            "título": "Orgulho e Preconceito",
-            "autor": "Jane Austen",
-            "ano": 1813,
-            "categoria": "Romance"
-        },
-        {
-            "título": "1984",
-            "autor": "George Orwell",
-            "ano": 1949,
-            "categoria": "Ficção distópica"
-        },
-        {
-            "título": "Moby Dick",
-            "autor": "Herman Melville",
-            "ano": 1851,
-            "categoria": "Aventura"
-        }
-    ]
-    ```
-    
-    Após executar o código abaixo, qual será a saída?
-    
+```quiz
+{
+    "questao": "Considerando a seguinte lista de dicionários:\n\n```python\nbiblioteca = [\n    {\n        \"título\": \"Orgulho e Preconceito\",\n        \"autor\": \"Jane Austen\",\n        \"ano\": 1813,\n        \"categoria\": \"Romance\"\n    },\n    {\n        \"título\": \"1984\",\n        \"autor\": \"George Orwell\",\n        \"ano\": 1949,\n        \"categoria\": \"Ficção distópica\"\n    },\n    {\n        \"título\": \"Moby Dick\",\n        \"autor\": \"Herman Melville\",\n        \"ano\": 1851,\n        \"categoria\": \"Aventura\"\n    }\n]\n```\n\nApós executar o código abaixo, qual será a saída?",
+    "opcoes": {
+        "a": "[\"Orgulho e Preconceito\"]",
+        "b": "[\"Orgulho e Preconceito\", \"1984\"]",
+        "c": "[\"Moby Dick\", \"1984\"]",
+        "d": "[\"Moby Dick\"]"
+    },
+    "correta": "a",
+    "code": """
     ```python
     resultado = [livro["título"] for livro in biblioteca if livro["categoria"] == "Romance"]
     print(resultado)
     ```
-    
-    - [x] ["Orgulho e Preconceito"]
-    - [ ] ["Orgulho e Preconceito", "1984"]
-    - [ ] ["Moby Dick", "1984"]
-    - [ ] ["Moby Dick"]
-    
-    !!! answer
-        O código está utilizando list comprehension para filtrar livros da categoria "Romance". O único livro desta categoria na lista `biblioteca` é "Orgulho e Preconceito". Portanto, a saída correta é ["Orgulho e Preconceito"].
-    
+    """
+}
+```
 
-!!! progress
-    Continuar...
 
 ## Conjuntos em Python
 
@@ -471,16 +417,24 @@ for fruta in frutas:
     print(fruta)
 ```
 
-!!! exercise choice "Question"
-    Considere os conjuntos `a = {1, 2, 3, 4}` e `b = {3, 4, 5, 6}`. Qual é a saída de `print(a & b)`?
-
-    - [ ] {1, 2}
-    - [ ] {5, 6}
-    - [x] {3, 4}
-    - [ ] {1, 2, 3, 4, 5, 6}
-
-    !!! answer
-        A saída é {3, 4} porque essa é a interseção dos conjuntos `a` e `b`.
+```quiz
+{
+    "questao": "Considere os conjuntos `a` e `b` definidos abaixo. Qual é a saída do código?",
+    "opcoes": {
+        "a": "{1, 2}",
+        "b": "{5, 6}",
+        "c": "{3, 4}",
+        "d": "{1, 2, 3, 4, 5, 6}"
+    },
+    "correta": "c",
+    "code": """
+```python
+a = {1, 2, 3, 4}
+b = {3, 4, 5, 6}
+print(a & b)
+```"""
+}
+```
 
 
 
