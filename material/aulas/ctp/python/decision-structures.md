@@ -22,10 +22,10 @@ Estes operadores são usados para comparar valores:
 <?quiz?>
 
 question: Dado `x = 5` e `y = 10`, qual das seguintes afirmações é verdadeira?
-answer-correct: `x < y`
-answer: `x > y`
-answer: `x == y`
-answer: `x >= y`
+answer-correct: x < y
+answer: x > y
+answer: x == y
+answer: x >= y
 content:
 `x < y` é verdadeiro porque 5 é menor que 10.
 <?/quiz?>
@@ -33,10 +33,10 @@ content:
 <?quiz?>
 
 question: Se `a = "hello"` e `b = "world"`, qual das seguintes condições é verdadeira?
-answer: `a == b`
-answer-correct: `a != b`
-answer: `a > b`
-answer: `a < b`
+answer: a == b
+answer-correct: a != b
+answer: a > b
+answer: a < b
 content:
 `a != b` é verdadeiro porque "hello" é diferente de "world".
 <?/quiz?>
@@ -54,10 +54,10 @@ Estes operadores são usados para combinar condições:
 <?quiz?>
 
 question: Dado `x = True` e `y = False`, qual das seguintes expressões retorna `True`?
-answer-correct: `x and not y`
-answer: `not x and y`
-answer: `x and y`
-answer: `not x or y`
+answer-correct: x and not y
+answer: not x and y
+answer: x and y
+answer: not x or y
 content:
 `x and not y` retorna `True` porque `x` é verdadeiro e `y` é falso (e `not y` é verdadeiro).
 <?/quiz?>
@@ -65,17 +65,13 @@ content:
 <?quiz?>
 
 question: Se `m = False` e `n = False`, qual das seguintes expressões é `True`?
-answer: `m and n`
-answer: `m or n`
-answer-correct: `not m and not n`
-answer: `not m or n`
+answer: m and n
+answer: m or n
+answer-correct: not m and not n
+answer: not m or n
 content:
 `not m and not n` é verdadeiro porque ambos `m` e `n` são falsos e a negação de ambos é verdadeira.
 <?/quiz?>
-
-
-!!! progress
-    Continuar...
 
 
 ### A Estrutura `if`
@@ -117,6 +113,7 @@ O `else` captura qualquer condição que não tenha sido capturada pelas cláusu
 
 ### Exercícios sobre `else`
 
+
 ```quiz
 {
     "questao": "Dado o código abaixo, qual será a saída se `num = 10`?",
@@ -136,6 +133,7 @@ else:
 ```"""
 }
 ```
+
 
 <?quiz?>
 
