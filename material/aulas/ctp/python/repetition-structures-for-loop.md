@@ -26,20 +26,16 @@ Na sintaxe do comando for, temos que:
 
 
 
-!!! exercise choice "Question"
-    Qual das alternativas apresenta corretamente a sintaxe básica do laço `for` em Python?
+<?quiz?>
 
-    - [x] for variavel in sequencia:
-              # bloco de código
-    - [ ] for variavel; sequencia:
-              # bloco de código
-    - [ ] for variavel = sequencia:
-              # bloco de código
-    - [ ] for (variavel in sequencia):
-              # bloco de código
-
-    !!! answer
-        A sintaxe correta do laço `for` em Python é `for variavel in sequencia:` seguido de um bloco de código indentado.
+question: Qual das alternativas apresenta corretamente a sintaxe básica do laço `for` em Python?
+answer-correct: for variavel in sequencia:
+answer: for variavel; sequencia:
+answer: for variavel = sequencia:
+answer: for (variavel in sequencia):
+content:
+A sintaxe correta do laço `for` em Python é `for variavel in sequencia:` seguido de um bloco de código indentado.
+<?/quiz?>
 
 
 ## Iterando sobre Sequências
@@ -72,16 +68,16 @@ for item in minha_lista:
 ```
 Nesse exemplo a cada iteração do laço for um item da lista `minha_lista` é printado.
 
-!!! exercise choice "Question"
-    Qual das alternativas apresenta corretamente a iteração sobre uma string em Python?
+<?quiz?>
 
-    - [ ] for letra in "Python": print letra
-    - [x] for letra in "Python": print(letra)
-    - [ ] for "Python" as letra: print(letra)
-    - [ ] for letra print("Python")
-
-    !!! answer
-        Para iterar sobre uma string em Python, usamos a sintaxe `for letra in "Python": print(letra)`.
+question: Qual das alternativas apresenta corretamente a iteração sobre uma string em Python?
+answer: for letra in "Python": print letra
+answer-correct: for letra in "Python": print(letra)
+answer: for "Python" as letra: print(letra)
+answer: for letra print("Python")
+content:
+Para iterar sobre uma string em Python, usamos a sintaxe `for letra in "Python": print(letra)`.
+<?/quiz?>
 
 
 ## Função range()
@@ -123,16 +119,16 @@ for x in range(3,10,2):
 
 ```
 
-!!! exercise choice "Question"
-    Qual das alternativas apresenta corretamente a função `range()` para gerar uma sequência de 0 a 4?
+<?quiz?>
 
-    - [ ] range(0, 5, 2)
-    - [ ] range(1, 5)
-    - [x] range(5)
-    - [ ] range(0, 4)
-
-    !!! answer
-        A função `range(5)` gera uma sequência de números de 0 a 4.
+question: Qual das alternativas apresenta corretamente a função `range()` para gerar uma sequência de 0 a 4?
+answer: range(0, 5, 2)
+answer: range(1, 5)
+answer-correct: range(5)
+answer: range(0, 4)
+content:
+A função `range(5)` gera uma sequência de números de 0 a 4.
+<?/quiz?>
 
 
 ## Diferenças entre `while` e `for`
@@ -180,18 +176,16 @@ for i in range(3):
 
 O loop externo (for i in range(3)) itera sobre os valores 0, 1 e 2. Para cada valor de i, o loop interno (for j in ["a", "b"]) itera sobre as letras "a" e "b". Isso resulta em cada combinação de i e j sendo impressa.
 
-!!! exercise choice "Question"
-    Qual das alternativas apresenta corretamente um laço `for` aninhado?
+<?quiz?>
 
-    - [ ] for i in range(3): print(i, j)
-    - [ ] for i in range(3) for j in ["a", "b"]: print(i)
-    - [x] for i in range(3):
-              for j in ["a", "b"]:
-                  print(i, j)
-    - [ ] for i, j in range(3), ["a", "b"]: print(i, j)
-
-    !!! answer
-        Laços `for` aninhados são representados por um laço `for` dentro de outro, como no exemplo `for i in range(3): for j in ["a", "b"]: print(i, j)`.
+question: Qual das alternativas apresenta corretamente um laço `for` aninhado?
+answer: for i in range(3): print(i, j)
+answer: for i in range(3) for j in ["a", "b"]: print(i)
+answer-correct: for i in range(3): for j in ["a", "b"]: print(i, j)
+answer: for i, j in range(3), ["a", "b"]: print(i, j)
+content:
+Laços `for` aninhados são representados por um laço `for` dentro de outro, como no exemplo `for i in range(3): for j in ["a", "b"]: print(i, j)`.
+<?/quiz?>
 
 
 ### Exemplos
@@ -220,16 +214,16 @@ print(C)
 ```
 
 
-!!! exercise choice "Question"
-    Qual das alternativas apresenta corretamente o resultado do exemplo acima?
+<?quiz?>
 
-    - [ ] [[1, 2], [3, 4]]
-    - [ ] [[2, 0], [1, 3]]
-    - [x] [[4, 6], [10, 12]]
-    - [ ] [[6, 4], [10, 3]]
-
-    !!! answer
-        [[4, 6], [10, 12]]
+question: Qual das alternativas apresenta corretamente o resultado do exemplo acima?
+answer: [[1, 2], [3, 4]]
+answer: [[2, 0], [1, 3]]
+answer-correct: [[4, 6], [10, 12]]
+answer: [[6, 4], [10, 3]]
+content:
+[[4, 6], [10, 12]]
+<?/quiz?>
 
 
 Busca de Pares: Suponha que você tenha uma lista de números e queira encontrar todos os pares de números cuja soma seja 10:
@@ -245,16 +239,16 @@ for i in range(len(numeros)):
 
 print(pares)
 ```
-!!! exercise choice "Question"
-    Qual das alternativas apresenta corretamente o resultado do exemplo acima?
+<?quiz?>
 
-    - [ ] [[1, 9], [3, 7], [4, 6], [5, 5]]
-    - [ ] [1, 9, 3, 7, 4, 6, 5, 5]
-    - [x] [(1, 9), (3, 7), (4, 6), (5, 5)]
-    - [ ] [[1, 9, 3, 7, 4, 6, 5, 5]]
-
-    !!! answer
-        [(1, 9), (3, 7), (4, 6), (5, 5)] # lista de tuplas
+question: Qual das alternativas apresenta corretamente o resultado do exemplo acima?
+answer: [[1, 9], [3, 7], [4, 6], [5, 5]]
+answer: [1, 9, 3, 7, 4, 6, 5, 5]
+answer-correct: [(1, 9), (3, 7), (4, 6), (5, 5)]
+answer: [[1, 9, 3, 7, 4, 6, 5, 5]]
+content:
+[(1, 9), (3, 7), (4, 6), (5, 5)] # lista de tuplas
+<?/quiz?>
 
 
 
@@ -284,16 +278,16 @@ print(quadrados)
 A compreensão da lista está criando uma lista dos quadrados dos números de 0 a 4. A saída seria: [0, 1, 4, 9, 16]
 
 
-!!! exercise choice "Question"
-    Qual das alternativas apresenta corretamente uma compreensão de lista para gerar os quadrados dos números de 0 a 4?
+<?quiz?>
 
-    - [ ] quadrados = [x for x in range(5)]
-    - [ ] quadrados = [x, x**2 for x in range(5)]
-    - [x] quadrados = [x**2 for x in range(5)]
-    - [ ] quadrados = for x in range(5): x**2
-
-    !!! answer
-        A compreensão de lista correta é `quadrados = [x**2 for x in range(5)]`.
+question: Qual das alternativas apresenta corretamente uma compreensão de lista para gerar os quadrados dos números de 0 a 4?
+answer: quadrados = [x for x in range(5)]
+answer: quadrados = [x, x**2 for x in range(5)]
+answer-correct: quadrados = [x**2 for x in range(5)]
+answer: quadrados = for x in range(5): x**2
+content:
+A compreensão de lista correta é `quadrados = [x**2 for x in range(5)]`.
+<?/quiz?>
 
 ### Compreensão de Lista com Condição:
 

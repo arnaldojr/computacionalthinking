@@ -43,62 +43,66 @@ Neste exemplo, o código imprimirá os números de 0 a 4. Quando `contador` atin
 
 ### Exercícios de Verificação
 
-!!! exercise choice "Questão"
-    Qual será a saída do seguinte código?
+```quiz
+{
+    "questao": "Qual será a saída do seguinte código?",
+    "opcoes": {
+        "a": "0 1 2 3",
+        "b": "1 2 3",
+        "c": "3 2 1",
+        "d": "3 2 1 0"
+    },
+    "correta": "c",
+    "code": """
+```python
+i = 3
+while i > 0:
+    print(i)
+    i -= 1
+```"""
+}
+```
 
-    ```python
-    i = 3
-    while i > 0:
-        print(i)
-        i -= 1
-    ```
+```quiz
+{
+    "questao": "Após a execução do código, qual será o valor de `x`?",
+    "opcoes": {
+        "a": "0",
+        "b": "1",
+        "c": "3",
+        "d": "2"
+    },
+    "correta": "a",
+    "code": """
+```python
+x = 10
+while x > 0:
+    x -= 2
 
-    - [x] `3 2 1`
-    - [ ] `0 1 2 3`
-    - [ ] `1 2 3`
-    - [ ] `3 2 1 0`
-    
-    !!! answer
-        A saída será `3 2 1`. O laço começa com `i` sendo 3 e decrementa `i` em cada iteração até que `i` seja 0, momento em que o laço é interrompido.
+print x
+```"""
+}
+```
 
-!!! exercise choice "Questão"
-    Considerando o código:
-
-    ```python
-    x = 10
-    while x > 0:
-        x -= 2
-    
-    print x
-    ```
-
-    Após a execução do código, qual será o valor de `x`?
-
-    - [x] 0
-    - [ ] 1
-    - [ ] 2
-    - [ ] -2
-    
-    !!! answer
-        O valor de `x` será `0`. A cada iteração, `x` é decrementado em 2. Quando `x` é 2, ele é novamente decrementado em 2 na próxima iteração, resultando em `x` sendo `0`, que interrompe o laço.
-
-!!! exercise choice "Questão"
-    No seguinte código, quantas vezes o print será executado?
-
-    ```python
-    y = 5
-    while y < 8:
-        print("Executando...")
-        y += 1
-    ```
-
-    - [ ] 2 vezes
-    - [x] 3 vezes
-    - [ ] 4 vezes
-    - [ ] 5 vezes
-    
-    !!! answer
-        O print será executado 3 vezes. O laço inicia com `y` sendo 5 e termina quando `y` é 8. Portanto, ele será executado para os valores 5, 6 e 7 de `y`.
+```quiz
+{
+    "questao": "No seguinte código, quantas vezes o print será executado?",
+    "opcoes": {
+        "a": "2 vezes",
+        "b": "3 vezes",
+        "c": "4 vezes",
+        "d": "5 vezes"
+    },
+    "correta": "b",
+    "code": """
+```python
+y = 5
+while y < 8:
+    print("Executando...")
+    y += 1
+```"""
+}
+```
 
 
 ### E se não existem os laços de repetição, como seria? 
@@ -116,12 +120,6 @@ def cont(contador):
 cont(0)
 ```
 Neste exemplo, o código imprimirá os números de 0 a 4. Quando `contador` atingir o valor 5, a condição `contador == 5` se tornará verdadeira e será interrompido.
-
-
-
-!!! progress
-    Continuar...
-
 
 
 ### Combinação de `while` com Estruturas de Decisão
@@ -159,16 +157,16 @@ while resposta.lower() == "sim":
     resposta = input("Deseja continuar? (sim/não) ")
 ```
 
-!!! exercise choice "Questão 2"
-    No exemplo de interação com o usuário que multiplica números por 10, se o usuário digitar "SIM" ao ser questionado se deseja continuar, o que acontecerá?
+<?quiz?>
 
-    - [x] O programa solicitará um novo número.
-    - [ ] O programa encerrará.
-    - [ ] O programa mostrará uma mensagem de erro.
-    - [ ] O programa reiniciará.
-
-    !!! answer
-        O programa solicitará um novo número, pois a verificação `resposta.lower() == "sim"` converte a resposta do usuário para minúsculas antes de fazer a comparação.
+question: No exemplo de interação com o usuário que multiplica números por 10, se o usuário digitar "SIM" ao ser questionado se deseja continuar, o que acontecerá?
+answer-correct: O programa solicitará um novo número.
+answer: O programa encerrará.
+answer: O programa mostrará uma mensagem de erro.
+answer: O programa reiniciará.
+content:
+O programa solicitará um novo número, pois a verificação `resposta.lower() == "sim"` converte a resposta do usuário para minúsculas antes de fazer a comparação.
+<?/quiz?>
 
 
 #### Exemplo com Loop Contínuo até Digitar "sair"
@@ -183,16 +181,16 @@ while mensagem != "sair" or "SAIR":
         print(f"Você digitou: {mensagem}")
 ```
 
-!!! exercise choice "Questão"
-    Considerando o exemplo do loop contínuo até digitar "sair", se o usuário digitar "EXIT", qual será o comportamento do programa?
+<?quiz?>
 
-    - [ ] O programa encerrará.
-    - [x] O programa imprimirá "Você digitou: EXIT".
-    - [ ] O programa mostrará uma mensagem de erro.
-    - [ ] O programa reiniciará.
-
-    !!! answer
-        O programa imprimirá "Você digitou: EXIT" e continuará esperando uma nova entrada, pois a palavra-chave para encerrar é "sair" e não "EXIT".
+question: Considerando o exemplo do loop contínuo até digitar "sair", se o usuário digitar "EXIT", qual será o comportamento do programa?
+answer: O programa encerrará.
+answer-correct: O programa imprimirá "Você digitou: EXIT".
+answer: O programa mostrará uma mensagem de erro.
+answer: O programa reiniciará.
+content:
+O programa imprimirá "Você digitou: EXIT" e continuará esperando uma nova entrada, pois a palavra-chave para encerrar é "sair" e não "EXIT".
+<?/quiz?>
 
 
 Aqui, o programa imprimirá as mensagens do usuário até que ele digite "sair".
@@ -200,35 +198,28 @@ Aqui, o programa imprimirá as mensagens do usuário até que ele digite "sair".
 
 ### Exercícios de Verificação
 
-!!! exercise choice "Questão"
-    Dado o seguinte código:
-
-    ```python
-    numero = 0
-    while numero < 5:
-        if numero == 3:
-            print(f"{numero} é meu número favorito!")
-        else:
-            print(f"{numero} é um número comum.")
-        numero += 1
-    ```
-
-    Quantas vezes a mensagem "é meu número favorito!" será impressa?
-
-    - [ ] 0
-    - [X] 1
-    - [ ] 2
-    - [ ] 5
-
-    !!! answer
-        A mensagem "é meu número favorito!" será impressa uma única vez, quando `numero` for igual a 3.
-
-
-!!! progress
-    Continuar...
-
-
-
+```quiz
+{
+    "questao": "Quantas vezes a mensagem "é meu número favorito!" será impressa?",
+    "opcoes": {
+        "a": "4 vezes",
+        "b": "3 vezes",
+        "c": "2 vezes",
+        "d": "1 vez"
+    },
+    "correta": "d",
+    "code": """
+```python
+numero = 0
+while numero < 5:
+    if numero == 3:
+        print(f"{numero} é meu número favorito!")
+    else:
+        print(f"{numero} é um número comum.")
+    numero += 1
+```"""
+}
+```
 
 ### Uso do `break` e `continue` com `while`
 
@@ -275,78 +266,79 @@ Neste exemplo, quando `contador` é igual a 3, a instrução `continue` faz com 
 
 ### Exercícios de Verificação
 
-!!! exercise choice "Questão"
-    Qual será a saída do seguinte código?
+```quiz
+{
+    "questao": "Qual será a saída do seguinte código?",
+    "opcoes": {
+        "a": "1 2 3",
+        "b": "1 2",
+        "c": "1 2 3 4",
+        "d": "2 3"
+    },
+    "correta": "b",
+    "code": """
+```python
+i = 1
+while i < 5:
+    if i == 3:
+        break
+    print(i)
+    i += 1
+```"""
+}
+```
 
-    ```python
-    i = 1
-    while i < 5:
-        if i == 3:
-            break
-        print(i)
-        i += 1
-    ```
+```quiz
+{
+    "questao": "Qual será a saída do seguinte código?",
+    "opcoes": {
+        "a": "1 2 3 4 5",
+        "b": "0 1 2 3 4",
+        "c": "1 2 4 5",
+        "d": "1 2 4 5 6"
+    },
+    "correta": "c",
+    "code": """
+```python
+x = 0
+while x < 5:
+    x += 1
+    if x == 3:
+        continue
+    print(x)
+```"""
+}
+```
 
-    - [ ] `1 2 3`
-    - [x] `1 2`
-    - [ ] `1 2 3 4`
-    - [ ] `2 3`
+```quiz
+{
+    "questao": "No seguinte código, até que valor a variável `y` será incrementada?",
+    "opcoes": {
+        "a": "7",
+        "b": "8",
+        "c": "6",
+        "d": "9"
+    },
+    "correta": "b",
+    "code": """
+```python
+y = 5
+while y < 10:
+    if y == 8:
+        break
+    y += 1
+```"""
+}
+```
 
-    !!! answer
-        A saída será `1 2`. O laço é interrompido assim que `i` é igual a 3 por causa da instrução `break`.
+<?quiz?>
 
-!!! exercise choice "Questão"
-    Qual será a saída do seguinte código?
-
-    ```python
-    x = 0
-    while x < 5:
-        x += 1
-        if x == 3:
-            continue
-        print(x)
-    ```
-
-    - [ ] `1 2 3 4 5`
-    - [ ] `0 1 2 3 4`
-    - [x] `1 2 4 5`
-    - [ ] `1 2 4 5 6`
-    
-    !!! answer
-        A saída será `1 2 4 5`. O número 3 é pulado devido à instrução `continue`.
-
-!!! exercise choice "Questão"
-    No seguinte código, até que valor a variável `y` será incrementada?
-
-    ```python
-    y = 5
-    while y < 10:
-        if y == 8:
-            break
-        y += 1
-    ```
-
-    - [ ] 7
-    - [x] 8
-    - [ ] 9
-    - [ ] 10
-    
-    !!! answer
-        A variável `y` será incrementada até o valor 8. Quando `y` é igual a 8, a instrução `break` interrompe o laço.
-
-!!! exercise choice "Questão"
-    Qual é a principal diferença entre as instruções `break` e `continue` em um laço `while`?
-
-    - [x] `break` interrompe o laço, enquanto `continue` interrompe a iteração atual e retorna ao início do laço.
-    - [ ] `break` e `continue` ambos interrompem o laço imediatamente.
-    - [ ] `break` retorna ao início do laço, enquanto `continue` interrompe o laço.
-    - [ ] Ambos têm o mesmo comportamento.
-    
-
-
-!!! progress
-    Continuar...
-
+question: Qual é a principal diferença entre as instruções `break` e `continue` em um laço `while`?
+answer-correct: `break` interrompe o laço, enquanto `continue` interrompe a iteração atual e retorna ao início do laço.
+answer: `break` e `continue` ambos interrompem o laço imediatamente.
+answer: `break` retorna ao início do laço, enquanto `continue` interrompe o laço.
+answer: Ambos têm o mesmo comportamento.
+<?/quiz?>
 
 
 

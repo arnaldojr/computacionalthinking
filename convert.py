@@ -39,15 +39,12 @@ def convert_structure(exercise_choice):
 
 # Testar o script com a estrutura original
 original_structure = '''!!! exercise choice "Questão"
-    Usando o código acima, qual será a saída se `idade = 13` e `acompanhado = False`?
-    
-    - [ ] `Menor de idade, mas está acompanhado.`
-    - [x] `Menor de idade e desacompanhado.`
-    - [ ] `Maior de idade.`
-    - [ ] Não haverá saída
+    Qual é a principal diferença entre as instruções `break` e `continue` em um laço `while`?
 
-    !!! answer
-        A saída será `Menor de idade e desacompanhado.` porque a idade é menor que 18 e a variável `acompanhado` é `False`.
+    - [x] `break` interrompe o laço, enquanto `continue` interrompe a iteração atual e retorna ao início do laço.
+    - [ ] `break` e `continue` ambos interrompem o laço imediatamente.
+    - [ ] `break` retorna ao início do laço, enquanto `continue` interrompe o laço.
+    - [ ] Ambos têm o mesmo comportamento.
 '''
 
 # Gerar o novo formato
