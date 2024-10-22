@@ -8,7 +8,7 @@ A solução será apresentada em sala de aula, e cada grupo terá um tempo deter
 
 | Data | CheckPoint |
 |:---:|:---:|
-| 10/11 | CheckPoint 3 - Apresentação do mini-projeto. |
+| 01/11 | CheckPoint 3 - Apresentação do mini-projeto. |
 
 
 ## Propostas de projetos
