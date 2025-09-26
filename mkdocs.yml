@@ -137,7 +137,7 @@ hooks:
 nav:
   - Home: 
     - index.md
-  # - Playground: aulas/ctp/intro/playground.md
+  - Playground: aulas/ctp/intro/playground.md
     - Sobre o curso: sobre/sobre.md
   - Agenda: agenda/agenda.md
   - CheckPoint: 
@@ -187,24 +187,24 @@ nav:
       - Recursividade: aulas/ctp/algorithms/recursion.md
     - Análise de Algoritmos:
       - Notação Big O: aulas/ctp/algorithms/big-o-notation.md  
-  # - Desenvolvimento Web com Python:
-  #   - Introdução ao Desenvolvimento Web: aulas/ctp/web/intro-web-development.md
-  #   - WWW com Requests e consumo de API: aulas/ctp/web/webscraping/data-scraping-requests.md
-  #   - Técnicas Básicas de Raspagem de Dados:
-  #     - Introdução ao Web Scraping: aulas/ctp/web/webscraping/intro-webscraping.md
-  #     - BeautifulSoup: aulas/ctp/web/webscraping/web_scraping.ipynb
-    # - Flask:
-    #   - Introdução ao Flask: aulas/ctp/web/flask/intro-flask.md
-    #   - Rotas e Requisições GET: aulas/ctp/web/flask/routes-get-requests.md
-    #   - Formulários e Requisições POST: aulas/ctp/web/flask/forms-post-requests.md
-    #   - Renderização de Templates: aulas/ctp/web/flask/template-rendering.md
-    #   - Cosnexão com Banco de Dados: aulas/ctp/web/flask/database-connection.md
-    # - ORM (Object-Relational Mapping): aulas/ctp/web/orm.md
-    # - Segurança em Aplicações Web: aulas/ctp/web/security.md
-    # - Deploy de Aplicações: aulas/ctp/web/deploy.md
-  # - Banco de dados com Python:
-  #   - SQL: aulas/ctp/bd/index.md
-  #   - SQLAlchemy: aulas/ctp/bd/sqlalq.ipynb
+  - Desenvolvimento Web com Python:
+    - Introdução ao Desenvolvimento Web: aulas/ctp/web/intro-web-development.md
+    - WWW com Requests e consumo de API: aulas/ctp/web/webscraping/data-scraping-requests.md
+    - Técnicas Básicas de Raspagem de Dados:
+      - Introdução ao Web Scraping: aulas/ctp/web/webscraping/intro-webscraping.md
+      - BeautifulSoup: aulas/ctp/web/webscraping/web_scraping.ipynb
+    - Flask:
+      - Introdução ao Flask: aulas/ctp/web/flask/intro-flask.md
+      - Rotas e Requisições GET: aulas/ctp/web/flask/routes-get-requests.md
+      - Formulários e Requisições POST: aulas/ctp/web/flask/forms-post-requests.md
+      - Renderização de Templates: aulas/ctp/web/flask/template-rendering.md
+      - Cosnexão com Banco de Dados: aulas/ctp/web/flask/database-connection.md
+    - ORM (Object-Relational Mapping): aulas/ctp/web/orm.md
+    - Segurança em Aplicações Web: aulas/ctp/web/security.md
+    - Deploy de Aplicações: aulas/ctp/web/deploy.md
+  - Banco de dados com Python:
+    - SQL: aulas/ctp/bd/index.md
+    - SQLAlchemy: aulas/ctp/bd/sqlalq.ipynb
   - Laboratórios:
     - Solução Labs:
       - Lab02 - Tipos de dados e Variáveis: aulas/ctp/labs/solutions/solution-data-types.ipynb 
@@ -212,15 +212,15 @@ nav:
       - Lab04 - Erros comuns: aulas/ctp/labs/solutions/solution-common-errors.ipynb 
       - Lab05 - Loops for e while, listas e tuplas: aulas/ctp/labs/solutions/solution-loop-structures-data-nivel1.ipynb
       - Lab06 - Dicionários e conjuntos: aulas/ctp/labs/solutions/solution-dict.ipynb
-    #   - Lab07 - Problema da busca: aulas/ctp/labs/solutions/solution-search.ipynb
+      - Lab07 - Problema da busca: aulas/ctp/labs/solutions/solution-search.ipynb
     - Lab01 - Comece aqui!: aulas/ctp/intro/infra.md
     - Lab02 - Tipos de dados e Variáveis: aulas/ctp/labs/lab-data-types.md
     - Lab03 - Estrutura de Decisão: aulas/ctp/labs/lab-decision-structures.md
     - Lab04 - Erros comuns: aulas/ctp/labs/common-errors.ipynb
     - Lab05 - Loops for e while, listas e tuplas: aulas/ctp/labs/lab-loops-data-structures.md
     - Lab06 - Dicionários, conjuntos e afins...: aulas/ctp/labs/lab-loops-dict-sets.md
-    # - Lab07 - Problema da busca: aulas/ctp/labs/lab-search.md
-    # - Lab08 - Ordenação: aulas/ctp/labs/lab-sorting.md
+    - Lab07 - Problema da busca: aulas/ctp/labs/lab-search.md
+    - Lab08 - Ordenação: aulas/ctp/labs/lab-sorting.md
   - Projetos Práticos:
     - Jogo da Adivinhação: aulas/ctp/projects/guessing-game.md
     - Agenda simples: aulas/ctp/projects/agenda.md
