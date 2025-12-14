@@ -144,6 +144,8 @@ nav:
     - sobre: aulas/checkpoint/index.md
     - Simulados: aulas/checkpoint/simulado.md
     - CP3: aulas/checkpoint/cp3.md
+    - CP4: aulas/checkpoint/cp4.md
+    - CP5: aulas/checkpoint/cp5.md
   - Configuração do Ambiente de Desenvolvimento:
     - Criação de um Ambiente Virtual: aulas/ctp/environment-setup/virtual-environment.md
   - Pensamento computacional: aulas/ctp/intro/intro-ctp.md
@@ -229,30 +231,8 @@ nav:
       - Finanças - Proj2: aulas/ctp/projects/proj2-financas.md
       - Jokenpô - Proj3: aulas/ctp/projects/proj3-pedra-papel-tesoura.md
       - Jogo da Velha - Proj4: aulas/ctp/projects/proj4-jogo-da-velha.md
-  - Recursos Adicionais:
-    - Referências e Leituras Complementares: aulas/ctp/resources/references.md
+  - Referências: aulas/ctp/resources/references.md
 
-
-# nav:
-#     - Operadores:
-#       - Aritméticos: aulas/ctp/python/operators/arithmetic.md
-#       - Relacionais: aulas/ctp/python/operators/relational.md
-#       - Lógicos: aulas/ctp/python/operators/logical.md
-#     - Funções e Módulos:
-#       - Definindo Funções: aulas/ctp/python/functions-modules/defining-functions.md
-#       - Parâmetros e Argumentos: aulas/ctp/python/functions-modules/parameters-arguments.md
-#       - Funções Lambda: aulas/ctp/python/functions-modules/lambda-functions.md
-#       - Importando Módulos: aulas/ctp/python/functions-modules/importing-modules.md
-#     - Erros e Exceções:
-#       - Tratamento de Erros: aulas/ctp/python/errors-exceptions/error-handling.md
-#       - Try, Except, Finally: aulas/ctp/python/errors-exceptions/try-except-finally.md
-#   - Estruturas de Dados:
-#     - Listas e Tuplas: aulas/ctp/data-structures/lists-tuples.md
-#     - Dicionários: aulas/ctp/data-structures/dicts-sets.md
-    # - Recursividade: aulas/ctp/python/recursion.md
-    # - Algoritmos de Ordenação: aulas/ctp/python/sorting-algorithms.md
-    # - Algoritmos de Busca: aulas/ctp/python/search-algorithms.md
-    # - Algoritmos de Grafos: aulas/ctp/python/graph-algorithms.md
 
   # - Desenvolvimento Web com Python:
   #   - Introdução ao Desenvolvimento Web: aulas/ctp/web/intro-web-development.md

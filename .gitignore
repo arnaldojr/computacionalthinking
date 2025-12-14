@@ -1,2 +1,10 @@
 venv
 __pycache__
+*.pyc
+.DS_Store
+.idea
+.vscode
+.env
+.envrc  
+.ipynb_checkpoints
+data/   
